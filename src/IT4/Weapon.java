@@ -1,0 +1,636 @@
+//This is a parent class to all Weapons
+
+package IT4;
+
+/**
+ *
+ * @author Jim (Admin)
+ */
+public class Weapon extends Item
+{
+    public static Weapon create(short id, int x, int y, ItemType it, int rank)
+    {
+        String name = "Knife";
+        int damage = 16;
+        int accuracy = 100;
+        int range = 40;
+        int staminaDamage = 0;
+        int magCapacity = 0;
+        int totalCapacity = 0;
+        int fireRate = 1;
+        int silencerDurability = 0;
+        boolean suppressed = false;
+        String description = "Standard Combat Knife.";
+
+        if (it == ItemType.PISTOL)
+        {
+            if (rank == 1)
+            {
+                //22|85|800|0|7|35|1|14|false
+                name = "Pistol";
+                damage = 26;
+                accuracy = 80;
+                range = 800;
+                staminaDamage = 0;
+                magCapacity = 7;
+                totalCapacity = 35;
+                fireRate = 1;
+                silencerDurability = 14;
+                suppressed = false;
+
+                description = ".45 caliber semi-automatic pistol.\nAntiquated design that combines reliable stopping power\nwith decent accuracy.\nHas a magazine capacity of 7 rounds.\nCan attach low-durability suppressors.";
+            }
+            else if (rank == 2)
+            {
+                //35|90|800|0|12|60|1|36|false
+                name = "Pistol R2";
+                damage = 35;
+                accuracy = 85;
+                range = 800;
+                staminaDamage = 0;
+                magCapacity = 12;
+                totalCapacity = 60;
+                fireRate = 1;
+                silencerDurability = 36;
+                suppressed = false;
+
+                description = ".45 caliber semi-automatic pistol.\nModern design with high stopping power and good accuracy.\nHas a magazine capacity of 12 rounds.\nCan attach medium-durability suppressors.";
+            }
+            else
+            {
+                //40|90|800|0|12|60|1|99|true
+                name = "Pistol R3";
+                damage = 40;
+                accuracy = 90;
+                range = 800;
+                staminaDamage = 0;
+                magCapacity = 12;
+                totalCapacity = 60;
+                fireRate = 1;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = ".45 caliber semi-automatic pistol.\nCustom design with high stopping power and excellent accuracy.\nHas a magazine capacity of 12 rounds.\nEquipped with an infinitely-durable suppressor.";
+            }
+        }
+        else if (it == ItemType.TRANQ_PISTOL)
+        {
+            if (rank == 1)
+            {
+                //1|80|240|40|1|10|0|10|true
+                name = "Tranq. Pistol";
+                damage = 1;
+                accuracy = 80;
+                range = 240;
+                staminaDamage = 30;
+                magCapacity = 1;
+                totalCapacity = 10;
+                fireRate = 0;
+                silencerDurability = 10;
+                suppressed = true;
+
+                description = "Pistol modified to fire tranquilizer darts.\nDarts contain a slow-acting anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 1 dart.\nEquipped with a low-durability suppressor.";
+            }
+            else if (rank == 2)
+            {
+                //1|85|300|60|1|15|0|15|true
+                name = "Tranq. Pistol R2";
+                damage = 1;
+                accuracy = 85;
+                range = 300;
+                staminaDamage = 40;
+                magCapacity = 1;
+                totalCapacity = 15;
+                fireRate = 0;
+                silencerDurability = 15;
+                suppressed = true;
+
+                description = "Pistol modified to fire tranquilizer darts.\nDarts contain an upgraded anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 1 dart.\nEquipped with a medium/low-durability suppressor.";
+            }
+            else
+            {
+                //1|90|360|90|5|15|0|30|true
+                name = "Tranq. Pistol R3";
+                damage = 1;
+                accuracy = 90;
+                range = 360;
+                staminaDamage = 50;
+                magCapacity = 5;
+                totalCapacity = 15;
+                fireRate = 0;
+                silencerDurability = 30;
+                suppressed = true;
+
+                description = "Pistol modified to fire tranquilizer darts.\nDarts contain a fast-acting anesthetic.\nFeatures an improved effective range.\nHas a magazine capacity of 5 darts.\nEquipped with a medium durability suppressor.";
+            }
+        }
+        else if (it == ItemType.SMG)
+        {
+            if (rank == 1)
+            {
+                //20|50|800|0|20|100|92|10|false
+                name = "SMG";
+                damage = 20;
+                accuracy = 50;
+                range = 800;
+                staminaDamage = 0;
+                magCapacity = 20;
+                totalCapacity = 100;
+                fireRate = 92;
+                silencerDurability = 20;
+                suppressed = false;
+
+                description = "9mm civilian-market submachine gun.\nRetro-fitted for moderately fast fully-automatic fire.\nFeatures weak stopping power and poor accuracy.\nHas a magazine capacity of 20 rounds.\nCan attach low-durability suppressors.";
+            }
+            else if (rank == 2)
+            {
+                //25|70|800|0|30|150|98|30|false
+                name = "SMG R2";
+                damage = 25;
+                accuracy = 70;
+                range = 800;
+                staminaDamage = 0;
+                magCapacity = 30;
+                totalCapacity = 150;
+                fireRate = 98;
+                silencerDurability = 60;
+                suppressed = false;
+
+                description = ".32 Caliber military-grade submachine gun.\nFeatures fast fully-automatic fire.\nBoasts improved stopping power and accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach medium-durability suppressors.";
+            }
+            else
+            {
+                //25|65|800|0|40|200|99|120|true
+                name = "SMG R3";
+                damage = 25;
+                accuracy = 65;
+                range = 800;
+                staminaDamage = 0;
+                magCapacity = 50;
+                totalCapacity = 250;
+                fireRate = 99;
+                silencerDurability = 250;
+                suppressed = true;
+
+                description = "5.7mm personal defense weapon.\nFeatures fully-automatic fire at a blistering speed.\nDecent stopping power and accuracy.\nHas a magazine capacity of 50 rounds.\nEquipped with a high-durability suppressor.";
+            }
+        }
+        else if (it == ItemType.ASSAULT_RIFLE)
+        {
+            if (rank == 1)
+            {
+                //30|85|800|0|20|100|1|20|false
+                name = "Assault Rifle";
+                damage = 30;
+                accuracy = 85;
+                range = 800;
+                staminaDamage = 0;
+                magCapacity = 20;
+                totalCapacity = 100;
+                fireRate = 1;
+                silencerDurability = 20;
+                suppressed = false;
+
+                description = "5.56mm civilian model assault rifle.\nFeatures semi-automatic fire with good stopping power and accuracy.\nHas a magazine capacity of 20 rounds.\nCan attach a low-durability suppressor.";
+            }
+            else if (rank == 2)
+            {
+                //40|90|800|0|30|150|95|30|false
+                name = "Assault Rifle R2";
+                damage = 40;
+                accuracy = 90;
+                range = 800;
+                staminaDamage = 0;
+                magCapacity = 30;
+                totalCapacity = 150;
+                fireRate = 95;
+                silencerDurability = 30;
+                suppressed = false;
+
+                description = "5.56mm military-grade assault rifle.\nFeatures fully-automatic fire with good stopping power and accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach a low-durability suppressor.";
+            }
+            else
+            {
+                //51|95|800|0|30|150|98|60|false
+                name = "Assault Rifle R3";
+                damage = 51;
+                accuracy = 95;
+                range = 800;
+                staminaDamage = 0;
+                magCapacity = 30;
+                totalCapacity = 150;
+                fireRate = 98;
+                silencerDurability = 60;
+                suppressed = false;
+
+                description = "5.56mm military-grade assault carbine.\nFeatures improved fully-automatic fire with high stopping power and impeccable accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach a medium-durability suppressor.";
+            }
+        }
+        else if (it == ItemType.SHOTGUN)
+        {
+            if (rank == 1)
+            {
+                //15|--|550|0|4|20|1|0|false
+                name = "Shotgun";
+                damage = 15;
+                accuracy = 70;
+                range = 550;
+                staminaDamage = 0;
+                magCapacity = 4;
+                totalCapacity = 20;
+                fireRate = 1;
+                silencerDurability = 0;
+                suppressed = false;
+
+                description = "12 gague semi-automatic shotgun.\nDoes high damage at close ranges.\nHas a magazine capacity of 4 shells.";
+            }
+            else if (rank == 2)
+            {
+                //20|70|550|0|6|30|1|0|false
+                name = "Shotgun R2";
+                damage = 20;
+                accuracy = 70;
+                range = 550;
+                staminaDamage = 0;
+                magCapacity = 6;
+                totalCapacity = 30;
+                fireRate = 1;
+                silencerDurability = 0;
+                suppressed = false;
+
+                description = "12 gague semi-automatic shotgun.\nDoes very high damage at close ranges.\nHas a magazine capacity of 6 shells.";
+            }
+            else
+            {
+                //15|70|400|0|15|75|87|0|false
+                name = "Shotgun R3";
+                damage = 15;
+                accuracy = 70;
+                range = 400;
+                staminaDamage = 0;
+                magCapacity = 15;
+                totalCapacity = 75;
+                fireRate = 87;
+                silencerDurability = 0;
+                suppressed = false;
+
+                description = "12 gague fully-automatic shotgun.\nDoes high damage at close ranges.\nBoasts a fully-automatic rate of fire at the cost of a reduced effective range.\nHas a magazine capacity of 15 shells.";
+            }
+        }
+        else if (it == ItemType.GRENADE)
+        {
+            if (rank == 1)
+            {
+                name = "Grenade";
+                damage = 0;
+                accuracy = 90;
+                range = 800; //Travels at half speed, real range is 400
+                staminaDamage = 0;
+                magCapacity = 1;
+                totalCapacity = 4;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "Standard-issue fragmentation grenade.";
+            }
+            else if (rank == 2)
+            {
+                name = "Grenade R2";
+                damage = 0;
+                accuracy = 90;
+                range = 800; //Travels at half speed, real range is 400
+                staminaDamage = 0;
+                magCapacity = 1;
+                totalCapacity = 4;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "Standard-issue fragmentation grenade.\nFeatures improved damage.";
+            }
+            else
+            {
+                name = "Grenade R3";
+                damage = 0;
+                accuracy = 90;
+                range = 800; //Travels at half speed, real range is 400
+                staminaDamage = 0;
+                magCapacity = 1;
+                totalCapacity = 6;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "High-explosive fragmentation grenade.\nImproved damage and capacity.";
+            }
+        }
+        else if (it == ItemType.C4)
+        {
+            if (rank == 1)
+            {
+                name = "C4";
+                damage = 0;
+                accuracy = 100;
+                range = 0; //Placed
+                staminaDamage = 0;
+                magCapacity = 1;
+                totalCapacity = 4;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "C4 Plastic Explosives.\nPress [Space] to set, and [Ctrl] to detonate.";
+            }
+            else if (rank == 2)
+            {
+                name = "C4 R2";
+                damage = 0;
+                accuracy = 100;
+                range = 0; //Placed
+                staminaDamage = 0;
+                magCapacity = 1;
+                totalCapacity = 4;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "C4 Plastic Explosives.\nPress [Space] to set, and [Ctrl] to detonate.\nFeatures improved damage.";
+            }
+            else
+            {
+                name = "C4 R3";
+                damage = 0;
+                accuracy = 100;
+                range = 0; //Placed
+                staminaDamage = 0;
+                magCapacity = 1;
+                totalCapacity = 6;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "C4 Plastic Explosives.\nPress [Space] to set, and [Ctrl] to detonate.\nImproved damage and capacity.";
+            }
+        }
+        else
+        {
+            rank = 0;
+        }
+
+        Weapon w = new Weapon(id, x, y, it, rank, name, damage, accuracy, range, staminaDamage, magCapacity, totalCapacity, fireRate, silencerDurability, suppressed);
+        w.description = description;
+        return w;
+    }
+
+    public static Weapon create(ItemType it, int rank)
+    {
+        short id = 71;
+        int x = 0, y = 0;
+        if (it == ItemType.ASSAULT_RIFLE)
+        {
+            id = 73;
+        }
+        else if (it == ItemType.PISTOL)
+        {
+            id = 71;
+        }
+        else if (it == ItemType.TRANQ_PISTOL)
+        {
+            id = 250;
+        }
+        else if (it == ItemType.SMG)
+        {
+            id = 205;
+        }
+        else if (it == ItemType.SHOTGUN)
+        {
+            id = 206;
+        }
+        else if (it == ItemType.GRENADE)
+        {
+            id = 191;
+        }
+        else if (it == ItemType.C4)
+        {
+            id = 368;
+        }
+        
+        return create(id, x, y, it, rank);
+    }
+
+    public static Weapon load(String ser)
+    {
+        ItemType it = ItemType.PISTOL;
+        int rank = 1;
+        int ammoInMag = 0;
+        int ammo = 0;
+        int suppressor = 0;
+
+        //this.type.toString() + "|" + rank + "|" + ammoInMag + "|" + ammo + "|" + suppressor;
+        String[] splits = ser.split("\\|");
+
+        if (splits.length < 5)
+        {
+            return null;
+        }
+
+        it = ItemType.valueOf(splits[0]);
+        rank = Integer.parseInt(splits[1]);
+        ammoInMag = Integer.parseInt(splits[2]);
+        ammo = Integer.parseInt(splits[3]);
+        suppressor = Integer.parseInt(splits[4]);
+
+        Weapon w = create(it, rank);
+
+        w.ammoInMag = ammoInMag;
+        w.ammo = ammo;
+        w.suppressor = suppressor;
+
+        return w;
+    }
+
+    //Damage|Accuracy|Range|StaminaDamage|Mag.Capacity|TotalCapacity|FireRate|SilencerDurability|DefaultSilenced
+    public String name;
+    public int damage;
+    public int accuracy;
+    public int range;
+    public int staminaDamage;
+    public int magCapacity;
+    public int ammoInMag;
+    public int fireRate;
+    public int suppressorDurability;
+    public int suppressor;
+    public int maxAmmo;
+    public int ammo;
+
+    public Weapon(short id, int x, int y, ItemType type, int rank, String name, int damage, int accuracy, int range, int staminaDamage, int magCapacity, int totalCapacity, int fireRate, int silencerDurability, boolean suppressed)
+    {
+        super(id, x, y, type, rank);
+        this.name = name;
+        this.type = type;
+        this.damage = damage;
+        this.accuracy = accuracy;
+        this.range = range;
+        this.staminaDamage = staminaDamage;
+        this.magCapacity = magCapacity;
+        this.maxAmmo = totalCapacity;
+        this.fireRate = fireRate;
+        this.suppressorDurability = silencerDurability;
+
+        if (suppressed)
+        {
+            this.suppressor = suppressorDurability;
+        }
+        else
+        {
+            this.suppressor = 0;
+        }
+        
+        this.ammoInMag = magCapacity;
+        this.ammo = magCapacity;
+        this.isWeapon = true;
+    }
+
+    public Weapon(Weapon w)
+    {
+        super(w.getID(), w.getX(), w.getY(), w.getType(), w.rank);
+        this.name = w.name;
+        this.type = w.type;
+        this.damage = w.damage;
+        this.accuracy = w.accuracy;
+        this.range = w.range;
+        this.staminaDamage = w.staminaDamage;
+        this.magCapacity = w.magCapacity;
+        this.maxAmmo = w.maxAmmo;
+        this.fireRate = w.fireRate;
+        this.suppressorDurability = w.suppressorDurability;
+        this.suppressor = w.suppressor;
+
+        this.ammoInMag = w.ammoInMag;
+        this.ammo = w.ammo;
+        this.isWeapon = true;
+        this.description = w.description;
+    }
+
+    @Override
+    public Weapon copy()
+    {
+        return new Weapon(this);
+    }
+    
+    public int getDamage()
+    {
+        return damage;
+    }
+
+    public boolean getSleep()
+    {
+        return this.staminaDamage > 0;
+    }
+
+    public int getRange()
+    {
+        return range;
+    }
+
+    public void attachSuppressor()
+    {
+        this.suppressor = suppressorDurability;
+    }
+
+    public boolean isSuppressed()
+    {
+        return this.suppressor > 0;
+    }
+
+    public int addAmmo(int add)
+    {
+        int oldAmmo = ammo;
+
+        ammo = ammo + (add * magCapacity);
+
+        //Bind the weapon's ammo to its maxAmmo value
+        if (ammo > maxAmmo)
+        {
+            ammo = maxAmmo;
+        }
+        
+        return (ammo - oldAmmo);
+    }
+
+    public int addExactAmmo(int add)
+    {
+        int oldAmmo = ammo;
+
+        ammo = ammo + add;
+
+        //Bind the weapon's ammo to its maxAmmo value
+        if (ammo > maxAmmo)
+        {
+            ammo = maxAmmo;
+        }
+
+        return (ammo - oldAmmo);
+    }
+
+    public void subtractAmmo()
+    {
+        //1 shot
+        ammo--;
+
+        if (suppressor < 999)
+        {
+            suppressor--;
+        }
+
+        //Do not allow ammo to be less than 0
+        if (ammo < 0)
+        {
+            ammo = 0;
+        }
+
+        if (suppressor < 0)
+        {
+            suppressor = 0;
+        }
+    }
+
+    public int getAmmo()
+    {
+        return ammo;
+    }
+
+    public void setAmmo(int a)
+    {
+        ammo = a;
+    }
+
+    public int getMaxAmmo()
+    {
+        return maxAmmo;
+    }
+
+    @Override
+    public String toString()
+    {
+        String retval = name;
+        if (damage > 0)
+        {
+            if ((suppressor > 0) && (suppressor < 999))
+            {
+                retval += "[S-" + suppressor + "]";
+            }
+            else if (suppressor >= 999)
+            {
+                retval += "[S]";
+            }
+        }
+        return retval;
+    }
+
+    public String serialize()
+    {
+        return this.type.toString() + "|" + rank + "|" + ammoInMag + "|" + ammo + "|" + suppressor;
+    }
+}

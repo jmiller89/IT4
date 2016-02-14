@@ -1,0 +1,48 @@
+true
+false
+LevelData/tutorial.it2
+0
+5
+50
+0
+1
+8
+9
+UPRIGHT
+100
+1 1 2 1 2 1 1 
+1 7 24 60 90 10 4 
+0 1 1 1 0 0 
+0 0 0 0 0 0 0 0 
+[objectives]
+(Optional) Retrieve the medkit and proceed with the tutorial
+7
+[/objectives]
+[dialogs]
+0 
+1 
+2 
+3 
+4 
+5 
+[/dialogs]
+[allitems]
+[items]
+[/items]
+[items]
+GRENADE 4 5
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+MEDKIT 4 11
+[/items]
+[/allitems]

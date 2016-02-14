@@ -1,0 +1,66 @@
+true
+true
+LevelData/IT3Content.it3ls
+9
+4
+85
+3
+1
+1
+39
+UPRIGHT
+100
+1 1 2 1 1 1 1 0 
+1 2 60 98 240 40 8 0 
+3 0 0 1 1 0 
+0 0 0 0 0 0 0 0 
+[objectives]
+Fight your way through Jackson's forces
+1
+[/objectives]
+[dialogs]
+0 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+[/dialogs]
+[allitems]
+[items]
+[/items]
+[items]
+MEDKIT 28 24
+AR_AMMO 27 20
+AR_AMMO 22 17
+[/items]
+[items]
+SHOTGUN_AMMO 18 28
+AR_AMMO 16 6
+[/items]
+[items]
+SHOTGUN_AMMO 14 11
+AR_AMMO 6 18
+[/items]
+[items]
+GRENADE 7 7
+PISTOL_AMMO 6 16
+AR_AMMO 8 9
+SHOTGUN_AMMO 6 12
+MEDKIT 6 21
+SMG_AMMO 8 16
+[/items]
+[items]
+[/items]
+[items]
+SMG_AMMO 12 12
+PISTOL_AMMO 17 12
+[/items]
+[items]
+[/items]
+[/allitems]
+[playtime]
+7277
+[/playtime]

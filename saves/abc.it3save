@@ -1,0 +1,37 @@
+true
+true
+LevelData/IT3Content.it3ls
+2
+0
+50
+0
+0
+16
+27
+UPRIGHT
+100
+1 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 
+[objectives]
+Enter home base
+0
+Debriefing with Jackson
+1
+Go to Island Guy's Island
+1
+[/objectives]
+[dialogs]
+0 
+1 
+[/dialogs]
+[allitems]
+[items]
+[/items]
+[items]
+[/items]
+[/allitems]
+[playtime]
+43910
+[/playtime]

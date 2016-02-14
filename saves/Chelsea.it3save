@@ -1,0 +1,70 @@
+true
+false
+LevelData/UnderEarth.it3
+0
+17
+70
+2
+3
+19
+1
+UPRIGHT
+100
+1 0 2 0 2 0 0 
+1 0 22 0 25 0 0 
+1 3 0 0 0 0 
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 
+[objectives]
+Return to base
+17
+Uncover the mystery behind the murder
+17
+[/objectives]
+[dialogs]
+0 
+1 
+3 
+10 
+12 
+17 
+[/dialogs]
+[allitems]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+MEDKIT 29 23
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+SMG_AMMO 37 6
+[/items]
+[/allitems]

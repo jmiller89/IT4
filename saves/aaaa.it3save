@@ -1,0 +1,60 @@
+true
+true
+LevelData/IT3Content.it3ls
+0
+0
+50
+0
+0
+16
+27
+UPRIGHT
+100
+1 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+[objectives]
+Go past the checkpoint
+0
+Meet the Commander
+1
+Acquire the gas mask
+2
+Swim underwater and avoid the security camera
+2
+Finish the refresher training
+4
+Begin the first mission
+5
+[/objectives]
+[dialogs]
+0 
+4 
+[/dialogs]
+[allitems]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+GASMASK 6 15
+[/items]
+[items]
+SMG_SILENCER 12 13
+SMG 15 13
+[/items]
+[items]
+[/items]
+[items]
+WRISTWATCH 1 13
+WW_AMMO 1 12
+WW_AMMO 1 11
+SMG_AMMO 7 13
+SMG_AMMO 7 12
+MEDKIT 7 11
+[/items]
+[/allitems]
+[playtime]
+11948
+[/playtime]

@@ -1,0 +1,81 @@
+true
+true
+LevelData/IT3Content.it3ls
+0
+0
+50
+0
+0
+0
+50
+UPRIGHT
+100
+1 0 0 0 0 0 0 
+1 0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+[objectives]
+Unlock the entrance to the hidden base
+2
+[/objectives]
+[dialogs]
+0 
+[/dialogs]
+[allitems]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+[/items]
+[items]
+PISTOL 3 1
+PISTOL_AMMO 1 5
+PISTOL_AMMO 5 5
+[/items]
+[items]
+[/items]
+[items]
+MEDKIT 3 5
+WW_AMMO 4 7
+WW_AMMO 2 7
+WW_AMMO 3 9
+[/items]
+[items]
+CARDKEY_1 2 12
+[/items]
+[items]
+MEDKIT 1 13
+[/items]
+[items]
+[/items]
+[items]
+SMG_AMMO 4 13
+[/items]
+[items]
+[/items]
+[items]
+LASER_VERTICAL 4 7
+MEDKIT 13 1
+LASER_HORIZONTAL 12 8
+LASER_HORIZONTAL 13 8
+SILENCER 2 9
+[/items]
+[items]
+MEDKIT 37 19
+WW_AMMO 37 12
+GRENADE 21 7
+[/items]
+[items]
+CARDKEY_2 5 5
+[/items]
+[items]
+PISTOL_AMMO 18 2
+SMG_AMMO 1 2
+MEDKIT 10 6
+SMG_AMMO 18 13
+PISTOL_AMMO 1 13
+[/items]
+[items]
+[/items]
+[/allitems]

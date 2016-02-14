@@ -1,0 +1,623 @@
+#This level was created using the IT4 Level Editor
+
+[header]
+startX 16
+startY 27
+sections 6
+[/header]
+
+[objectives]
+251 0 9 15
+Go past the checkpoint
+[dialog]
+[Guard]
+You're all cleared to go.
+Press the [Q] key at any time to bring up a list of your remaining
+objectives. Completed objectives do not appear in this list.
+[/dialog]
+251 1 5 2
+Meet the Commander
+[dialog]
+[Commander Jackson]
+Ishmael and Natalia, so wonderful you
+two could make it to the party. This will be home base for this
+operation. I know it's small, but it's inconspicuous. The crew's
+quarters is in the garage next door. I am in charge of this
+mission, but first I think you need to shake off the rust.
+I've prepared a refresher course for you just outside the door.
+
+To save the game, press the [F5] key. The game saves at the last
+area you entered, so when you complete a boss fight, be sure to
+save AFTER you exit the room in which the battle took place.
+
+Loading the game occurs in the main menu. The save file will be
+named after you, and will place you at the last area you entered.
+[/dialog]
+251 4 6 8
+Finish the refresher training
+[dialog]
+[Jackson]
+Good job. You and Natalia should prepare for your
+mission inside.
+[/dialog]
+251 5 4 0
+Complete the tutorial
+[dialog]
+[/dialog]
+251 2 6 15
+Acquire the gas mask
+[dialog]
+[Jackson]
+You can equip the gas mask you just picked up by pressing [4].
+The gas mask will slow your oxygen consumption in
+hard-to-breathe environments, such as poison gas and
+underwater.
+[/dialog]
+251 2 6 13
+Swim underwater and avoid the security camera
+[dialog]
+To avoid detection from enemies, stay out of their vision.
+Sometimes, you need to crawl underneath tall grass or swim
+underwater to stay out of sight. To go prone, press [Shift].
+To stand back up, press [Shift] again.
+
+Go prone and swim through the pool to avoid being seen by
+that camera!
+[/dialog]
+[/objectives]
+
+[room]
+
+[header]
+sizeX 20
+sizeY 29
+DGC 97
+alert false
+song 10
+|none|normal
+[/header]
+
+[tileMap]
+46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46
+46 45 45 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 45 46
+46 45 45 97 252 252 252 252 252 252 252 252 252 252 252 252 97 45 45 46
+46 45 45 97 252 252 252 252 252 252 252 252 252 252 252 252 97 45 45 46
+46 45 97 97 252 252 252 252 252 252 252 252 252 252 252 252 97 97 97 46
+46 97 97 97 252 252 252 252 252 252 252 252 252 252 252 252 97 97 97 46
+46 97 97 97 252 252 252 252 252 252 252 252 252 252 252 252 97 97 97 46
+46 97 97 97 252 252 252 252 252 252 252 252 252 252 252 252 97 97 97 46
+46 97 97 97 252 252 187 187 187 252 252 187 187 187 252 252 97 97 97 46
+46 97 97 97 252 252 187 187 187 252 252 187 187 187 252 252 97 97 97 46
+46 97 97 97 252 252 0 0 0 252 252 187 187 187 252 252 97 97 97 46
+46 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 46
+46 45 97 97 97 97 97 97 97 97 97 97 97 97 186 97 97 97 97 46
+46 45 45 45 97 97 97 97 97 97 97 97 97 97 97 97 45 45 45 46
+46 46 46 46 46 46 46 46 46 97 46 46 46 46 46 46 46 46 46 46
+97 186 97 97 97 97 97 97 97 97 97 97 97 97 97 97 45 45 45 45
+97 97 97 97 97 186 97 97 97 97 97 97 97 97 97 97 97 97 97 97
+97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 186 97 97
+97 186 97 97 97 97 97 97 97 97 97 97 186 97 97 97 97 97 97 97
+97 97 97 97 97 45 45 97 97 97 97 97 97 97 97 97 97 97 97 97
+97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 45 45
+97 97 186 97 97 97 97 97 97 97 97 97 97 97 97 186 97 97 97 97
+97 97 97 97 97 97 186 97 97 97 97 97 97 97 97 97 97 97 97 97
+97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97
+45 45 97 97 97 97 97 97 97 97 97 97 97 97 97 97 186 97 97 97
+97 45 45 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 45
+97 97 97 97 97 186 97 97 97 97 97 97 97 97 97 97 97 97 97 45
+97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97 97
+186 97 97 45 45 97 97 97 97 97 97 97 97 97 97 97 97 97 97 186
+[/tileMap]
+
+[items]
+[/items]
+
+[doors]
+[/doors]
+
+[npcs]
+SPECIAL
+[path]
+8 15 DOWN STOP
+[/path]
+SPECIAL
+[path]
+10 15 DOWN STOP
+[/path]
+FEMALE_ALLY
+[path]
+16 25 LEFT CONTINUE
+9 25 UP CONTINUE
+9 15 UP WAIT_AND_CONTINUE
+9 12 LEFT CONTINUE
+7 12 UP CONTINUE
+7 11 UP STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+6 10 false 1 5 13 0
+7 10 false 1 5 13 0
+8 10 false 1 5 13 0
+[/warps]
+
+[dialog]
+FLASHBACK
+
+[Natalia]
+It's been a long time, Ishmael.
+
+[Ishmael]
+Six months to be exact. Things have been slow around
+here since our last mission.
+
+[Natalia]
+I have a feeling this next one is going to be big.
+Lots of things are going on right now, and many are
+in need of our services. You're probably a little rusty with the
+controls, so let me remind you.
+
+Use the [W], [S], [A], and [D] keys to move up, left, down,
+and right, respectively. Alternatively, you may also use the
+arrow keys. It's up to you.
+
+To pause the game at any time, press the [Enter] key.
+
+Head north past the security checkpoint, then enter the base
+through the garage.
+
+Press the [Enter] key, [Space] bar, or [Q] key to exit the dialog
+and resume playing.
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+[/playerpath]
+
+[/room]
+
+[room]
+
+[header]
+sizeX 11
+sizeY 15
+DGC 56
+alert false
+song 10
+|none|normal
+[/header]
+
+[tileMap]
+252 252 252 252 252 252 252 252 252 252 252
+252 252 252 252 252 0 252 252 252 252 252
+252 299 299 56 56 56 56 112 159 112 252
+252 300 300 56 56 56 56 56 56 56 252
+252 56 56 56 56 56 56 56 147 56 252
+252 299 299 56 56 56 56 112 112 159 252
+252 300 300 56 56 56 56 56 56 56 252
+252 56 56 56 56 56 56 56 56 147 252
+252 299 299 56 56 56 56 112 112 112 252
+252 300 300 56 56 56 56 56 56 56 252
+252 56 56 56 56 56 56 56 147 56 252
+252 299 299 56 56 56 56 56 56 56 252
+252 300 300 56 56 56 56 56 56 56 252
+252 56 56 56 56 56 56 56 56 56 252
+252 252 187 187 187 187 187 187 187 252 252
+[/tileMap]
+
+[items]
+[/items]
+
+[doors]
+5 1 0 0 true
+[/doors]
+
+[npcs]
+CHIEF
+[path]
+4 2 DOWN STOP
+[/path]
+SPECIAL
+[path]
+8 3 UP STOP
+[/path]
+SPECIAL
+[path]
+9 6 UP STOP
+[/path]
+SPECIAL
+[path]
+8 9 UP STOP
+[/path]
+FEMALE_ALLY
+[path]
+6 13 DOWN FOLLOW_PLAYER
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+5 1 false 2 6 21 0
+[/warps]
+
+[dialog]
+[Natalia]
+Do you see the radar in the upper-right corner of the
+screen? It displays useful information about the terrain, as
+well as the people around you. You and your allies appear
+as blue dots. Your enemies appear as red dots.
+An enemy soldier's field of vision is displayed as a red cone.
+You can switch the radar on
+and off by pressing the [R] key.
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+[/playerpath]
+
+[/room]
+
+[room]
+
+[header]
+sizeX 13
+sizeY 25
+DGC 97
+alert false
+song 10
+|none|normal
+[/header]
+
+[tileMap]
+46 46 46 46 46 46 97 46 46 46 46 46 46
+46 97 97 45 45 97 97 97 45 45 97 97 46
+46 97 97 97 97 97 97 97 97 97 97 97 46
+46 97 97 97 43 43 43 43 97 97 97 101 46
+46 97 97 97 43 43 43 43 97 97 97 102 46
+46 97 97 97 43 43 43 43 97 101 101 101 46
+46 97 97 97 43 43 43 43 97 102 102 102 46
+46 97 97 97 43 43 43 43 101 101 101 101 46
+46 186 97 97 43 43 43 43 102 102 102 102 46
+46 97 97 97 43 43 43 43 97 101 101 101 46
+46 97 97 97 43 43 43 43 97 102 102 102 46
+46 97 97 97 43 43 43 43 97 97 97 101 46
+46 97 97 97 97 97 97 97 97 97 97 102 46
+46 97 97 97 97 97 97 97 97 97 97 97 46
+46 46 46 46 46 46 97 46 46 46 46 46 46
+46 103 97 97 97 97 97 97 97 97 97 105 46
+46 104 97 97 97 97 97 97 97 97 97 106 46
+46 97 186 97 97 97 97 97 97 97 97 97 46
+46 97 97 97 97 97 97 97 97 97 186 97 46
+46 97 97 97 97 97 97 97 97 97 97 97 46
+46 97 97 97 97 97 97 97 97 97 97 97 46
+46 45 97 97 97 97 97 97 97 97 97 45 46
+46 45 97 97 97 97 97 97 97 97 45 45 46
+46 45 97 97 97 97 97 97 97 97 45 45 46
+46 46 46 46 46 46 46 46 46 46 46 46 46
+[/tileMap]
+
+[items]
+GASMASK 6 15 1
+[/items]
+
+[doors]
+6 14 0 3 false
+[/doors]
+
+[npcs]
+CHIEF
+[path]
+7 15 LEFT STOP
+[/path]
+FEMALE_ALLY
+[path]
+5 15 RIGHT STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+6 0 false 3 17 10 0
+[/warps]
+
+[dialog]
+[Jackson]
+Go pick up that gas mask next to me and Natalia,
+then proceed through the door.
+[/dialog]
+
+[cameras]
+[camera]
+RIGHT
+0
+7
+0 7
+0 7
+true
+[/camera]
+[/cameras]
+
+[playerpath]
+[/playerpath]
+
+[/room]
+
+[room]
+
+[header]
+sizeX 20
+sizeY 15
+DGC 97
+alert false
+song 10
+|none|normal
+[/header]
+
+[tileMap]
+46 46 46 46 46 46 97 46 46 46 46 46 46 97 45 45 45 97 97 97
+46 186 97 97 97 97 97 97 97 97 45 45 46 97 97 97 45 45 45 97
+46 97 97 97 97 97 97 97 97 97 97 45 46 97 97 97 97 97 97 97
+46 97 97 97 97 97 97 97 97 97 97 97 46 97 45 45 45 97 97 97
+46 97 97 97 97 97 97 97 97 97 97 97 46 97 97 45 45 45 45 97
+46 97 97 97 97 97 97 97 97 97 97 97 46 97 97 97 97 97 97 97
+46 97 97 97 97 97 97 97 97 97 97 97 46 97 186 97 97 97 97 97
+46 97 97 97 97 97 97 97 97 97 97 97 46 97 97 46 46 46 46 46
+46 97 97 97 97 97 97 97 97 97 97 97 46 186 97 46 97 97 97 46
+46 97 97 97 97 97 97 97 97 97 97 97 46 97 97 46 97 97 97 46
+46 45 97 97 97 97 97 97 97 97 97 97 46 97 97 46 97 97 97 46
+46 45 45 97 97 97 97 97 97 97 97 97 46 97 97 46 97 97 97 46
+46 45 45 45 97 97 97 97 97 97 97 46 46 46 46 46 97 97 97 46
+46 45 45 45 45 97 97 97 97 97 97 97 97 97 97 97 97 97 97 46
+46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46
+[/tileMap]
+
+[items]
+PRIMARY_SILENCER 12 13 1
+SMG 15 13 1
+PISTOL 16 12 1
+SECONDARY_SILENCER 16 11 1
+GRENADE 18 12 1
+SECONDARY_MAG 16 10 1
+PRIMARY_MAG 17 9 1
+[/items]
+
+[doors]
+[/doors]
+
+[npcs]
+WORM
+[path]
+1 3 RIGHT WAIT_AND_CONTINUE
+11 3 LEFT WAIT_AND_CONTINUE
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+6 0 false 4 6 13 0
+[/warps]
+
+[dialog]
+[Jackson]
+Do you see that worm up there? It's an alien species.
+
+[Ishmael]
+I've run into them before. They pack quite the punch
+if you end up getting bitten by one.
+
+[Jackson]
+Right. Near you should be an SMG and an SMG
+suppressor. To select your primary weapon, press [1].
+
+You may also grab the pistol and its suppressor.
+To select your secondary weapon, press [2].
+
+You can pick up the grenade next to the pistol if you
+so choose. Equip explosives by pressing [3].
+
+To shoot the weapon, press the [Space] bar. If you wish to
+perform a melee attack, press the [Ctrl] key.
+
+Shoot that thing, or sneak past it. It doesn't matter. Some
+enemies require multiple shots to bring down. Keep that in mind.
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+[/playerpath]
+
+[/room]
+
+[room]
+
+[header]
+sizeX 13
+sizeY 15
+DGC 97
+alert false
+song 10
+|none|normal
+[/header]
+
+[tileMap]
+46 46 46 46 46 46 46 46 46 46 46 46 46
+46 97 97 97 97 97 97 97 97 97 97 97 46
+46 97 252 252 252 252 252 252 252 252 252 97 46
+46 97 252 252 252 252 252 252 252 252 252 97 46
+46 97 252 180 180 252 252 252 180 180 252 97 46
+46 97 252 252 252 252 252 252 252 252 252 97 46
+46 97 252 252 252 252 252 252 252 252 252 97 46
+46 97 252 252 252 252 0 252 252 252 252 97 46
+46 97 97 103 97 97 97 97 97 105 97 97 46
+46 97 97 104 97 97 97 97 97 106 97 97 46
+46 97 97 97 97 97 97 97 97 97 97 97 46
+46 97 97 97 97 97 97 97 97 97 97 97 46
+46 97 97 97 97 97 97 97 97 97 97 97 46
+46 97 97 97 97 97 97 97 97 97 97 97 46
+46 46 46 46 46 46 46 46 46 46 46 46 46
+[/tileMap]
+
+[items]
+[/items]
+
+[doors]
+6 7 0 0 true
+[/doors]
+
+[npcs]
+FEMALE_ALLY
+[path]
+7 8 DOWN STOP
+[/path]
+CHIEF
+[path]
+5 8 DOWN STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+6 7 false 5 4 13 0
+[/warps]
+
+[dialog]
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+[/playerpath]
+
+[/room]
+
+[room]
+
+[header]
+sizeX 9
+sizeY 15
+DGC 55
+alert false
+song 10
+|none|normal
+[/header]
+
+[tileMap]
+51 187 187 187 187 187 187 187 51
+51 0 0 0 0 0 0 0 51
+51 55 55 55 55 55 55 55 51
+51 160 160 55 55 55 55 55 51
+51 160 160 55 55 55 55 55 51
+51 160 160 55 55 55 55 55 51
+51 55 55 55 55 55 112 112 51
+51 112 159 55 55 55 55 55 51
+51 55 55 55 55 55 147 147 51
+51 147 147 55 55 55 55 55 51
+51 55 55 55 55 55 55 55 51
+51 55 55 55 55 55 55 55 51
+51 55 55 55 55 55 55 55 51
+51 55 55 55 55 55 55 55 51
+51 51 51 51 51 51 51 51 51
+[/tileMap]
+
+[items]
+TRANQ_PISTOL 1 13 1
+SECONDARY_AMMO 1 12 1
+SECONDARY_AMMO 1 11 1
+PRIMARY_AMMO 7 13 1
+PRIMARY_AMMO 7 12 1
+MEDKIT 7 11 1
+[/items]
+
+[doors]
+[/doors]
+
+[npcs]
+FEMALE_ALLY
+[path]
+5 13 DOWN FOLLOW_PLAYER
+[/path]
+SPECIAL
+[path]
+1 8 DOWN STOP
+[/path]
+SPECIAL
+[path]
+7 7 DOWN STOP
+[/path]
+SPECIAL
+[path]
+2 8 RIGHT STOP
+[/path]
+SPECIAL
+[path]
+6 7 LEFT STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+1 1 true 0 1 1 0
+2 1 true 0 1 1 0
+3 1 true 0 1 1 0
+4 1 true 0 1 1 0
+5 1 true 0 1 1 0
+6 1 true 0 1 1 0
+7 1 true 0 1 1 0
+[/warps]
+
+[dialog]
+FLASHBACK
+
+[Natalia]
+Before we head out, you might want to resupply your ammo
+and grab a medkit to the right, and grab the tranquilizer
+pistol to the left.
+
+To use a medkit at any time, press [E].
+
+The tranq. pistol fires tranquilizer darts silently, but
+unfortunately is relatively weak to the models of old, as it only
+knocks people out for about 30 seconds. Plus it has limited
+range. A useful tool, nonetheless. It comes equipped
+with a suppressor, but it isn't very durable.
+
+You can swap your current sidearm for the tranq. pistol
+if you like. Walking up to the weapon and pressing [F]
+will cause you to drop your weapon and pick up the
+weapon on the ground. You can always pick up the
+weapon you dropped again, so don't worry.
+To immediately swap weapons after picking up a new
+weapon, just press [F] again to bring up the confirmation
+dialog.
+
+Exit the plane to complete this tutorial.
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+[/playerpath]
+
+[/room]
+
