@@ -60,7 +60,7 @@ public class Item extends ITObject
             }
             case PRIMARY_AMMO:
             {
-                String retval = "Primary Ammo";
+                String retval = "Pr. Ammo";
 
                 if (p != null)
                 {
@@ -74,7 +74,7 @@ public class Item extends ITObject
             }
             case SECONDARY_AMMO:
             {
-                String retval = "Secondary Ammo";
+                String retval = "Sd. Ammo";
 
                 if (p != null)
                 {
@@ -88,7 +88,7 @@ public class Item extends ITObject
             }
             case PRIMARY_MAG:
             {
-                String retval = "Primary Ammo";
+                String retval = "Pr. Ammo";
 
                 if (p != null)
                 {
@@ -102,7 +102,7 @@ public class Item extends ITObject
             }
             case SECONDARY_MAG:
             {
-                String retval = "Secondary Ammo";
+                String retval = "Sd. Ammo";
 
                 if (p != null)
                 {
@@ -140,7 +140,7 @@ public class Item extends ITObject
             }
             case SECONDARY_SILENCER:
             {
-                return "Suppressor (Secondary)";
+                return "Sd. Suppressor";
             }
             case SMG:
             {
@@ -152,7 +152,7 @@ public class Item extends ITObject
             }
             case PRIMARY_SILENCER:
             {
-                return "Suppressor (Primary)";
+                return "Pr. Suppressor";
             }
             case MINE_DETECTOR:
             {

@@ -38,27 +38,27 @@ public class Weapon extends Item
                 silencerDurability = 14;
                 suppressed = false;
 
-                description = ".45 caliber semi-automatic pistol.\nAntiquated design that combines reliable stopping power\nwith decent accuracy.\nHas a magazine capacity of 7 rounds.\nCan attach low-durability suppressors.";
+                description = ".45 caliber semi-automatic pistol.\nNorth American origin.\nAntiquated design that combines reliable stopping power\nwith decent accuracy.\nHas a magazine capacity of 7 rounds.\nCan attach low-durability suppressors.";
             }
             else if (rank == 2)
             {
-                //35|90|800|0|12|60|1|36|false
+                //35|90|800|0|10|50|1|30|false
                 name = "Pistol R2";
                 damage = 35;
                 accuracy = 85;
                 range = 800;
                 staminaDamage = 0;
-                magCapacity = 12;
-                totalCapacity = 60;
+                magCapacity = 10;
+                totalCapacity = 50;
                 fireRate = 1;
-                silencerDurability = 36;
+                silencerDurability = 30;
                 suppressed = false;
 
-                description = ".45 caliber semi-automatic pistol.\nModern design with high stopping power and good accuracy.\nHas a magazine capacity of 12 rounds.\nCan attach medium-durability suppressors.";
+                description = ".45 caliber semi-automatic pistol.\nEuropean origin.\nModern design with high stopping power and good accuracy.\nHas a magazine capacity of 10 rounds.\nCan attach medium-durability suppressors.";
             }
             else
             {
-                //40|90|800|0|12|60|1|99|true
+                //40|90|800|0|12|60|1|999|true
                 name = "Pistol R3";
                 damage = 40;
                 accuracy = 90;
@@ -70,69 +70,69 @@ public class Weapon extends Item
                 silencerDurability = 999;
                 suppressed = true;
 
-                description = ".45 caliber semi-automatic pistol.\nCustom design with high stopping power and excellent accuracy.\nHas a magazine capacity of 12 rounds.\nEquipped with an infinitely-durable suppressor.";
+                description = ".45 caliber semi-automatic pistol.\nEuropean origin.\nCustom design with high stopping power and excellent accuracy.\nHas a magazine capacity of 12 rounds.\nEquipped with an infinitely-durable suppressor.";
             }
         }
         else if (it == ItemType.TRANQ_PISTOL)
         {
             if (rank == 1)
             {
-                //1|80|240|40|1|10|0|10|true
+                //1|80|240|30|3|9|0|9|true
                 name = "Tranq. Pistol";
                 damage = 1;
                 accuracy = 80;
                 range = 240;
                 staminaDamage = 30;
-                magCapacity = 1;
-                totalCapacity = 10;
+                magCapacity = 3;
+                totalCapacity = 9;
                 fireRate = 0;
-                silencerDurability = 10;
+                silencerDurability = 9;
                 suppressed = true;
 
-                description = "Pistol modified to fire tranquilizer darts.\nDarts contain a slow-acting anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 1 dart.\nEquipped with a low-durability suppressor.";
+                description = "Pistol modified to fire tranquilizer darts.\nUnknown origin.\nDarts contain a slow-acting anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 3 darts.\nEquipped with a low-durability suppressor.";
             }
             else if (rank == 2)
             {
-                //1|85|300|60|1|15|0|15|true
+                //1|85|300|40|3|12|0|12|true
                 name = "Tranq. Pistol R2";
                 damage = 1;
                 accuracy = 85;
                 range = 300;
                 staminaDamage = 40;
-                magCapacity = 1;
-                totalCapacity = 15;
+                magCapacity = 3;
+                totalCapacity = 12;
                 fireRate = 0;
-                silencerDurability = 15;
+                silencerDurability = 12;
                 suppressed = true;
 
-                description = "Pistol modified to fire tranquilizer darts.\nDarts contain an upgraded anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 1 dart.\nEquipped with a medium/low-durability suppressor.";
+                description = "Pistol modified to fire tranquilizer darts.\nUnknown origin.\nDarts contain an upgraded anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 3 darts.\nEquipped with a medium/low-durability suppressor.";
             }
             else
             {
-                //1|90|360|90|5|15|0|30|true
+                //1|90|360|50|5|20|0|30|true
                 name = "Tranq. Pistol R3";
                 damage = 1;
                 accuracy = 90;
                 range = 360;
                 staminaDamage = 50;
                 magCapacity = 5;
-                totalCapacity = 15;
+                totalCapacity = 20;
                 fireRate = 0;
                 silencerDurability = 30;
                 suppressed = true;
 
-                description = "Pistol modified to fire tranquilizer darts.\nDarts contain a fast-acting anesthetic.\nFeatures an improved effective range.\nHas a magazine capacity of 5 darts.\nEquipped with a medium durability suppressor.";
+                description = "Pistol modified to fire tranquilizer darts.\nUnknown origin.\nDarts contain a fast-acting anesthetic.\nFeatures an improved effective range.\nHas a magazine capacity of 5 darts.\nEquipped with a medium durability suppressor.";
             }
         }
         else if (it == ItemType.SMG)
         {
             if (rank == 1)
             {
-                //20|50|800|0|20|100|92|10|false
+                //20|50|720|0|20|100|92|10|false
                 name = "SMG";
                 damage = 20;
                 accuracy = 50;
-                range = 800;
+                range = 720;
                 staminaDamage = 0;
                 magCapacity = 20;
                 totalCapacity = 100;
@@ -140,27 +140,27 @@ public class Weapon extends Item
                 silencerDurability = 20;
                 suppressed = false;
 
-                description = "9mm civilian-market submachine gun.\nRetro-fitted for moderately fast fully-automatic fire.\nFeatures weak stopping power and poor accuracy.\nHas a magazine capacity of 20 rounds.\nCan attach low-durability suppressors.";
+                description = "9mm civilian-market submachine gun.\nNorth American origin.\nRetro-fitted for moderately fast fully-automatic fire.\nFeatures weak stopping power and poor accuracy.\nHas a magazine capacity of 20 rounds.\nCan attach low-durability suppressors.";
             }
             else if (rank == 2)
             {
-                //25|70|800|0|30|150|98|30|false
+                //25|70|840|0|30|150|98|90|false
                 name = "SMG R2";
                 damage = 25;
                 accuracy = 70;
-                range = 800;
+                range = 840;
                 staminaDamage = 0;
                 magCapacity = 30;
                 totalCapacity = 150;
                 fireRate = 98;
-                silencerDurability = 60;
+                silencerDurability = 90;
                 suppressed = false;
 
-                description = ".32 Caliber military-grade submachine gun.\nFeatures fast fully-automatic fire.\nBoasts improved stopping power and accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach medium-durability suppressors.";
+                description = "4.6mm personal defense weapon.\nEuropean origin.\nPreferred weapon of the opposition special forces.\nFeatures fast fully-automatic fire.\nBoasts improved stopping power and accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach medium-durability suppressors.";
             }
             else
             {
-                //25|65|800|0|40|200|99|120|true
+                //25|65|800|0|40|200|99|250|true
                 name = "SMG R3";
                 damage = 25;
                 accuracy = 65;
@@ -172,18 +172,18 @@ public class Weapon extends Item
                 silencerDurability = 250;
                 suppressed = true;
 
-                description = "5.7mm personal defense weapon.\nFeatures fully-automatic fire at a blistering speed.\nDecent stopping power and accuracy.\nHas a magazine capacity of 50 rounds.\nEquipped with a high-durability suppressor.";
+                description = "5.7mm personal defense weapon.\nEuropean origin.\nFeatures fully-automatic fire at a blistering speed.\nDecent stopping power and accuracy.\nHas a magazine capacity of 50 rounds.\nEquipped with a high-durability suppressor.";
             }
         }
         else if (it == ItemType.ASSAULT_RIFLE)
         {
             if (rank == 1)
             {
-                //30|85|800|0|20|100|1|20|false
+                //30|85|1200|0|20|100|1|20|false
                 name = "Assault Rifle";
                 damage = 30;
                 accuracy = 85;
-                range = 800;
+                range = 1200;
                 staminaDamage = 0;
                 magCapacity = 20;
                 totalCapacity = 100;
@@ -191,15 +191,15 @@ public class Weapon extends Item
                 silencerDurability = 20;
                 suppressed = false;
 
-                description = "5.56mm civilian model assault rifle.\nFeatures semi-automatic fire with good stopping power and accuracy.\nHas a magazine capacity of 20 rounds.\nCan attach a low-durability suppressor.";
+                description = "5.56mm civilian model assault rifle.\nNorth American origin.\nFeatures semi-automatic fire with good stopping power and accuracy.\nHas a magazine capacity of 20 rounds.\nCan attach a low-durability suppressor.";
             }
             else if (rank == 2)
             {
-                //40|90|800|0|30|150|95|30|false
+                //40|90|1200|0|30|150|95|30|false
                 name = "Assault Rifle R2";
                 damage = 40;
                 accuracy = 90;
-                range = 800;
+                range = 1200;
                 staminaDamage = 0;
                 magCapacity = 30;
                 totalCapacity = 150;
@@ -207,15 +207,15 @@ public class Weapon extends Item
                 silencerDurability = 30;
                 suppressed = false;
 
-                description = "5.56mm military-grade assault rifle.\nFeatures fully-automatic fire with good stopping power and accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach a low-durability suppressor.";
+                description = "5.56mm assault rifle.\nSouth American origin.\nStandard-issue rifle of the enemy.\nFeatures fully-automatic fire with good stopping power and accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach a low-durability suppressor.";
             }
             else
             {
-                //51|95|800|0|30|150|98|60|false
+                //51|95|1000|0|30|150|98|60|false
                 name = "Assault Rifle R3";
                 damage = 51;
                 accuracy = 95;
-                range = 800;
+                range = 1000;
                 staminaDamage = 0;
                 magCapacity = 30;
                 totalCapacity = 150;
@@ -223,7 +223,7 @@ public class Weapon extends Item
                 silencerDurability = 60;
                 suppressed = false;
 
-                description = "5.56mm military-grade assault carbine.\nFeatures improved fully-automatic fire with high stopping power and impeccable accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach a medium-durability suppressor.";
+                description = "5.56mm assault carbine.\nNorth American origin.\nFeatures improved fully-automatic fire with high stopping power\nand impeccable accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach a medium-durability suppressor.";
             }
         }
         else if (it == ItemType.SHOTGUN)
@@ -242,7 +242,7 @@ public class Weapon extends Item
                 silencerDurability = 0;
                 suppressed = false;
 
-                description = "12 gague semi-automatic shotgun.\nDoes high damage at close ranges.\nHas a magazine capacity of 4 shells.";
+                description = "12 gague semi-automatic shotgun.\nNorth American origin.\nDoes high damage at close ranges.\nHas a magazine capacity of 4 shells.";
             }
             else if (rank == 2)
             {
@@ -258,7 +258,7 @@ public class Weapon extends Item
                 silencerDurability = 0;
                 suppressed = false;
 
-                description = "12 gague semi-automatic shotgun.\nDoes very high damage at close ranges.\nHas a magazine capacity of 6 shells.";
+                description = "12 gague semi-automatic shotgun.\nNorth American origin.\nDoes very high damage at close ranges.\nHas a magazine capacity of 6 shells.";
             }
             else
             {
@@ -274,7 +274,7 @@ public class Weapon extends Item
                 silencerDurability = 0;
                 suppressed = false;
 
-                description = "12 gague fully-automatic shotgun.\nDoes high damage at close ranges.\nBoasts a fully-automatic rate of fire at the cost of a reduced effective range.\nHas a magazine capacity of 15 shells.";
+                description = "12 gague fully-automatic shotgun.\nEastern European origin.\nDoes high damage at close ranges.\nBoasts a fully-automatic rate of fire at the cost of a reduced effective range.\nHas a magazine capacity of 15 shells.";
             }
         }
         else if (it == ItemType.GRENADE)
