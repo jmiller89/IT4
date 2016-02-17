@@ -51,7 +51,7 @@ public class LevelMap
     private static final short[] ignoreShadows = {47, 99, 100, 101, 102, 103, 104, 105, 106,
                                                   110, 111, 113, 114, 115, 116, 117, 145, 146,
                                                   161, 186, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219,
-                                                  358, 359, 360, 361, 362, 363, 364, 366};
+                                                  358, 359, 360, 361, 362, 363, 364, 366, 392, 393, 394, 395};
 
     private static final short[] appendShadows = {47, 99, 100, 101, 102, 103, 104, 105, 106, 113, 114, 115, 116, 117, 161, 186, 210, 211, 212, 213, 216, 358, 359, 360, 361, 362, 363, 364, 366};
 
@@ -161,7 +161,8 @@ public class LevelMap
                         || ((levMap[j][i] >= 193) && (levMap[j][i] < 220)) || (levMap[j][i] == 252) || (levMap[j][i] == 253)
                         || (levMap[j][i] == 299) || (levMap[j][i] == 300)
                         || ((levMap[j][i] >= 358) && (levMap[j][i] < 365)) || (levMap[j][i] >= 366) && (levMap[j][i] < 369)
-                        || ((levMap[j][i] > 370) && (levMap[j][i] < 379)))
+                        || ((levMap[j][i] > 370) && (levMap[j][i] < 379))
+                        || ((levMap[j][i]) > 391))
                 {
                     obstacleMatrix[j][i] = 0;
                 }
