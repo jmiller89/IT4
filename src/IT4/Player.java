@@ -510,7 +510,8 @@ public class Player extends ITCharacter
             }            
             
             Bullet b = new Bullet(this.getX() + offsetX, this.getY() + offsetY, vX, vY,
-                    bulletSprite, stuff.getSelectedWeapon().getDamage(), stuff.getSelectedWeapon().getSleep(), true, stuff.getSelectedWeapon().getRange(), rank);
+                    bulletSprite, stuff.getSelectedWeapon().getDamage(), stuff.getSelectedWeapon().getSleep(), true, stuff.getSelectedWeapon().getRange(), rank,
+                    stuff.getSelectedWeapon().staminaDamage);
 
             if (stuff.getSelectedWeapon().getType() == ItemType.GRENADE)
             {

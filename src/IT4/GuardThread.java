@@ -549,7 +549,7 @@ public class GuardThread implements Runnable
             if (guard.getStatus() == NPCStatus.TRANQUILIZED_SLEEP)
             {
                 long currentTime = System.currentTimeMillis();
-                if (currentTime > guard.tranqedDate + 30000)
+                if (currentTime > guard.tranqedDate + guard.tranqTimeMillis)
                 {
                     guard.setStatus(NPCStatus.SUSPICIOUS);
                     guard.guardStopped = false;

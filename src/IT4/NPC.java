@@ -38,6 +38,7 @@ public abstract class NPC extends ITCharacter
     public boolean firstAI = true;
 
     public long tranqedDate = 0;
+    public int tranqTimeMillis = 0;
 
     public float movementDelta = 1.0f;
 
@@ -152,7 +153,7 @@ public abstract class NPC extends ITCharacter
         }
 
         Bullet b = new Bullet(this.getX() + offsetX, this.getY() + offsetY,
-                vX, vY, bulletSprite, weaponDamage, false, false, 900, rank);
+                vX, vY, bulletSprite, weaponDamage, false, false, 900, rank, 0);
 
         if (weaponDamage == 0)
         {

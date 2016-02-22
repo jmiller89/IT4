@@ -23,8 +23,9 @@ public class Bullet extends ITObject
 
     private int range;
     public int rank;
+    public int staminaDamage;
 
-    public Bullet(int x, int y, float dX, float dY, short bid, int dmg, boolean sleep, boolean fromPlayer, int range_, int rank)
+    public Bullet(int x, int y, float dX, float dY, short bid, int dmg, boolean sleep, boolean fromPlayer, int range_, int rank, int staminaDamage_)
     {
         super((short)181, x, y);
         fX = (float)x;
@@ -37,6 +38,7 @@ public class Bullet extends ITObject
         deltaX = dX * 10;
         deltaY = dY * 10;
         range = range_;
+        staminaDamage = staminaDamage_;
         this.rank = rank;
         this.setID(bid);
     }

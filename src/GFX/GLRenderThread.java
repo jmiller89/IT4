@@ -115,7 +115,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     private static final String SPRITESHEET = "Sprites/spritesheet.png";
     private static final String TEXT = "Sprites/IT3Text.png"; //was .gif
     private LWJGLSprite spritesheet;
-    public static final int NUMSPRITES = 396;
+    public static final int NUMSPRITES = 404;
 
     private LWJGLSprite text;
     private IT3String[] strings = new IT3String[64];
@@ -1577,17 +1577,20 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 GL11.glVertex2f(810.0f,-10.0f);
             }
 
-            if (game.haze)
+            if (game.midnight)
             {
-                GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.7f);
-                GL11.glTexCoord2f(tx, ty);
-                GL11.glVertex2f(-10.0f, -10.0f);
-                GL11.glTexCoord2f(tx, ty2);
-                GL11.glVertex2f(-10.0f, 610.0f);
-                GL11.glTexCoord2f(tx2, ty2);
-                GL11.glVertex2f(810.0f,610);
-                GL11.glTexCoord2f(tx2, ty);
-                GL11.glVertex2f(810.0f,-10.0f);
+                if (!game.nightVision)
+                {
+                    GL11.glColor4f(0, 0, 0, 0.9f);
+                    GL11.glTexCoord2f(tx, ty);
+                    GL11.glVertex2f(-10.0f, -10.0f);
+                    GL11.glTexCoord2f(tx, ty2);
+                    GL11.glVertex2f(-10.0f, 610.0f);
+                    GL11.glTexCoord2f(tx2, ty2);
+                    GL11.glVertex2f(810.0f,610);
+                    GL11.glTexCoord2f(tx2, ty);
+                    GL11.glVertex2f(810.0f,-10.0f);
+                }
             }
 
             if (game.semiDarkness)
@@ -1611,10 +1614,12 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 row = snow / COLSIZE;
                 col = snow - (row * COLSIZE);
 
-                tx = getTX(col, height);
-                tx2 = getTX(col + 1, height);
-                ty = getTX(row, width);
-                ty2 = getTX(row + 1, width);
+                float fix = 0.001f;
+
+                tx = getTX(col, height) + fix;
+                tx2 = getTX(col + 1, height) - fix;
+                ty = getTX(row, width) + fix;
+                ty2 = getTX(row + 1, width) - fix;
 
                 GL11.glColor4f(0.85f, 0.85f, 0.85f, 0.7f);
 
@@ -1640,10 +1645,12 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 row = rain / COLSIZE;
                 col = rain - (row * COLSIZE);
 
-                tx = getTX(col, height);
-                tx2 = getTX(col + 1, height);
-                ty = getTX(row, width);
-                ty2 = getTX(row + 1, width);
+                float fix = 0.001f;
+
+                tx = getTX(col, height) + fix;
+                tx2 = getTX(col + 1, height) - fix;
+                ty = getTX(row, width) + fix;
+                ty2 = getTX(row + 1, width) - fix;
 
                 GL11.glColor4f(0.85f, 0.85f, 0.85f, 0.7f);
 

@@ -84,7 +84,7 @@ public final class Game
     public boolean darkness = false;
     public boolean nightVision = false;
     public boolean gas = false;
-    public boolean haze = false;
+    public boolean midnight = false;
     public boolean rain = false;
     public boolean snow = false;
     public boolean jam = false;
@@ -203,7 +203,7 @@ public final class Game
             rain = currentLevelMap.rain;
             snow = currentLevelMap.snow;
             gas = currentLevelMap.gas;
-            haze = currentLevelMap.haze;
+            midnight = currentLevelMap.midnight;
             jam = currentLevelMap.jam;
             forceprone = currentLevelMap.forceprone;
 
@@ -493,7 +493,7 @@ public final class Game
                 this.gas = false;
                 this.darkness = false;
                 this.semiDarkness = false;
-                this.haze = false;
+                this.midnight = false;
                 this.jam = false;
                 this.rain = false;
                 this.snow = false;
@@ -503,28 +503,28 @@ public final class Game
                 this.gas = true;
                 this.darkness = false;
                 this.semiDarkness = false;
-                this.haze = false;
+                this.midnight = false;
             }
             if (cmds.equalsIgnoreCase("dark"))
             {
                 this.gas = false;
                 this.darkness = true;
                 this.semiDarkness = false;
-                this.haze = false;
+                this.midnight = false;
             }
             if (cmds.equalsIgnoreCase("sdark"))
             {
                 this.gas = false;
                 this.darkness = false;
                 this.semiDarkness = true;
-                this.haze = false;
+                this.midnight = false;
             }
-            if (cmds.equalsIgnoreCase("haze"))
+            if (cmds.equalsIgnoreCase("night"))
             {
                 this.gas = false;
                 this.darkness = false;
                 this.semiDarkness = false;
-                this.haze = true;
+                this.midnight = true;
             }
             if (cmds.equals("jam"))
             {
@@ -1223,7 +1223,7 @@ public final class Game
             rain = currentLevelMap.rain;
             snow = currentLevelMap.snow;
             gas = currentLevelMap.gas;
-            haze = currentLevelMap.haze;
+            midnight = currentLevelMap.midnight;
             jam = currentLevelMap.jam;
             forceprone = currentLevelMap.forceprone;
 
@@ -2077,7 +2077,6 @@ public final class Game
             {
                 if ((b.getTileX() == NPCs.get(i).getTileX()) && (b.getTileY() == NPCs.get(i).getTileY()))
                 {
-                    
                     collision = true;
                     int health = NPCs.get(i).receiveDamage(b.getDamage());
 
@@ -2085,6 +2084,7 @@ public final class Game
                     {
                         if (b.getTranquilizer() == true)
                         {
+                            NPCs.get(i).tranqTimeMillis = (b.staminaDamage * 1000);
                             NPCs.get(i).setStatus(NPCStatus.TRANQUILIZED_SLEEP);
                         }
                         else

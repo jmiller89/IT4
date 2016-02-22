@@ -40,7 +40,7 @@ public class LevelMap
     public boolean dark = false;
     public boolean semidark = false;
     public boolean gas = false;
-    public boolean haze = false;
+    public boolean midnight = false;
     public boolean jam = false;
     public boolean rain = false;
     public boolean snow = false;
@@ -51,9 +51,10 @@ public class LevelMap
     private static final short[] ignoreShadows = {47, 99, 100, 101, 102, 103, 104, 105, 106,
                                                   110, 111, 113, 114, 115, 116, 117, 145, 146,
                                                   161, 186, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219,
-                                                  358, 359, 360, 361, 362, 363, 364, 366, 392, 393, 394, 395};
+                                                  358, 359, 360, 361, 362, 363, 364, 366, 392, 393, 394, 395, 397, 403};
 
-    private static final short[] appendShadows = {47, 99, 100, 101, 102, 103, 104, 105, 106, 113, 114, 115, 116, 117, 161, 186, 210, 211, 212, 213, 216, 358, 359, 360, 361, 362, 363, 364, 366};
+    private static final short[] appendShadows = {47, 99, 100, 101, 102, 103, 104, 105, 106, 113, 114, 115, 116, 117, 161, 186, 210, 211, 212, 213, 216, 358, 359, 360, 361, 362, 363, 364, 366,
+                                                  392, 393, 394, 395};
 
     public LevelMap(short[][] tilemap, short defaultGC)
     {

@@ -77,28 +77,28 @@ public class Weapon extends Item
         {
             if (rank == 1)
             {
-                //1|80|240|30|3|9|0|9|true
+                //1|80|240|12|3|9|0|9|true
                 name = "Tranq. Pistol";
                 damage = 1;
                 accuracy = 80;
                 range = 240;
-                staminaDamage = 30;
+                staminaDamage = 12;
                 magCapacity = 3;
                 totalCapacity = 9;
                 fireRate = 0;
                 silencerDurability = 9;
                 suppressed = true;
 
-                description = "Pistol modified to fire tranquilizer darts.\nUnknown origin.\nDarts contain a slow-acting anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 3 darts.\nEquipped with a low-durability suppressor.";
+                description = "Pistol modified to fire tranquilizer darts.\nUnknown origin.\nDarts contain a weak anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 3 darts.\nEquipped with a low-durability suppressor.";
             }
             else if (rank == 2)
             {
-                //1|85|300|40|3|12|0|12|true
+                //1|85|300|20|3|12|0|12|true
                 name = "Tranq. Pistol R2";
                 damage = 1;
                 accuracy = 85;
                 range = 300;
-                staminaDamage = 40;
+                staminaDamage = 20;
                 magCapacity = 3;
                 totalCapacity = 12;
                 fireRate = 0;
@@ -109,19 +109,19 @@ public class Weapon extends Item
             }
             else
             {
-                //1|90|360|50|5|20|0|30|true
+                //1|90|360|30|5|20|0|30|true
                 name = "Tranq. Pistol R3";
                 damage = 1;
                 accuracy = 90;
                 range = 360;
-                staminaDamage = 50;
+                staminaDamage = 30;
                 magCapacity = 5;
                 totalCapacity = 20;
                 fireRate = 0;
                 silencerDurability = 30;
                 suppressed = true;
 
-                description = "Pistol modified to fire tranquilizer darts.\nUnknown origin.\nDarts contain a fast-acting anesthetic.\nFeatures an improved effective range.\nHas a magazine capacity of 5 darts.\nEquipped with a medium durability suppressor.";
+                description = "Pistol modified to fire tranquilizer darts.\nUnknown origin.\nDarts contain a longer-lasting anesthetic.\nFeatures an improved effective range.\nHas a magazine capacity of 5 darts.\nEquipped with a medium durability suppressor.";
             }
         }
         else if (it == ItemType.SMG)
