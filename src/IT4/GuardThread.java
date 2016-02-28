@@ -67,14 +67,25 @@ public class GuardThread implements Runnable
 
                 for(int i = 0; i < game.getNPCs().size(); i++)
                 {
-                    if (game.getNPCs().get(i).initialized == false)
+                    NPC npc = game.getNPCs().get(i);
+                    if (npc.initialized == false)
                     {
-                        guardInit(game.getNPCs().get(i));
+                        guardInit(npc);
                     }
 
                     if ((!game.paused) && (game.isPlayerAlive()))
                     {
-                        guardAI(game.getNPCs().get(i));
+                        if (npc.markedForDeath)
+                        {
+                            npc.markedForDeathIters--;
+
+                            if (npc.markedForDeathIters <= 0)
+                            {
+                                npc.setHealth(0);
+                            }
+                        }
+
+                        guardAI(npc);
                     }
                 }
                 
@@ -1441,6 +1452,25 @@ public class GuardThread implements Runnable
                 {
                     guard.guardStopped = true;
                 }
+                else if (guard.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.WARP)
+                {
+                    guard.guardStopped = true;
+                    guard.setHealth(0);
+                }
+                else if (guard.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.DIE)
+                {
+                    guard.guardStopped = true;
+                    guard.isRecentlyWounded = true;
+                    guard.markedForDeath = true;
+                    guard.setHealth(1);
+                }
+                else if (guard.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.EXPLODE)
+                {
+                    guard.guardStopped = true;
+                    guard.isRecentlyWounded = true;
+                    game.explosion(guard.getX(), guard.getY(), false, 1);
+                    guard.setHealth(0);
+                }
 
                 guard.changeDirection(guard.getPath().getNextWaypoint().getDirection());
                 guard.getPath().reachedWaypoint();
@@ -1491,6 +1521,29 @@ public class GuardThread implements Runnable
                     else if (guard.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.STOP)
                     {
                         guard.guardStopped = true;
+                    }
+                    else if (guard.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.STOP)
+                    {
+                        guard.guardStopped = true;
+                    }
+                    else if (guard.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.WARP)
+                    {
+                        guard.guardStopped = true;
+                        guard.setHealth(0);
+                    }
+                    else if (guard.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.DIE)
+                    {
+                        guard.guardStopped = true;
+                        guard.isRecentlyWounded = true;
+                        guard.setHealth(1);
+                        guard.markedForDeath = true;
+                    }
+                    else if (guard.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.EXPLODE)
+                    {
+                        guard.guardStopped = true;
+                        guard.isRecentlyWounded = true;
+                        game.explosion(guard.getX(), guard.getY(), false, 1);
+                        guard.setHealth(0);
                     }
 
                     guard.changeDirection(guard.getPath().getNextWaypoint().getDirection());

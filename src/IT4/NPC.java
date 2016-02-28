@@ -42,6 +42,9 @@ public abstract class NPC extends ITCharacter
 
     public float movementDelta = 1.0f;
 
+    public boolean markedForDeath = false;
+    public byte markedForDeathIters = 8;
+
     public NPC(short id, int x, int y, Direction d, int chlth, NPCStatus s, boolean friend, int weaponDmg, Path p, GuardType t)
     {
         super(id, x, y, d, chlth, true);

@@ -1226,6 +1226,16 @@ public class LevelLoader
             d = Direction.RIGHT;
         }
 
+        try
+        {
+            wb = WaypointBehavior.valueOf(wayb);
+        }
+        catch(Exception e)
+        {
+            wb = WaypointBehavior.STOP;
+        }
+
+        /*
         if (wayb.equals(WaypointBehavior.CONTINUE.toString()))
         {
             wb = WaypointBehavior.CONTINUE;
@@ -1250,6 +1260,7 @@ public class LevelLoader
         {
             wb = WaypointBehavior.FOLLOW_PLAYER;
         }
+        */
 
         System.out.println("Waypoint: " + x + ", " + y + ", " + d.toString() + ", " + wb.toString());
 

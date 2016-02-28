@@ -91,7 +91,7 @@ public abstract class ITCharacter extends ITObject
         return currentHealth;
     }
 
-    protected void setHealth(int h)
+    public void setHealth(int h)
     {
         currentHealth = h;
     }
@@ -128,7 +128,7 @@ public abstract class ITCharacter extends ITObject
         }
         else
         {
-            //Can't kill Natalia
+            //Can't kill Allies
             if (ally)
             {
                 dmg = 0;
