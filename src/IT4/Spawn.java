@@ -57,42 +57,7 @@ public class Spawn
 
         if (numSpawned < limit)
         {
-            if (guardType == GuardType.LIGHT)
-            {
-                toSpawn = new LightGuard(realX, realY, Direction.DOWN, NPCStatus.ALERT, p);
-            }
-            else if (guardType == GuardType.MEDIUM)
-            {
-                toSpawn = new MediumGuard(realX, realY, Direction.DOWN, NPCStatus.ALERT, p);
-            }
-            else if (guardType == GuardType.HEAVY)
-            {
-                toSpawn = new HeavyGuard(realX, realY, Direction.DOWN, NPCStatus.ALERT, p);
-            }
-            else if (guardType == GuardType.SCIENTIST1)
-            {
-                toSpawn = new Scientist1(realX, realY, Direction.DOWN, NPCStatus.ALERT, p);
-            }
-            else if (guardType == GuardType.SCIENTIST2)
-            {
-                toSpawn = new Scientist2(realX, realY, Direction.DOWN, NPCStatus.ALERT, p);
-            }
-            else if (guardType == GuardType.WORM)
-            {
-                toSpawn = new Worm(realX, realY, Direction.DOWN, NPCStatus.ALERT, p);
-            }
-            else if (guardType == GuardType.LARVA)
-            {
-                toSpawn = new Larva(realX, realY, Direction.DOWN, NPCStatus.ALERT, p);
-            }
-            else if (guardType == GuardType.ALIEN)
-            {
-                toSpawn = new Alien(realX, realY, Direction.DOWN, NPCStatus.ALERT, p);
-            }
-            else if (guardType == GuardType.SPECIAL_ENEMY)
-            {
-                toSpawn = new SpecialGuardEnemy(realX, realY, Direction.DOWN, NPCStatus.ALERT, p);
-            }
+            toSpawn = NPC.create(guardType, realX, realY, Direction.DOWN, NPCStatus.ALERT, false, p);
 
             toSpawn.bodyArmor = armored;
             toSpawn.spawned = true;

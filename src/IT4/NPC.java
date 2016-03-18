@@ -7,7 +7,7 @@ package IT4;
  *
  * @author Jim (Admin)
  */
-public abstract class NPC extends ITCharacter
+public class NPC extends ITCharacter
 {
     private NPCStatus status;
     private boolean friendly;
@@ -45,21 +45,172 @@ public abstract class NPC extends ITCharacter
     public boolean markedForDeath = false;
     public byte markedForDeathIters = 8;
 
+    public final short initialID;
+
+    public Dialog dialog;
+
+    public static NPC create(GuardType t, int x, int y, Direction d, NPCStatus s, boolean friend, Path p)
+    {
+        short id = 0;
+        int currHealth = 0;
+        int weaponDmg = 0;
+        
+        //LIGHT, MEDIUM, HEAVY, SPECIAL, BOSS0, BOSS1, BOSS2, BOSS3, BOSS4, NAZI_HUNTER, SCIENTIST1, SCIENTIST2, PROMINENT_SCIENTIST,
+        //FEMALE_ALLY, FEMALE_ALLY_WORKOUT, OLD_MAN, UN_GUY, CHIEF, MUTANT1, MUTANT2, CRIPPLE, EVA, MAN, WOMAN1, WOMAN2, WOMAN3
+
+        switch(t)
+        {
+            case LIGHT:
+                id = 19;
+                currHealth = 22;
+                weaponDmg = 25;
+                break;
+            case MEDIUM:
+                id = 27;
+                currHealth = 51;
+                weaponDmg = 40;
+                break;
+            case HEAVY:
+                id = 35;
+                currHealth = 71;
+                weaponDmg = 40;
+                break;
+            case SPECIAL:
+                id = 350;
+                currHealth = 100;
+                weaponDmg = 50;
+                break;
+            case BOSS0:
+                id = 242;
+                currHealth = 100;
+                weaponDmg = 50;
+                break;
+            case BOSS1:
+                id = 119;
+                currHealth = 100;
+                weaponDmg = 50;
+                break;
+            case BOSS2:
+                id = 127;
+                currHealth = 100;
+                weaponDmg = 50;
+                break;
+            case BOSS3:
+                id = 135;
+                currHealth = 100;
+                weaponDmg = 50;
+                break;
+            case BOSS4:
+                id = 226;
+                currHealth = 100;
+                weaponDmg = 50;
+                break;
+            case NAZI_HUNTER:
+                id = 234;
+                currHealth = 100;
+                weaponDmg = 50;
+                break;
+            case SCIENTIST1:
+                id = 162;
+                currHealth = 15;
+                weaponDmg = 20;
+                break;
+            case SCIENTIST2:
+                id = 170;
+                currHealth = 15;
+                weaponDmg = 20;
+                break;
+            case PROMINENT_SCIENTIST:
+                id = 421;
+                currHealth = 56;
+                weaponDmg = 20;
+                break;
+            case FEMALE_ALLY:
+                id = 261;
+                currHealth = 120;
+                weaponDmg = 40;
+                break;
+            case FEMALE_ALLY_WORKOUT:
+                id = 269;
+                currHealth = 120;
+                weaponDmg = 40;
+                break;
+            case OLD_MAN:
+                id = 405;
+                currHealth = 30;
+                weaponDmg = 40;
+                break;
+            case UN_GUY:
+                id = 342;
+                currHealth = 40;
+                weaponDmg = 20;
+                break;
+            case CHIEF:
+                id = 334;
+                currHealth = 40;
+                weaponDmg = 20;
+                break;
+            case MUTANT1:
+                id = 277;
+                currHealth = 96;
+                weaponDmg = 48;
+                break;
+            case MUTANT2:
+                id = 285;
+                currHealth = 256;
+                weaponDmg = 60;
+                break;
+            case CRIPPLE:
+                id = 413;
+                currHealth = 100;
+                weaponDmg = 30;
+                break;
+            case EVA:
+                id = 429;
+                currHealth = 15;
+                weaponDmg = 20;
+                break;
+            case MAN:
+                id = 437;
+                currHealth = 15;
+                weaponDmg = 20;
+                break;
+            case WOMAN1:
+                id = 310;
+                currHealth = 15;
+                weaponDmg = 20;
+                break;
+            case WOMAN2:
+                id = 318;
+                currHealth = 15;
+                weaponDmg = 20;
+                break;
+            case WOMAN3:
+                id = 326;
+                currHealth = 15;
+                weaponDmg = 20;
+                break;
+            default:
+                id = 19;
+                currHealth = 22;
+                weaponDmg = 25;
+                break;
+        }
+
+        NPC toSpawn = new NPC(id, x, y, d, currHealth, s, friend, weaponDmg, p, t);
+        return toSpawn;
+    }
+
     public NPC(short id, int x, int y, Direction d, int chlth, NPCStatus s, boolean friend, int weaponDmg, Path p, GuardType t)
     {
         super(id, x, y, d, chlth, true);
+        initialID = id;
         status = s;
         friendly = friend;
         weaponDamage = weaponDmg;
         path = p;
         type = t;
         initialized = false;
-
-        /*
-        if ((type == GuardType.FEMALE_ALLY) || (type == GuardType.FEMALE_ALLY_PRISONER) || (type == GuardType.WOMAN1) || (type == GuardType.WOMAN2)
-           || (type == GuardType.WOMAN3) || (type == GuardType.ISLAND_GUY) || (type == GuardType.CHIEF) || (type == GuardType.SPECIAL))
-         * 
-         */
 
         if (friendly)
         {
@@ -109,8 +260,16 @@ public abstract class NPC extends ITCharacter
     {
         return type;
     }
-    
-    public abstract NPC copy();
+
+    public NPC copy()
+    {
+        //(short id, int x, int y, Direction d, int chlth, NPCStatus s, boolean friend, int weaponDmg, Path p, GuardType t)
+        NPC n = new NPC(this.initialID, this.getX(), this.getY(), this.getDirection(), this.getCurrentHealth(), this.getStatus(), this.friendly, this.getWeaponDamage(), this.getPath(), this.getType());
+        n.bodyArmor = this.bodyArmor;
+        n.dialog = this.dialog;
+
+        return n;
+    }
 
     public Bullet attack(short bulletSprite, int playerX, int playerY, int shot, int rank)
     {
@@ -196,102 +355,25 @@ public abstract class NPC extends ITCharacter
 
     private void suspectUpdateID()
     {
-        if (this.getType() == GuardType.LIGHT)
+        if (!friendly)
         {
             if (this.getDirection() == Direction.UP)
             {
-                this.setID(19);
+                this.setID(initialID);
             }
             else if (this.getDirection() == Direction.DOWN)
             {
-                this.setID(20);
+                this.setID(initialID+1);
             }
             else if (this.getDirection() == Direction.LEFT)
             {
-                this.setID(21);
+                this.setID(initialID+2);
             }
             else if (this.getDirection() == Direction.RIGHT)
             {
-                this.setID(22);
+                this.setID(initialID+3);
             }
         }
-        else if (this.getType() == GuardType.MEDIUM)
-        {
-            if (this.getDirection() == Direction.UP)
-            {
-                this.setID(27);
-            }
-            else if (this.getDirection() == Direction.DOWN)
-            {
-                this.setID(28);
-            }
-            else if (this.getDirection() == Direction.LEFT)
-            {
-                this.setID(29);
-            }
-            else if (this.getDirection() == Direction.RIGHT)
-            {
-                this.setID(30);
-            }
-        }
-        else if (this.getType() == GuardType.HEAVY)
-        {
-            if (this.getDirection() == Direction.UP)
-            {
-                this.setID(35);
-            }
-            else if (this.getDirection() == Direction.DOWN)
-            {
-                this.setID(36);
-            }
-            else if (this.getDirection() == Direction.LEFT)
-            {
-                this.setID(37);
-            }
-            else if (this.getDirection() == Direction.RIGHT)
-            {
-                this.setID(38);
-            }
-        }
-        else if (this.getType() == GuardType.SCIENTIST1)
-        {
-            if (this.getDirection() == Direction.UP)
-            {
-                this.setID(162);
-            }
-            else if (this.getDirection() == Direction.DOWN)
-            {
-                this.setID(163);
-            }
-            else if (this.getDirection() == Direction.LEFT)
-            {
-                this.setID(164);
-            }
-            else if (this.getDirection() == Direction.RIGHT)
-            {
-                this.setID(165);
-            }
-        }
-        else if (this.getType() == GuardType.SCIENTIST2)
-        {
-            if (this.getDirection() == Direction.UP)
-            {
-                this.setID(170);
-            }
-            else if (this.getDirection() == Direction.DOWN)
-            {
-                this.setID(171);
-            }
-            else if (this.getDirection() == Direction.LEFT)
-            {
-                this.setID(172);
-            }
-            else if (this.getDirection() == Direction.RIGHT)
-            {
-                this.setID(173);
-            }
-        }
-        
     }
 
     protected void setPath(Path p)

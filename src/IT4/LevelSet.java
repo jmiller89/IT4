@@ -522,15 +522,15 @@ public class LevelSet
                                 chance = rand.nextInt(6);
                                 if (chance == 5)
                                 {
-                                    gt = GuardType.ALIEN;
+                                    gt = GuardType.NAZI_HUNTER;
                                 }
                                 else if ((chance > 2) && (chance != 5))
                                 {
-                                    gt = GuardType.LARVA;
+                                    gt = GuardType.MUTANT1;
                                 }
                                 else if ((chance >= 0) && (chance < 3))
                                 {
-                                    gt = GuardType.WORM;
+                                    gt = GuardType.MUTANT2;
                                 }
                             }
                             
