@@ -403,7 +403,7 @@ public class MainMenuPanel extends JPanel
 
     private void showInfo()
     {
-        JOptionPane.showMessageDialog(this, "Intruder's Thunder 4: The Endling's Artifice\nSoftware version 4.4.30 Alpha\nProgrammed By: Jim Miller (C) 2011-2016\n"
+        JOptionPane.showMessageDialog(this, "Intruder's Thunder 4: The Endling's Artifice\nSoftware version 4.5.31 Alpha\nProgrammed By: Jim Miller (C) 2011-2016\n"
                 + "Soundtrack By: Bjorn Lynne\n\n"
                 + "This program is free software: you can redistribute it and/or modify\n"
                 + "it under the terms of the GNU General Public License as published by\n"
@@ -430,7 +430,6 @@ public class MainMenuPanel extends JPanel
                 + "\nE                       Use Medkit"
                 + "\nF                       Perform Action/Confirm Weapon Pickup"
                 + "\nQ                      Show Objectives"
-                + "\nR                      Toggle Radar"
                 + "\nCtrl                   Melee\nSpace              Attack, Fast-Forward/Exit Dialog\nShift                 Go Prone\nEnter                Pause/Unpause game"
                 + "\nEsc                  Return to Main Menu"
                 + "\nF5                    Save Game"

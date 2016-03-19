@@ -213,7 +213,7 @@ public class Weapon extends Item
             {
                 //51|95|1000|0|30|150|98|60|false
                 name = "Assault Rifle R3";
-                damage = 51;
+                damage = 50;
                 accuracy = 95;
                 range = 1000;
                 staminaDamage = 0;
@@ -617,13 +617,22 @@ public class Weapon extends Item
         String retval = name;
         if (damage > 0)
         {
-            if ((suppressor > 0) && (suppressor < 999))
-            {
-                retval += "[S-" + suppressor + "]";
-            }
-            else if (suppressor >= 999)
+            if (suppressor > 0)
             {
                 retval += "[S]";
+            }
+        }
+        return retval;
+    }
+
+    public String getSilencerStr()
+    {
+        String retval = "";
+        if ((damage > 0) && (suppressor > 0))
+        {
+            if (suppressor < 999)
+            {
+                retval = "[S-" + suppressor + "]";
             }
         }
         return retval;

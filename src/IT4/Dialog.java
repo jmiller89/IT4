@@ -18,7 +18,7 @@ public class Dialog
     public String title = "";
     //private int currentText = 0;
     //public int currentPage = 0;
-    private static final short maxLineLength = 68;
+    private static final short maxLineLength = 56;
     private static final short maxLines = 35;
     private boolean active = true;
     private boolean substance = false;

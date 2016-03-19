@@ -59,6 +59,9 @@ public class Boss extends NPC
     {
         Boss b = new Boss(this.getID(), this.getX(), this.getY(), this.getType(), this.getMaxHealth(), this.getWeaponDamage(), this.speed, this.viewDistance, this.bodyArmor);
 
+        b.name = this.name;
+        b.dispName = this.dispName;
+
         b.pre = new Dialog(this.pre, "Boss fight");
         b.post = new Dialog(this.post, "Boss defeated");        
 

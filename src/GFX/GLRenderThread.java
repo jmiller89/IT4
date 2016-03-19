@@ -52,7 +52,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     private boolean showObjs;
     private boolean dispConsole;
     private boolean showRadarPressed;
-    private boolean showRadar;
+    //private boolean showRadar;
 
     private boolean closing = false;
 
@@ -69,7 +69,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     private short NPCSprite = 185;
 
     private short white = 297;
-    private short borderbox = 298;
+    //private short borderbox = 298;
 
     private short vconeup = 304;
     private short vconedown = 305;
@@ -113,10 +113,14 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
     private static final String SPRITESHEET = "Sprites/spritesheet.png";
     private static final String TEXT = "Sprites/IT3Text.png"; //was .gif
+    private static final String OVERLAY = "Sprites/overlay.png";
     private LWJGLSprite spritesheet;
-    public static final int NUMSPRITES = 404;
+    public static final int NUMSPRITES = 445;
 
     private LWJGLSprite text;
+
+    private LWJGLSprite overlay;
+
     private IT3String[] strings = new IT3String[64];
     private byte stringsIndex = 0;
 
@@ -163,7 +167,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         showObjs = false;
         dispConsole = false;
         showRadarPressed = false;
-        showRadar = true;
+        //showRadar = true;
 
         setVisible(true);
 
@@ -209,6 +213,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
     //The following four methods are used to cull out of view tiles
     //Was 12 for X, 9 for Y
+    /*
     private int getMinX(int x, int cx)
     {
         if (cx > 400)
@@ -229,8 +234,10 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             return (x - 12);
         }
     }
+     *
+     */
 
-    private int getMinY(int y, int cy)
+    private int getMinXY(int y, int cy)
     {
         if (cy > 280)
         {
@@ -251,6 +258,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         }
     }
 
+    /*
     private int getMaxX(int x, int max, int cx)
     {
         if (cx < 400)
@@ -271,8 +279,10 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             return (x + 12);
         }
     }
+     * 
+     */
 
-    private int getMaxY(int y, int max, int cy)
+    private int getMaxXY(int y, int max, int cy)
     {
         if (cy < 280)
         {
@@ -296,14 +306,14 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     //The following four methods are used to cull out of view tiles for radar
     private int getRMinX(int x)
     {
-        //was 17
-        if ((x - 19) < 0)
+        //was 19
+        if ((x - 23) < 0)
         {
             return 0;
         }
         else
         {
-            return (x - 19);
+            return (x - 23);
         }
     }
 
@@ -321,13 +331,13 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
     private int getRMaxX(int x, int max)
     {
-        if ((x + 19) > max)
+        if ((x + 21) > max)
         {
             return max;
         }
         else
         {
-            return (x + 19);
+            return (x + 21);
         }
     }
 
@@ -358,6 +368,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         height = spritesheet.texture.getHeight();
 
         text = (LWJGLSprite)ResourceFactory.get().getSprite(TEXT);
+        overlay = (LWJGLSprite)ResourceFactory.get().getSprite(OVERLAY);
     }
 
     public void clearMovementStack()
@@ -464,7 +475,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         GL11.glPushMatrix();
 
         // bind to the appropriate texture for this sprite
-        spritesheet.texture.bind();
+        //spritesheet.texture.bind();
 
         // translate to the right location and prepare to draw
         GL11.glTranslatef(0, 0, 0);
@@ -472,35 +483,35 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
         //Transparancy:
         GL11.glEnable(GL11.GL_BLEND);
-        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_DST_ALPHA);
 
         // draw a quad textured to match the sprite
         GL11.glBegin(GL11.GL_QUADS);
         {
-            float tx,tx2,ty,ty2;
+            //float tx,tx2,ty,ty2;
             float ax,bx;
-            ax = 50.0f; //was * 10
-            bx = 750.0f; //was * 10
+            ax = 0.0f; //was * 10
+            bx = 600.0f; //was * 10
 
             float ymax = numRows * 16.0f;
 
-            int row,col;
-            row = white / COLSIZE;
-            col = white - (row * COLSIZE);
+            //int row,col;
+            //row = white / COLSIZE;
+            //col = white - (row * COLSIZE);
 
-            tx = getTX(col, height);
-            tx2 = getTX(col + 1, height);
-            ty = getTX(row, width);
-            ty2 = getTX(row + 1, width);
+            //tx = getTX(col, height);
+            //tx2 = getTX(col + 1, height);
+            //ty = getTX(row, width);
+            //ty2 = getTX(row + 1, width);
 
             //Draw tile
-            GL11.glTexCoord2f(tx, ty);
+            //GL11.glTexCoord2f(tx, ty);
             GL11.glVertex2f(ax, 0);
-            GL11.glTexCoord2f(tx, ty2);
+            //GL11.glTexCoord2f(tx, ty2);
             GL11.glVertex2f(ax, ymax);
-            GL11.glTexCoord2f(tx2, ty2);
+            //GL11.glTexCoord2f(tx2, ty2);
             GL11.glVertex2f(bx,ymax);
-            GL11.glTexCoord2f(tx2, ty);
+            //GL11.glTexCoord2f(tx2, ty);
             GL11.glVertex2f(bx,0);
         }
         GL11.glEnd();
@@ -552,7 +563,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         int PlayerY = game.getPlayerY();
         int PlayerTileX = game.getPlayerTileX();
         int PlayerTileY = game.getPlayerTileY();
-        int centerX = 10 * 40;
+        int centerX = 7 * 40;
         int centerY = 7 * 40;
 
         int maxX = tileMap[0].length * 40;
@@ -563,15 +574,15 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         float b_ = 1.0f;
 
 
-        if ((PlayerX - 400) < 0)
+        if ((PlayerX - 280) < 0)
         {
-            centerX += (PlayerX - 400);
+            centerX += (PlayerX - 280);
         }
-        else if ((PlayerX + 400) > maxX)
+        else if ((PlayerX + 320) > maxX)
         {
-            if (maxX >= 800)
+            if (maxX >= 600)
             {
-                centerX += (400 - (maxX - PlayerX));
+                centerX += (320 - (maxX - PlayerX));
             }
         }
 
@@ -768,9 +779,9 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             }
 
             //Draw the background
-            for(int j = getMinY(PlayerTileY, centerY); j < getMaxY(PlayerTileY, tileMap.length, centerY); j++)
+            for(int j = getMinXY(PlayerTileY, centerY); j < getMaxXY(PlayerTileY, tileMap.length, centerY); j++)
             {
-                for(int i = getMinX(PlayerTileX, centerX); i < getMaxX(PlayerTileX, tileMap[0].length, centerX); i++)
+                for(int i = getMinXY(PlayerTileX, centerX); i < getMaxXY(PlayerTileX, tileMap[0].length, centerX); i++)
                 {
 
                     if ((tileMap[j][i] != 57) && (tileMap[j][i] != 58)) //Don't draw Doors here
@@ -932,15 +943,19 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     GL11.glVertex2f(mx,my);
                     GL11.glTexCoord2f(tx2, ty);
                     GL11.glVertex2f(mx,y);
-                    addString(items.get(i).toString(null), x, y+30);
+
+                    if (x < 561)
+                    {
+                        addString(items.get(i).toString(null), x, y+30);
+                    }
                     //g.drawString(items.get(i).toString(), (items.get(i).getX() - PlayerX + (centerX)), (items.get(i).getY() - PlayerY + (centerY)) + 45);
                 }
             }
 
             //Draw tall grass on top of items and stuff
-            for(int j = getMinY(PlayerTileY, centerY); j < getMaxY(PlayerTileY, tileMap.length, centerY); j++)
+            for(int j = getMinXY(PlayerTileY, centerY); j < getMaxXY(PlayerTileY, tileMap.length, centerY); j++)
             {
-                for(int i = getMinX(PlayerTileX, centerX); i < getMaxX(PlayerTileX, tileMap[0].length, centerX); i++)
+                for(int i = getMinXY(PlayerTileX, centerX); i < getMaxXY(PlayerTileX, tileMap[0].length, centerX); i++)
                 {
                     if (tileMap[j][i] == 45)
                     {
@@ -1008,7 +1023,10 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                         GL11.glVertex2f(mx,my);
                         GL11.glTexCoord2f(tx2, ty);
                         GL11.glVertex2f(mx,y);
-                        addString(localObjectives.get(i).toString(), x - 10, y + 30);
+                        if (x < 561)
+                        {
+                            addString(localObjectives.get(i).toString(), x - 10, y + 30);
+                        }
                         //g.drawString(localObjectives.get(i).toString(), (localObjectives.get(i).getX() - PlayerX + (centerX)) - 12, (localObjectives.get(i).getY() - PlayerY + (centerY)) + 45);
                     }
                 }
@@ -1111,7 +1129,10 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     if ((NPCs.get(i).getStatus() == NPCStatus.SLEEP) || (NPCs.get(i).getStatus() == NPCStatus.TRANQUILIZED_SLEEP))
                     {
                         //g.setColor(Color.darkGray);
-                        addString("Z", x+15, y-13);
+                        if (x < 580)
+                        {
+                            addString("Z", x+15, y-13);
+                        }
                         //g.drawString("Z", (NPCs.get(i).getX() - PlayerX + (centerX)) + 16, (NPCs.get(i).getY() - PlayerY + (centerY)));
                         //g.drawString("Z", (NPCs.get(i).getX() - PlayerX + (centerX)) + 17, (NPCs.get(i).getY() - PlayerY + (centerY)));
                         //g.drawString("Z", (NPCs.get(i).getX() - PlayerX + (centerX)) + 16, (NPCs.get(i).getY() - PlayerY + (centerY)) + 1);
@@ -1673,6 +1694,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                         
             
             //Draw health bars
+            /*
             row = white / COLSIZE;
             col = white - (row * COLSIZE);
 
@@ -1701,23 +1723,23 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             GL11.glVertex2f(mx,y);
 
             //Draw border
-            row = borderbox / COLSIZE;
-            col = borderbox - (row * COLSIZE);
+            //row = borderbox / COLSIZE;
+            //col = borderbox - (row * COLSIZE);
 
-            tx = getTX(col, height);
-            tx2 = getTX(col + 1, height);
-            ty = getTX(row, width);
-            ty2 = getTX(row + 1, width);
+            //tx = getTX(col, height);
+            //tx2 = getTX(col + 1, height);
+            //ty = getTX(row, width);
+            //ty2 = getTX(row + 1, width);
 
 
-            GL11.glColor3f(0, 0, 0);
-            GL11.glTexCoord2f(tx, ty);
+            GL11.glColor4f(0, 0, 0, 0.5f);
+            //GL11.glTexCoord2f(tx, ty);
             GL11.glVertex2f(x, y);
-            GL11.glTexCoord2f(tx, ty2);
+            //GL11.glTexCoord2f(tx, ty2);
             GL11.glVertex2f(x, my);
-            GL11.glTexCoord2f(tx2, ty2);
+            //GL11.glTexCoord2f(tx2, ty2);
             GL11.glVertex2f(maxx,my);
-            GL11.glTexCoord2f(tx2, ty);
+            //GL11.glTexCoord2f(tx2, ty);
             GL11.glVertex2f(maxx,y);
 
             if ((game.isPlayerInWater()) | (game.gas))
@@ -1745,29 +1767,31 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 GL11.glTexCoord2f(tx2, ty);
                 GL11.glVertex2f(mx,y);
 
-                row = borderbox / COLSIZE;
-                col = borderbox - (row * COLSIZE);
+                //row = borderbox / COLSIZE;
+                //col = borderbox - (row * COLSIZE);
 
-                tx = getTX(col, height);
-                tx2 = getTX(col + 1, height);
-                ty = getTX(row, width);
-                ty2 = getTX(row + 1, width);
+                //tx = getTX(col, height);
+                //tx2 = getTX(col + 1, height);
+                //ty = getTX(row, width);
+                //ty2 = getTX(row + 1, width);
 
 
-                GL11.glColor3f(0, 0, 0);
-                GL11.glTexCoord2f(tx, ty);
+                GL11.glColor4f(0, 0, 0, 0.5f);
+                //GL11.glTexCoord2f(tx, ty);
                 GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
+                //GL11.glTexCoord2f(tx, ty2);
                 GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
+                //GL11.glTexCoord2f(tx2, ty2);
                 GL11.glVertex2f(maxx,my);
-                GL11.glTexCoord2f(tx2, ty);
+                //GL11.glTexCoord2f(tx2, ty);
                 GL11.glVertex2f(maxx,y);
 
                 String o2 = "Oxygen";
                 addString(o2, x, 12, 12, 1.0f, 1.0f, 1.0f, 1.0f, true);
             }
+            */
 
+            int x,y,mx,my,maxx;
             if (game.fightBoss() & (boss != null))
             {
                 //Draw health bars
@@ -1781,10 +1805,10 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
 
                 x = 0;
-                y = 27;
-                mx = x + boss.getCurrentHealth();
+                y = 0;
+                mx = x + (boss.getCurrentHealth() >> 2);
                 my = y + 16;
-                maxx = x + boss.getMaxHealth();
+                maxx = x + (boss.getMaxHealth() >> 2);
                 GL11.glColor3f(1.0f, 0.9f, 0.0f);
 
                 //Draw healthbar
@@ -1798,50 +1822,166 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 GL11.glVertex2f(mx,y);
 
                 //Draw border
-                row = borderbox / COLSIZE;
-                col = borderbox - (row * COLSIZE);
+                //row = borderbox / COLSIZE;
+                //col = borderbox - (row * COLSIZE);
 
-                tx = getTX(col, height);
-                tx2 = getTX(col + 1, height);
-                ty = getTX(row, width);
-                ty2 = getTX(row + 1, width);
+                //tx = getTX(col, height);
+                //tx2 = getTX(col + 1, height);
+                //ty = getTX(row, width);
+                //ty2 = getTX(row + 1, width);
 
 
-                GL11.glColor3f(0, 0, 0);
-                GL11.glTexCoord2f(tx, ty);
+                GL11.glColor4f(0, 0, 0, 0.5f);
+                //GL11.glTexCoord2f(tx, ty);
                 GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
+                //GL11.glTexCoord2f(tx, ty2);
                 GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
+                //GL11.glTexCoord2f(tx2, ty2);
                 GL11.glVertex2f(maxx,my);
-                GL11.glTexCoord2f(tx2, ty);
+                //GL11.glTexCoord2f(tx2, ty);
                 GL11.glVertex2f(maxx,y);
-                addString(boss.dispName, 0, 39, 12, 1.0f, 0, 0, 1.0f, true);
+                addString(boss.dispName, 0, 16, 12, 1.0f, 0, 0, 1.0f, true);
             }
-
         }
 
+        GL11.glColor3f(0, 0, 0);
         GL11.glEnd();
 
         // restore the model view matrix to prevent contamination
         GL11.glPopMatrix();
 
 
-        if (showRadar)
+
+        
+        GL11.glPushMatrix();
+        overlay.texture.bind();
+        GL11.glColor3f(0, 0, 0);
+        GL11.glTranslatef(0, 0, 0);
+
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA); //GL_ONE_MINUS_SRC_ALPHA
+        GL11.glBegin(GL11.GL_QUADS);
+        {
+            GL11.glColor3f(0.3f, 0.3f, 0.3f);
+            GL11.glTexCoord2f(0, 0);
+            GL11.glVertex2f(600, 0);
+            GL11.glTexCoord2f(0, 1.0f);
+            GL11.glVertex2f(1000, 0);
+            GL11.glTexCoord2f(1.0f, 1.0f);
+            GL11.glVertex2f(1000, 800);
+            GL11.glTexCoord2f(1.0f, 0);
+            GL11.glVertex2f(600, 800);
+        }
+        GL11.glEnd();
+        
+        // restore the model view matrix to prevent contamination
+        GL11.glPopMatrix();
+        
+
+
+
+
+        //Health and Oxygen bars
+        GL11.glPushMatrix();
+        spritesheet.texture.bind();
+        //GL11.glColor3f(0, 0, 0);
+        GL11.glTranslatef(0, 0, 0);
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA); //GL_ONE_MINUS_SRC_ALPHA
+        GL11.glBegin(GL11.GL_QUADS);
+        {
+            GL11.glColor3f(0, 0, 0);
+
+            //Draw health bars
+            int _row = white / COLSIZE;
+            int _col = white - (_row * COLSIZE);
+
+            float _tx = getTX(_col, height);
+            float _tx2 = getTX(_col + 1, height);
+            float _ty = getTX(_row, width);
+            float _ty2 = getTX(_row + 1, width);
+
+
+            int _x, _y, _mx, _my, _maxx;
+            _x = 605;
+            _y = 160;
+            _mx = _x + game.getPlayerHealth();
+            _my = _y + 16;
+            _maxx = _x + game.getPlayerMaxHealth();
+            GL11.glColor3f(0, 1.0f, 0.7f);
+
+            //Draw healthbar
+            GL11.glTexCoord2f(_tx, _ty);
+            GL11.glVertex2f(_x, _y);
+            GL11.glTexCoord2f(_tx, _ty2);
+            GL11.glVertex2f(_x, _my);
+            GL11.glTexCoord2f(_tx2, _ty2);
+            GL11.glVertex2f(_mx,_my);
+            GL11.glTexCoord2f(_tx2, _ty);
+            GL11.glVertex2f(_mx, _y);
+
+            GL11.glColor3f(0, 0, 0);
+            GL11.glVertex2f(_x, _y);
+            GL11.glVertex2f(_x, _my);
+            GL11.glVertex2f(_maxx,_my);
+            GL11.glVertex2f(_maxx, _y);
+
+            if ((game.isPlayerInWater()) | (game.gas))
+            {
+                _x = 605;
+                _y = 200;
+                _my = _y + 16;
+                _mx = _x + game.getPlayerOxygen();
+                _maxx = _x + 100;
+
+                _row = white / COLSIZE;
+                _col = white - (_row * COLSIZE);
+
+                _tx = getTX(_col, height);
+                _tx2 = getTX(_col + 1, height);
+                _ty = getTX(_row, width);
+                _ty2 = getTX(_row + 1, width);
+
+
+                GL11.glColor3f(0, 0.7f, 1.0f);
+                GL11.glTexCoord2f(_tx, _ty);
+                GL11.glVertex2f(_x, _y);
+                GL11.glTexCoord2f(_tx, _ty2);
+                GL11.glVertex2f(_x, _my);
+                GL11.glTexCoord2f(_tx2, _ty2);
+                GL11.glVertex2f(_mx,_my);
+                GL11.glTexCoord2f(_tx2, _ty);
+                GL11.glVertex2f(_mx,_y);
+
+                GL11.glColor3f(0, 0, 0);
+                GL11.glVertex2f(_x, _y);
+                GL11.glVertex2f(_x, _my);
+                GL11.glVertex2f(_maxx,_my);
+                GL11.glVertex2f(_maxx,_y);
+
+                String o2 = "Oxygen";
+                addString(o2, _x, 212, 12, 1.0f, 1.0f, 1.0f, 1.0f, true);
+            }
+        }
+
+        GL11.glEnd();
+        // restore the model view matrix to prevent contamination
+        GL11.glPopMatrix();
+
+
+        //if (showRadar)
         {
             GL11.glPushMatrix();
-            GL11.glColor3f(1,1,1);
-
             // bind to the appropriate texture for this sprite
             spritesheet.texture.bind();
 
             // translate to the right location and prepare to draw
             GL11.glTranslatef(0, 0, 0);
-
             GL11.glEnable(GL11.GL_BLEND);
+
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
             GL11.glEnable(GL11.GL_SCISSOR_TEST);
-            GL11.glScissor(620, 455, 180, 155);
+            GL11.glScissor(600, 455, 200, 155);
 
             // draw a quad textured to match the sprites
             GL11.glBegin(GL11.GL_QUADS);
@@ -1850,11 +1990,11 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
             //Draw the radar
             GL11.glColor3f(0, 0, 0);
-            GL11.glTexCoord2f(0, 0); //Must push a texture coordinate to force the rectangle to draw
-            GL11.glVertex2f(620, 0);
+            //GL11.glTexCoord2f(0, 0); //Must push a texture coordinate to force the rectangle to draw
+            GL11.glVertex2f(600, 0);
             GL11.glVertex2f(800, 0);
             GL11.glVertex2f(800, 155);
-            GL11.glVertex2f(620, 155);
+            GL11.glVertex2f(600, 155);
             GL11.glColor3f(1, 1, 1);
 
             if (!game.jam)
@@ -1880,7 +2020,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                         {
                             //tileMap[j][i].draw(g, ((i*5) - (PX) + (90)) + 12, ((j*5) - (PY) + (75)) + 12);
                             int x,y,mx,my;
-                            x = ((i*5) + 620 - (PX) + (90));
+                            x = ((i*5) + 610 - (PX) + (90));
                             y = ((j*5) - (PY) + (75));
                             mx = x + 40;
                             my = y + 40;
@@ -1947,7 +2087,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                                 y = (iy - (PY) + (75)) - 17;
                             }
 
-                            x+=620;
+                            x+=610;
                             mx = x + 40;
                             my = y + 40;
 
@@ -1993,7 +2133,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     int ix, iy;
                     ix = NPCs.get(i).getX() / 8;
                     iy = NPCs.get(i).getY() / 8;
-                    x = ((ix) + 620 - (PX) + (90));
+                    x = ((ix) + 610 - (PX) + (90));
                     y = ((iy) - (PY) + (75));
                     mx = x + 40;
                     my = y + 40;
@@ -2023,7 +2163,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     int ix, iy;
                     ix = boss.getX() / 8;
                     iy = boss.getY() / 8;
-                    x = ((ix) + 620 - (PX) + (90));
+                    x = ((ix) + 610 - (PX) + (90));
                     y = ((iy) - (PY) + (75));
                     mx = x + 40;
                     my = y + 40;
@@ -2054,7 +2194,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     int ix, iy;
                     ix = cameras.get(i).getX() / 8;
                     iy = cameras.get(i).getY() / 8;
-                    x = ((ix) + 620 - (PX) + (90));
+                    x = ((ix) + 610 - (PX) + (90));
                     y = ((iy) - (PY) + (75));
                     mx = x + 40;
                     my = y + 40;
@@ -2106,7 +2246,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                             y = (iy - (PY) + (75)) - 17;
                         }
 
-                        x+=620;
+                        x+=610;
                         mx = x + 40;
                         my = y + 40;
 
@@ -2153,7 +2293,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                             int ix, iy;
                             ix = cx / 8;
                             iy = cy / 8;
-                            x = ((ix) + 620 - (PX) + (90));
+                            x = ((ix) + 610 - (PX) + (90));
                             y = ((iy) - (PY) + (75));
                             mx = x + 40;
                             my = y + 40;
@@ -2184,7 +2324,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
 
                 int x,y,mx,my;
-                x = 710;
+                x = 700;
                 y = 78;
                 mx = x + 40;
                 my = y + 40;
@@ -2216,15 +2356,12 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
         String ph = "Health";
 
-
-        String wp;
+        String wp = game.getSelectedWeaponStr();;
+        String wpammo = "";
+        String wpsilencer = game.getPlayer().getWeapon().getSilencerStr();
         if (game.getPlayer().getWeapon().getType() != ItemType.KNIFE)
         {
-            wp = game.getSelectedWeaponStr() + ": " + game.getAmmo() + "/" + game.getMaxAmmo();
-        }
-        else
-        {
-            wp = game.getSelectedWeaponStr();
+            wpammo = game.getAmmo() + "/" + game.getMaxAmmo();
         }
 
         String it;
@@ -2238,21 +2375,23 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         }
         
 
-        addString(ph, 0, 12, 12, 1.0f, 0, 0, 1.0f, true);
-        addString(wp, 0, 584, 16, 1.0f, 0, 0, 1.0f, true);
+        addString(ph, 605, 172, 12, 1.0f, 0, 0, 1.0f, true);
+        addString(wp, 800, 464, 16, 1.0f, 0, 0, 1.0f, false);
+        addString(wpammo, 800, 494, 16, 1.0f, 0, 0, 1.0f, false);
+        addString(wpsilencer, 800, 524, 16, 1.0f, 0, 0, 1.0f, false);
         addString(it, 800, 584, 16, 1.0f, 0, 0, 1.0f, false);
 
         if ((game.paused) && (!game.inDialog))
         {
-            this.addString("PAUSED", 360, 250, 16, 1.0f, 1.0f, 1.0f, 1.0f, true);
+            this.addString("PAUSED", 250, 250, 16, 1.0f, 1.0f, 1.0f, 1.0f, true);
         }
 
         if (game.message != null)
         {
-            if (showRadar)
+            //if (showRadar)
             {
-                addString(game.mtype.toString(), 800, 155, 16, 1.0f, 1.0f, 1.0f, 1.0f, false);
-                addString(game.message, 800, 175, 16, 1.0f, 1.0f, 1.0f, 1.0f, false);
+                addString(game.mtype.toString(), 800, 235, 16, 1.0f, 1.0f, 1.0f, 1.0f, false);
+                addString(game.message, 800, 255, 12, 1.0f, 1.0f, 1.0f, 1.0f, false);
             }
             if (game.lastMessageDate + 3000 < System.currentTimeMillis())
             {
@@ -2282,7 +2421,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             if (dlg.title.length() > 0)
             {
                 yp = 16;
-                this.addString(dlg.title, 50, 0, 16, 0, 1.0f, 0.5f, 1.0f, true);
+                this.addString(dlg.title, 5, 0, 16, 0, 1.0f, 0.5f, 1.0f, true);
                 dlgSize++;
             }
 
@@ -2295,20 +2434,20 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
             for(int i = 0; i < dlg.dialog.get(dialogPage).size(); i++)
             {
-                this.addString(dlg.dialog.get(dialogPage).get(i), 50, yp, 16, 1.0f, 1.0f, 1.0f, 1.0f, true);
+                this.addString(dlg.dialog.get(dialogPage).get(i), 5, yp, 16, 1.0f, 1.0f, 1.0f, 1.0f, true);
                 yp += 16;
             }
 
             if (remainingPages)
             {
-                this.addString(nextArrow, 750, yp, 36, 0, 1.0f, 1.0f, 1.0f, false);
+                this.addString(nextArrow, 550, yp, 36, 0, 1.0f, 1.0f, 1.0f, false);
             }
             else
             {
                 if (dlg.confirmation)
                 {
                     yp += 16;
-                    this.addString(dlg.choiceString, 50, yp, 16, 0, 1.0f, 0.5f, 1.0f, true);
+                    this.addString(dlg.choiceString, 5, yp, 16, 0, 1.0f, 0.5f, 1.0f, true);
                 }
             }
             
@@ -2686,6 +2825,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             {
                 if (!showRadarPressed)
                 {
+                    /*
                     if (showRadar)
                     {
                         showRadar = false;
@@ -2694,6 +2834,8 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     {
                         showRadar = true;
                     }
+                     * 
+                     */
                     showRadarPressed = true;
                 }
             }

@@ -67,42 +67,42 @@ public class NPC extends ITCharacter
                 break;
             case MEDIUM:
                 id = 27;
-                currHealth = 51;
+                currHealth = 71;
                 weaponDmg = 40;
                 break;
             case HEAVY:
                 id = 35;
-                currHealth = 71;
+                currHealth = 100;
                 weaponDmg = 40;
                 break;
             case SPECIAL:
                 id = 350;
-                currHealth = 100;
+                currHealth = 150;
                 weaponDmg = 50;
                 break;
             case BOSS0:
                 id = 242;
-                currHealth = 100;
+                currHealth = 250;
                 weaponDmg = 50;
                 break;
             case BOSS1:
                 id = 119;
-                currHealth = 100;
+                currHealth = 250;
                 weaponDmg = 50;
                 break;
             case BOSS2:
                 id = 127;
-                currHealth = 100;
+                currHealth = 250;
                 weaponDmg = 50;
                 break;
             case BOSS3:
                 id = 135;
-                currHealth = 100;
+                currHealth = 250;
                 weaponDmg = 50;
                 break;
             case BOSS4:
                 id = 226;
-                currHealth = 100;
+                currHealth = 250;
                 weaponDmg = 50;
                 break;
             case NAZI_HUNTER:
@@ -152,13 +152,13 @@ public class NPC extends ITCharacter
                 break;
             case MUTANT1:
                 id = 277;
-                currHealth = 96;
-                weaponDmg = 48;
+                currHealth = 192;
+                weaponDmg = 60;
                 break;
             case MUTANT2:
                 id = 285;
-                currHealth = 256;
-                weaponDmg = 60;
+                currHealth = 512;
+                weaponDmg = 90;
                 break;
             case CRIPPLE:
                 id = 413;
