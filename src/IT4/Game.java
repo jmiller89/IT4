@@ -2113,6 +2113,8 @@ public final class Game
             {
                 collision = true;
                 boss.receiveDamage(b.getDamage());
+
+                boss.getPath().adjust();
             }
             
         }

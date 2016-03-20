@@ -1862,7 +1862,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA); //GL_ONE_MINUS_SRC_ALPHA
         GL11.glBegin(GL11.GL_QUADS);
         {
-            GL11.glColor3f(0.3f, 0.3f, 0.3f);
+            GL11.glColor3f(0.1f, 0.1f, 0.1f);
             GL11.glTexCoord2f(0, 0);
             GL11.glVertex2f(600, 0);
             GL11.glTexCoord2f(0, 1.0f);

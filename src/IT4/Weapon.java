@@ -78,7 +78,7 @@ public class Weapon extends Item
             if (rank == 1)
             {
                 //1|80|240|12|3|9|0|9|true
-                name = "Tranq. Pistol";
+                name = "TX-1";
                 damage = 1;
                 accuracy = 80;
                 range = 240;
@@ -89,12 +89,12 @@ public class Weapon extends Item
                 silencerDurability = 9;
                 suppressed = true;
 
-                description = "Pistol modified to fire tranquilizer darts.\nUnknown origin.\nDarts contain a weak anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 3 darts.\nEquipped with a low-durability suppressor.";
+                description = "Tranq. Pistol Rank 1.\nModified to fire tranquilizer darts.\nUnknown origin.\nDarts contain a weak anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 3 darts.\nEquipped with a low-durability suppressor.";
             }
             else if (rank == 2)
             {
                 //1|85|300|20|3|12|0|12|true
-                name = "Tranq. Pistol R2";
+                name = "TX-2";
                 damage = 1;
                 accuracy = 85;
                 range = 300;
@@ -105,12 +105,12 @@ public class Weapon extends Item
                 silencerDurability = 12;
                 suppressed = true;
 
-                description = "Pistol modified to fire tranquilizer darts.\nUnknown origin.\nDarts contain an upgraded anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 3 darts.\nEquipped with a medium/low-durability suppressor.";
+                description = "Tranq. Pistol Rank 2.\nModified to fire tranquilizer darts.\nUnknown origin.\nDarts contain an upgraded anesthetic.\nSuffers from limited range.\nHas a magazine capacity of 3 darts.\nEquipped with a medium/low-durability suppressor.";
             }
             else
             {
                 //1|90|360|30|5|20|0|30|true
-                name = "Tranq. Pistol R3";
+                name = "TX-3";
                 damage = 1;
                 accuracy = 90;
                 range = 360;
@@ -121,7 +121,7 @@ public class Weapon extends Item
                 silencerDurability = 30;
                 suppressed = true;
 
-                description = "Pistol modified to fire tranquilizer darts.\nUnknown origin.\nDarts contain a longer-lasting anesthetic.\nFeatures an improved effective range.\nHas a magazine capacity of 5 darts.\nEquipped with a medium durability suppressor.";
+                description = "Tranq. Pistol Rank 3.\nModified to fire tranquilizer darts.\nUnknown origin.\nDarts contain a longer-lasting anesthetic.\nFeatures an improved effective range.\nHas a magazine capacity of 5 darts.\nEquipped with a medium durability suppressor.";
             }
         }
         else if (it == ItemType.SMG)
@@ -129,7 +129,7 @@ public class Weapon extends Item
             if (rank == 1)
             {
                 //20|50|720|0|20|100|92|10|false
-                name = "SMG";
+                name = "PC9";
                 damage = 20;
                 accuracy = 50;
                 range = 720;
@@ -140,12 +140,12 @@ public class Weapon extends Item
                 silencerDurability = 20;
                 suppressed = false;
 
-                description = "9mm civilian-market submachine gun.\nNorth American origin.\nRetro-fitted for moderately fast fully-automatic fire.\nFeatures weak stopping power and poor accuracy.\nHas a magazine capacity of 20 rounds.\nCan attach low-durability suppressors.";
+                description = "SMG Rank 1.\nAmerican origin, civilain model.\nRetro-fitted for moderately fast fully-automatic fire.\nFeatures weak stopping power and poor accuracy.\nHas a magazine capacity of 20 rounds.\nCan attach low-durability suppressors.";
             }
             else if (rank == 2)
             {
                 //25|70|840|0|30|150|98|90|false
-                name = "SMG R2";
+                name = "MP467";
                 damage = 25;
                 accuracy = 70;
                 range = 840;
@@ -156,12 +156,12 @@ public class Weapon extends Item
                 silencerDurability = 90;
                 suppressed = false;
 
-                description = "4.6mm personal defense weapon.\nEuropean origin.\nPreferred weapon of the opposition special forces.\nFeatures fast fully-automatic fire.\nBoasts improved stopping power and accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach medium-durability suppressors.";
+                description = "SMG Rank 2.\nGerman origin, personal defense weapon.\nPreferred weapon of the opposition special forces.\nFeatures fast fully-automatic fire.\nBoasts improved stopping power and accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach medium-durability suppressors.";
             }
             else
             {
                 //25|65|800|0|40|200|99|250|true
-                name = "SMG R3";
+                name = "PDW-90";
                 damage = 25;
                 accuracy = 65;
                 range = 800;
@@ -172,7 +172,7 @@ public class Weapon extends Item
                 silencerDurability = 250;
                 suppressed = true;
 
-                description = "5.7mm personal defense weapon.\nEuropean origin.\nFeatures fully-automatic fire at a blistering speed.\nDecent stopping power and accuracy.\nHas a magazine capacity of 50 rounds.\nEquipped with a high-durability suppressor.";
+                description = "SMG Rank 3.\nBelgian origin, personal defense weapon.\nFeatures fully-automatic fire at a blistering speed.\nDecent stopping power and accuracy.\nHas a magazine capacity of 50 rounds.\nEquipped with a high-durability suppressor.";
             }
         }
         else if (it == ItemType.ASSAULT_RIFLE)
@@ -180,7 +180,7 @@ public class Weapon extends Item
             if (rank == 1)
             {
                 //30|85|1200|0|20|100|1|20|false
-                name = "Assault Rifle";
+                name = "CR-16";
                 damage = 30;
                 accuracy = 85;
                 range = 1200;
@@ -191,12 +191,12 @@ public class Weapon extends Item
                 silencerDurability = 20;
                 suppressed = false;
 
-                description = "5.56mm civilian model assault rifle.\nNorth American origin.\nFeatures semi-automatic fire with good stopping power and accuracy.\nHas a magazine capacity of 20 rounds.\nCan attach a low-durability suppressor.";
+                description = "Assault Rifle Rank 1.\nAmerican origin, civilian model.\nFeatures semi-automatic fire with good stopping power and accuracy.\nHas a magazine capacity of 20 rounds.\nCan attach a low-durability suppressor.";
             }
             else if (rank == 2)
             {
                 //40|90|1200|0|30|150|95|30|false
-                name = "Assault Rifle R2";
+                name = "FARA 83";
                 damage = 40;
                 accuracy = 90;
                 range = 1200;
@@ -207,12 +207,12 @@ public class Weapon extends Item
                 silencerDurability = 30;
                 suppressed = false;
 
-                description = "5.56mm assault rifle.\nSouth American origin.\nStandard-issue rifle of the enemy.\nFeatures fully-automatic fire with good stopping power and accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach a low-durability suppressor.";
+                description = "Assault Rifle Rank 2.\nArgentinian origin.\nStandard-issue rifle of the enemy.\nFeatures fully-automatic fire with good stopping power and accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach a low-durability suppressor.";
             }
             else
             {
                 //51|95|1000|0|30|150|98|60|false
-                name = "Assault Rifle R3";
+                name = "MK-4";
                 damage = 50;
                 accuracy = 95;
                 range = 1000;
@@ -223,47 +223,47 @@ public class Weapon extends Item
                 silencerDurability = 60;
                 suppressed = false;
 
-                description = "5.56mm assault carbine.\nNorth American origin.\nFeatures improved fully-automatic fire with high stopping power\nand impeccable accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach a medium-durability suppressor.";
+                description = "Assault Carbine Rank 3.\nAmerican origin.\nFeatures improved fully-automatic fire with\nhigh stopping power and\nimpeccable accuracy.\nHas a magazine capacity of 30 rounds.\nCan attach a medium-durability suppressor.";
             }
         }
         else if (it == ItemType.SHOTGUN)
         {
             if (rank == 1)
             {
-                //15|--|550|0|4|20|1|0|false
-                name = "Shotgun";
+                //15|--|550|0|5|20|1|0|false
+                name = "WS-08";
                 damage = 15;
                 accuracy = 70;
                 range = 550;
                 staminaDamage = 0;
-                magCapacity = 4;
+                magCapacity = 5;
                 totalCapacity = 20;
                 fireRate = 1;
                 silencerDurability = 0;
                 suppressed = false;
 
-                description = "12 gague semi-automatic shotgun.\nNorth American origin.\nDoes high damage at close ranges.\nHas a magazine capacity of 4 shells.";
+                description = "Shotgun Rank 1.\nAmerican origin.\nFeatures semi-automatic fire.\nDoes high damage at close ranges.\nHas a magazine capacity of 5 shells.";
             }
             else if (rank == 2)
             {
-                //20|70|550|0|6|30|1|0|false
-                name = "Shotgun R2";
+                //20|70|550|0|8|32|1|0|false
+                name = "SAS-12";
                 damage = 20;
                 accuracy = 70;
                 range = 550;
                 staminaDamage = 0;
-                magCapacity = 6;
-                totalCapacity = 30;
+                magCapacity = 8;
+                totalCapacity = 32;
                 fireRate = 1;
                 silencerDurability = 0;
                 suppressed = false;
 
-                description = "12 gague semi-automatic shotgun.\nNorth American origin.\nDoes very high damage at close ranges.\nHas a magazine capacity of 6 shells.";
+                description = "Shotgun Rank 2.\nItalian origin.\nFeatures semi-automatic fire.\nDoes very high damage at close ranges.\nHas a magazine capacity of 8 shells.";
             }
             else
             {
                 //15|70|400|0|15|75|87|0|false
-                name = "Shotgun R3";
+                name = "SSG-12000";
                 damage = 15;
                 accuracy = 70;
                 range = 400;
@@ -274,7 +274,7 @@ public class Weapon extends Item
                 silencerDurability = 0;
                 suppressed = false;
 
-                description = "12 gague fully-automatic shotgun.\nEastern European origin.\nDoes high damage at close ranges.\nBoasts a fully-automatic rate of fire at the cost of a reduced effective range.\nHas a magazine capacity of 15 shells.";
+                description = "Shotgun Rank 3.\nRussian origin.\nDoes high damage at close ranges.\nBoasts a fully-automatic rate of fire\nat the cost of a reduced effective range.\nHas a magazine capacity of 15 shells.";
             }
         }
         else if (it == ItemType.GRENADE)
