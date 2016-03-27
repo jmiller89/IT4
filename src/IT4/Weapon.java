@@ -27,7 +27,7 @@ public class Weapon extends Item
             if (rank == 1)
             {
                 //22|85|800|0|7|35|1|14|false
-                name = "Pistol";
+                name = "M1911A1";
                 damage = 26;
                 accuracy = 80;
                 range = 800;
@@ -38,12 +38,12 @@ public class Weapon extends Item
                 silencerDurability = 14;
                 suppressed = false;
 
-                description = ".45 caliber semi-automatic pistol.\nNorth American origin.\nAntiquated design that combines reliable stopping power\nwith decent accuracy.\nHas a magazine capacity of 7 rounds.\nCan attach low-durability suppressors.";
+                description = "Pistol Rank 1.\nAmerican origin, .45 caliber.\nAntiquated design that combines reliable stopping power\nwith decent accuracy.\nHas a magazine capacity of 7 rounds.\nCan attach low-durability suppressors.";
             }
             else if (rank == 2)
             {
                 //35|90|800|0|10|50|1|30|false
-                name = "Pistol R2";
+                name = "CP45";
                 damage = 35;
                 accuracy = 85;
                 range = 800;
@@ -54,12 +54,12 @@ public class Weapon extends Item
                 silencerDurability = 30;
                 suppressed = false;
 
-                description = ".45 caliber semi-automatic pistol.\nEuropean origin.\nModern design with high stopping power and good accuracy.\nHas a magazine capacity of 10 rounds.\nCan attach medium-durability suppressors.";
+                description = "Pistol Rank 2.\nBelgian origin, .45 caliber.\nModern design with high stopping power and good accuracy.\nHas a magazine capacity of 10 rounds.\nCan attach medium-durability suppressors.";
             }
             else
             {
                 //40|90|800|0|12|60|1|999|true
-                name = "Pistol R3";
+                name = "SQP";
                 damage = 40;
                 accuracy = 90;
                 range = 800;
@@ -70,7 +70,7 @@ public class Weapon extends Item
                 silencerDurability = 999;
                 suppressed = true;
 
-                description = ".45 caliber semi-automatic pistol.\nEuropean origin.\nCustom design with high stopping power and excellent accuracy.\nHas a magazine capacity of 12 rounds.\nEquipped with an infinitely-durable suppressor.";
+                description = "Pistol Rank 3.\nGerman origin, .45 caliber.\nCustom design with high stopping power and excellent accuracy.\nHas a magazine capacity of 12 rounds.\nEquipped with an infinitely-durable suppressor.";
             }
         }
         else if (it == ItemType.TRANQ_PISTOL)

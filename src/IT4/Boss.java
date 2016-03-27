@@ -62,8 +62,8 @@ public class Boss extends NPC
         b.name = this.name;
         b.dispName = this.dispName;
 
-        b.pre = new Dialog(this.pre, "Boss fight");
-        b.post = new Dialog(this.post, "Boss defeated");        
+        b.pre = new Dialog(this.pre, "Boss fight", false);
+        b.post = new Dialog(this.post, "Boss defeated", false);
 
         return b;
     }

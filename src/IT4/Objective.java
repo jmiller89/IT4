@@ -20,7 +20,7 @@ public class Objective extends ITObject
         super(id, x * 40, y * 40);
         name = objName;
         mapIndex = map_Index;
-        dialog = new Dialog();
+        dialog = new Dialog(false);
 
         //This prevents non-item objectives from being displayed as such
         if ((x < 0) || (y < 0))
@@ -34,7 +34,7 @@ public class Objective extends ITObject
         super(o.getID(), o.getX(), o.getY());
         name = o.name;
         mapIndex = o.mapIndex;
-        dialog = new Dialog(o.dialog, "Objective completed");
+        dialog = new Dialog(o.dialog, "Objective completed", false);
         title = o.title;
     }
 

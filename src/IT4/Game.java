@@ -1088,7 +1088,7 @@ public final class Game
         {
             System.out.println("Changing level");
             currentLevel = levels.getNextLevel();
-            resetCardKey();
+            //resetCardKey();
             player.objectives = 0;
 
             playerLevMapX = x;
@@ -2354,7 +2354,7 @@ public final class Game
         TimeUnit.MILLISECONDS.toMinutes(timeElapsed) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(timeElapsed)),        
         TimeUnit.MILLISECONDS.toSeconds(timeElapsed) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(timeElapsed)));
 
-        Dialog d = new Dialog();
+        Dialog d = new Dialog(true);
 
         if (title.startsWith("THE END"))
         {
@@ -4081,7 +4081,7 @@ public final class Game
 
     public void printObjectives()
     {
-        Dialog d = new Dialog();
+        Dialog d = new Dialog(true);
 
         d.title = "Objectives";
 
@@ -4163,7 +4163,7 @@ public final class Game
 
     private void showErrorMessage(String msg)
     {
-        JOptionPane.showMessageDialog(null, msg, "Intruder's Thunder 4", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, msg, "The Endling's Artifice", JOptionPane.ERROR_MESSAGE);
         returnToMainMenu(null);
     }
 

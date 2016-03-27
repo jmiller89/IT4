@@ -95,7 +95,7 @@ public class LevelMap
         initializeShadows();
         initializeWaterAndTallGrass();
 
-        dlg = new Dialog();
+        dlg = new Dialog(false);
 
     }
 

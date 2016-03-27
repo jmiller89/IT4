@@ -18,8 +18,9 @@ public class Dialog
     public String title = "";
     //private int currentText = 0;
     //public int currentPage = 0;
-    private static final short maxLineLength = 56;
-    private static final short maxLines = 35;
+    public static final short maxLineLength = 56;
+    public static final short maxLines_top = 35;
+    public static final short maxLines_bottom = 10;
     private boolean active = true;
     private boolean substance = false;
     public boolean confirmation = false;
@@ -27,9 +28,11 @@ public class Dialog
     public ITEvent event = null;
     private Item item = null;
     public String choiceString = "";
+    public boolean onTop = false;
 
-    public Dialog()
+    public Dialog(boolean showOnTop)
     {
+        onTop = showOnTop;
         dialog = new ArrayList<ArrayList<String>>();
         dialog.add(new ArrayList<String>());        
     }
@@ -41,6 +44,7 @@ public class Dialog
         confirmation = true;
         item = it;
         event = ev;
+        onTop = true;
 
         String text = "Found " + it.toString(null) + "\n\n";
         text += it.description;
@@ -57,10 +61,11 @@ public class Dialog
         }
     }
 
-    public Dialog(Dialog d, String t)
+    public Dialog(Dialog d, String t, boolean showOnTop)
     {        
         title = t;
         dialog = new ArrayList<ArrayList<String>>();
+        onTop = showOnTop;
 
         for(int j = 0; j < d.dialog.size(); j++)
         {
@@ -95,10 +100,15 @@ public class Dialog
     
     public final void add(String s)
     {
+        short maxLines = maxLines_bottom;
+        if (onTop)
+        {
+            maxLines = maxLines_top;
+        }
         if (s.length() > 0)
         {
             substance = true;
-        }
+        }        
 
         if (s.length() > maxLineLength)
         {
@@ -166,6 +176,60 @@ public class Dialog
         return active & substance;
     }
 
+    public void addStrings(ArrayList<String> strs)
+    {
+        ArrayList<String> prepStrs = new ArrayList<String>();
+
+        for(int i = 0; i < strs.size(); i++)
+        {
+            String[] linesplit = strs.get(i).split(" ");
+            int start = 0;
+
+            while (start <= linesplit.length - 1)
+            {
+                int totalChars = 0;
+                int j;
+                for(j = start; j < linesplit.length; j++)
+                {
+                    int charcount = linesplit[j].length() + 1;
+
+                    if (totalChars + charcount > maxLineLength)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        totalChars += charcount;
+                    }
+                }
+
+                if (j == 0)
+                {
+                    prepStrs.add(strs.get(i));
+                    break;
+                }
+
+                String prepStr = "";
+                for(int k = start; k < j; k++)
+                {
+                    prepStr += linesplit[k];
+                    if (k != (j - 1))
+                    {
+                        prepStr += " ";
+                    }
+                }
+
+                prepStrs.add(prepStr);
+
+                start = j;
+            }
+        }
+
+        for(int i = 0; i < prepStrs.size(); i++)
+        {
+            this.add(prepStrs.get(i));
+        }
+    }
     
     @Override
     public String toString()

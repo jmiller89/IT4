@@ -23,7 +23,7 @@ public class ILSFileFilter extends javax.swing.filechooser.FileFilter
     @Override
     public String getDescription()
     {
-        return "Intruder's Thunder 4 Levelset [.it3ls] [.it4ls]";
+        return "The Endling's Artifice Levelset [.it3ls] [.it4ls]";
     }
 
 }

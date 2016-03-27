@@ -89,7 +89,7 @@ public class LevelLoader
         ArrayList<Door> doors = new ArrayList<Door>();
         ArrayList<SecurityCamera> cameras = new ArrayList<SecurityCamera>();
         ArrayList<Spawn> spawns = new ArrayList<Spawn>();
-        Dialog dialog = new Dialog();
+        Dialog dialog = new Dialog(false);
         Boss boss = null;
         Path playerPath = null;
 
@@ -152,7 +152,7 @@ public class LevelLoader
                     doors = new ArrayList<Door>();
                     cameras = new ArrayList<SecurityCamera>();
                     spawns = new ArrayList<Spawn>();
-                    dialog = new Dialog();
+                    dialog = new Dialog(false);
                     boss = null;
                     playerPath = null;
                     alertStage = false;
@@ -449,15 +449,18 @@ public class LevelLoader
                 }
                 else if (line.startsWith(DLG_START))
                 {
+                    ArrayList<String> dlgLines = new ArrayList<String>();
                     while(!line.startsWith(DLG_END))
                     {
                         line = scanner.nextLine();
 
                         if (!(line.startsWith("#") || line.startsWith(DLG_END)))
                         {
-                            dialog.add(line);
+                            //dialog.add(line);
+                            dlgLines.add(line);
                         }
                     }
+                    dialog.addStrings(dlgLines);
                 }
                 else if (line.startsWith(DLG_END))
                 {
@@ -468,8 +471,8 @@ public class LevelLoader
                     line = scanner.nextLine();
                     boss = parseBoss(line);
 
-                    Dialog pre = new Dialog();
-                    Dialog post = new Dialog();
+                    Dialog pre = new Dialog(false);
+                    Dialog post = new Dialog(false);
 
                     line = scanner.nextLine();
                     boss.name = line;
@@ -484,29 +487,35 @@ public class LevelLoader
 
                     line = scanner.nextLine();
 
+                    ArrayList<String> dlgLines = new ArrayList<String>();
                     if (line.startsWith(PRE_START))
                     {
                         line = scanner.nextLine();
 
                         while (!line.startsWith(PRE_END))
                         {
-                            pre.add(line);
+                            //pre.add(line);
+                            dlgLines.add(line);
                             line = scanner.nextLine();
                         }
                     }
+                    pre.addStrings(dlgLines);
 
                     line = scanner.nextLine();
 
+                    dlgLines.clear();
                     if (line.startsWith(POST_START))
                     {
                         line = scanner.nextLine();
 
                         while (!line.startsWith(POST_END))
                         {
-                            post.add(line);
+                            //post.add(line);
+                            dlgLines.add(line);
                             line = scanner.nextLine();
                         }
                     }
+                    post.addStrings(dlgLines);
 
                     boss.setPreDialog(pre);
                     boss.setPostDialog(post);
@@ -634,13 +643,16 @@ public class LevelLoader
                         line = scanner.nextLine();
                         line = scanner.nextLine();
 
-                        Dialog d = new Dialog();
+                        Dialog d = new Dialog(false);
 
+                        ArrayList<String> dlgLines = new ArrayList<String>();
                         while (!line.startsWith(this.DLG_END))
                         {
-                            d.add(line);
+                            //d.add(line);
+                            dlgLines.add(line);
                             line = scanner.nextLine();
                         }
+                        d.addStrings(dlgLines);
 
                         obj.dialog = d;
 

@@ -22,6 +22,6 @@ public class ITSVFileFilter extends javax.swing.filechooser.FileFilter
     @Override
     public String getDescription()
     {
-        return "Intruder's Thunder 4 Save Game Data [.it4save]";
+        return "The Endling's Artifice Save Game Data [.it4save]";
     }
 }

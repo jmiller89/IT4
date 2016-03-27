@@ -469,7 +469,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         stringsIndex = 0;
     }
 
-    private void drawDialogBackground(int numRows)
+    private void drawDialogBackground(int numRows, float startPos)
     {
         // store the current model matrix
         GL11.glPushMatrix();
@@ -493,7 +493,11 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             ax = 0.0f; //was * 10
             bx = 600.0f; //was * 10
 
-            float ymax = numRows * 16.0f;
+            float ymax = (numRows + 2) * 16.0f;
+            if (startPos > 0)
+            {
+                ymax = 600.0f;
+            }
 
             //int row,col;
             //row = white / COLSIZE;
@@ -506,13 +510,13 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
             //Draw tile
             //GL11.glTexCoord2f(tx, ty);
-            GL11.glVertex2f(ax, 0);
+            GL11.glVertex2f(ax, startPos);
             //GL11.glTexCoord2f(tx, ty2);
             GL11.glVertex2f(ax, ymax);
             //GL11.glTexCoord2f(tx2, ty2);
             GL11.glVertex2f(bx,ymax);
             //GL11.glTexCoord2f(tx2, ty);
-            GL11.glVertex2f(bx,0);
+            GL11.glVertex2f(bx,startPos);
         }
         GL11.glEnd();
 
@@ -2416,12 +2420,14 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             }
 
             this.resetStrings();
-            short yp = 0;
+            
+            short startPos = (dlg.onTop == true) ? (short)0:(short)384;
+            short yp = (short)(startPos + 32);
 
             if (dlg.title.length() > 0)
             {
-                yp = 16;
-                this.addString(dlg.title, 5, 0, 16, 0, 1.0f, 0.5f, 1.0f, true);
+                //yp = startPos;
+                this.addString(dlg.title, 5, startPos, 16, 0, 1.0f, 0.5f, 1.0f, true);
                 dlgSize++;
             }
 
@@ -2430,7 +2436,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 dlgSize+=2;
             }
 
-            drawDialogBackground(dlgSize);
+            drawDialogBackground(dlgSize, (float)startPos);
 
             for(int i = 0; i < dlg.dialog.get(dialogPage).size(); i++)
             {
@@ -2440,14 +2446,23 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
             if (remainingPages)
             {
-                this.addString(nextArrow, 550, yp, 36, 0, 1.0f, 1.0f, 1.0f, false);
+                this.addString(nextArrow, 600, yp, 36, 0, 1.0f, 1.0f, 1.0f, false);
             }
             else
             {
+                if (dlg.onTop == false)
+                {
+                    yp = 584;
+                }
+                
                 if (dlg.confirmation)
                 {
                     yp += 16;
                     this.addString(dlg.choiceString, 5, yp, 16, 0, 1.0f, 0.5f, 1.0f, true);
+                }
+                else
+                {
+                    this.addString("END", 600, yp, 16, 0, 1.0f, 1.0f, 1.0f, false);
                 }
             }
             

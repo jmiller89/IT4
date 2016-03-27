@@ -673,7 +673,7 @@ public class LWJGLGameWindow implements GameWindow, Runnable
 
     public void run()
     {
-        this.setTitle("Intruder's Thunder 4: The Endling's Artifice");
+        this.setTitle("The Endling's Artifice");
         gameLoop();
     }
 

@@ -47,7 +47,7 @@ public class MainMenuPanel extends JPanel
     private static final int INTRO = 13;
     //private final Color purple = new Color(153, 43, 204);
     private final Color darkRed = new Color(112, 8, 0);
-    private final Color grayGreen = new Color(100, 147, 148);
+    private final Color argentineBlue = new Color(117, 170, 220);
     private static MainMenuPanel mmp = null;
 
     //Maintain a pointer to the game object
@@ -93,56 +93,56 @@ public class MainMenuPanel extends JPanel
 
         newGameBtn = new JButton("New Game");
         newGameBtn.setBounds(50, 180, 150, 45);
-        newGameBtn.setBackground(grayGreen);
+        newGameBtn.setBackground(argentineBlue);
         newGameBtn.setForeground(darkRed);
         newGameBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         newGameBtn.repaint();
 
         loadGameBtn = new JButton("Load Game");
         loadGameBtn.setBounds(50, 255, 150, 45);
-        loadGameBtn.setBackground(grayGreen);
+        loadGameBtn.setBackground(argentineBlue);
         loadGameBtn.setForeground(darkRed);
         loadGameBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         loadGameBtn.repaint();
 
         loadMapBtn = new JButton("Open Level");
         loadMapBtn.setBounds(50, 485, 150, 45);
-        loadMapBtn.setBackground(grayGreen);
+        loadMapBtn.setBackground(argentineBlue);
         loadMapBtn.setForeground(darkRed);
         loadMapBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         loadMapBtn.repaint();
 
         loadLvSetBtn = new JButton("Open Levelset");
         loadLvSetBtn.setBounds(50, 410, 150, 45);
-        loadLvSetBtn.setBackground(grayGreen);
+        loadLvSetBtn.setBackground(argentineBlue);
         loadLvSetBtn.setForeground(darkRed);
         loadLvSetBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         loadLvSetBtn.repaint();
 
         tutorialBtn = new JButton("Mission Select");
         tutorialBtn.setBounds(585, 180, 150, 45);
-        tutorialBtn.setBackground(grayGreen);
+        tutorialBtn.setBackground(argentineBlue);
         tutorialBtn.setForeground(darkRed);
         tutorialBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         tutorialBtn.repaint();
 
         mazeBtn = new JButton("Instant Action");
         mazeBtn.setBounds(585, 255, 150, 45);
-        mazeBtn.setBackground(grayGreen);
+        mazeBtn.setBackground(argentineBlue);
         mazeBtn.setForeground(darkRed);
         mazeBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         mazeBtn.repaint();
 
         aboutBtn = new JButton("About");
         aboutBtn.setBounds(585, 485, 150, 45);
-        aboutBtn.setBackground(grayGreen);
+        aboutBtn.setBackground(argentineBlue);
         aboutBtn.setForeground(darkRed);
         aboutBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         aboutBtn.repaint();
 
         controlsBtn = new JButton("Controls");
         controlsBtn.setBounds(585, 410, 150, 45);
-        controlsBtn.setBackground(grayGreen);
+        controlsBtn.setBackground(argentineBlue);
         controlsBtn.setForeground(darkRed);
         controlsBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         controlsBtn.repaint();
@@ -154,7 +154,7 @@ public class MainMenuPanel extends JPanel
         enableSound = new JCheckBox("Enable Soundtrack");
         enableSound.setSelected(SFX.musicOn);
         enableSound.setBounds(310, 500, 200, 40);
-        enableSound.setBackground(grayGreen);
+        enableSound.setBackground(argentineBlue);
         enableSound.setForeground(darkRed);
         enableSound.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         enableSound.repaint();
@@ -162,7 +162,7 @@ public class MainMenuPanel extends JPanel
         enableFullscreen = new JCheckBox("Fullscreen Mode");
         enableFullscreen.setSelected(Game.FULLSCREEN);
         enableFullscreen.setBounds(310, 470, 200, 40);
-        enableFullscreen.setBackground(grayGreen);
+        enableFullscreen.setBackground(argentineBlue);
         enableFullscreen.setForeground(darkRed);
         enableFullscreen.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         enableFullscreen.repaint();
@@ -403,7 +403,7 @@ public class MainMenuPanel extends JPanel
 
     private void showInfo()
     {
-        JOptionPane.showMessageDialog(this, "Intruder's Thunder 4: The Endling's Artifice\nSoftware version 4.5.31 Alpha\nProgrammed By: Jim Miller (C) 2011-2016\n"
+        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.5.32 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
                 + "Soundtrack By: Bjorn Lynne\n\n"
                 + "This program is free software: you can redistribute it and/or modify\n"
                 + "it under the terms of the GNU General Public License as published by\n"
@@ -417,7 +417,7 @@ public class MainMenuPanel extends JPanel
                 + "along with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
                 + "\n*Although this program was not designed to harm anybody or anybody's computer,"
                 + "\nthe author is not liable for any damages this may cause you or your computer.\n"
-                + "\n*The story and characters portrayed in this game are completely fictional.", "About Intruder's Thunder 4", JOptionPane.INFORMATION_MESSAGE);
+                + "\n*The story and characters portrayed in this game are completely fictional.", "About The Endling's Artifice", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void showControls()

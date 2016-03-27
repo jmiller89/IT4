@@ -102,7 +102,7 @@ public class MainMenuFrame extends javax.swing.JFrame
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Intruder's Thunder 4: The Endling's Artifice");
+        setTitle("The Endling's Artifice");
         setName(""); // NOI18N
         setResizable(false);
 
