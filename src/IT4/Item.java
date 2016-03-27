@@ -17,6 +17,7 @@ public class Item extends ITObject
     public boolean isWeapon = false;
     public boolean touched = false;
     public String description = "";
+    public String weaponName = "";
 
     private static String getName(ItemType itemT, Player p)
     {        
@@ -189,6 +190,7 @@ public class Item extends ITObject
     {
         Item copy = new Item(this.getID(), this.getX(), this.getY(), this.type, this.rank);
         copy.description = this.description;
+        copy.weaponName = this.weaponName;
         return copy;
     }
 
@@ -199,7 +201,7 @@ public class Item extends ITObject
 
         if (isWeapon)
         {
-            retval += " R" + rank;
+            retval = weaponName;
         }
 
         return retval;

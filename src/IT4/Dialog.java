@@ -11,6 +11,7 @@ package IT4;
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Dialog
 {
@@ -46,14 +47,18 @@ public class Dialog
         event = ev;
         onTop = true;
 
-        String text = "Found " + it.toString(null) + "\n\n";
+        String text = "Found " + it.weaponName + "\n\n";
         text += it.description;
 
         String[] contents = text.split("\n");
+        this.addStrings(contents);
+
+        /*
         for(int i = 0; i < contents.length; i++)
         {
             add(contents[i]);
         }
+        */
 
         if (confirmation)
         {
@@ -230,7 +235,62 @@ public class Dialog
             this.add(prepStrs.get(i));
         }
     }
-    
+
+    public void addStrings(String[] strs)
+    {
+        ArrayList<String> prepStrs = new ArrayList<String>();
+
+        for(int i = 0; i < strs.length; i++)
+        {
+            String[] linesplit = strs[i].split(" ");
+            int start = 0;
+
+            while (start <= linesplit.length - 1)
+            {
+                int totalChars = 0;
+                int j;
+                for(j = start; j < linesplit.length; j++)
+                {
+                    int charcount = linesplit[j].length() + 1;
+
+                    if (totalChars + charcount > maxLineLength)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        totalChars += charcount;
+                    }
+                }
+
+                if (j == 0)
+                {
+                    prepStrs.add(strs[i]);
+                    break;
+                }
+
+                String prepStr = "";
+                for(int k = start; k < j; k++)
+                {
+                    prepStr += linesplit[k];
+                    if (k != (j - 1))
+                    {
+                        prepStr += " ";
+                    }
+                }
+
+                prepStrs.add(prepStr);
+
+                start = j;
+            }
+        }
+
+        for(int i = 0; i < prepStrs.size(); i++)
+        {
+            this.add(prepStrs.get(i));
+        }
+    }
+
     @Override
     public String toString()
     {
