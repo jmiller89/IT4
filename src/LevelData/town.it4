@@ -1,0 +1,405 @@
+#This level was created using the IT4 Level Editor
+
+[header]
+startX 27
+startY 5
+sections 3
+[/header]
+
+[objectives]
+251 2 27 5
+Get back to Huemul Island
+[dialog]
+[/dialog]
+251 1 7 7
+Follow Benitez to the safehouse
+[dialog]
+[Benitez]
+Now we can talk without worry.
+
+[Player]
+I never thought I would be face-to-face with "The Ghost of Isla Borbon". You're pretty much a legend in the mercenary circle.
+
+[Benitez]
+Some may call me that. I was just doing my job, just like you.
+
+[Player]
+Tell me, how did it all start?
+
+[Benitez]
+My father was an immigrant from Germany after World War 2. He met my mother, a local Argentinian woman in Bariloche, in 1959. They got married and had me 9 months later. I have been living in Bariloche my whole life.
+When I was in my early 20's, I was recruited by the British SAS in the Falklands War. I was a member of a special forces group responsible for the Raid on Pebble Island.
+
+[Player]
+That's how you got the nickname "The Ghost of Isla Borbon"...
+
+[Benitez]
+Exactly. I personally scuttled 11 aircraft, a fuel dump, an ammo dump, and took down a high-profile commander at the airfield on that island.
+
+[Player]
+That's quite a feat for just one man.
+
+[Benitez]
+Is it very different from the mission you're on now?
+
+[Player]
+This is different... I'm on a rescue mission.
+
+[Benitez]
+Yes, I know. I saw you trying to resuce the UN official. It is a shame that he had to die.
+
+[Player]
+Why did they kill him?
+
+[Benitez]
+Because he knew too much. They were going to kill you too, but first they were going to interrogate you. You're lucky I was around to get you out of there.
+
+[Player]
+I am very grateful for this. Why did you rescue me? Out of the kindness of your heart?
+
+[Benitez]
+Unfortunately, no. I need your help with something very important to me. Someone actually.
+
+[Player]
+Someone?
+
+[Benitez]
+Yes. I have a daughter. She is an undercover reporter on Huemul Island right now. She kept talking about how this story could really make her career. We had been in contact with each other every morning and every night. I knew something was wrong when I didn't hear from her once two days ago.
+I have not heard from her since. I am too old to rescue her myself. I have been retired from my profession for 20 years now. That is why I need your help rescuing her.
+
+[Player]
+She's been on the island, so she obviously has some valuable intel. Rescuing her would be beneficial to my mission. If she's alive, that is.
+
+[Benitez]
+Somehow, I know she is. I can just feel it. But still, I worry greatly for her safety.
+
+[Player]
+There's a lot of buildings on that island. I will need something to go on, like what does she look like, where was she last before you lost radio contact?
+
+[Benitez]
+She takes after her mother. Long, light brown hair, hazel colored eyes, slightly tan complexion. She's about 167 cm tall, weighs approximately 57 kg. The last radio transmission she sent me was from the barracks, to the northeast of the beach you first landed on.
+
+[Player]
+What is her name?
+
+[Benitez]
+Sofia. Her name is Sofia. Please help me rescue her.
+
+[Player]
+I will. Tell me, what was Sofia wearing? Might help me spot her.
+
+[Benitez]
+She was dressed as one of the Huemul Island guards, but she doesn't wear a mask. I wish I could tell you more, but that is all I know of her whereabouts.
+
+[Player]
+That should be enough to go on. Is there anything else you can tell me about the island?
+
+[Benitez]
+I'm sure you're aware of Bariloche's history of harboring ex-Nazis after the war. Many of their descendants still live here today. Project Huemul ended 7 years before I was born, but my father always warned me to never venture to that island. I heard rumors of people taking their children there, and returning without their kids,
+never to see them again. That has been going on for as long as I can remember. Terrible things happen on Huemul Island.
+
+[Player]
+The UN official thought that "Project Huemul" was a cover-up for something far more sinister. I will need to arm myself if I am to go back to the island and rescue your daughter.
+
+[Benitez]
+I do have a pistol you could take. I have a suppressor for it, too. The design is dated, but the gun served me well. It is not much, but it packs a punch and doesn't jam easily.
+
+[Player]
+It'll do for now.
+
+[Benitez]
+Go pick up the pistol, and please, bring my daughter back to safety. She is all I have left.
+[/dialog]
+251 1 10 7
+Re-arm yourself with new weapons
+[dialog]
+[/dialog]
+[/objectives]
+
+[room]
+
+[header]
+sizeX 40
+sizeY 44
+DGC 44
+alert false
+song 0
+|none|normal
+[/header]
+
+[tileMap]
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 299 56 299 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 54 55 54 54 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 55 55 55 54 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 55 55 55 54 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 55 55 55 54 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 54 55 54 54 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 54 54 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 43 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 43 43 43 43
+380 380 380 380 380 380 380 380 380 380 380 380 380 380 380 380 389 43 43 43 43 43 43 43 43 43 43 43 43 43 43 390 380 56 56 56 380 380 380 380
+44 392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 381 43 43 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 392 44
+44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 392 385 389 43 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 393 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 385 389 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 44 44
+44 52 52 52 52 52 52 52 52 52 52 52 52 52 52 44 44 44 385 389 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 44 44
+44 52 52 52 52 52 52 52 52 52 52 52 52 52 52 44 44 44 44 381 43 43 43 43 43 43 43 43 43 43 43 382 46 46 56 46 46 44 44 44
+44 252 252 252 252 252 252 252 252 252 252 252 252 252 252 44 44 392 44 381 43 43 43 43 43 43 43 43 43 43 43 388 384 46 44 46 44 44 44 392
+44 252 180 252 252 252 180 252 252 180 252 252 252 180 252 44 44 393 44 381 43 43 43 43 43 43 43 43 43 43 43 43 382 103 44 105 44 392 44 393
+44 252 252 252 252 252 252 252 252 252 252 252 252 252 252 44 392 44 44 385 389 43 43 43 43 43 43 43 43 390 380 380 386 104 44 106 392 393 44 44
+44 252 252 252 44 252 252 252 252 252 252 44 252 252 252 44 393 44 44 44 385 380 380 380 380 380 380 380 380 386 392 44 44 44 44 44 393 44 44 392
+392 44 44 44 44 44 44 392 392 44 44 44 44 44 44 44 44 44 392 44 44 44 44 44 44 44 392 44 44 44 393 44 44 44 44 44 44 44 44 393
+393 44 44 44 44 44 44 393 393 44 44 44 44 44 44 44 44 44 393 44 44 44 392 44 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44
+62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63
+392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44
+393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 392
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393
+44 52 52 52 52 52 52 52 44 44 44 52 52 52 52 52 52 52 44 44 44 44 52 52 52 52 52 52 52 52 52 52 52 52 52 52 52 44 392 44
+44 52 52 52 52 52 52 52 44 44 44 52 52 52 52 52 52 52 44 44 44 44 52 52 52 52 52 52 52 52 52 52 52 52 52 52 52 44 393 44
+44 252 252 252 252 252 252 252 44 392 44 252 252 252 252 252 252 252 392 44 44 392 252 252 252 252 252 252 252 252 252 252 252 252 252 252 252 392 44 392
+44 252 180 252 252 252 180 252 44 393 44 252 180 252 252 252 180 252 393 44 44 393 252 180 180 252 252 180 180 252 180 180 252 252 180 180 252 393 44 393
+44 252 252 252 252 252 252 252 44 44 44 252 252 252 252 252 252 252 44 44 44 44 252 180 180 252 252 180 180 252 180 180 252 252 180 180 252 44 44 44
+44 252 252 252 44 252 252 252 44 44 44 252 252 252 44 252 252 252 44 44 44 44 252 252 252 252 252 252 252 252 252 252 252 252 252 252 252 44 44 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 47 44 47 44 44 44 44 44 44 252 252 252 252 252 252 252 44 252 252 252 252 252 252 252 44 44 44
+44 44 44 392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 392 44 392 44 44 44 44 44 44 44 392 44
+392 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 393 44 44 44 44 44 44 44 393 392
+393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393
+[/tileMap]
+
+[items]
+[/items]
+
+[doors]
+29 40 0 25 false
+4 39 0 25 false
+11 22 0 25 false
+4 22 0 25 false
+14 39 0 0 true
+[/doors]
+
+[npcs]
+OLD_MAN FRIEND
+[path]
+27 3 RIGHT CONTINUE
+34 3 DOWN CONTINUE
+34 32 LEFT CONTINUE
+19 32 DOWN CONTINUE
+19 41 LEFT CONTINUE
+14 41 UP CONTINUE
+14 39 UP WARP
+[/path]
+WOMAN3 FRIEND
+[path]
+5 14 LEFT STOP
+[/path]
+WOMAN2 FRIEND
+[path]
+3 14 RIGHT STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+14 39 false 1 7 11 0
+[/warps]
+
+[dialog]
+San Carlos de Bariloche, Rio Negro, Argentina
+
+[Benitez]
+Follow me to the safehouse.
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+27 5 UP CONTINUE
+27 3 RIGHT CONTINUE
+34 3 DOWN CONTINUE
+34 32 LEFT CONTINUE
+19 32 DOWN CONTINUE
+19 41 LEFT CONTINUE
+14 41 UP CONTINUE
+14 39 UP STOP
+[/playerpath]
+
+[/room]
+
+[room]
+
+[header]
+sizeX 15
+sizeY 15
+DGC 256
+alert false
+song 0
+|none|normal
+[/header]
+
+[tileMap]
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 252 252 252 252 252 252 252 252 252 252 252 252 252 0
+0 252 252 252 252 252 252 252 252 252 252 252 252 252 0
+0 252 82 178 178 252 208 208 208 252 112 256 145 252 0
+0 252 82 82 82 252 256 256 256 252 147 256 256 252 0
+0 252 256 256 256 252 256 256 256 252 256 256 256 252 0
+0 252 256 147 256 252 256 256 256 252 256 256 256 252 0
+0 252 256 153 256 252 252 256 252 252 256 252 252 252 0
+0 252 256 152 256 256 256 256 256 256 256 252 391 252 0
+0 252 256 147 256 256 256 256 256 256 256 252 256 252 0
+0 252 256 256 256 256 256 256 256 256 256 256 256 252 0
+0 252 252 252 252 252 252 256 252 252 252 252 252 252 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[/tileMap]
+
+[items]
+PISTOL 10 7 1
+SECONDARY_SILENCER 12 7 1
+SECONDARY_MAG 11 6 1
+SECONDARY_MAG 12 5 1
+[/items]
+
+[doors]
+12 10 0 0 false
+7 8 0 0 false
+10 8 0 1 false
+7 12 0 2 false
+[/doors]
+
+[npcs]
+OLD_MAN FRIEND
+[path]
+7 6 DOWN STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+7 12 false 2 14 40 0
+[/warps]
+
+[dialog]
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+[/playerpath]
+
+[/room]
+
+[room]
+
+[header]
+sizeX 40
+sizeY 44
+DGC 44
+alert false
+song 0
+|none|normal
+[/header]
+
+[tileMap]
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 299 56 299 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 54 55 54 54 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 55 55 55 54 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 55 55 55 54 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 55 55 55 54 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 54 55 54 54 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 54 54 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 54 43 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 43 43 43 43
+380 380 380 380 380 380 380 380 380 380 380 380 380 380 380 380 389 43 43 43 43 43 43 43 43 43 43 43 43 43 43 390 380 56 56 56 380 380 380 380
+44 392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 381 43 43 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 392 44
+44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 392 385 389 43 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 393 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 385 389 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 44 44
+44 52 52 52 52 52 52 52 52 52 52 52 52 52 52 44 44 44 385 389 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 44 44
+44 52 52 52 52 52 52 52 52 52 52 52 52 52 52 44 44 44 44 381 43 43 43 43 43 43 43 43 43 43 43 382 46 46 56 46 46 44 44 44
+44 252 252 252 252 252 252 252 252 252 252 252 252 252 252 44 44 392 44 381 43 43 43 43 43 43 43 43 43 43 43 388 384 46 44 46 44 44 44 392
+44 252 180 252 252 252 180 252 252 180 252 252 252 180 252 44 44 393 44 381 43 43 43 43 43 43 43 43 43 43 43 43 382 103 44 105 44 392 44 393
+44 252 252 252 252 252 252 252 252 252 252 252 252 252 252 44 392 44 44 385 389 43 43 43 43 43 43 43 43 390 380 380 386 104 44 106 392 393 44 44
+44 252 252 252 44 252 252 252 252 252 252 44 252 252 252 44 393 44 44 44 385 380 380 380 380 380 380 380 380 386 392 44 44 44 44 44 393 44 44 392
+392 44 44 44 44 44 44 392 392 44 44 44 44 44 44 44 44 44 392 44 44 44 44 44 44 44 392 44 44 44 393 44 44 44 44 44 44 44 44 393
+393 44 44 44 44 44 44 393 393 44 44 44 44 44 44 44 44 44 393 44 44 44 392 44 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44
+62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63
+392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44
+393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 392
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393
+44 52 52 52 52 52 52 52 44 44 44 52 52 52 52 52 52 52 44 44 44 44 52 52 52 52 52 52 52 52 52 52 52 52 52 52 52 44 392 44
+44 52 52 52 52 52 52 52 44 44 44 52 52 52 52 52 52 52 44 44 44 44 52 52 52 52 52 52 52 52 52 52 52 52 52 52 52 44 393 44
+44 252 252 252 252 252 252 252 44 392 44 252 252 252 252 252 252 252 392 44 44 392 252 252 252 252 252 252 252 252 252 252 252 252 252 252 252 392 44 392
+44 252 180 252 252 252 180 252 44 393 44 252 180 252 252 252 180 252 393 44 44 393 252 180 180 252 252 180 180 252 180 180 252 252 180 180 252 393 44 393
+44 252 252 252 252 252 252 252 44 44 44 252 252 252 252 252 252 252 44 44 44 44 252 180 180 252 252 180 180 252 180 180 252 252 180 180 252 44 44 44
+44 252 252 252 44 252 252 252 44 44 44 252 252 252 44 252 252 252 44 44 44 44 252 252 252 252 252 252 252 252 252 252 252 252 252 252 252 44 44 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 47 44 47 44 44 44 44 44 44 252 252 252 252 252 252 252 44 252 252 252 252 252 252 252 44 44 44
+44 44 44 392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 392 44 392 44 44 44 44 44 44 44 392 44
+392 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 393 44 44 44 44 44 44 44 393 392
+393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393
+[/tileMap]
+
+[items]
+[/items]
+
+[doors]
+4 22 0 25 false
+11 22 0 25 false
+4 39 0 25 false
+29 40 0 25 false
+14 39 0 0 true
+[/doors]
+
+[npcs]
+WOMAN2 FRIEND
+[path]
+3 14 RIGHT STOP
+[/path]
+WOMAN3 FRIEND
+[path]
+5 14 LEFT STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+27 5 true 0 1 1 0
+14 39 false 1 7 11 0
+[/warps]
+
+[dialog]
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+[/playerpath]
+
+[/room]
+

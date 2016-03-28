@@ -116,15 +116,7 @@ song 10
 [/doors]
 
 [npcs]
-SPECIAL
-[path]
-8 15 DOWN STOP
-[/path]
-SPECIAL
-[path]
-10 15 DOWN STOP
-[/path]
-FEMALE_ALLY
+FEMALE_ALLY FRIEND
 [path]
 16 25 LEFT CONTINUE
 9 25 UP CONTINUE
@@ -132,6 +124,14 @@ FEMALE_ALLY
 9 12 LEFT CONTINUE
 7 12 UP CONTINUE
 7 11 UP STOP
+[/path]
+SPECIAL FRIEND
+[path]
+10 15 DOWN STOP
+[/path]
+SPECIAL FRIEND
+[path]
+8 15 DOWN STOP
 [/path]
 [/npcs]
 
@@ -218,23 +218,23 @@ song 10
 [/doors]
 
 [npcs]
-CHIEF
+CHIEF FRIEND
 [path]
 4 2 DOWN STOP
 [/path]
-SPECIAL
+SPECIAL FRIEND
 [path]
 8 3 UP STOP
 [/path]
-SPECIAL
+SPECIAL FRIEND
 [path]
 9 6 UP STOP
 [/path]
-SPECIAL
+SPECIAL FRIEND
 [path]
 8 9 UP STOP
 [/path]
-FEMALE_ALLY
+FEMALE_ALLY FRIEND
 [path]
 6 13 DOWN FOLLOW_PLAYER
 [/path]
@@ -314,13 +314,13 @@ GASMASK 6 15 1
 [/doors]
 
 [npcs]
-CHIEF
-[path]
-7 15 LEFT STOP
-[/path]
-FEMALE_ALLY
+FEMALE_ALLY FRIEND
 [path]
 5 15 RIGHT STOP
+[/path]
+CHIEF FRIEND
+[path]
+7 15 LEFT STOP
 [/path]
 [/npcs]
 
@@ -396,7 +396,7 @@ PRIMARY_MAG 17 9 1
 [/doors]
 
 [npcs]
-WORM
+MUTANT1
 [path]
 1 3 RIGHT WAIT_AND_CONTINUE
 11 3 LEFT WAIT_AND_CONTINUE
@@ -480,13 +480,13 @@ song 10
 [/doors]
 
 [npcs]
-FEMALE_ALLY
-[path]
-7 8 DOWN STOP
-[/path]
-CHIEF
+CHIEF FRIEND
 [path]
 5 8 DOWN STOP
+[/path]
+FEMALE_ALLY FRIEND
+[path]
+7 8 DOWN STOP
 [/path]
 [/npcs]
 
@@ -550,25 +550,25 @@ MEDKIT 7 11 1
 [/doors]
 
 [npcs]
-FEMALE_ALLY
+FEMALE_ALLY FRIEND
 [path]
 5 13 DOWN FOLLOW_PLAYER
 [/path]
-SPECIAL
+SPECIAL FRIEND
 [path]
 1 8 DOWN STOP
 [/path]
-SPECIAL
-[path]
-7 7 DOWN STOP
-[/path]
-SPECIAL
+SPECIAL FRIEND
 [path]
 2 8 RIGHT STOP
 [/path]
-SPECIAL
+SPECIAL FRIEND
 [path]
 6 7 LEFT STOP
+[/path]
+SPECIAL FRIEND
+[path]
+7 7 DOWN STOP
 [/path]
 [/npcs]
 

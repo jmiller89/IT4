@@ -84,6 +84,18 @@ public class Path
         nextWaypoint = 0;
     }
 
+    public void refresh()
+    {
+        if (waypoints.size() > 1)
+        {
+            nextWaypoint = 1;
+        }
+        else
+        {
+            nextWaypoint = 0;
+        }
+    }
+
     public Waypoint getCurrentWaypoint()
     {
         if ((nextWaypoint - 1) >= 0)
@@ -139,5 +151,16 @@ public class Path
         return waypoints;
     }
 
+    @Override
+    public String toString()
+    {
+        String ws = "num waypoints: " + waypoints.size() + " nextWaypoint=" + this.nextWaypoint + "\n";
+        for(int i = 0; i < waypoints.size(); i++)
+        {
+            Waypoint w = waypoints.get(i);
+            ws += "Waypoint " + i + ": X=" + w.getXPos() + " Y=" + w.getYPos() + " Direction=" + w.getDirection().toString() + " Behavior=" + w.getBehavior().toString() + "\n";
+        }
+        return ws;
+    }
 
 }

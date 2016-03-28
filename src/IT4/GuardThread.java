@@ -872,6 +872,8 @@ public class GuardThread implements Runnable
     {
         //System.out.println("Spawning NPC");
 
+        guard.getPath().refresh();
+
         guard.wayX = guard.getPath().getNextWaypoint().getXPos() * 40;
         guard.wayY = guard.getPath().getNextWaypoint().getYPos() * 40;
         //guard.obstacleMatrix = game.getObstacleMatrix();
