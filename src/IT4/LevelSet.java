@@ -670,25 +670,25 @@ public class LevelSet
         switch(index)
         {
             case 0:
-                it = Weapon.create((short)71, x, y, ItemType.PISTOL, 2);
+                it = Weapon.create(x, y, ItemType.PISTOL, 2);
                 break;
             case 1:
                 it = new Item((short)70, x, y, ItemType.MEDKIT, 1);
                 break;
             case 2:
-                it = Weapon.create((short)205, x, y, ItemType.SMG, 2);
+                it = Weapon.create(x, y, ItemType.SMG, 2);
                 break;
             case 3:
-                it = Weapon.create((short)73, x, y, ItemType.ASSAULT_RIFLE, 2);
+                it = Weapon.create(x, y, ItemType.ASSAULT_RIFLE, 2);
                 break;
             case 4:
-                it = Weapon.create((short)250, x, y, ItemType.TRANQ_PISTOL, 2);
+                it = Weapon.create(x, y, ItemType.TRANQ_PISTOL, 3);
                 break;
             case 5:
-                it = Weapon.create((short)206, x, y, ItemType.SHOTGUN, 2);
+                it = Weapon.create(x, y, ItemType.SHOTGUN, 2);
                 break;
             case 6:
-                it = Weapon.create((short)191, x, y, ItemType.GRENADE, 1);
+                it = Weapon.create(x, y, ItemType.GRENADE, 2);
                 break;
             case 7:
                 it = new Item((short)207, x, y, ItemType.BODY_ARMOR, 1);
@@ -697,7 +697,7 @@ public class LevelSet
                 it = new Item((short)96, x, y, ItemType.BOOSTER_KIT, 1);
                 break;
             case 9:
-                it = Weapon.create((short)368, x, y, ItemType.C4, 1);
+                it = Weapon.create(x, y, ItemType.C4, 2);
                 break;
         }
         

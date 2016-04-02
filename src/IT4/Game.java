@@ -1340,7 +1340,7 @@ public final class Game
 
     private void cardKeyDenied(int req)
     {
-        setHUDMessage("Requires security card level " + req, HUDMessageType.ACCESS_DENIED);
+        setHUDMessage("Requires card " + req, HUDMessageType.ACCESS_DENIED);
     }
 
     private void doorLocked()

@@ -936,7 +936,7 @@ public class LevelLoader
         Item myItem;
         if (isWeapon)
         {
-            myItem = Weapon.create(id, x, y, type, rank);
+            myItem = Weapon.create(x, y, type, rank);
         }
         else
         {

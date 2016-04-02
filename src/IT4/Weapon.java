@@ -8,7 +8,7 @@ package IT4;
  */
 public class Weapon extends Item
 {
-    public static Weapon create(short id, int x, int y, ItemType it, int rank)
+    public static Weapon create(int x, int y, ItemType it, int rank)
     {
         String name = "Knife";
         int damage = 16;
@@ -21,9 +21,12 @@ public class Weapon extends Item
         int silencerDurability = 0;
         boolean suppressed = false;
         String description = "Standard Combat Knife.";
+        short id = 73;
 
         if (it == ItemType.PISTOL)
         {
+            id = 71;
+
             if (rank == 1)
             {
                 //22|85|800|0|7|35|1|14|false
@@ -37,6 +40,7 @@ public class Weapon extends Item
                 fireRate = 1;
                 silencerDurability = 14;
                 suppressed = false;
+                id = 449;
 
                 description = "Pistol Rank 1. American origin, .45 caliber. Antiquated design that combines reliable stopping power with decent accuracy. Has a magazine capacity of 7 rounds. Can attach low-durability suppressors.";
             }
@@ -53,6 +57,7 @@ public class Weapon extends Item
                 fireRate = 1;
                 silencerDurability = 30;
                 suppressed = false;
+                id = 71;
 
                 description = "Pistol Rank 2. Belgian origin, .45 caliber. Modern design with high stopping power and good accuracy. Has a magazine capacity of 10 rounds. Can attach medium-durability suppressors.";
             }
@@ -69,12 +74,15 @@ public class Weapon extends Item
                 fireRate = 1;
                 silencerDurability = 999;
                 suppressed = true;
+                id = 450;
 
                 description = "Pistol Rank 3. German origin, .45 caliber. Custom design with high stopping power and excellent accuracy. Has a magazine capacity of 12 rounds. Equipped with an infinitely-durable suppressor.";
             }
         }
         else if (it == ItemType.TRANQ_PISTOL)
         {
+            id = 250;
+
             if (rank == 1)
             {
                 //1|80|240|12|3|9|0|9|true
@@ -126,6 +134,8 @@ public class Weapon extends Item
         }
         else if (it == ItemType.SMG)
         {
+            id = 205;
+
             if (rank == 1)
             {
                 //20|50|720|0|20|100|92|10|false
@@ -139,6 +149,7 @@ public class Weapon extends Item
                 fireRate = 92;
                 silencerDurability = 20;
                 suppressed = false;
+                id = 451;
 
                 description = "SMG Rank 1. American origin, civilain model. Retro-fitted for moderately fast fully-automatic fire. Features weak stopping power and poor accuracy. Has a magazine capacity of 20 rounds. Can attach low-durability suppressors.";
             }
@@ -155,6 +166,7 @@ public class Weapon extends Item
                 fireRate = 98;
                 silencerDurability = 120;
                 suppressed = false;
+                id = 205;
 
                 description = "SMG Rank 2. German origin, personal defense weapon. Preferred weapon of the opposition special forces. Features fast fully-automatic fire. Boasts improved stopping power and accuracy. Has a magazine capacity of 40 rounds. Can attach medium-durability suppressors.";
             }
@@ -171,12 +183,15 @@ public class Weapon extends Item
                 fireRate = 99;
                 silencerDurability = 250;
                 suppressed = true;
+                id = 452;
 
                 description = "SMG Rank 3. Belgian origin, personal defense weapon. Features fully-automatic fire at a blistering speed. Decent stopping power and accuracy. Has a magazine capacity of 50 rounds. Equipped with a high-durability suppressor.";
             }
         }
         else if (it == ItemType.ASSAULT_RIFLE)
         {
+            id = 73;
+
             if (rank == 1)
             {
                 //30|85|1200|0|20|100|1|20|false
@@ -190,6 +205,7 @@ public class Weapon extends Item
                 fireRate = 1;
                 silencerDurability = 20;
                 suppressed = false;
+                id = 453;
 
                 description = "Assault Rifle Rank 1. American origin, civilian model. Features semi-automatic fire with good stopping power and accuracy. Has a magazine capacity of 20 rounds. Can attach a low-durability suppressor.";
             }
@@ -206,8 +222,9 @@ public class Weapon extends Item
                 fireRate = 95;
                 silencerDurability = 30;
                 suppressed = false;
+                id = 454;
 
-                description = "Assault Rifle Rank 2. Argentinian origin. Standard-issue rifle of the enemy. Features fully-automatic fire with good stopping power and accuracy. Has a magazine capacity of 30 rounds. Can attach a low-durability suppressor.";
+                description = "Assault Rifle Rank 2. Argentine origin. Standard-issue rifle of the enemy. Features fully-automatic fire with good stopping power and accuracy. Has a magazine capacity of 30 rounds. Can attach a low-durability suppressor.";
             }
             else
             {
@@ -222,12 +239,15 @@ public class Weapon extends Item
                 fireRate = 98;
                 silencerDurability = 60;
                 suppressed = false;
+                id = 455;
 
                 description = "Assault Carbine Rank 3. American origin. Features improved fully-automatic fire with high stopping power and impeccable accuracy. Has a magazine capacity of 30 rounds. Can attach a medium-durability suppressor.";
             }
         }
         else if (it == ItemType.SHOTGUN)
         {
+            id = 206;
+
             if (rank == 1)
             {
                 //15|--|550|0|5|20|1|0|false
@@ -241,6 +261,7 @@ public class Weapon extends Item
                 fireRate = 1;
                 silencerDurability = 0;
                 suppressed = false;
+                id = 456;
 
                 description = "Shotgun Rank 1. American origin. Features semi-automatic fire. Does high damage at close ranges. Has a magazine capacity of 5 shells.";
             }
@@ -257,6 +278,7 @@ public class Weapon extends Item
                 fireRate = 1;
                 silencerDurability = 0;
                 suppressed = false;
+                id = 457;
 
                 description = "Shotgun Rank 2. Italian origin. Features semi-automatic fire. Does very high damage at close ranges. Has a magazine capacity of 8 shells.";
             }
@@ -273,12 +295,15 @@ public class Weapon extends Item
                 fireRate = 87;
                 silencerDurability = 0;
                 suppressed = false;
+                id = 458;
 
                 description = "Shotgun Rank 3. Russian origin. Does high damage at close ranges. Boasts a fully-automatic rate of fire at the cost of a reduced effective range. Has a magazine capacity of 15 shells.";
             }
         }
         else if (it == ItemType.GRENADE)
         {
+            id = 191;
+            
             if (rank == 1)
             {
                 name = "Grenade";
@@ -327,6 +352,8 @@ public class Weapon extends Item
         }
         else if (it == ItemType.C4)
         {
+            id = 368;
+            
             if (rank == 1)
             {
                 name = "C4";
@@ -384,39 +411,8 @@ public class Weapon extends Item
     }
 
     public static Weapon create(ItemType it, int rank)
-    {
-        short id = 71;
-        int x = 0, y = 0;
-        if (it == ItemType.ASSAULT_RIFLE)
-        {
-            id = 73;
-        }
-        else if (it == ItemType.PISTOL)
-        {
-            id = 71;
-        }
-        else if (it == ItemType.TRANQ_PISTOL)
-        {
-            id = 250;
-        }
-        else if (it == ItemType.SMG)
-        {
-            id = 205;
-        }
-        else if (it == ItemType.SHOTGUN)
-        {
-            id = 206;
-        }
-        else if (it == ItemType.GRENADE)
-        {
-            id = 191;
-        }
-        else if (it == ItemType.C4)
-        {
-            id = 368;
-        }
-        
-        return create(id, x, y, it, rank);
+    {        
+        return create(0, 0, it, rank);
     }
 
     public static Weapon load(String ser)

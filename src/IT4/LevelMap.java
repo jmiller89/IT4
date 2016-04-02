@@ -163,7 +163,7 @@ public class LevelMap
                         || (levMap[j][i] == 299) || (levMap[j][i] == 300)
                         || ((levMap[j][i] >= 358) && (levMap[j][i] < 365)) || (levMap[j][i] >= 366) && (levMap[j][i] < 369)
                         || ((levMap[j][i] > 370) && (levMap[j][i] < 379))
-                        || ((levMap[j][i]) > 391))
+                        || ((levMap[j][i] > 391) && (levMap[j][i] < 445)))
                 {
                     obstacleMatrix[j][i] = 0;
                 }
@@ -313,6 +313,11 @@ public class LevelMap
                             grassWaterDoors[j][i] = 7;
                         }
                     }
+                }
+
+                if ((levMap[j][i] == 445) || (levMap[j][i] == 446) || (levMap[j][i] == 447) || (levMap[j][i] == 448))
+                {
+                    grassWaterDoors[j][i] = 0;
                 }
 
             }
