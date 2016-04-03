@@ -264,7 +264,7 @@ public class NPC extends ITCharacter
     public NPC copy()
     {
         //(short id, int x, int y, Direction d, int chlth, NPCStatus s, boolean friend, int weaponDmg, Path p, GuardType t)
-        NPC n = new NPC(this.initialID, this.getX(), this.getY(), this.getDirection(), this.getCurrentHealth(), this.getStatus(), this.friendly, this.getWeaponDamage(), this.getPath(), this.getType());
+        NPC n = new NPC(this.initialID, this.getX(), this.getY(), this.getDirection(), this.getCurrentHealth(), this.getStatus(), this.friendly, this.getWeaponDamage(), this.getPath().copy(), this.getType());
         n.bodyArmor = this.bodyArmor;
         n.dialog = this.dialog;
 
@@ -376,7 +376,7 @@ public class NPC extends ITCharacter
         }
     }
 
-    protected void setPath(Path p)
+    public void setPath(Path p)
     {
         path = p;
     }
