@@ -296,7 +296,7 @@ public class GameFileManager
                 out.newLine();
                 for(int j = 0; j < items.get(i).size(); j++)
                 {
-                    out.write(items.get(i).get(j).getType().toString() + " " + items.get(i).get(j).getTileX() + " " + items.get(i).get(j).getTileY());
+                    out.write(items.get(i).get(j).getType().toString() + " " + items.get(i).get(j).getTileX() + " " + items.get(i).get(j).getTileY() + " " + items.get(i).get(j).rank);
                     out.newLine();
                 }
                 out.write("[/items]");

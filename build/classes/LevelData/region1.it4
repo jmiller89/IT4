@@ -4,6 +4,7 @@
 startX 1
 startY 37
 sections 12
+STRIP_ITEMS
 [/header]
 
 [objectives]
