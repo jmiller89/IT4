@@ -136,6 +136,7 @@ public class Backpack
     public void clear()
     {
         healthKits = 0;
+        securityCardLevel = 0;
         selectedWeapon = null;
         selectedItem = items[0];
 

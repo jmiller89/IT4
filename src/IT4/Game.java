@@ -1009,8 +1009,15 @@ public final class Game
                 {
                     currentLevelMap.getWarps().get(i).isPlayerInWarp = true;
 
-                    player.setX(currentLevelMap.getWarps().get(i).getPlayerWarpX());
-                    player.setY(currentLevelMap.getWarps().get(i).getPlayerWarpY());
+                    int warpx, warpy;
+                    warpx = currentLevelMap.getWarps().get(i).getPlayerWarpX();
+                    warpy = currentLevelMap.getWarps().get(i).getPlayerWarpY();
+
+                    if ((warpx >= 0) && (warpy >= 0))
+                    {
+                        player.setX(warpx);
+                        player.setY(warpy);
+                    }
 
                     synchronized (followerLock)
                     {
@@ -1100,6 +1107,7 @@ public final class Game
                 {
                     System.out.println("Stripping all Weapons and Items...");
                     player.stripItems();
+                    resetCardKey();
                     nightVision = false;
                 }
             }
@@ -1266,9 +1274,19 @@ public final class Game
             {
                 if (!playerOnPath)
                 {
-                    if ((player.getTileX() == currentLevelMap.playerPath.getStartingWaypoint().getXPos()) && (player.getTileY() == currentLevelMap.playerPath.getStartingWaypoint().getYPos()))
+                    int xpos,ypos;
+                    xpos = currentLevelMap.playerPath.getStartingWaypoint().getXPos();
+                    ypos = currentLevelMap.playerPath.getStartingWaypoint().getYPos();
+                    if ((player.getTileX() == xpos) && (player.getTileY() == ypos))
                     {
                         playerOnPath = true;
+                    }
+                    else
+                    {
+                        if ((xpos < 0) || (ypos < 0))
+                        {
+                            playerOnPath = true;
+                        }
                     }
                 }
             }
@@ -2856,7 +2874,11 @@ public final class Game
         {
             if (!playerOnPath)
             {
-                if ((player.getTileX() == currentLevelMap.playerPath.getStartingWaypoint().getXPos()) && (player.getTileY() == currentLevelMap.playerPath.getStartingWaypoint().getYPos()))
+                int xpos, ypos;
+                Waypoint swp = currentLevelMap.playerPath.getStartingWaypoint();
+                xpos = swp.getXPos();
+                ypos = swp.getYPos();
+                if ((player.getTileX() == xpos) && (player.getTileY() == ypos))
                 {
                     playerOnPath = true;
                 }
@@ -2951,7 +2973,11 @@ public final class Game
         {
             if (!playerOnPath)
             {
-                if ((player.getTileX() == currentLevelMap.playerPath.getStartingWaypoint().getXPos()) && (player.getTileY() == currentLevelMap.playerPath.getStartingWaypoint().getYPos()))
+                int xpos, ypos;
+                Waypoint swp = currentLevelMap.playerPath.getStartingWaypoint();
+                xpos = swp.getXPos();
+                ypos = swp.getYPos();
+                if ((player.getTileX() == xpos) && (player.getTileY() == ypos))
                 {
                     playerOnPath = true;
                 }
@@ -3046,7 +3072,11 @@ public final class Game
         {
             if (!playerOnPath)
             {
-                if ((player.getTileX() == currentLevelMap.playerPath.getStartingWaypoint().getXPos()) && (player.getTileY() == currentLevelMap.playerPath.getStartingWaypoint().getYPos()))
+                int xpos, ypos;
+                Waypoint swp = currentLevelMap.playerPath.getStartingWaypoint();
+                xpos = swp.getXPos();
+                ypos = swp.getYPos();
+                if ((player.getTileX() == xpos) && (player.getTileY() == ypos))
                 {
                     playerOnPath = true;
                 }
@@ -3140,7 +3170,11 @@ public final class Game
         {
             if (!playerOnPath)
             {
-                if ((player.getTileX() == currentLevelMap.playerPath.getStartingWaypoint().getXPos()) && (player.getTileY() == currentLevelMap.playerPath.getStartingWaypoint().getYPos()))
+                int xpos, ypos;
+                Waypoint swp = currentLevelMap.playerPath.getStartingWaypoint();
+                xpos = swp.getXPos();
+                ypos = swp.getYPos();
+                if ((player.getTileX() == xpos) && (player.getTileY() == ypos))
                 {
                     playerOnPath = true;
                 }

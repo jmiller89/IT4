@@ -138,11 +138,12 @@ OLD_MAN FRIEND
 [/spawns]
 
 [warps]
-6 10 false 1 6 10 0
 30 31 false 2 1 1 0
+6 10 false 1 -1 -1 0
 [/warps]
 
 [dialog]
+Several hours later...
 [/dialog]
 
 [cameras]
@@ -258,7 +259,7 @@ MAN FRIEND
 [path]
 26 8 DOWN STOP
 [/path]
-WOMAN2
+WOMAN2 FRIEND
 [path]
 6 24 DOWN STOP
 [/path]

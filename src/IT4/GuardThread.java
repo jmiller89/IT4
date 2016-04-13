@@ -841,7 +841,7 @@ public class GuardThread implements Runnable
     public void playerInit(Player player)
     {                
         //speedAdjuster = 20;
-        
+        //System.err.println("playerInit called");
         Path path = game.getPlayerPath();
         if ((path != null) && (player != null))
         {
@@ -849,21 +849,34 @@ public class GuardThread implements Runnable
             player.wayX = path.getNextWaypoint().getXPos() * 40;
             player.wayY = path.getNextWaypoint().getYPos() * 40;
 
-            player.setX(path.getStartingWaypoint().getXPos() * 40);
-            player.setY(path.getStartingWaypoint().getYPos() * 40);
-            player.changeDirection(path.getStartingWaypoint().getDirection());
+            int startx, starty;
+            startx = path.getStartingWaypoint().getXPos() * 40;
+            starty = path.getStartingWaypoint().getYPos() * 40;
 
-            if (player.getDirection() == Direction.DOWN)
+            if ((startx >= 0) && (starty >= 0))
             {
-                player.setID(player.getID() + 1);
+                player.setX(path.getStartingWaypoint().getXPos() * 40);
+                player.setY(path.getStartingWaypoint().getYPos() * 40);
+                player.changeDirection(path.getStartingWaypoint().getDirection());
+
+                if (player.getDirection() == Direction.DOWN)
+                {
+                    player.setID(player.getID() + 1);
+                }
+                if (player.getDirection() == Direction.LEFT)
+                {
+                    player.setID(player.getID() + 2);
+                }
+                if (player.getDirection() == Direction.RIGHT)
+                {
+                    player.setID(player.getID() + 3);
+                }
             }
-            if (player.getDirection() == Direction.LEFT)
+            else
             {
-                player.setID(player.getID() + 2);
-            }
-            if (player.getDirection() == Direction.RIGHT)
-            {
-                player.setID(player.getID() + 3);
+                path.reachedWaypoint();
+                player.wayX = path.getNextWaypoint().getXPos() * 40;
+                player.wayY = path.getNextWaypoint().getYPos() * 40;
             }
         }
     }

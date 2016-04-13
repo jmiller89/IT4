@@ -145,8 +145,8 @@ HEAVY
 [/spawns]
 
 [warps]
-44 37 false 1 9 8 0
 45 0 false 2 45 46 0
+44 37 false 1 7 8 0
 [/warps]
 
 [dialog]
@@ -217,7 +217,7 @@ true
 [room]
 
 [header]
-sizeX 20
+sizeX 15
 sizeY 15
 DGC 0
 alert false
@@ -226,25 +226,25 @@ song 3
 [/header]
 
 [tileMap]
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 109 109 109 109 109 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 109 98 98 98 109 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 109 98 98 98 109 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 109 98 98 98 109 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 109 98 98 98 109 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 109 109 98 109 109 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 109 109 109 109 109 0 0 0 0 0
+0 0 0 0 0 109 98 98 98 109 0 0 0 0 0
+0 0 0 0 0 109 98 98 98 109 0 0 0 0 0
+0 0 0 0 0 109 98 98 98 109 0 0 0 0 0
+0 0 0 0 0 109 98 98 98 109 0 0 0 0 0
+0 0 0 0 0 109 109 98 109 109 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 [/tileMap]
 
 [items]
-MEDKIT 9 5 1
+MEDKIT 7 5 1
 [/items]
 
 [doors]
@@ -257,7 +257,7 @@ MEDKIT 9 5 1
 [/spawns]
 
 [warps]
-9 9 false 0 44 38 0
+7 9 false 0 44 38 0
 [/warps]
 
 [dialog]
@@ -347,14 +347,6 @@ PRIMARY_AMMO 1 9 1
 [/doors]
 
 [npcs]
-CHIEF
-[path]
-10 5 DOWN STOP
-[/path]
-ISLAND_GUY
-[path]
-16 6 UP STOP
-[/path]
 HEAVY
 [path]
 38 45 UP CONTINUE
@@ -391,6 +383,14 @@ HEAVY
 HEAVY
 [path]
 22 2 RIGHT SLEEP
+[/path]
+MAN FRIEND
+[path]
+16 6 UP STOP
+[/path]
+SCIENTIST2 FRIEND
+[path]
+10 5 DOWN STOP
 [/path]
 [/npcs]
 
@@ -806,7 +806,7 @@ LIGHT
 10 17 LEFT CONTINUE
 9 17 UP CONTINUE
 [/path]
-LIGHT_ARMORED
+LIGHT
 [path]
 27 10 DOWN LONG_WAIT_AND_CONTINUE
 27 26 UP CONTINUE
@@ -830,8 +830,8 @@ LIGHT
 [/npcs]
 
 [spawns]
-47 34 LIGHT_ARMORED 3
-6 2 LIGHT_ARMORED 3
+47 34 LIGHT 3
+6 2 LIGHT 3
 [/spawns]
 
 [warps]
