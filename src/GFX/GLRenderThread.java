@@ -306,51 +306,53 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     //The following four methods are used to cull out of view tiles for radar
     private int getRMinX(int x)
     {
-        //was 19
-        if ((x - 23) < 0)
+        //was 23
+        if ((x - 13) < 0)
         {
             return 0;
         }
         else
         {
-            return (x - 23);
+            return (x - 13);
         }
     }
 
     private int getRMinY(int y)
     {
-        if ((y - 16) < 0)
+        //Was 16
+        if ((y - 10) < 0)
         {
             return 0;
         }
         else
         {
-            return (y - 16);
+            return (y - 10);
         }
     }
 
     private int getRMaxX(int x, int max)
     {
-        if ((x + 21) > max)
+        //Was 21
+        if ((x + 13) > max)
         {
             return max;
         }
         else
         {
-            return (x + 21);
+            return (x + 13);
         }
     }
 
     private int getRMaxY(int y, int max)
     {
-        //Was 15
-        if ((y + 16) > max)
+        //Was 16
+        if ((y + 10) > max)
         {
             return max;
         }
         else
         {
-            return (y + 16);
+            return (y + 10);
         }
     }
 
@@ -2003,8 +2005,8 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
             if (!game.jam)
             {
-                int PX = game.getPlayerX() / 8;
-                int PY = game.getPlayerY() / 8;
+                int PX = game.getPlayerX() / 5; //was /8
+                int PY = game.getPlayerY() / 5; //was /8
 
                 row = radarSolid / COLSIZE;
                 col = radarSolid - (row * COLSIZE);
@@ -2024,8 +2026,10 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                         {
                             //tileMap[j][i].draw(g, ((i*5) - (PX) + (90)) + 12, ((j*5) - (PY) + (75)) + 12);
                             int x,y,mx,my;
-                            x = ((i*5) + 610 - (PX) + (90));
-                            y = ((j*5) - (PY) + (75));
+                            //x = ((i*5) + 610 - (PX) + (90));
+                            //y = ((j*5) - (PY) + (75));
+                            x = ((i*8) + 610 - (PX) + (90));
+                            y = ((j*8) - (PY) + (75));
                             mx = x + 40;
                             my = y + 40;
 
@@ -2053,8 +2057,8 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                         {
                             int x=0,y=0,mx,my;
                             int ix, iy;
-                            ix = NPCs.get(i).getX() / 8;
-                            iy = NPCs.get(i).getY() / 8;
+                            ix = NPCs.get(i).getX() / 5;
+                            iy = NPCs.get(i).getY() / 5;
 
                             GL11.glColor4f(1.0f, 0, 0, 0.4f);
                             if (NPCs.get(i).getDirection() == Direction.UP)
@@ -2062,8 +2066,10 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                                 //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 28, 50, 80, 55, 70);
                                 row = vconeup / COLSIZE;
                                 col = vconeup - (row * COLSIZE);
-                                x = (ix - (PX) + (90)) - 18;
-                                y = (iy - (PY) + (75)) - 39;
+                                //x = (ix - (PX) + (90)) - 18;
+                                //y = (iy - (PY) + (75)) - 39;
+                                x = (ix - (PX) + (90)) - 29;
+                                y = (iy - (PY) + (75)) - 62;
 
                             }
                             else if (NPCs.get(i).getDirection() == Direction.DOWN)
@@ -2071,34 +2077,37 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                                 //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 23, 50, 80, 235, 70);
                                 row = vconedown / COLSIZE;
                                 col = vconedown - (row * COLSIZE);
-                                x = (ix - (PX) + (90)) - 18;
-                                y = (iy - (PY) + (75)) + 4;
+                                x = (ix - (PX) + (90)) - 29;
+                                y = (iy - (PY) + (75)) + 7;
                             }
                             else if (NPCs.get(i).getDirection() == Direction.LEFT)
                             {
                                 //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 29, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 145, 70);
                                 row = vconeleft / COLSIZE;
                                 col = vconeleft - (row * COLSIZE);
-                                x = (ix - (PX) + (90)) - 39;
-                                y = (iy - (PY) + (75)) - 17;
+                                x = (ix - (PX) + (90)) - 62;
+                                y = (iy - (PY) + (75)) - 27;
                             }
                             else if (NPCs.get(i).getDirection() == Direction.RIGHT)
                             {
                                 //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 24, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 325, 70);
                                 row = vconeright / COLSIZE;
                                 col = vconeright - (row * COLSIZE);
-                                x = (ix - (PX) + (90)) + 3;
-                                y = (iy - (PY) + (75)) - 17;
+                                x = (ix - (PX) + (90)) + 6;
+                                y = (iy - (PY) + (75)) - 27;
                             }
 
                             x+=610;
-                            mx = x + 40;
-                            my = y + 40;
+                            //mx = x + 40;
+                            //my = y + 40;
+                            mx = x + 64;
+                            my = y + 64;
 
-                            tx = getTX(col, height);
-                            tx2 = getTX(col + 1, height);
-                            ty = getTX(row, width);
-                            ty2 = getTX(row + 1, width);
+                            float fix = 0.001f;
+                            tx = getTX(col, height) + fix;
+                            tx2 = getTX(col + 1, height) - fix;
+                            ty = getTX(row, width) + fix;
+                            ty2 = getTX(row + 1, width) - fix;
 
 
                             //Draw tile
@@ -2135,8 +2144,8 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
                     int x,y,mx,my;
                     int ix, iy;
-                    ix = NPCs.get(i).getX() / 8;
-                    iy = NPCs.get(i).getY() / 8;
+                    ix = NPCs.get(i).getX() / 5;
+                    iy = NPCs.get(i).getY() / 5;
                     x = ((ix) + 610 - (PX) + (90));
                     y = ((iy) - (PY) + (75));
                     mx = x + 40;
@@ -2165,8 +2174,8 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
                     int x,y,mx,my;
                     int ix, iy;
-                    ix = boss.getX() / 8;
-                    iy = boss.getY() / 8;
+                    ix = boss.getX() / 5;
+                    iy = boss.getY() / 5;
                     x = ((ix) + 610 - (PX) + (90));
                     y = ((iy) - (PY) + (75));
                     mx = x + 40;
@@ -2196,8 +2205,8 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
                     int x,y,mx,my;
                     int ix, iy;
-                    ix = cameras.get(i).getX() / 8;
-                    iy = cameras.get(i).getY() / 8;
+                    ix = cameras.get(i).getX() / 5;
+                    iy = cameras.get(i).getY() / 5;
                     x = ((ix) + 610 - (PX) + (90));
                     y = ((iy) - (PY) + (75));
                     mx = x + 40;
@@ -2221,8 +2230,8 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                             //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 28, 50, 80, 55, 70);
                             row = vconeup / COLSIZE;
                             col = vconeup - (row * COLSIZE);
-                            x = (ix - (PX) + (90)) - 18;
-                            y = (iy - (PY) + (75)) - 43;
+                            x = (ix - (PX) + (90)) - 29;
+                            y = (iy - (PY) + (75)) - 66;
 
                         }
                         else if (cameras.get(i).getDirection() == Direction.DOWN)
@@ -2230,34 +2239,35 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                             //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 23, 50, 80, 235, 70);
                             row = vconedown / COLSIZE;
                             col = vconedown - (row * COLSIZE);
-                            x = (ix - (PX) + (90)) - 18;
-                            y = (iy - (PY) + (75)) + 8;
+                            x = (ix - (PX) + (90)) - 29;
+                            y = (iy - (PY) + (75)) + 11;
                         }
                         else if (cameras.get(i).getDirection() == Direction.LEFT)
                         {
                             //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 29, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 145, 70);
                             row = vconeleft / COLSIZE;
                             col = vconeleft - (row * COLSIZE);
-                            x = (ix - (PX) + (90)) - 43;
-                            y = (iy - (PY) + (75)) - 17;
+                            x = (ix - (PX) + (90)) - 66;
+                            y = (iy - (PY) + (75)) - 27;
                         }
                         else if (cameras.get(i).getDirection() == Direction.RIGHT)
                         {
                             //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 24, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 325, 70);
                             row = vconeright / COLSIZE;
                             col = vconeright - (row * COLSIZE);
-                            x = (ix - (PX) + (90)) + 7;
-                            y = (iy - (PY) + (75)) - 17;
+                            x = (ix - (PX) + (90)) + 10;
+                            y = (iy - (PY) + (75)) - 27;
                         }
 
                         x+=610;
-                        mx = x + 40;
-                        my = y + 40;
+                        mx = x + 64;
+                        my = y + 64;
 
-                        tx = getTX(col, height);
-                        tx2 = getTX(col + 1, height);
-                        ty = getTX(row, width);
-                        ty2 = getTX(row + 1, width);
+                        float fix = 0.001f;
+                        tx = getTX(col, height) + fix;
+                        tx2 = getTX(col + 1, height) - fix;
+                        ty = getTX(row, width) + fix;
+                        ty2 = getTX(row + 1, width) - fix;
 
 
                         //Draw tile
@@ -2295,8 +2305,8 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
                             int x,y,mx,my;
                             int ix, iy;
-                            ix = cx / 8;
-                            iy = cy / 8;
+                            ix = cx / 5;
+                            iy = cy / 5;
                             x = ((ix) + 610 - (PX) + (90));
                             y = ((iy) - (PY) + (75));
                             mx = x + 40;
@@ -2346,7 +2356,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             }
             else
             {
-                addString("JAMMED", 675, 70, 16, 0, 1.0f, 0, 1.0f, true);
+                addString("JAMMED", 665, 70, 16, 0, 1.0f, 0, 1.0f, true);
             }
 
             GL11.glEnd();

@@ -219,7 +219,7 @@ public class MainMenuPanel extends JPanel
             public void actionPerformed(ActionEvent e)
             {                
                 String[] LevelSelection = {"IT3 Tutorial - Southwestern USA", "Flashback - Siberia"};
-                String selection = (String)JOptionPane.showInputDialog(MainMenuPanel.mmp, "Select the mission you wish to play", "IT4: The Endling's Artifice", JOptionPane.QUESTION_MESSAGE, null, LevelSelection, LevelSelection[0]);
+                String selection = (String)JOptionPane.showInputDialog(MainMenuPanel.mmp, "Select the mission you wish to play", "The Endling's Artifice", JOptionPane.QUESTION_MESSAGE, null, LevelSelection, LevelSelection[0]);
                 System.out.println(selection);
                 if (selection != null)
                 {
@@ -403,7 +403,7 @@ public class MainMenuPanel extends JPanel
 
     private void showInfo()
     {
-        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.5.37 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
+        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.5.38 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
                 + "Soundtrack By: Bjorn Lynne\n\n"
                 + "This program is free software: you can redistribute it and/or modify\n"
                 + "it under the terms of the GNU General Public License as published by\n"

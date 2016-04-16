@@ -373,7 +373,7 @@ public class Player extends ITCharacter
         {
             return stuff.getSelectedWeapon().getAmmo();
         }
-        return 0;
+        return 1;
     }
 
     public Weapon getWeapon()
@@ -430,95 +430,102 @@ public class Player extends ITCharacter
             offsetX = 20;
         }
 
-        if (stuff.getSelectedWeapon().getType() != ItemType.KNIFE)
+        if (stuff.getSelectedWeapon() != null)
         {
-            if (stuff.getSelectedWeapon().getType() != ItemType.SHOTGUN)
+            if (stuff.getSelectedWeapon().getType() != ItemType.KNIFE)
             {
-                stuff.getSelectedWeapon().subtractAmmo();
-            }
-
-            int dx;
-            int dy;
-            float distance;
-            float vX = 0.0f;
-            float vY = 0.0f;
-
-            if ((this.getDirection() == Direction.UP))
-            {
-                vX = 0.0f;
-                vY = -1.0f;
-            }
-            if (this.getDirection() == Direction.DOWN)
-            {
-                vX = 0.0f;
-                vY = 1.0f;
-            }
-            else if (this.getDirection() == Direction.LEFT)
-            {
-                vY = 0.0f;
-                vX = -1.0f;
-            }
-            else if (this.getDirection() == Direction.RIGHT)
-            {
-                vY = 0.0f;
-                vX = 1.0f;
-            }            
-
-            int spread = 0;
-            if (shot != 0)
-            {
-                if ((shot < 70) && (shot > -70))
+                if (stuff.getSelectedWeapon().getType() != ItemType.SHOTGUN)
                 {
-                    spread = (shot - rng.nextInt(shot * 2));
-                }                
-                else
-                {
-                    if (shot == 70)
-                    {
-                        shot = 50;
-                    }
-                    if (shot == -70)
-                    {
-                        shot = -50;
-                    }                    
-
-                    spread = (shot / 10) * 7;
+                    stuff.getSelectedWeapon().subtractAmmo();
                 }
+
+                int dx;
+                int dy;
+                float distance;
+                float vX = 0.0f;
+                float vY = 0.0f;
+
+                if ((this.getDirection() == Direction.UP))
+                {
+                    vX = 0.0f;
+                    vY = -1.0f;
+                }
+                if (this.getDirection() == Direction.DOWN)
+                {
+                    vX = 0.0f;
+                    vY = 1.0f;
+                }
+                else if (this.getDirection() == Direction.LEFT)
+                {
+                    vY = 0.0f;
+                    vX = -1.0f;
+                }
+                else if (this.getDirection() == Direction.RIGHT)
+                {
+                    vY = 0.0f;
+                    vX = 1.0f;
+                }
+
+                int spread = 0;
+                if (shot != 0)
+                {
+                    if ((shot < 70) && (shot > -70))
+                    {
+                        spread = (shot - rng.nextInt(shot * 2));
+                    }
+                    else
+                    {
+                        if (shot == 70)
+                        {
+                            shot = 50;
+                        }
+                        if (shot == -70)
+                        {
+                            shot = -50;
+                        }
+
+                        spread = (shot / 10) * 7;
+                    }
+                }
+
+                if ((this.getDirection() == Direction.UP) || (this.getDirection() == Direction.DOWN))
+                {
+                    targetX += spread;
+                }
+                else if ((this.getDirection() == Direction.LEFT) || (this.getDirection() == Direction.RIGHT))
+                {
+                    targetY += spread;
+                }
+
+                dx = this.getX() - targetX;
+                dy = this.getY() - targetY;
+
+                distance = (float)Math.sqrt((double)((dx * dx) + (dy * dy)));
+
+                vX = dx/distance;
+                vY = dy/distance;
+
+                if (stuff.getSelectedWeapon().getType() == ItemType.GRENADE)
+                {
+                    vX = vX / 4;
+                    vY = vY / 4;
+                }
+
+                Bullet b = new Bullet(this.getX() + offsetX, this.getY() + offsetY, vX, vY,
+                        bulletSprite, stuff.getSelectedWeapon().getDamage(), stuff.getSelectedWeapon().getSleep(), true, stuff.getSelectedWeapon().getRange(), rank,
+                        stuff.getSelectedWeapon().staminaDamage);
+
+                if (stuff.getSelectedWeapon().getType() == ItemType.GRENADE)
+                {
+                    b.explosive = true;
+                }
+
+                return b;
             }
-
-            if ((this.getDirection() == Direction.UP) || (this.getDirection() == Direction.DOWN))
+            else
             {
-                targetX += spread;
+                return null;
             }
-            else if ((this.getDirection() == Direction.LEFT) || (this.getDirection() == Direction.RIGHT))
-            {
-                targetY += spread;
-            }
-
-            dx = this.getX() - targetX;
-            dy = this.getY() - targetY;
-
-            distance = (float)Math.sqrt((double)((dx * dx) + (dy * dy)));
-
-            vX = dx/distance;
-            vY = dy/distance;
-
-            if (stuff.getSelectedWeapon().getType() == ItemType.GRENADE)
-            {
-                vX = vX / 4;
-                vY = vY / 4;
-            }            
-            
-            Bullet b = new Bullet(this.getX() + offsetX, this.getY() + offsetY, vX, vY,
-                    bulletSprite, stuff.getSelectedWeapon().getDamage(), stuff.getSelectedWeapon().getSleep(), true, stuff.getSelectedWeapon().getRange(), rank,
-                    stuff.getSelectedWeapon().staminaDamage);
-
-            if (stuff.getSelectedWeapon().getType() == ItemType.GRENADE)
-            {
-                b.explosive = true;
-            }
-
-            return b;
         }
         else
         {

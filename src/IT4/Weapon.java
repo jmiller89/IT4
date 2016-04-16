@@ -536,7 +536,7 @@ public class Weapon extends Item
 
     public boolean isSuppressed()
     {
-        return this.suppressor > 0;
+        return ((this.suppressor > 0) || (this.type == ItemType.KNIFE));
     }
 
     public int addAmmo(int add)
