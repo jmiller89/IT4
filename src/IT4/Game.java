@@ -289,7 +289,7 @@ public final class Game
 
             if (currentLevelMap.getDialog().isValid())
             {
-                displayDialog(currentLevelMap.getDialog(), "Dialog");
+                displayDialog(currentLevelMap.getDialog(), "Dialog", false);
             }
 
             if (currentLevelMap.playerPath != null)
@@ -1305,7 +1305,7 @@ public final class Game
 
             if (currentLevelMap.getDialog().isValid())
             {
-                displayDialog(currentLevelMap.getDialog(), "Dialog");
+                displayDialog(currentLevelMap.getDialog(), "Dialog", false);
             }
         }
 
@@ -1387,7 +1387,7 @@ public final class Game
     private void objectiveAccomplished(Objective obj)
     {
         player.objectives++;
-        displayDialog(obj.dialog, "Objective Complete");
+        displayDialog(obj.dialog, "Objective Complete", false);
         currentLevel.removeObjective(obj, playerLevMapX);
     }
 
@@ -1479,7 +1479,7 @@ public final class Game
                     confirmItem(it);
                 }
             });
-            this.displayDialog(d, "Confirm " + title + " Pickup");
+            this.displayDialog(d, "Confirm " + title + " Pickup", true);
         }
     }
 
@@ -3755,7 +3755,7 @@ public final class Game
             player.objectives++;
             currentLevel.removeObjective(new Objective((short)0, -1, -1, playerLevMapX, "Kill " + boss.name), playerLevMapX);
 
-            displayDialog(boss.getPostDialog(), "Boss defeated");
+            displayDialog(boss.getPostDialog(), "Boss defeated", false);
 
             //Remove all travelling bullets
             for(int i = 0; i < bullets.size(); i++)
@@ -3825,12 +3825,20 @@ public final class Game
         return obstacleMatrix;
     }
 
-    public void displayDialog(Dialog d, String title)
+    public void displayDialog(Dialog d, String title, boolean applyTitle)
     {
         if (dialogEnabled)
         {
             if (d.isValid())
             {
+                if (applyTitle)
+                {
+                    for(int i = 0; i < d.dialog.size(); i++)
+                    {
+                        d.dialog.get(i).speaker = title;
+                    }
+                }
+
                 itd = d;
                 d.title = title;
                 inDialog = true;
@@ -4141,7 +4149,7 @@ public final class Game
 
         System.out.println("\n");
 
-        this.displayDialog(d, "Mission Objectives");
+        this.displayDialog(d, "Mission Objectives", true);
 
     }
 

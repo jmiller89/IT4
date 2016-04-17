@@ -1119,7 +1119,7 @@ public class GuardThread implements Runnable
         boss.movementDelta = 10.0f / (float)boss.speed;
         boss.initialized = true;
 
-        game.displayDialog(boss.getPreDialog(), "Boss fight");
+        game.displayDialog(boss.getPreDialog(), "Boss fight", false);
         
     }
 

@@ -7,6 +7,7 @@ package GFX;
 import IT4.Boss;
 import IT4.Bullet;
 import IT4.Dialog;
+import IT4.DialogSection; //This is actually used, ignore the warning
 import IT4.Direction;
 import IT4.Door;
 import IT4.Explosion;
@@ -2434,10 +2435,18 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             short startPos = (dlg.onTop == true) ? (short)0:(short)384;
             short yp = (short)(startPos + 32);
 
+            /*
             if (dlg.title.length() > 0)
             {
                 //yp = startPos;
                 this.addString(dlg.title, 5, startPos, 16, 0, 1.0f, 0.5f, 1.0f, true);
+                dlgSize++;
+            }
+             */
+
+            if (dlg.dialog.get(dialogPage).speaker.length() > 0)
+            {
+                this.addString(dlg.dialog.get(dialogPage).speaker, 5, startPos, 16, 0, 1.0f, 0.5f, 1.0f, true);
                 dlgSize++;
             }
 

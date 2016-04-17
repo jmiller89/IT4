@@ -1,0 +1,43 @@
+false
+false
+C:\Users\Jim\Documents\town.it4
+0
+1
+100
+100
+0
+7
+11
+UPRIGHT
+100
+ASSAULT_RIFLE|3|30|127|37   
+0 0 0 0 0 0 
+0 0 0 
+[objectives]
+Get back to Huemul Island
+2
+Follow Benitez to the safehouse
+1
+Re-arm yourself with new weapons
+1
+[/objectives]
+[dialogs]
+0 
+1 
+2 
+[/dialogs]
+[allitems]
+[items]
+[/items]
+[items]
+PISTOL 10 7 1
+SECONDARY_SILENCER 12 7 1
+SECONDARY_MAG 11 6 1
+SECONDARY_MAG 12 5 1
+[/items]
+[items]
+[/items]
+[/allitems]
+[playtime]
+52440
+[/playtime]

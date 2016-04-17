@@ -11,11 +11,13 @@ package IT4;
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+//import java.util.Arrays;
 
 public class Dialog
 {
-    public ArrayList<ArrayList<String>> dialog;
+    public ArrayList<DialogSection> dialog;
     public String title = "";
     //private int currentText = 0;
     //public int currentPage = 0;
@@ -30,18 +32,24 @@ public class Dialog
     private Item item = null;
     public String choiceString = "";
     public boolean onTop = false;
+    public static Pattern speakerPattern = Pattern.compile("\\[(.*)\\]");
 
     public Dialog(boolean showOnTop)
     {
         onTop = showOnTop;
-        dialog = new ArrayList<ArrayList<String>>();
-        dialog.add(new ArrayList<String>());        
+        //dialog = new ArrayList<ArrayList<String>>();
+        //dialog.add(new ArrayList<String>());
+        dialog = new ArrayList<DialogSection>();
+        dialog.add(new DialogSection());
     }
 
     public Dialog(Item it, ITEvent ev)
     {
-        dialog = new ArrayList<ArrayList<String>>();
-        dialog.add(new ArrayList<String>());
+        //dialog = new ArrayList<ArrayList<String>>();
+        //dialog.add(new ArrayList<String>());
+        dialog = new ArrayList<DialogSection>();
+        dialog.add(new DialogSection());
+
         confirmation = true;
         item = it;
         event = ev;
@@ -69,14 +77,17 @@ public class Dialog
     public Dialog(Dialog d, String t, boolean showOnTop)
     {        
         title = t;
-        dialog = new ArrayList<ArrayList<String>>();
+        //dialog = new ArrayList<ArrayList<String>>();
+        dialog = new ArrayList<DialogSection>();
         onTop = showOnTop;
 
         for(int j = 0; j < d.dialog.size(); j++)
         {
-            dialog.add(new ArrayList<String>());
+            //dialog.add(new ArrayList<String>());
+            dialog.add(new DialogSection());
             for(int i = 0; i < d.dialog.get(j).size(); i++)
             {
+                dialog.get(j).speaker = d.dialog.get(j).speaker;
                 dialog.get(j).add(new String(d.dialog.get(j).get(i)));
             }
         }
@@ -140,10 +151,10 @@ public class Dialog
 
             for(int i = 0; i < strs.length; i++)
             {
-                //dialog.add(strs[i]);
                 if (dialog.get(dialog.size() - 1).size() >= maxLines)
                 {
-                    dialog.add(new ArrayList<String>());
+                    //dialog.add(new ArrayList<String>());
+                    dialog.add(new DialogSection());
                 }
 
                 dialog.get(dialog.size() - 1).add(strs[i]);
@@ -155,7 +166,8 @@ public class Dialog
         {
             if (dialog.get(dialog.size() - 1).size() >= maxLines)
             {
-                dialog.add(new ArrayList<String>());
+                //dialog.add(new ArrayList<String>());
+                dialog.add(new DialogSection());
             }
             
             dialog.get(dialog.size() - 1).add(s);
@@ -179,6 +191,74 @@ public class Dialog
     {
         //return (dialog.size() > 0);
         return active & substance;
+    }
+
+    public void makeDialog(ArrayList<String> prepStrs)
+    {
+        short maxLines = maxLines_bottom;
+        if (onTop)
+        {
+            maxLines = maxLines_top;
+        }
+
+        DialogSection ds = new DialogSection();
+        //ds.speaker = "Dialog";
+        this.dialog.clear();
+        for(int i = 0; i < prepStrs.size(); i++)
+        {
+            Matcher m = speakerPattern.matcher(prepStrs.get(i));
+            if (m.matches())
+            {
+                String speaker = m.group(1);
+
+                if (ds.speaker.equals(speaker) == false)
+                {
+                    if (ds.size() > 0)
+                    {
+                        //Split if necessary
+                        if (ds.size() > maxLines)
+                        {
+                            ArrayList<DialogSection> subsections = ds.split(maxLines);
+                            for(int j = 0; j < subsections.size(); j++)
+                            {
+                                this.dialog.add(subsections.get(j));
+                            }
+                        }
+                        else
+                        {
+                            ds.finishSection(maxLines);
+                            this.dialog.add(ds.copy());
+                        }
+                        
+                        ds.clear();
+                    }
+                }
+
+                ds.speaker = speaker;
+            }
+            else
+            {
+                //Add to existing dialogSection
+                if (prepStrs.get(i).length() > 0)
+                {
+                    substance = true;
+                }
+                ds.add(prepStrs.get(i));
+            }
+            
+        }
+
+        if (ds.size() > 0)
+        {
+            ds.finishSection(maxLines);
+            this.dialog.add(ds.copy());
+        }
+
+        //System.err.println("Dialogs: " + dialog.size() + " prepStrs len=" + prepStrs.size());
+        //for(int i = 0; i < dialog.size(); i++)
+        //{
+        //    System.err.println(dialog.get(i).toString());
+        //}
     }
 
     public void addStrings(ArrayList<String> strs)
@@ -230,10 +310,14 @@ public class Dialog
             }
         }
 
+        this.makeDialog(prepStrs);
+
+        /*
         for(int i = 0; i < prepStrs.size(); i++)
         {
             this.add(prepStrs.get(i));
         }
+         */
     }
 
     public void addStrings(String[] strs)
