@@ -2130,7 +2130,19 @@ public final class Game
             if ((b.getTileX() == boss.getTileX()) && (b.getTileY() == boss.getTileY()))
             {
                 collision = true;
-                boss.receiveDamage(b.getDamage());
+
+                int bdamage = b.getDamage();
+
+                if (b.buckshot)
+                {
+                    if (b.distTraversed <= 160)
+                    {
+                        bdamage *= 2;
+                        bdamage += 5;
+                    }
+                }
+
+                boss.receiveDamage(bdamage);
 
                 boss.getPath().adjust();
             }

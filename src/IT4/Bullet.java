@@ -14,14 +14,14 @@ public class Bullet extends ITObject
     private int damage;
     private boolean tranquilizer;
     
-    private int distTraversed;
+    public int distTraversed;
     private boolean status;
     private boolean playerBullet;
 
     public boolean explosive = false;
     public boolean buckshot = false;
 
-    private int range;
+    public int range;
     public int rank;
     public int staminaDamage;
 
