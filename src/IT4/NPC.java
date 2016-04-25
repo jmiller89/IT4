@@ -67,7 +67,7 @@ public class NPC extends ITCharacter
                 break;
             case MEDIUM:
                 id = 27;
-                currHealth = 71;
+                currHealth = 72;
                 weaponDmg = 40;
                 break;
             case HEAVY:
@@ -77,7 +77,7 @@ public class NPC extends ITCharacter
                 break;
             case SPECIAL:
                 id = 350;
-                currHealth = 150;
+                currHealth = 123;
                 weaponDmg = 50;
                 break;
             case BOSS0:

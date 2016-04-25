@@ -48,7 +48,7 @@ public class Weapon extends Item
             {
                 //35|90|800|0|10|50|1|30|false
                 name = "CP45";
-                damage = 35;
+                damage = 36;
                 accuracy = 85;
                 range = 800;
                 staminaDamage = 0;
@@ -65,7 +65,7 @@ public class Weapon extends Item
             {
                 //40|90|800|0|12|60|1|999|true
                 name = "SQP";
-                damage = 40;
+                damage = 41;
                 accuracy = 90;
                 range = 800;
                 staminaDamage = 0;
