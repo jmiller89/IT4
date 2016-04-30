@@ -11,19 +11,19 @@ import java.io.File;
  *
  * @author Jim
  */
-public class IT3FileFilter extends javax.swing.filechooser.FileFilter
+public class IT4FileFilter extends javax.swing.filechooser.FileFilter
 {
 
     @Override
     public boolean accept(File f) 
     {
-        return f.getName().toLowerCase().endsWith(".it3") || f.getName().toLowerCase().endsWith(".it4");
+        return f.getName().toLowerCase().endsWith(".it4");
     }
 
     @Override
     public String getDescription()
     {
-        return "IT4 Level Data [.it4] [.it3]";
+        return "IT4 Level Data [.it4]";
     }
 
 }

@@ -45,6 +45,8 @@ public class NPC extends ITCharacter
     public boolean markedForDeath = false;
     public byte markedForDeathIters = 8;
 
+    public boolean juggernaut = false;
+
     public final short initialID;
 
     public Dialog dialog;
@@ -54,6 +56,9 @@ public class NPC extends ITCharacter
         short id = 0;
         int currHealth = 0;
         int weaponDmg = 0;
+        float npc_walkspeed = 0.5f;
+        float npc_runspeed = 0.95f;
+        boolean juggernaut = false;
         
         //LIGHT, MEDIUM, HEAVY, SPECIAL, BOSS0, BOSS1, BOSS2, BOSS3, BOSS4, NAZI_HUNTER, SCIENTIST1, SCIENTIST2, PROMINENT_SCIENTIST,
         //FEMALE_ALLY, FEMALE_ALLY_WORKOUT, OLD_MAN, UN_GUY, CHIEF, MUTANT1, MUTANT2, CRIPPLE, EVA, MAN, WOMAN1, WOMAN2, WOMAN3
@@ -98,7 +103,7 @@ public class NPC extends ITCharacter
             case BOSS3:
                 id = 135;
                 currHealth = 250;
-                weaponDmg = 50;
+                weaponDmg = 0;
                 break;
             case BOSS4:
                 id = 226;
@@ -114,11 +119,13 @@ public class NPC extends ITCharacter
                 id = 162;
                 currHealth = 15;
                 weaponDmg = 20;
+                npc_runspeed = 0.75f;
                 break;
             case SCIENTIST2:
                 id = 170;
                 currHealth = 15;
                 weaponDmg = 20;
+                npc_runspeed = 0.75f;
                 break;
             case PROMINENT_SCIENTIST:
                 id = 421;
@@ -154,16 +161,21 @@ public class NPC extends ITCharacter
                 id = 277;
                 currHealth = 192;
                 weaponDmg = 60;
+                npc_walkspeed = 0.75f;
+                npc_runspeed = 0.99f;
                 break;
             case MUTANT2:
                 id = 285;
                 currHealth = 512;
                 weaponDmg = 90;
+                npc_walkspeed = 0.75f;
+                npc_runspeed = 0.99f;
                 break;
             case CRIPPLE:
                 id = 413;
                 currHealth = 100;
                 weaponDmg = 30;
+                npc_runspeed = 0.75f;
                 break;
             case EVA:
                 id = 429;
@@ -190,6 +202,20 @@ public class NPC extends ITCharacter
                 currHealth = 15;
                 weaponDmg = 20;
                 break;
+            case JUGGERNAUT:
+                id = 459;
+                currHealth = 310;
+                weaponDmg = 20;
+                npc_runspeed = 0.75f;
+                juggernaut = true;
+                break;
+            case JUGGERNAUT2:
+                id = 467;
+                currHealth = 630;
+                weaponDmg = 25;
+                npc_runspeed = 0.75f;
+                juggernaut = true;
+                break;
             default:
                 id = 19;
                 currHealth = 22;
@@ -197,13 +223,13 @@ public class NPC extends ITCharacter
                 break;
         }
 
-        NPC toSpawn = new NPC(id, x, y, d, currHealth, s, friend, weaponDmg, p, t);
+        NPC toSpawn = new NPC(id, x, y, d, currHealth, s, friend, weaponDmg, p, t, npc_walkspeed, npc_runspeed, juggernaut);
         return toSpawn;
     }
 
-    public NPC(short id, int x, int y, Direction d, int chlth, NPCStatus s, boolean friend, int weaponDmg, Path p, GuardType t)
+    public NPC(short id, int x, int y, Direction d, int chlth, NPCStatus s, boolean friend, int weaponDmg, Path p, GuardType t, float npc_walkspeed, float npc_runspeed, boolean isJuggernaut)
     {
-        super(id, x, y, d, chlth, true);
+        super(id, x, y, d, chlth, true, npc_walkspeed, npc_runspeed);
         initialID = id;
         status = s;
         friendly = friend;
@@ -211,6 +237,7 @@ public class NPC extends ITCharacter
         path = p;
         type = t;
         initialized = false;
+        juggernaut = isJuggernaut;
 
         if (friendly)
         {
@@ -264,7 +291,7 @@ public class NPC extends ITCharacter
     public NPC copy()
     {
         //(short id, int x, int y, Direction d, int chlth, NPCStatus s, boolean friend, int weaponDmg, Path p, GuardType t)
-        NPC n = new NPC(this.initialID, this.getX(), this.getY(), this.getDirection(), this.getCurrentHealth(), this.getStatus(), this.friendly, this.getWeaponDamage(), this.getPath().copy(), this.getType());
+        NPC n = new NPC(this.initialID, this.getX(), this.getY(), this.getDirection(), this.getCurrentHealth(), this.getStatus(), this.friendly, this.getWeaponDamage(), this.getPath().copy(), this.getType(), this.NPC_WALKSPEED, this.NPC_RUNSPEED, this.juggernaut);
         n.bodyArmor = this.bodyArmor;
         n.dialog = this.dialog;
 

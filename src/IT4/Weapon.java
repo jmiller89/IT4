@@ -63,7 +63,7 @@ public class Weapon extends Item
             }
             else
             {
-                //40|90|800|0|12|60|1|999|true
+                //41|90|800|0|12|60|1|999|true
                 name = "SQP";
                 damage = 41;
                 accuracy = 90;
@@ -142,7 +142,7 @@ public class Weapon extends Item
                 name = "PC9";
                 damage = 20;
                 accuracy = 50;
-                range = 720;
+                range = 640;
                 staminaDamage = 0;
                 magCapacity = 20;
                 totalCapacity = 100;
@@ -159,7 +159,7 @@ public class Weapon extends Item
                 name = "MP467";
                 damage = 25;
                 accuracy = 70;
-                range = 840;
+                range = 760;
                 staminaDamage = 0;
                 magCapacity = 40;
                 totalCapacity = 160;
@@ -176,7 +176,7 @@ public class Weapon extends Item
                 name = "PDW-90";
                 damage = 25;
                 accuracy = 65;
-                range = 800;
+                range = 640;
                 staminaDamage = 0;
                 magCapacity = 50;
                 totalCapacity = 250;
@@ -250,11 +250,11 @@ public class Weapon extends Item
 
             if (rank == 1)
             {
-                //15|--|550|0|5|20|1|0|false
+                //15|70|440|0|5|20|1|0|false
                 name = "WS-08";
                 damage = 15;
                 accuracy = 70;
-                range = 550;
+                range = 440;
                 staminaDamage = 0;
                 magCapacity = 5;
                 totalCapacity = 20;
@@ -267,11 +267,11 @@ public class Weapon extends Item
             }
             else if (rank == 2)
             {
-                //20|70|550|0|8|32|1|0|false
+                //20|70|480|0|8|32|1|0|false
                 name = "SAS-12";
                 damage = 20;
                 accuracy = 70;
-                range = 550;
+                range = 480;
                 staminaDamage = 0;
                 magCapacity = 8;
                 totalCapacity = 32;
@@ -284,15 +284,15 @@ public class Weapon extends Item
             }
             else
             {
-                //15|70|400|0|15|75|87|0|false
+                //25|70|360|0|15|75|88|0|false
                 name = "SSG-12000";
-                damage = 15;
+                damage = 25;
                 accuracy = 70;
-                range = 400;
+                range = 360;
                 staminaDamage = 0;
                 magCapacity = 15;
                 totalCapacity = 75;
-                fireRate = 87;
+                fireRate = 88;
                 silencerDurability = 0;
                 suppressed = false;
                 id = 458;

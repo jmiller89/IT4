@@ -27,16 +27,21 @@ public abstract class ITCharacter extends ITObject
     public short timeToWait = 0;
     public Stance stance = Stance.UPRIGHT;
 
+    public float NPC_RUNSPEED = 0.95f;
+    public float NPC_WALKSPEED = 0.5f;
+    
     //For door checking
     public Point doorXY = new Point(-1,-1);
     public Door lastDoor = null;
 
-    public ITCharacter(short id, int x, int y, Direction d, int chlth, boolean nonPlayerCharacter)
+    public ITCharacter(short id, int x, int y, Direction d, int chlth, boolean nonPlayerCharacter, float npc_walkspeed, float npc_runspeed)
     {
         super(id, x, y);
         dir = d;
         currentHealth = chlth;
         NPC = nonPlayerCharacter;
+        NPC_WALKSPEED = npc_walkspeed;
+        NPC_RUNSPEED = npc_runspeed;
     }
 
     public void checkDoorStatus()

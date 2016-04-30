@@ -22,7 +22,7 @@ public class Boss extends NPC
     public Boss(short bossID, int x, int y, GuardType bossType,
                 int bossHealth, int bossDamage, byte speed, int viewDistance, boolean bdyArmor)
     {
-        super(bossID, x, y, Direction.DOWN, bossHealth, NPCStatus.ALERT, false, bossDamage, null, bossType);
+        super(bossID, x, y, Direction.DOWN, bossHealth, NPCStatus.ALERT, false, bossDamage, null, bossType, 0.5f, 1.0f, false);
         this.BOSS = true;
         this.bodyArmor = bdyArmor;
         this.viewDistance = viewDistance;

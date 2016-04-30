@@ -23,7 +23,7 @@ public class Player extends ITCharacter
     //Ctor
     public Player(short id, int x, int y, Direction d)
     {
-        super(id, x, y, d, 100, false);
+        super(id, x, y, d, 100, false, 0.5f, 1.0f);
         
         maxHealth = 100;
         stuff = new Backpack();
@@ -35,7 +35,7 @@ public class Player extends ITCharacter
     //Copy ctor
     public Player(Player p)
     {
-        super(p.getID(), p.getX(), p.getY(), p.getDirection(), p.getMaxHealth(), false);
+        super(p.getID(), p.getX(), p.getY(), p.getDirection(), p.getMaxHealth(), false, 0.5f, 1.0f);
         this.setHealth(p.getCurrentHealth());
         this.stuff = new Backpack(p.stuff);
         stance = Stance.UPRIGHT;

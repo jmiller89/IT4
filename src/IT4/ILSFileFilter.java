@@ -17,13 +17,13 @@ public class ILSFileFilter extends javax.swing.filechooser.FileFilter
     @Override
     public boolean accept(File f)
     {
-        return f.getName().toLowerCase().endsWith(".it3ls") || f.getName().toLowerCase().endsWith(".it4ls");
+        return f.getName().toLowerCase().endsWith(".it4ls");
     }
 
     @Override
     public String getDescription()
     {
-        return "The Endling's Artifice Levelset [.it3ls] [.it4ls]";
+        return "The Endling's Artifice Levelset [.it4ls]";
     }
 
 }

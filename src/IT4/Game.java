@@ -2133,6 +2133,13 @@ public final class Game
 
                 int bdamage = b.getDamage();
 
+                //Allow tranq weapons to do actual damage to bosses
+                if (b.staminaDamage > 0)
+                {
+                    bdamage = b.staminaDamage;
+                }
+
+                //Account for close-range shotgun hits
                 if (b.buckshot)
                 {
                     if (b.distTraversed <= 160)
@@ -2140,6 +2147,12 @@ public final class Game
                         bdamage *= 2;
                         bdamage += 5;
                     }
+                }
+
+                //Close range bonus
+                if ((b.distTraversed <= 80) && (bdamage > 0))
+                {
+                    bdamage += 10;
                 }
 
                 boss.receiveDamage(bdamage);
@@ -4021,8 +4034,10 @@ public final class Game
         {
             for (int i = 0; i < NPCs.size(); i++)
             {
-                dx = NPCs.get(i).getX() - x;
-                dy = NPCs.get(i).getY() - y;
+                NPC xnpc = NPCs.get(i);
+
+                dx = xnpc.getX() - x;
+                dy = xnpc.getY() - y;
 
                 dx *= dx;
                 dy *= dy;
@@ -4031,7 +4046,15 @@ public final class Game
 
                 if (distance <= 50.0)
                 {
-                    NPCs.get(i).receiveDamage(80 + (10 * rank));
+                    if (xnpc.juggernaut)
+                    {
+                        int xdmg = 150 + (rank * 150) + (rank * 10);
+                        xnpc.receiveDamage(xdmg);
+                    }
+                    else
+                    {
+                        xnpc.receiveDamage(80 + (15 * rank));
+                    }
                 }
 
                 if (audibleAttack())

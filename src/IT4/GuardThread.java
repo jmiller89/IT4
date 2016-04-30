@@ -26,8 +26,8 @@ public class GuardThread implements Runnable
     private ArrayList<Vertex> closed = new ArrayList<Vertex>();
     private ArrayList<Vertex> path = new ArrayList<Vertex>();
     private boolean lastPlayerOnPath = false;
-    private static float GUARD_RUNSPEED = 0.95f;
-    private static float GUARD_WALKSPEED = 0.5f;
+    //private static float GUARD_RUNSPEED = 0.95f;
+    //private static float GUARD_WALKSPEED = 0.5f;
 
     public GuardThread(Game gm)
     {
@@ -246,12 +246,12 @@ public class GuardThread implements Runnable
         if (game.isPlayerSpotted() == true)
         {
             //speedAdjuster = 10;
-            friend.movementDelta = GUARD_RUNSPEED;
+            friend.movementDelta = friend.NPC_RUNSPEED;
         }
         else
         {
             //speedAdjuster = 20;
-            friend.movementDelta = GUARD_WALKSPEED;
+            friend.movementDelta = friend.NPC_WALKSPEED;
         }
 
         if (friend.firstAI)
@@ -438,19 +438,19 @@ public class GuardThread implements Runnable
             {
                 if (player.getDirection() == Direction.UP)
                 {
-                    game.moveUp(GUARD_WALKSPEED);
+                    game.moveUp(player.NPC_WALKSPEED);
                 }
                 else if (player.getDirection() == Direction.DOWN)
                 {
-                    game.moveDown(GUARD_WALKSPEED);
+                    game.moveDown(player.NPC_WALKSPEED);
                 }
                 else if (player.getDirection() == Direction.LEFT)
                 {
-                    game.moveLeft(GUARD_WALKSPEED);
+                    game.moveLeft(player.NPC_WALKSPEED);
                 }
                 else if (player.getDirection() == Direction.RIGHT)
                 {
-                    game.moveRight(GUARD_WALKSPEED);
+                    game.moveRight(player.NPC_WALKSPEED);
                 }
             }
 
@@ -497,7 +497,7 @@ public class GuardThread implements Runnable
         if ((game.isPlayerSpotted() == true) && (guard.getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
         {
             //speedAdjuster = 12;
-            guard.movementDelta = GUARD_RUNSPEED;
+            guard.movementDelta = guard.NPC_RUNSPEED;
             if (guard.getStatus() != NPCStatus.SUSPICIOUS)
             {
                 guard.setStatus(NPCStatus.ALERT);
@@ -549,7 +549,7 @@ public class GuardThread implements Runnable
         else
         {
             //speedAdjuster = 20;
-            guard.movementDelta = GUARD_WALKSPEED;
+            guard.movementDelta = guard.NPC_WALKSPEED;
         }
 
         if ((guard.getStatus() == NPCStatus.SLEEP) || (guard.getStatus() == NPCStatus.TRANQUILIZED_SLEEP))
