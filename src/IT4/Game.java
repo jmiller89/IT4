@@ -284,7 +284,7 @@ public final class Game
                 playerLevMapX = GameFileManager.mapIndex;                
             }
             
-            SFX.stopMusic();
+            //SFX_OLD.stopMusic();
             SFX.playMusic(currentLevelMap.songIndex);
 
             if (currentLevelMap.getDialog().isValid())
@@ -549,7 +549,7 @@ public final class Game
                     
                     if ((index >= 0) && (index < SFX.getNumSongs()))
                     {
-                        SFX.stopMusic();
+                        //SFX_OLD.stopMusic();
                         SFX.playMusic(index);
                     }
                     else
@@ -1128,7 +1128,7 @@ public final class Game
             {                
                 //soundPlayer.stopSong();
                 //soundPlayer = new SoundPlayer(currentLevel.getID());
-                SFX.stopMusic();                
+                //SFX_OLD.stopMusic();
                 SFX.playMusic(currentLevelMap.songIndex);
                 
                 player.setX(currentLevel.getStartX() * 40);
@@ -1159,7 +1159,7 @@ public final class Game
 
             if ((currentLevelMap.songIndex != lastSong) | (SFX.alertMode))
             {                
-                SFX.stopMusic();
+                //SFX.stopMusic();
                 SFX.playMusic(currentLevelMap.songIndex);
             }            
 
@@ -1314,7 +1314,7 @@ public final class Game
 
     public void returnToMainMenu(Dialog d)
     {                
-        SFX.stopMusic();
+        //SFX_OLD.stopMusic();
 
         running = false;
 
@@ -2424,7 +2424,7 @@ public final class Game
     private void respawn()
     {
         SLEEPTIME = 10;
-        SFX.stopMusic();
+        //SFX_OLD.stopMusic();
         SFX.playMusic(currentLevelMap.songIndex);
 
         //Turn off stat modifiers
@@ -3378,7 +3378,7 @@ public final class Game
 
             if (!isSuppressed)
             {
-                SFX.playSound(SFX.GUNSHOT);
+                SFX.playSound(SFX.RIFLE_GUNSHOT);
             }
             else
             {
@@ -3543,7 +3543,7 @@ public final class Game
     {
         if (b != null)
         {
-            SFX.playSound(SFX.GUNSHOT);
+            SFX.playSound(SFX.RIFLE_GUNSHOT);
             bullets.add(b);
         }
     }
@@ -3756,16 +3756,17 @@ public final class Game
     {
         //soundPlayer.stopSong();
         //soundPlayer = new SoundPlayer(20);
-        SFX.stopMusic();
-        SFX.playMusic(-2);
+        //SFX_OLD.stopMusic();
+        SFX.playMusic(SFX.BOSS_MUSIC);
     }
 
     private void startAlertMusic()
     {
         if (!SFX.alertDefault)
         {
-            SFX.stopMusic();
-            SFX.playMusic(-3);
+            //SFX_OLD.stopMusic();
+            SFX.playSound(SFX.SIREN);
+            SFX.playMusic(SFX.ALERT_MUSIC);
         }
     }
 
@@ -3774,7 +3775,7 @@ public final class Game
         if (this.isPlayerAlive())
         {
             this.protectPlayer();
-            SFX.stopMusic();
+            //SFX_OLD.stopMusic();
             SFX.playMusic(currentLevelMap.songIndex);
 
             player.objectives++;

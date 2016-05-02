@@ -21,7 +21,9 @@ public class Intruder
                 System.out.println("DEBUG MODE");
             }
         }
-        
+
+        Runtime.getRuntime().addShutdownHook(new Thread(new Cleanup()));
+
         //Create a new Instance of the game
         MainMenuFrame mmf = new MainMenuFrame();
 

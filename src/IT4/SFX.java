@@ -5,130 +5,120 @@
 
 package IT4;
 
-import java.io.IOException;
-import java.net.URL;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
-import javax.sound.midi.*;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.lwjgl.BufferUtils;
+import org.lwjgl.LWJGLException;
+import org.lwjgl.openal.AL;
+import org.lwjgl.openal.AL10;
+import org.lwjgl.util.WaveData;
 
 /**
  *
  * @author Jim
  */
-public class SFX
+public class SFX implements Runnable
 {
-    public static int GUNSHOT = 0;
-    public static int SILENCED_GUNSHOT = 1;
-    public static int HIT = 2;
-    public static int EXPLOSION = 3;
+    public static int PISTOL_GUNSHOT = 0;
+    public static int RIFLE_GUNSHOT = 1;
+    public static int SILENCED_GUNSHOT = 2;
+    public static int SHOTGUN_GUNSHOT = 3;
+    public static int EMPTY_GUNSHOT = 4;
+    public static int EXPLOSION = 5;
+    public static int HIT = 6;
+    public static int SIREN = 7;
 
-    private static final String pr = "Audio/bjorn__lynne-_";
-    private static final String[] sounds = {"Audio/gunshot.mid", "Audio/silencedGunshot.mid", "Audio/hit.mid", "Audio/explosion.mid"};
-    //private static final String[] songs = {"Audio/Puzzle.mid", "Audio/Adventure.mid", "Audio/Ninja.mid", "Audio/AMonotonicDay.mid", "Audio/Conversions.mid",
-    //"Audio/Persian_Stories.mid", "Audio/Slave.mid", "Audio/Revenge.mid", "Audio/Action.mid", "Audio/Religions.mid"};
-    private static final String[] songs = {pr + "lets_go.mid", pr + "trailblazer.mid", pr + "in_the_cave.mid", pr + "incoming_signals.mid",
-    pr + "proud_warriors.mid", pr + "retro_electro.mid", pr + "rock_force.mid", pr + "squadron_standby.mid", pr + "streetlight_fences.mid",
-    pr + "the_chaos_warrior.mid", pr + "the_enchanted_orchard.mid", pr + "the_great_river_race.mid", pr + "the_heroes_return.mid", pr + "the_late_one.mid",
-    pr + "the_sinister_maze_.mid", pr + "zombie_chase.mid", pr + "communication.mid"};
+    public static int ALERT_MUSIC = 8;
+    public static int BOSS_MUSIC = 7;
 
-    private static Sequencer sfxPlayer = null;
-    private static Sequencer songPlayer = null;
+    public static final String[] songs = {"DarkForest.wav", "Warfare.wav", "BrokenFragment.wav",
+    "RetroSteel.wav", "IAmYourProduct.wav", "AndTheSunReappeared.wav", "FourBraveChampions.wav",
+    "BuildingUp.wav", "TightSpot.wav"};
 
-    private static boolean initialized = false;
+    public static final String[] effects = {"pistol_gunshot.wav", "rifle_gunshot.wav", "silenced_gunshot.wav",
+    "shotgun_gunshot.wav", "empty_gunshot.wav", "explosion.wav", "punch.wav", "siren.wav"};
+
+    /** Maximum data buffers we will need. */
+    public static final int NUM_BUFFERS = 9;
+
+    public static final int NUM_SOURCES = NUM_BUFFERS + 1;
+
+    public static final int INTRO_SONG = 6;
+
+    public static boolean alive = true;
     public static boolean musicOn = true;
-
-    private static Sequence[] sfx = null;
-    private static Sequence[] music = null;
-
     private static int lastIndex = 0;
     public static boolean alertMode = false;
     public static boolean alertDefault = false;
 
-    public static void init()
+    /** Buffers hold sound data. */
+    //private IntBuffer buffer = BufferUtils.createIntBuffer(NUM_BUFFERS);
+    private IntBuffer buffer = null;
+
+    /** Sources are points emitting sound. */
+    //private IntBuffer source = BufferUtils.createIntBuffer(NUM_SOURCES);
+    private IntBuffer source = null;
+
+    /** Position of the source sound. */
+    private FloatBuffer sourcePos = (FloatBuffer)BufferUtils.createFloatBuffer(3).put(new float[] { 0.0f, 0.0f, 0.0f }).rewind();
+
+    /** Velocity of the source sound. */
+    private FloatBuffer sourceVel = (FloatBuffer)BufferUtils.createFloatBuffer(3).put(new float[] { 0.0f, 0.0f, 0.0f }).rewind();
+
+    /** Position of the listener. */
+    //private FloatBuffer listenerPos = (FloatBuffer)BufferUtils.createFloatBuffer(3).put(new float[] { 0.0f, 0.0f, 0.0f }).rewind();
+
+    /** Velocity of the listener. */
+    //private FloatBuffer listenerVel = (FloatBuffer)BufferUtils.createFloatBuffer(3).put(new float[] { 0.0f, 0.0f, 0.0f }).rewind();
+
+    /** Orientation of the listener. (first 3 elements are "at", second 3 are "up") */
+    //private FloatBuffer listenerOri = (FloatBuffer)BufferUtils.createFloatBuffer(6).put(new float[] { 0.0f, 0.0f, -1.0f,  0.0f, 1.0f, 0.0f }).rewind();
+
+    public int songIndex = -1;
+    public int sourceIndex = 0;
+
+    public static SFX self = null;
+
+    private ConcurrentLinkedQueue<Integer> incoming;
+
+    private Thread sfxThread = null;
+
+    public void run()
     {
-        if (!initialized)
+        while (alive)
         {
-            sfx = new Sequence[sounds.length];
-            //music = new Sequence[songs.length];
-            music = new Sequence[3];
-
-            for(int i = 0; i < sounds.length; i++)
-            {
-                URL url = SFX.class.getClassLoader().getResource(sounds[i]);
-                
-                try
-                {
-                    sfx[i] = MidiSystem.getSequence(url);
-                }
-                catch (InvalidMidiDataException ex)
-                {
-                    //Logger.getLogger(SFX.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                catch (IOException ex)
-                {
-                    //Logger.getLogger(SFX.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                catch(Exception e)
-                {
-                    
-                }
-            }
-
             try
             {
-                URL url = SFX.class.getClassLoader().getResource(songs[songs.length - 2]);
-                music[1] = MidiSystem.getSequence(url);
-                url = SFX.class.getClassLoader().getResource(songs[songs.length - 1]);
-                music[2] = MidiSystem.getSequence(url);
+                processRequests();
+                Thread.sleep(10);
             }
-            catch (InvalidMidiDataException ex)
+            catch (Exception e)
             {
-                //Logger.getLogger(SFX.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println(e.toString());
             }
-            catch (IOException ex)
-            {
-                //Logger.getLogger(SFX.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        }
+        
+        this.killALData();
+        AL.destroy();
+    }
 
-            /*
-            for(int i = 0; i < songs.length; i++)
-            {
-                URL url = SFX.class.getClassLoader().getResource(songs[i]);
-
-                try
-                {
-                    //System.out.println(url);
-                    music[i] = MidiSystem.getSequence(url);
-                }
-                catch (InvalidMidiDataException ex)
-                {
-                    //Logger.getLogger(SFX.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                catch (IOException ex)
-                {
-                    //Logger.getLogger(SFX.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-             *
-             */
-
+    public static void stop()
+    {
+        alive = false;
+        if (self != null)
+        {
             try
             {
-                sfxPlayer = MidiSystem.getSequencer();
-                sfxPlayer.open();
-
-                songPlayer = MidiSystem.getSequencer();
-                songPlayer.open();
-
+                self.sfxThread.join(1000);
             }
-            catch (MidiUnavailableException ex)
+            catch (Exception e)
             {
-                //Logger.getLogger(SFX.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println(e.toString());
             }
-            
-            initialized = true;
         }
     }
 
@@ -137,137 +127,241 @@ public class SFX
         return songs.length;
     }
 
-    public static void playSound(int soundIndex)
+    public static String getSongPath(int index)
     {
-        if (!musicOn)
-        {
-            
-            try
-            {
-                sfxPlayer.setTickPosition(0);
-                sfxPlayer.setSequence(sfx[soundIndex]);
-                sfxPlayer.setLoopCount(0);
-                sfxPlayer.start();
+        String songpath = "Audio/";
 
-            }
-            catch(Exception e)
+        if ((index < 0) || (index >= songs.length))
+        {
+            return "";
+        }
+
+        songpath += songs[index];
+
+        return songpath;
+    }
+
+    public static String getFXPath(int index)
+    {
+        String songpath = "Audio/";
+
+        if ((index < 0) || (index >= effects.length))
+        {
+            return "";
+        }
+
+        songpath += effects[index];
+
+        return songpath;
+    }
+
+    public static void initialize()
+    {
+        if (self == null)
+        {
+            self = new SFX();
+        }
+    }
+
+    private void killALData()
+    {
+        // set to 0, num_sources
+        int position = source.position();
+        source.position(0).limit(position);
+        AL10.alDeleteSources(source);
+        AL10.alDeleteBuffers(buffer);
+    }
+
+    private int initAL()
+    {
+        try {
+            AL.create();
+        } catch (LWJGLException ex) {
+            Logger.getLogger(SFX.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        // Load wav data into a buffer.
+        buffer = BufferUtils.createIntBuffer(NUM_BUFFERS);
+        source = BufferUtils.createIntBuffer(NUM_SOURCES);
+        
+        AL10.alGenBuffers(buffer);
+
+        if(AL10.alGetError() != AL10.AL_NO_ERROR)
+        return AL10.AL_FALSE;
+
+        for(int i = 0; i < NUM_BUFFERS-1; i++)
+        {
+            WaveData waveFile = WaveData.create(getFXPath(i));
+            AL10.alBufferData(buffer.get(i), waveFile.format, waveFile.data, waveFile.samplerate);
+            waveFile.dispose();
+            initSource(i, false);
+            //System.err.println(i);
+        }
+
+        //WaveData waveFile = WaveData.create(getSongPath(INTRO_SONG));
+        //AL10.alBufferData(buffer.get(NUM_BUFFERS - 1), waveFile.format, waveFile.data, waveFile.samplerate);
+        //waveFile.dispose();
+        //initSource(NUM_BUFFERS-1, true);
+        //System.err.println(NUM_BUFFERS-1);
+
+        // Do another error check and return.
+        if (AL10.alGetError() == AL10.AL_NO_ERROR)
+        {
+            return AL10.AL_TRUE;
+        }
+
+        return AL10.AL_FALSE;
+    }
+
+    private void processRequests()
+    {
+        while (incoming.isEmpty() == false)
+        {
+            int request = incoming.remove();
+
+            //System.err.println(request);
+
+            if (request >= 0)
             {
-                System.err.println("SFX encountered an error when attempting to play the sound " + sounds[soundIndex]);
+                int type = request & 1;
+                int index = request >> 1;
+
+                if (type == 0)
+                {
+                    //Play sfx
+                    if ((index >= 0) && (index < effects.length))
+                    {
+                        //addSource(index+1);
+                        AL10.alSourcePlay(source.get(index));
+                    }
+                }
+                else
+                {
+                    //Play song
+                    if ((index >= 0) && (index < songs.length))
+                    {
+                        if (songIndex != index)
+                        {
+                            loadSong(index);
+                            AL10.alSourcePlay(source.get(NUM_BUFFERS - 1));
+                        }
+                        /*
+                        if (songIndex != -1)
+                        {
+                            AL10.alSourcePlay(source.get(NUM_BUFFERS - 1));
+                            songIndex = index;
+                        }
+                        else
+                        {
+                            loadSong(index);
+                            AL10.alSourcePlay(source.get(NUM_BUFFERS - 1));
+                        }
+                         *
+                         */
+                    }
+                }
+            }
+            else if (request == -1)
+            {
+                AL10.alSourceStop(source.get(NUM_BUFFERS - 1));
+            }
+            else if (request == -2)
+            {
+                AL10.alSourcePause(source.get(NUM_BUFFERS - 1));
+                songIndex = -2;
             }
         }
+    }
+
+    private void loadSong(int index)
+    {
+        if (index != songIndex)
+        {
+            int position = source.position();
+            if (songIndex == -1)
+            {
+                source.limit(position + 1);
+            }
+            else
+            {
+                AL10.alSourceStop(source.get(NUM_BUFFERS - 1));
+
+                AL10.alSourcei(source.get(NUM_BUFFERS - 1), AL10.AL_BUFFER, 0);
+            }
+
+            WaveData waveFile = WaveData.create(getSongPath(index));
+            AL10.alBufferData(buffer.get(NUM_BUFFERS - 1), waveFile.format, waveFile.data, waveFile.samplerate);
+            waveFile.dispose();
+
+            //System.err.println(getSongPath(index));
+
+            AL10.alGenSources(source);
+
+            if (AL10.alGetError() != AL10.AL_NO_ERROR)
+            {
+                System.out.println("Error generating audio source.");
+                System.exit(-1);
+            }
+
+            AL10.alSourcei(source.get(NUM_BUFFERS-1), AL10.AL_BUFFER,   buffer.get(NUM_BUFFERS-1) );
+            AL10.alSourcef(source.get(NUM_BUFFERS-1), AL10.AL_PITCH,    1.0f             );
+            AL10.alSourcef(source.get(NUM_BUFFERS-1), AL10.AL_GAIN,     1.0f             );
+            AL10.alSource (source.get(NUM_BUFFERS-1), AL10.AL_POSITION, sourcePos        );
+            AL10.alSource (source.get(NUM_BUFFERS-1), AL10.AL_VELOCITY, sourceVel        );
+            AL10.alSourcei(source.get(NUM_BUFFERS-1), AL10.AL_LOOPING,  AL10.AL_TRUE     );
+
+            if (songIndex == -1)
+            {
+                source.position(position+1);
+            }
+
+            songIndex = index;
+        }
+    }
+
+    public SFX()
+    {
+        incoming = new ConcurrentLinkedQueue<Integer>();
+        //source.position();
+        int retval = initAL();
+        //System.err.println("everything ok? " + (retval == AL10.AL_TRUE));
+
+        source.limit(NUM_SOURCES - 1);
+
+        sfxThread = new Thread(this);
+        sfxThread.start();
     }
 
     public static void playMusic(int index)
     {
-        alertMode = false;
-        
-        try
+        if (self != null)
         {
-            Sequence seq = null;
-
-            if (index == songs.length - 2)
-            {
-                alertDefault = true;
-            }
-            else
-            {
-                alertDefault = false;
-            }
-
-            if (index > songs.length - 2)
-            {
-                index = (index % (songs.length - 2));
-            }          
-            else if (index == -2)
-            {
-                index = songs.length - 1;
-                seq = music[2];
-                //boss = true;
-            }
-            else if (index == -3)
-            {
-                index = songs.length - 2;
-                alertMode = true;
-                seq = music[1];
-            }
-            else if (index < -3)
-            {
-                index *= -1;
-                index = (index % (songs.length - 3));
-            }
-
-            if (lastIndex == index)
-            {
-                seq = music[0];
-            }
-
-            if (index != songs.length - 2)
-            {
-                lastIndex = index;
-            }
-
-            if (seq == null)
-            {
-                try
-                {
-                    URL url = SFX.class.getClassLoader().getResource(songs[index]);
-                    //System.out.println(url);
-                    seq = MidiSystem.getSequence(url);
-                    music[0] = seq;
-                }
-                catch (InvalidMidiDataException ex)
-                {
-                    //Logger.getLogger(SFX.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                catch (IOException ex)
-                {
-                    //Logger.getLogger(SFX.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-
-            songPlayer.setSequence(seq);
-            songPlayer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
-            if (musicOn)
-            {
-                songPlayer.start();
-            }
-        }
-        catch(Exception e)
-        {
-            System.err.println("SFX encountered an error when attempting to play the sound " + songs[index]);
+            self._playAudio(index, 1);
         }
     }
-
-    /*
-    public static void playLastSong()
-    {
-        if (alertMode)
-        {
-            try
-            {
-                songPlayer.stop();
-
-                songPlayer.setSequence(music[lastIndex]);
-                songPlayer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
-                alertMode = false;
-                
-                if (musicOn)
-                {
-                    songPlayer.start();
-                }
-            }
-            catch (Exception e)
-            {
-                System.err.println("SFX encountered an error when attempting to play the sound " + songs[lastIndex]);
-            }
-        }
-    }
-     * 
-     */
 
     public static void stopMusic()
     {
-        songPlayer.stop();
+        if (self != null)
+        {
+            self._stopAudio();
+        }
+    }
+
+    public static void pauseMusic()
+    {
+        if (self != null)
+        {
+            self._pauseAudio();
+        }
+    }
+
+    public static void playSound(int index)
+    {
+        if (self != null)
+        {
+            self._playAudio(index, 0);
+        }
     }
 
     public static void resetLastIndex()
@@ -286,5 +380,53 @@ public class SFX
             musicOn = true;
         }
     }
+
+    private void _playAudio(int index, int type)
+    {
+        int request = type;
+        request = request | (index << 1);
+        incoming.add(request);
+    }
+
+    private void _stopAudio()
+    {
+        int request = -1;
+        incoming.add(request);
+    }
+
+    private void _pauseAudio()
+    {
+        int request = -2;
+        incoming.add(request);
+    }
+
+    private void initSource(int bufferIndex, boolean continuous)
+    {
+        int position = source.position();
+        source.limit(position + 1);
+        AL10.alGenSources(source);
+
+        if (AL10.alGetError() != AL10.AL_NO_ERROR)
+        {
+            System.out.println("Error generating audio source.");
+            System.exit(-1);
+        }
+
+        AL10.alSourcei(source.get(position), AL10.AL_BUFFER,   buffer.get(bufferIndex) );
+        AL10.alSourcef(source.get(position), AL10.AL_PITCH,    1.0f             );
+        AL10.alSourcef(source.get(position), AL10.AL_GAIN,     1.0f             );
+        AL10.alSource (source.get(position), AL10.AL_POSITION, sourcePos        );
+        AL10.alSource (source.get(position), AL10.AL_VELOCITY, sourceVel        );
+
+        if (continuous)
+        {
+            AL10.alSourcei(source.get(position), AL10.AL_LOOPING,  AL10.AL_TRUE     );
+        }
+
+        // next index
+        source.position(position+1);
+    }
+
+
     
 }

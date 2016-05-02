@@ -193,7 +193,7 @@ public class MainMenuPanel extends JPanel
                 SFX.toggleMusic();
                 if (SFX.musicOn)
                 {
-                    SFX.playMusic(INTRO);
+                    SFX.playMusic(SFX.INTRO_SONG);
                 }
                 else
                 {
@@ -307,16 +307,18 @@ public class MainMenuPanel extends JPanel
         this.add(mazeBtn);
         this.add(aboutBtn);
         this.add(controlsBtn);
-        this.add(enableSound);
+        //this.add(enableSound);
         this.add(enableFullscreen);
         this.add(opts);
 
         this.setBackground(Color.BLACK);
 
-        SFX.init();
-        SFX.stopMusic();
-        SFX.resetLastIndex();
-        SFX.playMusic(INTRO);
+        //SFX_OLD.init();
+        SFX.initialize();
+        SFX.playMusic(SFX.INTRO_SONG);
+        //SFX_OLD.stopMusic();
+        //SFX_OLD.resetLastIndex();
+        //SFX_OLD.playMusic(INTRO);
     }
 
     private void loadGame()
@@ -362,6 +364,7 @@ public class MainMenuPanel extends JPanel
         lvset = GameFileManager.isLevelset;
         internal = GameFileManager.internal;
 
+        //SFX_OLD.stopMusic();
         SFX.stopMusic();
 
         game = new Game(levelpath, lvset, internal, false, load, mmf);
@@ -370,6 +373,7 @@ public class MainMenuPanel extends JPanel
 
     private void playMazeMode()
     {
+        //SFX_OLD.stopMusic();
         SFX.stopMusic();
         game = new Game("", false, true, true, false, mmf);
         mmf.dispose();
@@ -403,7 +407,7 @@ public class MainMenuPanel extends JPanel
 
     private void showInfo()
     {
-        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.6.42 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
+        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.7.43 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
                 + "Soundtrack By: Bjorn Lynne\n\n"
                 + "This program is free software: you can redistribute it and/or modify\n"
                 + "it under the terms of the GNU General Public License as published by\n"
@@ -446,7 +450,7 @@ public class MainMenuPanel extends JPanel
         {
             File file = fc.getSelectedFile();
 
-            if ((file.getName().toLowerCase().endsWith(".it3")) || (file.getName().toLowerCase().endsWith(".it4")))
+            if (file.getName().toLowerCase().endsWith(".it4"))
             {
                 System.out.println(file.getName());
                 System.out.println(file.getPath());
@@ -466,7 +470,7 @@ public class MainMenuPanel extends JPanel
         {
             File file = fc.getSelectedFile();
 
-            if ((file.getName().toLowerCase().endsWith(".it3ls")) || (file.getName().toLowerCase().endsWith(".it4ls")))
+            if (file.getName().toLowerCase().endsWith(".it4ls"))
             {
                 System.out.println(file.getName());
                 System.out.println(file.getPath());
