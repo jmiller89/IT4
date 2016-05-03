@@ -244,6 +244,15 @@ public class SFX implements Runnable
                         {
                             loadSong(index);
                             AL10.alSourcePlay(source.get(NUM_BUFFERS - 1));
+
+                            if (index == SFX.ALERT_MUSIC)
+                            {
+                                SFX.alertMode = true;
+                            }
+                            else
+                            {
+                                SFX.alertMode = false;
+                            }
                         }
                         /*
                         if (songIndex != -1)

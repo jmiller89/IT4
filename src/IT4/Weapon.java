@@ -22,10 +22,12 @@ public class Weapon extends Item
         boolean suppressed = false;
         String description = "Standard Combat Knife.";
         short id = 73;
+        int fireSound = -999;
 
         if (it == ItemType.PISTOL)
         {
             id = 71;
+            fireSound = SFX.PISTOL_GUNSHOT;
 
             if (rank == 1)
             {
@@ -82,6 +84,7 @@ public class Weapon extends Item
         else if (it == ItemType.TRANQ_PISTOL)
         {
             id = 250;
+            fireSound = SFX.PISTOL_GUNSHOT;
 
             if (rank == 1)
             {
@@ -135,6 +138,7 @@ public class Weapon extends Item
         else if (it == ItemType.SMG)
         {
             id = 205;
+            fireSound = SFX.PISTOL_GUNSHOT;
 
             if (rank == 1)
             {
@@ -191,6 +195,7 @@ public class Weapon extends Item
         else if (it == ItemType.ASSAULT_RIFLE)
         {
             id = 73;
+            fireSound = SFX.RIFLE_GUNSHOT;
 
             if (rank == 1)
             {
@@ -247,6 +252,7 @@ public class Weapon extends Item
         else if (it == ItemType.SHOTGUN)
         {
             id = 206;
+            fireSound = SFX.SHOTGUN_GUNSHOT;
 
             if (rank == 1)
             {
@@ -405,7 +411,7 @@ public class Weapon extends Item
             rank = 0;
         }
 
-        Weapon w = new Weapon(id, x, y, it, rank, name, damage, accuracy, range, staminaDamage, magCapacity, totalCapacity, fireRate, silencerDurability, suppressed);
+        Weapon w = new Weapon(id, x, y, it, rank, name, damage, accuracy, range, staminaDamage, magCapacity, totalCapacity, fireRate, silencerDurability, suppressed, fireSound);
         w.description = description;
         return w;
     }
@@ -458,8 +464,9 @@ public class Weapon extends Item
     public int suppressor;
     public int maxAmmo;
     public int ammo;
+    public int sound = SFX.PISTOL_GUNSHOT;
 
-    public Weapon(short id, int x, int y, ItemType type, int rank, String name, int damage, int accuracy, int range, int staminaDamage, int magCapacity, int totalCapacity, int fireRate, int silencerDurability, boolean suppressed)
+    public Weapon(short id, int x, int y, ItemType type, int rank, String name, int damage, int accuracy, int range, int staminaDamage, int magCapacity, int totalCapacity, int fireRate, int silencerDurability, boolean suppressed, int sound_)
     {
         super(id, x, y, type, rank);
         this.weaponName = name;
@@ -472,6 +479,7 @@ public class Weapon extends Item
         this.maxAmmo = totalCapacity;
         this.fireRate = fireRate;
         this.suppressorDurability = silencerDurability;
+        this.sound = sound_;
 
         if (suppressed)
         {
@@ -501,6 +509,7 @@ public class Weapon extends Item
         this.fireRate = w.fireRate;
         this.suppressorDurability = w.suppressorDurability;
         this.suppressor = w.suppressor;
+        this.sound = w.sound;
 
         this.ammoInMag = w.ammoInMag;
         this.ammo = w.ammo;

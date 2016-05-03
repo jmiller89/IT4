@@ -3332,6 +3332,7 @@ public final class Game
             }
 
             boolean isSuppressed = player.getWeapon().isSuppressed();
+            int gunshot_sound = player.getWeapon().sound;
             int rank = player.getWeapon().rank;
 
             if (player.isC4Equipped())
@@ -3378,7 +3379,7 @@ public final class Game
 
             if (!isSuppressed)
             {
-                SFX.playSound(SFX.RIFLE_GUNSHOT);
+                SFX.playSound(gunshot_sound);
             }
             else
             {
@@ -3407,6 +3408,10 @@ public final class Game
 
             }
 
+        }
+        else
+        {
+            SFX.playSound(SFX.EMPTY_GUNSHOT);
         }
 
         if (player.getDirection() == Direction.UP)
