@@ -906,7 +906,7 @@ sizeX 20
 sizeY 15
 DGC 56
 alert false
-song 4
+song 1
 jam|none|normal
 [/header]
 
@@ -947,7 +947,7 @@ UN_GUY FRIEND
 [/spawns]
 
 [warps]
-7 7 false 11 7 7 0
+7 7 false 11 -1 -1 0
 [/warps]
 
 [dialog]
@@ -970,7 +970,7 @@ UN_GUY FRIEND
 sizeX 15
 sizeY 15
 DGC 56
-alert false
+alert true
 song 8
 jam|none|normal
 [/header]
@@ -1043,7 +1043,7 @@ No!
 [/cameras]
 
 [playerpath]
-7 7 UP WAIT_AND_CONTINUE
+-1 -1 UP WAIT_AND_CONTINUE
 7 6 DOWN WAIT_AND_CONTINUE
 7 10 DOWN STOP
 [/playerpath]
