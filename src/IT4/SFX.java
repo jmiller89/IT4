@@ -254,19 +254,6 @@ public class SFX implements Runnable
                                 SFX.alertMode = false;
                             }
                         }
-                        /*
-                        if (songIndex != -1)
-                        {
-                            AL10.alSourcePlay(source.get(NUM_BUFFERS - 1));
-                            songIndex = index;
-                        }
-                        else
-                        {
-                            loadSong(index);
-                            AL10.alSourcePlay(source.get(NUM_BUFFERS - 1));
-                        }
-                         *
-                         */
                     }
                 }
             }
@@ -276,8 +263,10 @@ public class SFX implements Runnable
             }
             else if (request == -2)
             {
-                AL10.alSourcePause(source.get(NUM_BUFFERS - 1));
-                songIndex = -2;
+                for(int i = 0; i < NUM_BUFFERS - 1; i++)
+                {
+                    AL10.alSourceStop(source.get(i));
+                }
             }
         }
     }
@@ -357,11 +346,11 @@ public class SFX implements Runnable
         }
     }
 
-    public static void pauseMusic()
+    public static void stopFX()
     {
         if (self != null)
         {
-            self._pauseAudio();
+            self._stopFX();
         }
     }
 
@@ -403,7 +392,7 @@ public class SFX implements Runnable
         incoming.add(request);
     }
 
-    private void _pauseAudio()
+    private void _stopFX()
     {
         int request = -2;
         incoming.add(request);

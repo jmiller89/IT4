@@ -284,7 +284,7 @@ public final class Game
                 playerLevMapX = GameFileManager.mapIndex;                
             }
             
-            //SFX_OLD.stopMusic();
+            //SFX.stopMusic();
             SFX.playMusic(currentLevelMap.songIndex);
 
             if (currentLevelMap.getDialog().isValid())
@@ -1128,7 +1128,7 @@ public final class Game
             {                
                 //soundPlayer.stopSong();
                 //soundPlayer = new SoundPlayer(currentLevel.getID());
-                //SFX_OLD.stopMusic();
+                SFX.stopFX();
                 SFX.playMusic(currentLevelMap.songIndex);
                 
                 player.setX(currentLevel.getStartX() * 40);
@@ -1159,7 +1159,7 @@ public final class Game
 
             if ((currentLevelMap.songIndex != lastSong) | (SFX.alertMode))
             {                
-                //SFX.stopMusic();
+                SFX.stopFX();
                 SFX.playMusic(currentLevelMap.songIndex);
             }            
 
@@ -1315,6 +1315,7 @@ public final class Game
     public void returnToMainMenu(Dialog d)
     {                
         //SFX_OLD.stopMusic();
+        SFX.stopFX();
 
         running = false;
 
@@ -2425,6 +2426,7 @@ public final class Game
     {
         SLEEPTIME = 10;
         //SFX_OLD.stopMusic();
+        SFX.stopFX();
         SFX.playMusic(currentLevelMap.songIndex);
 
         //Turn off stat modifiers
@@ -3762,6 +3764,7 @@ public final class Game
         //soundPlayer.stopSong();
         //soundPlayer = new SoundPlayer(20);
         //SFX_OLD.stopMusic();
+        SFX.stopFX();
         SFX.playMusic(SFX.BOSS_MUSIC);
     }
 

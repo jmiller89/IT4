@@ -2946,8 +2946,11 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             {
                 if (!actionTaken)
                 {
-                    dlg.choice = true;
-                    game.closeDialog();
+                    if (dlg.event != null)
+                    {
+                        dlg.choice = true;
+                        game.closeDialog();
+                    }
                     actionTaken = true;
                 }
             }
