@@ -148,7 +148,7 @@ sizeX 46
 sizeY 40
 DGC 44
 alert false
-song 7
+song 0
 |none|normal
 [/header]
 
@@ -245,7 +245,7 @@ sizeX 15
 sizeY 15
 DGC 97
 alert false
-song 7
+song 0
 semidark|none|normal
 [/header]
 
@@ -302,7 +302,7 @@ sizeX 45
 sizeY 20
 DGC 78
 alert false
-song 7
+song 0
 |none|normal
 [/header]
 
@@ -378,7 +378,7 @@ sizeX 32
 sizeY 32
 DGC 78
 alert false
-song 7
+song 0
 |none|normal
 [/header]
 
@@ -476,7 +476,7 @@ sizeX 32
 sizeY 32
 DGC 78
 alert false
-song 7
+song 0
 |none|normal
 [/header]
 
@@ -595,7 +595,7 @@ sizeX 32
 sizeY 15
 DGC 78
 alert false
-song 7
+song 0
 |none|normal
 [/header]
 
@@ -652,7 +652,7 @@ sizeX 15
 sizeY 15
 DGC 256
 alert false
-song 7
+song 0
 |none|normal
 [/header]
 
@@ -709,7 +709,7 @@ sizeX 30
 sizeY 30
 DGC 78
 alert false
-song 1
+song 0
 |none|normal
 [/header]
 
@@ -827,7 +827,7 @@ sizeX 30
 sizeY 30
 DGC 78
 alert false
-song 1
+song 0
 |none|normal
 [/header]
 
@@ -927,7 +927,7 @@ sizeX 29
 sizeY 29
 DGC 143
 alert false
-song 0
+song 2
 |none|normal
 [/header]
 
@@ -1070,7 +1070,7 @@ sizeX 35
 sizeY 29
 DGC 143
 alert false
-song 0
+song 2
 |none|normal
 [/header]
 
@@ -1214,7 +1214,7 @@ sizeX 29
 sizeY 29
 DGC 143
 alert false
-song 0
+song 2
 |none|normal
 [/header]
 
@@ -1370,7 +1370,7 @@ sizeX 29
 sizeY 29
 DGC 143
 alert false
-song 0
+song 2
 |none|normal
 [/header]
 
@@ -1504,7 +1504,7 @@ sizeX 15
 sizeY 15
 DGC 143
 alert false
-song 0
+song 2
 gas|none|normal
 [/header]
 
@@ -1576,7 +1576,7 @@ sizeX 15
 sizeY 15
 DGC 143
 alert false
-song 0
+song 5
 |none|normal
 [/header]
 

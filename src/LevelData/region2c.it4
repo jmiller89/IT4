@@ -66,7 +66,7 @@ sizeX 15
 sizeY 15
 DGC 78
 alert false
-song 2
+song 5
 jam|rain|normal
 [/header]
 
@@ -140,7 +140,7 @@ sizeX 15
 sizeY 15
 DGC 78
 alert false
-song 2
+song 5
 jam|rain|normal
 [/header]
 
@@ -220,7 +220,7 @@ sizeX 15
 sizeY 15
 DGC 78
 alert true
-song 2
+song 3
 jam|rain|normal
 [/header]
 
@@ -324,7 +324,7 @@ sizeX 46
 sizeY 17
 DGC 78
 alert false
-song 9
+song 3
 |rain|normal
 [/header]
 
@@ -427,7 +427,7 @@ sizeX 29
 sizeY 30
 DGC 78
 alert false
-song 9
+song 3
 |rain|normal
 [/header]
 
@@ -564,7 +564,7 @@ sizeX 33
 sizeY 26
 DGC 78
 alert false
-song 9
+song 3
 |rain|normal
 [/header]
 
@@ -731,7 +731,7 @@ sizeX 43
 sizeY 29
 DGC 78
 alert false
-song 9
+song 3
 |rain|normal
 [/header]
 
@@ -869,7 +869,7 @@ sizeX 43
 sizeY 43
 DGC 78
 alert false
-song 9
+song 3
 |none|normal
 [/header]
 
@@ -1055,7 +1055,7 @@ sizeX 15
 sizeY 15
 DGC 78
 alert false
-song 9
+song 3
 |none|normal
 [/header]
 
@@ -1125,7 +1125,7 @@ sizeX 15
 sizeY 15
 DGC 256
 alert false
-song 9
+song 3
 |none|normal
 [/header]
 
@@ -1182,7 +1182,7 @@ sizeX 15
 sizeY 15
 DGC 78
 alert false
-song 9
+song 3
 jam|rain|normal
 [/header]
 
@@ -1240,7 +1240,7 @@ sizeX 15
 sizeY 15
 DGC 78
 alert false
-song 9
+song 3
 jam|rain|normal
 [/header]
 
@@ -1301,7 +1301,7 @@ sizeX 15
 sizeY 15
 DGC 81
 alert false
-song 9
+song 3
 |none|normal
 [/header]
 
@@ -1368,7 +1368,7 @@ sizeX 43
 sizeY 44
 DGC 82
 alert false
-song 14
+song 1
 |none|normal
 [/header]
 
@@ -1665,7 +1665,7 @@ sizeX 43
 sizeY 44
 DGC 81
 alert false
-song 14
+song 1
 |none|normal
 [/header]
 
@@ -1958,7 +1958,7 @@ sizeX 43
 sizeY 44
 DGC 118
 alert false
-song 14
+song 1
 |none|normal
 [/header]
 
@@ -2292,7 +2292,7 @@ sizeX 30
 sizeY 46
 DGC 98
 alert false
-song 2
+song 0
 semidark_jam|none|forceprone_jam
 [/header]
 
@@ -2382,7 +2382,7 @@ sizeX 15
 sizeY 15
 DGC 81
 alert false
-song 14
+song 1
 |none|normal
 [/header]
 
@@ -2444,7 +2444,7 @@ sizeX 17
 sizeY 15
 DGC 98
 alert false
-song 2
+song 0
 semidark_jam|none|forceprone_jam
 [/header]
 

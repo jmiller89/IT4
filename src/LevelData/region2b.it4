@@ -20,7 +20,7 @@ sizeX 29
 sizeY 29
 DGC 143
 alert false
-song 0
+song 2
 |none|normal
 [/header]
 
@@ -166,7 +166,7 @@ sizeX 29
 sizeY 29
 DGC 143
 alert false
-song 0
+song 2
 |none|normal
 [/header]
 
@@ -320,7 +320,7 @@ sizeX 15
 sizeY 15
 DGC 143
 alert false
-song 0
+song 2
 gas|none|normal
 [/header]
 
@@ -392,7 +392,7 @@ sizeX 29
 sizeY 29
 DGC 143
 alert false
-song 0
+song 2
 |none|normal
 [/header]
 
@@ -542,7 +542,7 @@ sizeX 30
 sizeY 30
 DGC 78
 alert false
-song 1
+song 0
 |none|normal
 [/header]
 

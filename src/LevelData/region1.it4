@@ -92,7 +92,7 @@ sizeX 46
 sizeY 40
 DGC 44
 alert false
-song 7
+song 0
 midnight|rain|normal
 [/header]
 
@@ -186,7 +186,7 @@ sizeX 15
 sizeY 15
 DGC 97
 alert false
-song 7
+song 0
 semidark|none|normal
 [/header]
 
@@ -243,7 +243,7 @@ sizeX 45
 sizeY 20
 DGC 78
 alert false
-song 7
+song 0
 midnight|rain|normal
 [/header]
 
@@ -313,7 +313,7 @@ sizeX 32
 sizeY 32
 DGC 78
 alert false
-song 7
+song 0
 midnight|rain|normal
 [/header]
 
@@ -411,7 +411,7 @@ sizeX 32
 sizeY 32
 DGC 78
 alert false
-song 7
+song 0
 midnight|rain|normal
 [/header]
 
@@ -530,7 +530,7 @@ sizeX 32
 sizeY 15
 DGC 78
 alert false
-song 7
+song 0
 midnight|rain|normal
 [/header]
 
@@ -589,7 +589,7 @@ sizeX 15
 sizeY 15
 DGC 256
 alert false
-song 7
+song 0
 |none|normal
 [/header]
 
@@ -646,7 +646,7 @@ sizeX 21
 sizeY 15
 DGC 118
 alert false
-song 5
+song 1
 |none|normal
 [/header]
 
@@ -738,7 +738,7 @@ sizeX 21
 sizeY 15
 DGC 80
 alert false
-song 5
+song 1
 |none|normal
 [/header]
 
@@ -820,7 +820,7 @@ sizeX 21
 sizeY 15
 DGC 56
 alert false
-song 5
+song 1
 |none|normal
 [/header]
 
@@ -906,7 +906,7 @@ sizeX 20
 sizeY 15
 DGC 56
 alert false
-song 14
+song 4
 jam|none|normal
 [/header]
 
@@ -971,7 +971,7 @@ sizeX 15
 sizeY 15
 DGC 56
 alert false
-song 15
+song 8
 jam|none|normal
 [/header]
 
@@ -1009,21 +1009,21 @@ BOSS1 FRIEND
 [path]
 6 6 RIGHT STOP
 [/path]
-SPECIAL FRIEND
+JUGGERNAUT FRIEND
 [path]
-10 8 LEFT STOP
+4 8 RIGHT STOP
 [/path]
-SPECIAL FRIEND
-[path]
-8 9 LEFT STOP
-[/path]
-SPECIAL FRIEND
+JUGGERNAUT FRIEND
 [path]
 6 9 UP STOP
 [/path]
-SPECIAL FRIEND
+JUGGERNAUT FRIEND
 [path]
-4 8 RIGHT STOP
+8 9 LEFT STOP
+[/path]
+JUGGERNAUT FRIEND
+[path]
+10 8 LEFT STOP
 [/path]
 [/npcs]
 
