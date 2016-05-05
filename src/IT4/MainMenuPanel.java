@@ -218,7 +218,7 @@ public class MainMenuPanel extends JPanel
 
             public void actionPerformed(ActionEvent e)
             {                
-                String[] LevelSelection = {"IT3 Tutorial - Southwestern USA", "Flashback - Siberia"};
+                String[] LevelSelection = {"Flashback - Siberia"};
                 String selection = (String)JOptionPane.showInputDialog(MainMenuPanel.mmp, "Select the mission you wish to play", "The Endling's Artifice", JOptionPane.QUESTION_MESSAGE, null, LevelSelection, LevelSelection[0]);
                 System.out.println(selection);
                 if (selection != null)
@@ -226,10 +226,6 @@ public class MainMenuPanel extends JPanel
                     if (selection.startsWith("Flashback"))
                     {
                         newGame("LevelData/it4lv1.it4", false, true);
-                    }
-                    else if (selection.contains("Tutorial"))
-                    {
-                        newGame("LevelData/it4tutorial.it4", false, true);
                     }
                 }
             }
@@ -361,7 +357,7 @@ public class MainMenuPanel extends JPanel
         internal = GameFileManager.internal;
 
         //SFX_OLD.stopMusic();
-        SFX.stopMusic();
+        //SFX.stopMusic();
 
         game = new Game(levelpath, lvset, internal, false, load, mmf);
         mmf.dispose();
@@ -369,8 +365,7 @@ public class MainMenuPanel extends JPanel
 
     private void playMazeMode()
     {
-        //SFX_OLD.stopMusic();
-        SFX.stopMusic();
+        //SFX.stopMusic();
         game = new Game("", false, true, true, false, mmf);
         mmf.dispose();
     }
@@ -395,7 +390,7 @@ public class MainMenuPanel extends JPanel
         GameFileManager.filepath = System.getProperty("user.dir") + System.getProperty("file.separator") + "saves" + System.getProperty("file.separator") + playername;
         System.out.println(GameFileManager.filepath);
 
-        SFX.stopMusic();
+        //SFX.stopMusic();
 
         game = new Game(filepath, lvset, internal, false, false, mmf);
         mmf.dispose();
@@ -405,7 +400,7 @@ public class MainMenuPanel extends JPanel
     {
         String soundtrackauthors = "Alec Shea\nAllen Andrews\nDaniele Ghisu\nDavid Orr\nGordon McNeil\nJames Ghosh\nRoald Strauss\nWilliam Usher";
         
-        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.7.45 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
+        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.7.46 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
                 + "\nSoundtrack By:\n" + soundtrackauthors + "\n\n"
                 + "This program is free software: you can redistribute it and/or modify\n"
                 + "it under the terms of the GNU General Public License as published by\n"

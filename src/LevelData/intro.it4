@@ -1,0 +1,86 @@
+#This level was created using the IT4 Level Editor
+
+[header]
+startX 7
+startY 5
+sections 1
+[/header]
+
+[objectives]
+251 0 7 0
+Gather your items and exit the submarine
+[dialog]
+[/dialog]
+[/objectives]
+
+[room]
+
+[header]
+sizeX 15
+sizeY 15
+DGC 82
+alert false
+song 6
+|none|normal
+[/header]
+
+[tileMap]
+0 0 0 0 0 51 51 82 51 51 0 0 0 0 0
+0 0 0 0 0 51 82 82 82 51 0 0 0 0 0
+0 0 0 0 0 51 82 82 82 51 0 0 0 0 0
+0 0 0 0 0 51 82 82 82 51 0 0 0 0 0
+0 0 0 0 0 51 82 82 82 51 0 0 0 0 0
+0 0 0 0 0 51 112 82 147 51 0 0 0 0 0
+0 0 0 0 0 51 147 82 148 51 0 0 0 0 0
+0 0 0 0 0 51 51 51 51 51 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[/tileMap]
+
+[items]
+NVG 7 3 1
+TRANQ_PISTOL 7 2 1
+SECONDARY_AMMO 7 1 1
+[/items]
+
+[doors]
+[/doors]
+
+[npcs]
+MAN FRIEND
+[path]
+6 4 RIGHT STOP
+[/path]
+WOMAN1 FRIEND
+[path]
+8 5 DOWN STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+7 0 true 0 1 1 0
+[/warps]
+
+[dialog]
+[Red]
+Dialog TBD
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+7 5 UP CONTINUE
+7 0 UP STOP
+[/playerpath]
+
+[/room]
+

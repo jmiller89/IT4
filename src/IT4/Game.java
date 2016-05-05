@@ -1466,21 +1466,28 @@ public final class Game
     {
         if (it != null)
         {
-            String title = "Item";
-            
-            if (it.isWeapon)
+            if (playerOnPath)
             {
-                title = "Weapon";
+                confirmItem(it);
             }
+            else
+            {
+                String title = "Item";
 
-            Dialog d = new Dialog(it, new ITEvent() {
-                public <T> void function(T arg)
+                if (it.isWeapon)
                 {
-                    Item it = (Item)arg;
-                    confirmItem(it);
+                    title = "Weapon";
                 }
-            });
-            this.displayDialog(d, "Confirm " + title + " Pickup", true);
+
+                Dialog d = new Dialog(it, new ITEvent() {
+                    public <T> void function(T arg)
+                    {
+                        Item it = (Item)arg;
+                        confirmItem(it);
+                    }
+                });
+                this.displayDialog(d, "Confirm " + title + " Pickup", true);
+            }
         }
     }
 
@@ -1489,7 +1496,7 @@ public final class Game
         if (it != null)
         {
             if (it.isWeapon)
-            {                
+            {
                 if ((it.getType() == ItemType.PISTOL) || (it.getType() == ItemType.TRANQ_PISTOL))
                 {
                     if (player.stuff.sidearm == null)
