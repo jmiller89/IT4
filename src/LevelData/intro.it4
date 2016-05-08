@@ -70,8 +70,23 @@ WOMAN1 FRIEND
 [/warps]
 
 [dialog]
+[Scenario]
+November, 2026. The region surrounding Bariloche, extending in a 30 mile radius from the city, has recently seceded from Argentina. Over the past few years, an extreme right-wing presence has taken hold over the region. Argentina immediately imposed economic sanctions, refusing trade with the newly-formed nation-state. One week ago, Chile announced that it would impose economic sanctions as well. Rumor has it that Project Huemul, an effort from the early 1950s to develop the Thermotron, a nuclear fusion power device, had resumed. It is also suspected that the true goal of Project Huemul is the creation of nuclear warheads. A UN inspection on Huemul Island, located in Nahuel Huapi Lake, took place two weeks ago. The inspection was supposed to last one week, but the Chilean announcement prompted the Bariloche state to take two high-profile hostages. You were hired as a mercenary, as you have no official affiliation with any government. For all intents and purposes, you don't exist. In charge of the operation from this submarine is a man known as Red. He will be overseeing your activities on Huemul Island. The hostages are prominent UN Official George Shavell, and Doctor Cassandra Hooper, a highly-regarded biologist and physicist.
+
 [Red]
-Dialog TBD
+You have three mission objectives: First is to locate and rescue UN Official George Shavell. Make sure you get him off that island. We will pick him up in Bariloche after that. Your second objective is to find and rescue Dr. Hooper. Please remember that Shavell comes first. You can worry about Dr. Hooper after you rescue Shavell. Once you have rescued the hostages, your final objective is to investigate Project Huemul. We never got a report from Shavell and his inspection team, so we will need you to investigate the project and see if the nation-state has the ability to launch a nuclear warhead.
+
+[Player]
+Should I expect any additional help in the field?
+
+[Red]
+No, this is a one-man mission. We don't want to cause a big scene.
+
+[Player]
+Understood.
+
+[Red]
+We have arrived close to shore on Huemul island. Good luck. We are counting on you.
 [/dialog]
 
 [cameras]

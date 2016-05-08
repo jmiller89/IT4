@@ -7,6 +7,10 @@ sections 19
 [/header]
 
 [objectives]
+251 11 7 0
+Meet up with Sofia
+[dialog]
+[/dialog]
 251 0 3 2
 Talk to Dr. Hooper
 [dialog]
@@ -15,11 +19,102 @@ Dr. Hooper?
 
 [Hooper]
 Can I help you?
-Dialog TBD...
+
+[Player]
+I'm here to get you to safety, off the island.
+
+[Hooper]
+I came here on my own free will. This was the only place I could complete my life's work. Everywhere else is too obsessed with the "ethical implications" of my research.
+
+[Player]
+Your life's work? You don't look that old...
+
+[Hooper]
+I'll be 40 next year. What if I start slipping slowly into madness? Early-onset dementia? The list of things that could go wrong is endless. There is no time to waste.
+
+[Player]
+Okay...
+
+[Hooper]
+Besides, I am perfectly safe here. My girlfriend protects me from bad men like you.
+
+[Player]
+My orders are to rescue you.
+
+[Hooper]
+You mean you're not here to try have your way with me?
+
+[Player]
+No, I am not one of them. They killed Shavell, and they'll kill you too if you don't come with me.
+
+[Hooper]
+They killed the UN Official? The experiment must have been successful.
+
+[Player]
+Experiment? What are you talking about?
+
+[Hooper]
+Project Endling of course.
+
+[Player]
+Project Endling? I was aware of a Project Huemul, but I have never heard of Project Endling.
+
+[Hooper]
+That's because Project Huemul is just a cover for Project Endling. There is no fusion reactor, no nuclear weapons. At least none that are being made on this island. The UN inspection was arranged so they could take Shavell hostage in case Project Endling was a failure. Since they killed him, it would seem like they are pretty confident in the success of this project.
+
+[Player]
+What exactly is Project Endling?
+
+[Hooper]
+It is a massive project on biological and human experimentation unlike anything mankind has ever attempted before.
+
+[Player]
+Human experiments... What the hell? What is the goal of Project Endling?
+
+[Hooper]
+I can show you. Come to the other side of this table, I will demonstrate with this old mouse. It is not a human, but the principles are the same.
 [/dialog]
-251 11 7 0
-Meet up with Sofia
+251 10 7 1
+Speak to the Nazi Hunters_
 [dialog]
+[Soldier]
+Halt! We are looking for a woman scientist, Dr. Cassandra Hooper. Have you seen her?
+
+[Player]
+Sorry, I don't know where she is. You're not one of the regular guards here, are you?
+
+[Soldier]
+We are not. We are a team of Nazi hunters, after a target of great importance.
+
+[Player]
+You think Dr. Hooper is a Nazi?
+
+[Nazi Hunter]
+No, but her boss is. We're not talking about some Neo-Nazi grunt, either. A former Nazi of great value resides on this island.
+
+[Player]
+Who is this person?
+
+[Nazi Hunter]
+I am not at liberty to say.
+
+[Player]
+Fair enough.
+
+[Nazi Hunter]
+We have cleared out the south part of this island. If you wish to leave, now's your best chance. The area to the north is heavily fortified and filled with danger.
+
+[Player]
+I'll take my chances.
+
+[Nazi Hunter]
+We're also looking for this undercover reporter named Sofia. Her boss wants her to drop her investigation and return home immediately.
+
+[Player]
+Never heard of her.
+
+[Nazi Hunter]
+I see. Best of luck to you up there.
 [/dialog]
 [/objectives]
 
@@ -260,7 +355,14 @@ Blitz_
 Let's get started, shall we?
 [/pre]
 [post]
-Blitz is dead.
+[Outgoing Transmission]
+......
+
+[Player]
+Blitz is dead. I did manage to find Dr. Hooper, though. She told me that Project Huemul is a front for Project Endling, a large-scale undertaking dealing with human experiments. She fled the scene when Blitz entered the room, though.
+
+[Red]
+Very interesting. At least we don't have to worry about them making their own nukes. You need to find Dr. Hooper again and make sure she's safe. Contact Sofia to see if she knows where Dr. Hooper could have gone.
 [/post]
 [/boss]
 
@@ -1059,7 +1161,7 @@ sizeY 15
 DGC 78
 alert false
 song 3
-jam|rain|normal
+|rain|normal
 [/header]
 
 [tileMap]
@@ -1088,6 +1190,26 @@ jam|rain|normal
 [/doors]
 
 [npcs]
+NAZI_HUNTER FRIEND
+[path]
+8 1 LEFT STOP
+[/path]
+NAZI_HUNTER FRIEND
+[path]
+6 1 RIGHT STOP
+[/path]
+NAZI_HUNTER FRIEND
+[path]
+7 11 DOWN STOP
+[/path]
+NAZI_HUNTER FRIEND
+[path]
+6 9 UP STOP
+[/path]
+NAZI_HUNTER FRIEND
+[path]
+8 9 UP STOP
+[/path]
 [/npcs]
 
 [spawns]
@@ -1299,6 +1421,10 @@ song 1
 [items]
 MEDKIT 32 16 1
 BOOSTER_KIT 1 3 1
+GRENADE 15 26 1
+GRENADE 27 26 1
+C4 20 11 1
+C4 15 36 1
 [/items]
 
 [doors]
@@ -1351,15 +1477,6 @@ MEDIUM
 23 2 RIGHT CONTINUE
 27 2 DOWN CONTINUE
 27 14 LEFT WAIT_AND_CONTINUE
-[/path]
-MEDIUM
-[path]
-23 2 LEFT CONTINUE
-19 2 DOWN CONTINUE
-19 4 LEFT CONTINUE
-15 4 DOWN CONTINUE
-15 6 RIGHT CONTINUE
-19 6 UP SLEEP
 [/path]
 SCIENTIST1
 [path]
@@ -1427,13 +1544,6 @@ SCIENTIST1
 [/path]
 MEDIUM
 [path]
-41 38 DOWN CONTINUE
-41 42 LEFT CONTINUE
-33 42 UP WAIT_AND_CONTINUE
-33 38 RIGHT CONTINUE
-[/path]
-MEDIUM
-[path]
 12 30 DOWN CONTINUE
 12 35 LEFT CONTINUE
 9 35 DOWN CONTINUE
@@ -1474,17 +1584,6 @@ MEDIUM
 [/path]
 MEDIUM
 [path]
-13 16 LEFT CONTINUE
-9 16 DOWN CONTINUE
-9 18 RIGHT CONTINUE
-13 18 DOWN WAIT_AND_CONTINUE
-13 24 LEFT CONTINUE
-11 24 DOWN CONTINUE
-11 28 RIGHT CONTINUE
-13 28 UP CONTINUE
-[/path]
-MEDIUM
-[path]
 34 36 LEFT SLEEP
 [/path]
 MEDIUM
@@ -1494,6 +1593,33 @@ MEDIUM
 SCIENTIST2 FRIEND
 [path]
 15 11 UP STOP
+[/path]
+JUGGERNAUT
+[path]
+41 38 DOWN CONTINUE
+41 42 LEFT CONTINUE
+33 42 UP WAIT_AND_CONTINUE
+33 38 RIGHT CONTINUE
+[/path]
+JUGGERNAUT
+[path]
+13 16 LEFT CONTINUE
+9 16 DOWN CONTINUE
+9 18 RIGHT CONTINUE
+13 18 DOWN WAIT_AND_CONTINUE
+13 24 LEFT CONTINUE
+11 24 DOWN CONTINUE
+11 28 RIGHT CONTINUE
+13 28 UP CONTINUE
+[/path]
+JUGGERNAUT
+[path]
+23 2 LEFT CONTINUE
+19 2 DOWN CONTINUE
+19 4 LEFT CONTINUE
+15 4 DOWN CONTINUE
+15 6 RIGHT CONTINUE
+19 6 UP SLEEP
 [/path]
 [/npcs]
 
@@ -1511,6 +1637,44 @@ SCIENTIST2 FRIEND
 [/warps]
 
 [dialog]
+[Outgoing Transmission]
+......
+
+[Player]
+Sofia, are you doing alright?
+
+[Sofia]
+I've been better. Did you find Dr. Hooper?
+
+[Player]
+Yeah, I did. She ran away after Blitz barged in, though.
+
+[Sofia]
+What happened after that?
+
+[Player]
+I killed him.
+
+[Sofia]
+You managed to kill one of The Awakened?
+
+[Player]
+I took down Uberfall before I got here, too.
+
+[Sofia]
+You single-handedly eliminated half of The Awakened since the last time we saw each other. That's incredible!
+
+[Player]
+There's still that monster with the grenade launcher, Wolfgang, and that other member we know next to nothing about. Half of their team has been killed off. I would imagine they're pretty pissed off right now. Dr. Hooper is in grave danger if one of them catches her before we do. Do you have any idea where she might have gone?
+
+[Sofia]
+Yes, but I would rather tell you in person.
+
+[Player]
+Where are you now?
+
+[Sofia]
+I am hiding out in a cave to the north of where you and I last saw each other. Exit the building and head east.
 [/dialog]
 
 [cameras]
@@ -1593,6 +1757,8 @@ PRIMARY_SILENCER 13 18 1
 SECONDARY_MAG 20 18 1
 GRENADE 22 18 1
 GRENADE 17 40 1
+GRENADE 40 23 1
+GRENADE 31 5 1
 [/items]
 
 [doors]
@@ -1629,21 +1795,6 @@ MEDIUM
 16 16 RIGHT CONTINUE
 21 16 UP CONTINUE
 21 14 RIGHT CONTINUE
-[/path]
-MEDIUM
-[path]
-21 28 DOWN WAIT_AND_CONTINUE
-21 30 LEFT CONTINUE
-15 30 DOWN CONTINUE
-15 34 RIGHT CONTINUE
-27 34 UP CONTINUE
-27 30 LEFT CONTINUE
-21 30 UP CONTINUE
-21 28 RIGHT CONTINUE
-26 28 UP CONTINUE
-26 24 LEFT CONTINUE
-16 24 DOWN CONTINUE
-16 28 RIGHT CONTINUE
 [/path]
 MEDIUM
 [path]
@@ -1758,11 +1909,6 @@ MEDIUM
 [/path]
 MEDIUM
 [path]
-41 30 DOWN WAIT_AND_CONTINUE
-41 42 UP WAIT_AND_CONTINUE
-[/path]
-MEDIUM
-[path]
 37 34 LEFT CONTINUE
 29 34 DOWN WAIT_AND_CONTINUE
 29 42 RIGHT CONTINUE
@@ -1777,6 +1923,26 @@ MEDIUM
 SCIENTIST2 FRIEND
 [path]
 5 42 DOWN STOP
+[/path]
+JUGGERNAUT
+[path]
+21 28 DOWN WAIT_AND_CONTINUE
+21 30 LEFT CONTINUE
+15 30 DOWN CONTINUE
+15 34 RIGHT CONTINUE
+27 34 UP CONTINUE
+27 30 LEFT CONTINUE
+21 30 UP CONTINUE
+21 28 RIGHT CONTINUE
+26 28 UP CONTINUE
+26 24 LEFT CONTINUE
+16 24 DOWN CONTINUE
+16 28 RIGHT CONTINUE
+[/path]
+JUGGERNAUT
+[path]
+41 30 DOWN WAIT_AND_CONTINUE
+41 42 UP WAIT_AND_CONTINUE
 [/path]
 [/npcs]
 
@@ -1888,6 +2054,9 @@ LASER_HORIZONTAL 37 18 1
 LASER_HORIZONTAL 41 22 1
 LASER_HORIZONTAL 37 26 1
 SECONDARY_SILENCER 9 9 1
+GRENADE 34 41 1
+GRENADE 39 30 1
+GRENADE 29 12 1
 [/items]
 
 [doors]
@@ -1897,16 +2066,6 @@ SECONDARY_SILENCER 9 9 1
 [/doors]
 
 [npcs]
-MEDIUM
-[path]
-32 6 DOWN WAIT_AND_CONTINUE
-32 9 RIGHT CONTINUE
-41 9 DOWN CONTINUE
-41 14 LEFT CONTINUE
-36 14 UP CONTINUE
-36 12 LEFT CONTINUE
-32 12 UP CONTINUE
-[/path]
 MEDIUM
 [path]
 36 2 DOWN WAIT_AND_CONTINUE
@@ -2044,21 +2203,6 @@ MEDIUM
 [/path]
 MEDIUM
 [path]
-18 30 DOWN CONTINUE
-18 42 RIGHT CONTINUE
-22 42 UP CONTINUE
-22 38 RIGHT CONTINUE
-23 38 UP CONTINUE
-23 37 RIGHT CONTINUE
-24 37 UP CONTINUE
-24 35 LEFT CONTINUE
-23 35 UP CONTINUE
-23 34 LEFT CONTINUE
-22 34 UP CONTINUE
-22 30 LEFT CONTINUE
-[/path]
-MEDIUM
-[path]
 1 42 RIGHT CONTINUE
 9 42 UP WAIT_AND_CONTINUE
 9 41 LEFT WAIT_AND_CONTINUE
@@ -2118,6 +2262,31 @@ SCIENTIST1
 SCIENTIST1 FRIEND
 [path]
 41 35 DOWN STOP
+[/path]
+JUGGERNAUT
+[path]
+18 30 DOWN CONTINUE
+18 42 RIGHT CONTINUE
+22 42 UP CONTINUE
+22 38 RIGHT CONTINUE
+23 38 UP CONTINUE
+23 37 RIGHT CONTINUE
+24 37 UP CONTINUE
+24 35 LEFT CONTINUE
+23 35 UP CONTINUE
+23 34 LEFT CONTINUE
+22 34 UP CONTINUE
+22 30 LEFT CONTINUE
+[/path]
+JUGGERNAUT
+[path]
+32 6 DOWN WAIT_AND_CONTINUE
+32 9 RIGHT CONTINUE
+41 9 DOWN CONTINUE
+41 14 LEFT CONTINUE
+36 14 UP CONTINUE
+36 12 LEFT CONTINUE
+32 12 UP CONTINUE
 [/path]
 [/npcs]
 
@@ -2273,6 +2442,9 @@ song 1
 
 [items]
 PRIMARY_AMMO 2 4 1
+C4 11 2 1
+C4 12 2 1
+C4 13 2 1
 [/items]
 
 [doors]

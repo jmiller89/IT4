@@ -159,11 +159,68 @@ LIGHT
 [/warps]
 
 [dialog]
+[Incoming Transmission]
+......
+
 [Red]
-It is raining pretty hard out there. Press [4] to switch to your night vision goggles.
+Looks like you've reached the shore. Good.
 
 [Player]
-Roger that. I'm off to find Shavell.
+There doesn't seem to be a lot of activity on the beach.
+
+[Red]
+Security on the beach is very light right now. Expect more patrols farther inland.
+
+[Player]
+What is this gun I have been armed with?
+
+[Red]
+That is the TX-1 tranquilizer pistol. It comes with a sound suppressor, but suffers from limited range. You'll want to be relatively close to the enemy if you choose to fire it. To fire your weapon, press the [Space] bar. As you acquire different weapons, you can change which of your weapons is currently selected. Press [1] to use your primary weapon. Press [2] to use your secondary weapon. Press [3] to switch to your explosives. The TX-1 you have is a secondary weapon. You currently have no primary or explosives.
+
+[Player]
+So I press [2] if I want to swtich back to my secondary.
+
+[Red]
+On your heads-up-display (HUD) to the right of the screen, you will notice your currently selected weapon towards the bottom right of the screen. An [S] next to the weapon name indicates that it is suppressed. Beneath that is current ammo over ammo capacity, and beneath that is the suppressor durability. You should see [S-9], indicating that you have 9 shots until your suppressor is no longer effective. Once the suppressor has worn out and you fire your weapon, enemies in close proximity will be alerted to your presence, so use extreme caution. You can replenish your suppressors in the field, however.
+
+[Player]
+Understood. It looks like I was given a combat knife too.
+
+[Red]
+Yes, to use your knife, press the [Ctrl] button. The knife doesn't make noise, but also doesn't do a lot of damage. Best not to attack an enemy head-on with it, eh?
+
+[Player]
+Press [Ctrl] for a knife attack, got it. Can you explain the movement controls to me?
+
+[Red]
+Of course. Press the [W], [S], [A], and [D] keys to move forward, backwards, left, and right, respectively. You may also use the arrow keys for this. If you wish to go prone and crawl, press the [Shift] key. Pressing [Shift] while prone will make you stand up again.
+
+[Player]
+Makes sense. [W], [S], [A], and [D] to move, [Shift] to toggle prone.
+
+[Red]
+If you are running low on health, you have two options. You can use a medkit to replenish some health instantly. Press [E] to use a medkit.
+
+[Player]
+I should press [E] to use a medkit. What is the second option?
+
+[Red]
+You can find a spot out of sight and go prone. If you lay on your stomach and the enemy isn't chasing after you, you will gradually regenerate up to 80 percent of your maximum health.
+
+[Player]
+A little rest does the body good.
+
+[Red]
+Indeed. If you want to know what your current objective is, press [Q]. That will bring up a list of objectives I have prepared for you to complete.
+
+[Player]
+Sounds good. Press [Q] to see my current objectives.
+
+[Red]
+It is raining pretty hard out there. Visibility is going to be extremely limited, especially at this time of night. Press [4] to switch to your night vision goggles. You can keep pressing [4] to cycle through your items.
+
+[Player]
+Roger that. Press [4] to change items. I'm off to find Shavell.
 
 [Red]
 The building he's in is northwest of your current location. Head north through the woods first, then head west to reach the building. And please try to hurry. I fear he's in grave danger.
@@ -719,6 +776,11 @@ LIGHT
 [/warps]
 
 [dialog]
+[Player]
+I've made it inside the building Shavell is located in.
+
+[Red]
+Excellent. He should be somewhere on the top floor.
 [/dialog]
 
 [cameras]
@@ -999,10 +1061,6 @@ jam|none|normal
 [/doors]
 
 [npcs]
-UN_GUY FRIEND
-[path]
-7 6 DOWN DIE
-[/path]
 BOSS1 FRIEND
 [path]
 6 6 RIGHT STOP
@@ -1022,6 +1080,10 @@ JUGGERNAUT FRIEND
 JUGGERNAUT FRIEND
 [path]
 10 8 LEFT STOP
+[/path]
+UN_GUY FRIEND
+[path]
+7 6 LEFT DIE
 [/path]
 [/npcs]
 

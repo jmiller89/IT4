@@ -214,6 +214,7 @@ WOMAN2 FRIEND
 [/warps]
 
 [dialog]
+[Location Updated]
 San Carlos de Bariloche, Rio Negro, Argentina
 
 [Benitez]
@@ -393,6 +394,14 @@ WOMAN3 FRIEND
 [/warps]
 
 [dialog]
+[Outgoing Transmission]
+......
+
+[Player]
+Benitez took me to his safehouse in Bariloche, right on the beach. He wants me to rescue his daughter Sofia, who is an undercover reporter on assignment at Huemul Island right now.
+
+[Red]
+She would be an excellent source of information for us. Finding her is now your top priority. Hopefully she can help us find Dr. Hooper and tell us more about Project Huemul. Take Benitez's boat back to Huemul Island and locate Sofia.
 [/dialog]
 
 [cameras]

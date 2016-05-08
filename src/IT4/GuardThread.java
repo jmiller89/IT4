@@ -1223,6 +1223,7 @@ public class GuardThread implements Runnable
                     guard.isRecentlyWounded = true;
                     guard.markedForDeath = true;
                     guard.setHealth(1);
+                    SFX.playSound(SFX.SHOTGUN_GUNSHOT);
                 }
                 else if (guard.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.EXPLODE)
                 {
@@ -1297,6 +1298,7 @@ public class GuardThread implements Runnable
                         guard.isRecentlyWounded = true;
                         guard.setHealth(1);
                         guard.markedForDeath = true;
+                        SFX.playSound(SFX.SHOTGUN_GUNSHOT);
                     }
                     else if (guard.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.EXPLODE)
                     {

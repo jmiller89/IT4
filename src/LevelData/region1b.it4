@@ -275,6 +275,33 @@ JUGGERNAUT
 [dialog]
 The next morning, you awaken.
 The door to your cell has been unlocked.
+
+[Red]
+Are you alright? What happened to Shavell?
+
+[Player]
+I was amubshed. They killed Shavell right in front of me. Then, they took me prisoner and locked me up in this cell.
+
+[Red]
+Shit. This situation just heated up big time. We don't have the manpower to bust you out of there. You'll have to think of another way to escape.
+
+[Player]
+Last night I was visited by "The Ghost of Isla Borbon" himself.
+
+[Red]
+Dario Benitez? He would be an old man in his 70's by now. What is he doing on this island?
+
+[Player]
+Who knows? He said he was going to unlock my cell and get a boat ready to take me to a safe location. Think I can trust him?
+
+[Red]
+You saw what they did to Shavell. I would trust him a whole lot more than I would your captors.
+
+[Player]
+Good point. I'm going to find Benitez and get out of here.
+
+[Red]
+Don't forget about your mission. Even though Shavell is dead, we still need you to rescue Dr. Hooper and investigate Project Huemul. Don't let us down.
 [/dialog]
 
 [cameras]
@@ -406,6 +433,26 @@ JUGGERNAUT
 [/warps]
 
 [dialog]
+[Red]
+Those guards you see aren't your typical soldiers.
+
+[Player]
+What do you mean?
+
+[Red]
+Take a closer look. Those are juggernauts, fitted with heavy body armor.
+
+[Player]
+All that extra weight must slow them down. It would explain why they're carrying submachine guns instead of the standard-issue assault rifle.
+
+[Red]
+Do not underestimate them. They might run a little slower, and their guns might not pack as much punch as the typical enemy, but it would take a lot of bullets to bring one of those guys down. You can also forget about trying to stab them with your knife through all that armor.
+
+[Player]
+They're basically walking tanks. How do I take one of these guys down?
+
+[Red]
+They are weak to explosives; grenades and C4. Considering you have no weapons right now besides that combat knife, I would simply stay out of sight. You can crawl in the tall grass and swim under water while prone to stay hidden. Benitez is waiting for you south of that marsh. Be careful and don't get spotted by the enemy.
 [/dialog]
 
 [cameras]
