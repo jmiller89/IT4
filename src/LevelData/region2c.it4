@@ -657,7 +657,7 @@ SECONDARY_MAG 8 7 1
 [/playerpath]
 
 [boss]
-BOSS1 19 16 600 35 12 800 false
+BOSS1 19 16 450 26 12 800 false
 Uberfall_
 [pre]
 [Voice]

@@ -2584,7 +2584,14 @@ public final class Game
 
     public void drownPlayer()
     {
-        player.receiveDamage(1);
+        if (player.bodyArmor)
+        {
+            player.receiveDamage(2);
+        }
+        else
+        {
+            player.receiveDamage(1);
+        }
     }
 
     public void setHUDMessage(String msg, HUDMessageType t)
@@ -3557,7 +3564,19 @@ public final class Game
     {
         if (b != null)
         {
-            SFX.playSound(SFX.RIFLE_GUNSHOT);
+            int bdmg = b.getDamage();
+            if (bdmg == 0)
+            {
+                SFX.playSound(SFX.RIFLE_GUNSHOT);
+            }
+            else if (bdmg <= 25)
+            {
+                SFX.playSound(SFX.PISTOL_GUNSHOT);
+            }
+            else
+            {
+                SFX.playSound(SFX.RIFLE_GUNSHOT);
+            }
             bullets.add(b);
         }
     }

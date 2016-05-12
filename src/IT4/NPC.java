@@ -68,7 +68,7 @@ public class NPC extends ITCharacter
             case LIGHT:
                 id = 19;
                 currHealth = 22;
-                weaponDmg = 25;
+                weaponDmg = 26;
                 break;
             case MEDIUM:
                 id = 27;
@@ -135,12 +135,12 @@ public class NPC extends ITCharacter
             case FEMALE_ALLY:
                 id = 261;
                 currHealth = 120;
-                weaponDmg = 40;
+                weaponDmg = 25;
                 break;
             case FEMALE_ALLY_WORKOUT:
                 id = 269;
                 currHealth = 120;
-                weaponDmg = 40;
+                weaponDmg = 25;
                 break;
             case OLD_MAN:
                 id = 405;
@@ -174,7 +174,7 @@ public class NPC extends ITCharacter
             case CRIPPLE:
                 id = 413;
                 currHealth = 100;
-                weaponDmg = 30;
+                weaponDmg = 25;
                 npc_runspeed = 0.75f;
                 break;
             case EVA:
