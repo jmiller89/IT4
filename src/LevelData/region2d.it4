@@ -2328,7 +2328,7 @@ sizeX 30
 sizeY 46
 DGC 98
 alert false
-song 0
+song 9
 semidark_jam|none|forceprone_jam
 [/header]
 
@@ -2482,7 +2482,7 @@ sizeX 17
 sizeY 15
 DGC 98
 alert false
-song 0
+song 9
 semidark_jam|none|forceprone_jam
 [/header]
 

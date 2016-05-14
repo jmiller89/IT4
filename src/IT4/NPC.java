@@ -142,6 +142,11 @@ public class NPC extends ITCharacter
                 currHealth = 120;
                 weaponDmg = 25;
                 break;
+            case FEMALE_ALLY_SWIM:
+                id = 475;
+                currHealth = 120;
+                weaponDmg = 25;
+                break;
             case OLD_MAN:
                 id = 405;
                 currHealth = 30;

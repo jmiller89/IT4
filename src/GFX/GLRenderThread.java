@@ -110,13 +110,13 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     /** True if the fire key has been released */
 
     /** The normal title of the window */
-    private String windowTitle = "IT4: The Endling's Artifice";
+    private String windowTitle = "The Endling's Artifice";
 
     private static final String SPRITESHEET = "Sprites/spritesheet.png";
     private static final String TEXT = "Sprites/IT3Text.png"; //was .gif
     private static final String OVERLAY = "Sprites/overlay.png";
     private LWJGLSprite spritesheet;
-    public static final int NUMSPRITES = 475;
+    public static final int NUMSPRITES = 483;
 
     private LWJGLSprite text;
 

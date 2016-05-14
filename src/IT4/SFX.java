@@ -37,7 +37,7 @@ public class SFX implements Runnable
 
     public static final String[] songs = {"DarkForest.wav", "Warfare.wav", "BrokenFragment.wav",
     "RetroSteel.wav", "IAmYourProduct.wav", "AndTheSunReappeared.wav", "FourBraveChampions.wav",
-    "BuildingUp.wav", "TightSpot.wav"};
+    "BuildingUp.wav", "TightSpot.wav", "Cavedrips.wav"};
 
     public static final String[] effects = {"pistol_gunshot.wav", "rifle_gunshot.wav", "silenced_gunshot.wav",
     "shotgun_gunshot.wav", "empty_gunshot.wav", "explosion.wav", "punch.wav", "siren.wav"};
