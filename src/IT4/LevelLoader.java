@@ -1217,33 +1217,12 @@ public class LevelLoader
         boolean bodyArmor = false;
 
         System.out.println(s);
-        
-        int index = s.indexOf(" ");
-        String bt = s.substring(0, index);
-        String s1 = s.substring(index + 1);
-        index = s1.indexOf(" ");
-        String xs = s1.substring(0, index);
-        String s2 = s1.substring(index + 1);
-        index = s2.indexOf(" ");
-        String ys = s2.substring(0, index);
-        String s3 = s2.substring(index + 1);
-        index = s3.indexOf(" ");
-        String hs = s3.substring(0, index);
-        String s4 = s3.substring(index + 1);
-        index = s4.indexOf(" ");
-        String ds = s4.substring(0, index);
-        String s5 = s4.substring(index + 1);
-        index = s5.indexOf(" ");
-        String ss = s5.substring(0, index);
-        String s6 = s5.substring(index + 1);
-        index = s6.indexOf(" ");
 
-        String vs = s6.substring(0, index);
-        String bs = s6.substring(index + 1);
+        String[] splits = s.split(" ");
 
         try
         {
-            gt = GuardType.valueOf(bt);
+            gt = GuardType.valueOf(splits[0]);
         }
         catch(Exception e)
         {
@@ -1254,14 +1233,27 @@ public class LevelLoader
         NPC dummy = NPC.create(gt, 0, 0, Direction.UP, NPCStatus.DEAD, false, null);
         id = dummy.getID();
 
-        x = Integer.parseInt(xs);
-        y = Integer.parseInt(ys);
-        health = Integer.parseInt(hs);
-        damage = Integer.parseInt(ds);
-        speed = (byte)Integer.parseInt(ss);
-        viewDist = Integer.parseInt(vs);
-        bodyArmor = Boolean.parseBoolean(bs);
+        x = Integer.parseInt(splits[1]);
+        y = Integer.parseInt(splits[2]);
+        health = Integer.parseInt(splits[3]);
+        damage = Integer.parseInt(splits[4]);
+        speed = (byte)Integer.parseInt(splits[5]);
+        viewDist = Integer.parseInt(splits[6]);
+        bodyArmor = Boolean.parseBoolean(splits[7]);
 
-        return new Boss(id, (x * 40), (y * 40), gt, health, damage, speed, viewDist, bodyArmor);
+        Warp event = null;
+
+        if (splits.length >= 12)
+        {
+            //Parse event warp
+            int wx = Integer.parseInt(splits[8]);
+            int wy = Integer.parseInt(splits[9]);
+            int wi = Integer.parseInt(splits[10]);
+            boolean wn = Boolean.parseBoolean(splits[11]);
+
+            event = new Warp((short)0, 0, 0, wi, wx, wy, wn, 0);
+        }
+
+        return new Boss(id, (x * 40), (y * 40), gt, health, damage, speed, viewDist, bodyArmor, event);
     }
 }

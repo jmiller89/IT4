@@ -530,4 +530,22 @@ public class LevelMap
     {
         return levMap;
     }
+
+    public void handleBossEvent(int bossX, int bossY, Direction bossDirection, GuardType bossType)
+    {
+        for(int i = 0; i < guards.size(); i++)
+        {
+            NPC guard = guards.get(i);
+            if (guard.getType() == bossType)
+            {
+                Waypoint target = guard.getPath().getStartingWaypoint().copy();
+                Path p = new Path();
+                ArrayList<Waypoint> waypoints = new ArrayList<Waypoint>();
+                waypoints.add(new Waypoint(bossX, bossY, bossDirection, WaypointBehavior.EXIT));
+                waypoints.add(target);
+                p.addWaypoints(waypoints);
+                guard.setPath(p);
+            }
+        }
+    }
 }

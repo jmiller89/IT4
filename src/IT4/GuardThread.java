@@ -887,6 +887,18 @@ public class GuardThread implements Runnable
 
         guard.getPath().refresh();
 
+        if (guard.getPath().getStartingWaypoint().getBehavior() == WaypointBehavior.EXIT)
+        {
+            Waypoint dst = guard.getPath().getEndingWaypoint().copy();
+            Waypoint src = guard.getPath().getStartingWaypoint().copy();
+            Path p = getPathTo(src.getXPos() * 40, src.getYPos() * 40, dst.getXPos() * 40, dst.getYPos() * 40);
+            p.getEndingWaypoint().setWaypointBehavior(dst.getBehavior());
+            guard.setPath(p);
+            guard.NPC_WALKSPEED = guard.NPC_RUNSPEED;
+
+            //System.err.println(guard.getPath().toString());
+        }
+
         guard.wayX = guard.getPath().getNextWaypoint().getXPos() * 40;
         guard.wayY = guard.getPath().getNextWaypoint().getYPos() * 40;
         //guard.obstacleMatrix = game.getObstacleMatrix();

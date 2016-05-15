@@ -64,4 +64,9 @@ public class Warp extends ITObject
         return securityLevelRequired;
     }
 
+    public Warp copy()
+    {
+        return new Warp(this.ID, this.locX, this.locY, this.levX, this.playerX, this.playerY, this.nextLevelWarp, this.securityLevelRequired);
+    }
+
 }

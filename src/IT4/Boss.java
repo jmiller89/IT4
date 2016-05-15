@@ -18,15 +18,17 @@ public class Boss extends NPC
     public String name = "Boss";
     public String dispName = "Boss";
     private int maxHealth;
+    public Warp event = null;
 
     public Boss(short bossID, int x, int y, GuardType bossType,
-                int bossHealth, int bossDamage, byte speed, int viewDistance, boolean bdyArmor)
+                int bossHealth, int bossDamage, byte speed, int viewDistance, boolean bdyArmor, Warp killEvent)
     {
         super(bossID, x, y, Direction.DOWN, bossHealth, NPCStatus.ALERT, false, bossDamage, null, bossType, 0.5f, 1.0f, false);
         this.BOSS = true;
         this.bodyArmor = bdyArmor;
         this.viewDistance = viewDistance;
         this.speed = speed;
+        this.event = killEvent;
 
         //Set the speed of the gun based on the damage it does.
         //I know this is kind of strange, but I really didn't feel like adding
@@ -52,12 +54,12 @@ public class Boss extends NPC
     public NPC copy()
     {
         return new Boss(this.getID(), this.getX(), this.getY(),
-                this.getType(), this.getCurrentHealth(), this.getWeaponDamage(), this.speed, this.viewDistance, this.bodyArmor);
+                this.getType(), this.getCurrentHealth(), this.getWeaponDamage(), this.speed, this.viewDistance, this.bodyArmor, this.event);
     }
 
     public Boss copyBoss()
     {
-        Boss b = new Boss(this.getID(), this.getX(), this.getY(), this.getType(), this.getMaxHealth(), this.getWeaponDamage(), this.speed, this.viewDistance, this.bodyArmor);
+        Boss b = new Boss(this.getID(), this.getX(), this.getY(), this.getType(), this.getMaxHealth(), this.getWeaponDamage(), this.speed, this.viewDistance, this.bodyArmor, this.event);
 
         b.name = this.name;
         b.dispName = this.dispName;

@@ -376,7 +376,7 @@ public final class Game
             player.setX(pX * 40);
             player.setY(pY * 40);
 
-            warpTo(false, lvX);
+            warpTo(false, lvX, false);
             return true;
         }
         else
@@ -1026,7 +1026,7 @@ public final class Game
                     }
                     
                     warpTo(currentLevelMap.getWarps().get(i).isNextLevelWarp(),
-                            currentLevelMap.getWarps().get(i).getLevelX());
+                            currentLevelMap.getWarps().get(i).getLevelX(), false);
                     
                 }
 
@@ -1040,7 +1040,7 @@ public final class Game
         
     }
 
-    private void warpTo(boolean isLvlWarp, int x)
+    private void warpTo(boolean isLvlWarp, int x, boolean isBossEvent)
     {
         int lastSong = currentLevelMap.songIndex;
         
@@ -1154,6 +1154,19 @@ public final class Game
                 doors[i].forceClose();
             }
 
+            int bossX = 0;
+            int bossY = 0;
+            GuardType bossType = GuardType.BOSS0;
+            Direction bossDirection = Direction.DOWN;
+
+            if (currentLevelMap.isBossFight())
+            {
+                bossX = currentLevelMap.getBoss().getTileX();
+                bossY = currentLevelMap.getBoss().getTileY();
+                bossType = currentLevelMap.getBoss().getType();
+                bossDirection = currentLevelMap.getBoss().getDirection();
+            }
+
             currentLevelMap = currentLevel.getLevelMap(x);
             playerLevMapX = x;
 
@@ -1238,6 +1251,11 @@ public final class Game
             if (forceprone)
             {
                 player.changeStance(forceprone);
+            }
+
+            if (isBossEvent)
+            {
+                currentLevelMap.handleBossEvent(bossX, bossY, bossDirection, bossType);
             }
 
             NPCs = currentLevelMap.getNPCs();
@@ -1647,12 +1665,12 @@ public final class Game
                     }
                     else
                     {
-                        setHUDMessage("Weapon cannot be suppressed", HUDMessageType.NO_USE);
+                        setHUDMessage("Suppressor incompatible", HUDMessageType.NO_USE);
                     }
                 }
                 else
                 {
-                    setHUDMessage("Find primary weapon first", HUDMessageType.NO_USE);
+                    setHUDMessage("Find Weapon First", HUDMessageType.NO_USE);
                 }
             }
             else if (it.getType() == ItemType.MEDKIT)
@@ -2483,7 +2501,7 @@ public final class Game
         }
 
         currentLevel.respawnState();
-        this.warpTo(false, playerLevMapX);
+        this.warpTo(false, playerLevMapX, false);
     }
 
     public boolean isPlayerAlive()
@@ -3812,6 +3830,12 @@ public final class Game
             //SFX_OLD.stopMusic();
             SFX.playMusic(currentLevelMap.songIndex);
 
+            Warp bossEvent = null;
+            if (boss.event != null)
+            {
+                bossEvent = boss.event.copy();
+            }
+
             player.objectives++;
             currentLevel.removeObjective(new Objective((short)0, -1, -1, playerLevMapX, "Kill " + boss.name), playerLevMapX);
 
@@ -3833,6 +3857,19 @@ public final class Game
             fightingBoss = false;
             bossesDefeated++;
             this.stopProtectingPlayer();
+
+
+            if (bossEvent != null)
+            {
+                int warpx = bossEvent.getPlayerWarpX();
+                int warpy = bossEvent.getPlayerWarpY();
+                if ((warpx >= 0) && (warpy >= 0))
+                {
+                    player.setX(warpx);
+                    player.setY(warpy);
+                }
+                warpTo(bossEvent.isNextLevelWarp(), bossEvent.getLevelX(), true);
+            }
         }
     }
 
@@ -3876,7 +3913,7 @@ public final class Game
             player.setX(levels.getNextStartX());
             player.setY(levels.getNextStartY());
 
-            warpTo(true, playerLevMapX);
+            warpTo(true, playerLevMapX, false);
         }
     }
 

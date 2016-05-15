@@ -104,6 +104,7 @@ public class NPC extends ITCharacter
                 id = 135;
                 currHealth = 250;
                 weaponDmg = 0;
+                npc_runspeed = 0.75f;
                 break;
             case BOSS4:
                 id = 226;
