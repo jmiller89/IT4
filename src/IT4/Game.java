@@ -1338,12 +1338,13 @@ public final class Game
         running = false;
 
         try
-        {            
+        {
             Display.destroy();
         }
         catch (Exception e)
         {
-            System.err.println("Error in destroying display");            
+            System.err.println("Error in destroying display");
+            System.err.println(e.toString());
             System.exit(-1);
         }
 
@@ -1354,6 +1355,7 @@ public final class Game
         catch(Exception e)
         {
             System.err.println("Error in destroying ResourceFactory");
+            System.err.println(e.toString());
         }
 
         GameFileManager.filepath = "";
