@@ -4158,6 +4158,24 @@ public final class Game
                 }
             }
 
+            for (int i = 0; i < cameras.size(); i++)
+            {
+                SecurityCamera xcam = cameras.get(i);
+
+                dx = xcam.getX() - x;
+                dy = xcam.getY() - y;
+
+                dx *= dx;
+                dy *= dy;
+
+                distance = Math.sqrt(dx + dy);
+
+                if (distance <= 50.0)
+                {
+                    xcam.receiveDamage(110 + (15 * rank));
+                }
+            }
+
             if (fightingBoss)
             {
                 dx = boss.getX() - x;

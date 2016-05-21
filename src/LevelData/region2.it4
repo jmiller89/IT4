@@ -225,6 +225,15 @@ Thank you, my friend.
 [/dialog]
 
 [cameras]
+[camera]
+DOWN
+13
+1
+13 1
+23 1
+false
+GUN_DRONE
+[/camera]
 [/cameras]
 
 [playerpath]
@@ -632,6 +641,15 @@ song 0
 [/dialog]
 
 [cameras]
+[camera]
+RIGHT
+1
+2
+1 2
+1 13
+false
+GUN_DRONE
+[/camera]
 [/cameras]
 
 [playerpath]

@@ -133,6 +133,7 @@ public class GuardThread implements Runnable
                     {
                         int x = sc.getX() + sc.xOffset;
                         int y = sc.getY() + sc.yOffset;
+                        boolean stopCamera = false;
 
                         if (game.isPlayerVisible(x+20, y+20, sc.getDirection(), 280))
                         {
@@ -142,6 +143,7 @@ public class GuardThread implements Runnable
                             }
                             else
                             {
+                                stopCamera = true;
                                 if (sc.hasGun())
                                 {
                                     if (sc.currentShotInterval <= 0)
@@ -170,7 +172,8 @@ public class GuardThread implements Runnable
                             }
 
                         }
-                        else
+
+                        if (!stopCamera)
                         {
                             if (!game.isPlayerSpotted())
                             {

@@ -396,6 +396,24 @@ Watch out! You're about to enter a minefield. You will need a mine detector if y
 [/dialog]
 
 [cameras]
+[camera]
+DOWN
+9
+0
+9 0
+18 0
+false
+GUN_DRONE
+[/camera]
+[camera]
+LEFT
+19
+1
+19 1
+19 10
+false
+GUN_DRONE
+[/camera]
 [/cameras]
 
 [playerpath]
@@ -769,6 +787,24 @@ LANDMINE 6 7 1
 [/dialog]
 
 [cameras]
+[camera]
+DOWN
+9
+0
+9 0
+18 0
+false
+GUN_DRONE
+[/camera]
+[camera]
+LEFT
+19
+1
+19 1
+19 10
+false
+GUN_DRONE
+[/camera]
 [/cameras]
 
 [playerpath]
@@ -1841,6 +1877,7 @@ DOWN
 27 17
 27 17
 true
+GUN
 [/camera]
 [/cameras]
 

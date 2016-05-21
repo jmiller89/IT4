@@ -932,10 +932,6 @@ ASSAULT_RIFLE 11 27 1
 [npcs]
 MEDIUM
 [path]
-41 1 DOWN SLEEP
-[/path]
-MEDIUM
-[path]
 29 36 DOWN WAIT_AND_CONTINUE
 29 41 LEFT WAIT_AND_CONTINUE
 20 41 UP WAIT_AND_CONTINUE
@@ -1025,6 +1021,10 @@ MEDIUM
 [path]
 1 15 DOWN SLEEP
 [/path]
+MEDIUM
+[path]
+41 1 DOWN SLEEP
+[/path]
 [/npcs]
 
 [spawns]
@@ -1041,6 +1041,33 @@ MEDIUM
 [/dialog]
 
 [cameras]
+[camera]
+LEFT
+26
+8
+26 8
+26 24
+false
+GUN_DRONE
+[/camera]
+[camera]
+DOWN
+36
+0
+36 0
+41 0
+false
+DRONE
+[/camera]
+[camera]
+UP
+41
+18
+41 18
+36 18
+false
+DRONE
+[/camera]
 [/cameras]
 
 [playerpath]
@@ -1111,6 +1138,15 @@ MEDIUM
 [/dialog]
 
 [cameras]
+[camera]
+DOWN
+12
+0
+12 0
+12 0
+true
+GUN_DRONE
+[/camera]
 [/cameras]
 
 [playerpath]

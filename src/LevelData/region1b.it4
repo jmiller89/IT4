@@ -223,23 +223,9 @@ song 0
 [/doors]
 
 [npcs]
-MAN FRIEND
-[path]
-26 8 DOWN STOP
-[/path]
 WOMAN2 FRIEND
 [path]
 6 24 DOWN STOP
-[/path]
-JUGGERNAUT
-[path]
-2 28 UP WAIT_AND_CONTINUE
-2 4 DOWN WAIT_AND_CONTINUE
-[/path]
-JUGGERNAUT
-[path]
-11 30 UP CONTINUE
-11 6 DOWN STOP
 [/path]
 JUGGERNAUT
 [path]
@@ -256,16 +242,14 @@ JUGGERNAUT
 14 11 UP CONTINUE
 14 6 RIGHT CONTINUE
 [/path]
-JUGGERNAUT
+SCIENTIST1 FRIEND
 [path]
-30 29 LEFT CONTINUE
-21 29 UP CONTINUE
-21 12 RIGHT CONTINUE
-30 12 DOWN CONTINUE
+26 8 DOWN STOP
 [/path]
 [/npcs]
 
 [spawns]
+30 30 JUGGERNAUT 5
 [/spawns]
 
 [warps]
@@ -305,6 +289,87 @@ Don't forget about your mission. Even though Shavell is dead, we still need you 
 [/dialog]
 
 [cameras]
+[camera]
+UP
+2
+30
+2 30
+12 30
+false
+GUN_DRONE
+[/camera]
+[camera]
+LEFT
+12
+2
+12 2
+12 29
+false
+DRONE
+[/camera]
+[camera]
+DOWN
+14
+2
+14 2
+30 2
+false
+DRONE
+[/camera]
+[camera]
+UP
+2
+30
+2 30
+2 30
+true
+DRONE
+[/camera]
+[camera]
+UP
+20
+30
+20 30
+30 30
+false
+GUN_DRONE
+[/camera]
+[camera]
+RIGHT
+13
+30
+13 30
+13 30
+true
+DRONE
+[/camera]
+[camera]
+DOWN
+11
+1
+11 1
+11 1
+true
+GUN_DRONE
+[/camera]
+[camera]
+DOWN
+30
+13
+30 13
+30 13
+true
+GUN_DRONE
+[/camera]
+[camera]
+UP
+30
+12
+30 12
+30 12
+true
+GUN_DRONE
+[/camera]
 [/cameras]
 
 [playerpath]
@@ -456,6 +521,42 @@ They are weak to explosives; grenades and C4. Considering you have no weapons ri
 [/dialog]
 
 [cameras]
+[camera]
+RIGHT
+0
+28
+0 28
+0 28
+true
+GUN_DRONE
+[/camera]
+[camera]
+RIGHT
+0
+32
+0 32
+0 32
+true
+GUN_DRONE
+[/camera]
+[camera]
+RIGHT
+0
+36
+0 36
+0 36
+true
+GUN_DRONE
+[/camera]
+[camera]
+RIGHT
+0
+36
+0 36
+0 36
+true
+GUN_DRONE
+[/camera]
 [/cameras]
 
 [playerpath]
