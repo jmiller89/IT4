@@ -545,6 +545,7 @@ public class LevelLoader
                             int eY = 0;
                             boolean fixed = false;
                             short cid = 197;
+                            SecurityCameraType camType = SecurityCameraType.NORMAL;
 
                             //line = scanner.nextLine();
 
@@ -590,9 +591,42 @@ public class LevelLoader
                             start = new Waypoint(sX, sY, cd, WaypointBehavior.CONTINUE);
                             end = new Waypoint(eX, eY, cd, WaypointBehavior.CONTINUE);
 
-                            cameras.add(new SecurityCamera(cid, x*40, y*40, cd, start, end, fixed));
                             line = scanner.nextLine();
-                            
+
+                            if (line.startsWith(CAMERA_END) == false)
+                            {
+                                camType = SecurityCameraType.valueOf(line);
+                                line = scanner.nextLine();
+
+                                if (camType == SecurityCameraType.GUN)
+                                {
+                                    cid = 483;
+                                }
+                                else if (camType == SecurityCameraType.DRONE)
+                                {
+                                    cid = 487;
+                                }
+                                else if (camType == SecurityCameraType.GUN_DRONE)
+                                {
+                                    cid = 491;
+                                }
+
+                                if (cd == Direction.DOWN)
+                                {
+                                    cid += 1;
+                                }
+                                else if (cd == Direction.LEFT)
+                                {
+                                    cid += 2;
+                                }
+                                else if (cd == Direction.RIGHT)
+                                {
+                                    cid += 3;
+                                }
+
+                            }
+
+                            cameras.add(new SecurityCamera(cid, x*40, y*40, cd, start, end, fixed, camType));
                         }
                     }
                 }

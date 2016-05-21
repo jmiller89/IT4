@@ -472,8 +472,8 @@ public class LevelSet
 
         Objective obj = new Objective((short)0, -1, -1, 0, "Escape the enemy base");
 
-        cameras.add(new SecurityCamera((short)200, 0, 40, Direction.RIGHT, new Waypoint(0, 1, Direction.RIGHT, WaypointBehavior.CONTINUE), new Waypoint(0, 1, Direction.RIGHT, WaypointBehavior.CONTINUE), true));
-        cameras.add(new SecurityCamera((short)198, 40, 0, Direction.DOWN, new Waypoint(1, 0, Direction.DOWN, WaypointBehavior.CONTINUE), new Waypoint(1, 0, Direction.DOWN, WaypointBehavior.CONTINUE), true));
+        cameras.add(new SecurityCamera((short)200, 0, 40, Direction.RIGHT, new Waypoint(0, 1, Direction.RIGHT, WaypointBehavior.CONTINUE), new Waypoint(0, 1, Direction.RIGHT, WaypointBehavior.CONTINUE), true, SecurityCameraType.NORMAL));
+        cameras.add(new SecurityCamera((short)198, 40, 0, Direction.DOWN, new Waypoint(1, 0, Direction.DOWN, WaypointBehavior.CONTINUE), new Waypoint(1, 0, Direction.DOWN, WaypointBehavior.CONTINUE), true, SecurityCameraType.NORMAL));
         
         for(int x = 0; x < maze[0].length; x++)
         {

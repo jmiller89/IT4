@@ -116,7 +116,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     private static final String TEXT = "Sprites/IT3Text.png"; //was .gif
     private static final String OVERLAY = "Sprites/overlay.png";
     private LWJGLSprite spritesheet;
-    public static final int NUMSPRITES = 483;
+    public static final int NUMSPRITES = 495;
 
     private LWJGLSprite text;
 
@@ -2223,7 +2223,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     GL11.glTexCoord2f(tx2, ty);
                     GL11.glVertex2f(mx,y);
 
-                    if (!game.isPlayerSpotted())
+                    if ((!game.isPlayerSpotted()) || (cameras.get(i).hasGun()))
                     {
                         GL11.glColor4f(0, 0.2f, 1.0f, 0.4f);
                         if (cameras.get(i).getDirection() == Direction.UP)

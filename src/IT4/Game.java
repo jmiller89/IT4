@@ -2198,6 +2198,27 @@ public final class Game
         return collision;
     }
 
+    public boolean bulletCollisionCamera(Bullet b)
+    {
+        boolean collision = false;
+        for(int i = 0; i < cameras.size(); i++)
+        {
+            if ((b.getTileX() == cameras.get(i).getTileX()) && (b.getTileY() == cameras.get(i).getTileY()))
+            {
+                collision = true;
+                cameras.get(i).receiveDamage(b.getDamage());
+                break;
+            }
+        }
+
+        if (collision)
+        {
+            SFX.playSound(SFX.HIT);
+        }
+
+        return collision;
+    }
+
     public void enemyKilled()
     {
         enemiesKilled++;

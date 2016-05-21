@@ -15,6 +15,7 @@ public class GuardThread implements Runnable
 {
     private Game game;
     private static byte FAST_SHOT_INTERVAL = 40;
+    private static byte GUN_CAM_SHOT_INTERVAL = 20;
     private static byte MAX_ANIMATION_ITERS = 16; //was 8
     //private int speedAdjuster = 20;
     private int spawnTimer = 0;
@@ -124,33 +125,69 @@ public class GuardThread implements Runnable
                     }
                 }
 
-                if (!game.isPlayerSpotted())
+                for(int i = 0; i < game.getCameras().size(); i++)
                 {
-                    for(int i = 0; i < game.getCameras().size(); i++)
+                    SecurityCamera sc = game.getCameras().get(i);
+                    
+                    if (!game.paused)
                     {
-                        if (!game.paused)
+                        int x = sc.getX() + sc.xOffset;
+                        int y = sc.getY() + sc.yOffset;
+
+                        if (game.isPlayerVisible(x+20, y+20, sc.getDirection(), 280))
                         {
-                            game.getCameras().get(i).move();
-
-                            int x = game.getCameras().get(i).getX() + game.getCameras().get(i).xOffset;
-                            int y = game.getCameras().get(i).getY() + game.getCameras().get(i).yOffset;
-
-                            if (game.isPlayerVisible(x+20, y+20, game.getCameras().get(i).getDirection(), 280))
+                            if ((game.getPlayerStance() == Stance.PRONE) && ((game.isPlayerInWater() || (game.isPlayerInTallGrass()))))
                             {
-                                if ((game.getPlayerStance() == Stance.PRONE) && ((game.isPlayerInWater() || (game.isPlayerInTallGrass()))))
+                                //Player is hidden
+                            }
+                            else
+                            {
+                                if (sc.hasGun())
                                 {
-                                    //Player is hidden
+                                    if (sc.currentShotInterval <= 0)
+                                    {
+                                        Bullet b = sc.attack((short)181, game.getPlayerX(), game.getPlayerY(), 0, 1);
+
+                                        if (b != null)
+                                        {
+                                            game.NPCAttack(b);
+                                        }
+                                        
+                                        sc.currentShotInterval = GUN_CAM_SHOT_INTERVAL;
+                                    }
+                                    else
+                                    {
+                                        sc.currentShotInterval--;
+                                    }
                                 }
                                 else
                                 {
-                                    game.setPlayerSpotted();
+                                    if (!game.isPlayerSpotted())
+                                    {
+                                        game.setPlayerSpotted();
+                                    }
                                 }
-                                
+                            }
+
+                        }
+                        else
+                        {
+                            if (!game.isPlayerSpotted())
+                            {
+                                game.getCameras().get(i).move();
+                            }
+                            else
+                            {
+                                if (game.getCameras().get(i).hasGun())
+                                {
+                                    game.getCameras().get(i).move();
+                                }
                             }
                         }
                     }
                 }
-                else
+                
+                if (game.isPlayerSpotted())
                 {
                     if (!game.paused)
                     {
@@ -202,13 +239,14 @@ public class GuardThread implements Runnable
                     }
                 }
 
-    //            for(int i = 0; i < game.getCameras().size(); i++)
-    //            {
-    //                if (game.getCameras().get(i).remove == true)
-    //                {
-    //                    game.getCameras().remove(i);
-    //                }
-    //            }
+                for(int i = 0; i < game.getCameras().size(); i++)
+                {
+                    if (game.getCameras().get(i).alive == false)
+                    {
+                        SecurityCamera deadCam = game.getCameras().remove(i);
+                        game.explosion(deadCam.getX(), deadCam.getY(), false, 1);
+                    }
+                }
     //
     //            for(int i = 0; i < game.getSpawns().size(); i++)
     //            {

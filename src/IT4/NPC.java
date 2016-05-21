@@ -222,6 +222,11 @@ public class NPC extends ITCharacter
                 npc_runspeed = 0.75f;
                 juggernaut = true;
                 break;
+            case PLAYER:
+                id = 1;
+                currHealth = 100;
+                weaponDmg = 25;
+                break;
             default:
                 id = 19;
                 currHealth = 22;

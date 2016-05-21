@@ -25,14 +25,21 @@ public class SecurityCamera extends ITObject
     private static final int NORMAL_WAIT = 1;
     private static final int WP_WAIT = 100;
     private int wait = 0;
+    public int health = 125;
+    public boolean alive = true;
+    public int weaponDamage = 30;
+    public byte currentShotInterval = 15;
 
-    public SecurityCamera(short id, int x, int y, Direction dir, Waypoint way1, Waypoint way2, boolean isFixed)
+    public SecurityCameraType type = SecurityCameraType.NORMAL;
+
+    public SecurityCamera(short id, int x, int y, Direction dir, Waypoint way1, Waypoint way2, boolean isFixed, SecurityCameraType camType)
     {
         super(id, x, y);
         direction = dir;
         start = way1;
         end = way2;
         fixed = isFixed;
+        type = camType;
 
         if (direction == Direction.UP)
         {
@@ -58,12 +65,88 @@ public class SecurityCamera extends ITObject
 
     public SecurityCamera copy()
     {
-        return new SecurityCamera(this.getID(), this.getX(), this.getY(), this.direction, this.start, this.end, this.fixed);
+        return new SecurityCamera(this.getID(), this.getX(), this.getY(), this.direction, this.start, this.end, this.fixed, this.type);
     }
 
     public Direction getDirection()
     {
         return direction;
+    }
+
+    public void receiveDamage(int dmg)
+    {
+        health -= dmg;
+
+        if (health <= 0)
+        {
+            alive = false;
+        }
+    }
+
+    public boolean hasGun()
+    {
+        return ((type == SecurityCameraType.GUN) || (type == SecurityCameraType.GUN_DRONE));
+    }
+
+    public Bullet attack(short bulletSprite, int playerX, int playerY, int shot, int rank)
+    {
+        if (hasGun())
+        {
+            int offsetX = 0;
+            int offsetY = 0;
+
+            int dx;
+            int dy;
+            float distance;
+            float vX = 0.0f;
+            float vY = 0.0f;
+
+            if (this.getDirection() == Direction.UP)
+            {
+                offsetY = -40;
+            }
+            else if (this.getDirection() == Direction.DOWN)
+            {
+                offsetY = 40;
+            }
+            else if (this.getDirection() == Direction.LEFT)
+            {
+                offsetX = -40;
+            }
+            else if (this.getDirection() == Direction.RIGHT)
+            {
+                offsetX = 40;
+            }
+
+            dx = playerX - this.getX();
+            dy = playerY - this.getY();
+
+            distance = (float)Math.sqrt((double)((dx * dx) + (dy * dy)));
+
+            vX = dx/distance;
+            vY = dy/distance;
+
+            if (weaponDamage == 0)
+            {
+                bulletSprite = 191;
+                vX = vX / 2;
+                vY = vY / 2;
+            }
+
+            Bullet b = new Bullet(this.getX() + offsetX, this.getY() + offsetY,
+                    vX, vY, bulletSprite, weaponDamage, false, false, 900, rank, 0);
+
+            if (weaponDamage == 0)
+            {
+                b.explosive = true;
+            }
+
+            return b;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public void move()

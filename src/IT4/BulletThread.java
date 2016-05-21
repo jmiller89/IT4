@@ -117,6 +117,10 @@ public class BulletThread implements Runnable
                 {
                     collided = true;
                 }
+                else if (game.bulletCollisionCamera(bullets.get(index)) == true)
+                {
+                    collided = true;
+                }
                 else
                 {
                     collided = false;
