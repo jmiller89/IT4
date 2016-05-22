@@ -7,27 +7,23 @@ sections 10
 [/header]
 
 [objectives]
-251 6 22 30
-_
-[dialog]
-(Radio Transmission)
-
-[Major]
-Do you see that open vent ahead of you?
-You can go prone by pressing [Shift] and crawl into it.
-You should be able to access locked rooms by
-crawling through the air ducts.
-[/dialog]
 251 6 26 41
 Enter the enemy base
 [dialog]
-(Radio Transmission)
+[Incoming Transmission]
+......
 
 [Major]
-Okay, you've made it inside the enemy base.
-The target is on the floor below. You should find
-yourself a weapon and make your way to the basement.
-Good luck!
+Okay, you've made it inside the enemy base. The target is on the floor below. You should find yourself a weapon and make your way to the basement. Good luck!
+[/dialog]
+251 6 22 30
+_
+[dialog]
+[Incoming Transmission]
+......
+
+[Major]
+Do you see that open vent ahead of you? You can go prone by pressing [Shift] and crawl into it. You should be able to access locked rooms by crawling through the air ducts.
 [/dialog]
 [/objectives]
 
@@ -150,15 +146,17 @@ HEAVY
 [/warps]
 
 [dialog]
-FLASHBACK
+[FLASHBACK]
+January, 2024. Northeastern Siberia.
 
-(Radio Transmission)
+[Incoming Transmission]
+......
 
 [Major]
 Your target is the leader of a local mercenary group,
 who goes by the codename 'Centipede'.
 
-[You]
+[Player]
 I've heard of this 'Centipede'. Former opposition
 forces squad leader, sent to the gulags for nearly a
 decade after his capture. Looks like he got out.
@@ -167,7 +165,7 @@ decade after his capture. Looks like he got out.
 Indeed. He might be a little older now, but
 do not underestimate him.
 
-[You]
+[Player]
 I'm not winning any battles right now. I'm not
 even armed.
 
@@ -177,7 +175,7 @@ security, smuggling in weapons would have been
 impossible. The ban on guns and crackdown on
 the black market hasn't helped, either.
 
-[You]
+[Player]
 I managed to obtain a hunting knife from an
 outdoor store near the airport. Better than nothing.
 
@@ -186,7 +184,7 @@ You're close to a former military installation
 that is patrolled by armed guards. You should be
 able to find a gun on-site.
 
-[You]
+[Player]
 Roger that. I'm going after Centipede. Over.
 [/dialog]
 
@@ -899,13 +897,11 @@ semidark_jam|none|forceprone_jam
 [/warps]
 
 [dialog]
-(Radio Transmission)
+[Incoming Transmission]
+......
 
 [Major]
-Good, you made it in the ducts.
-Unfortunately, the air duct is a tight fit, so you won't
-be able to stand up and run. Crawl through the vents
-and see where that takes you.
+Good, you made it in the ducts. Unfortunately, the air duct is a tight fit, so you won't be able to stand up and run. Crawl through the vents and see where that takes you.
 [/dialog]
 
 [cameras]
@@ -1043,18 +1039,17 @@ BOSS0 5 4 170 32 12 800 false
 Centipede
 [pre]
 [Centipede]
-The intruder finally shows his face...
-Are you prepared to die?
+The intruder finally shows his face... Are you prepared to die?
 [/pre]
 [post]
-(Radio Transmission)
+[Outgoing Transmission]
+......
 
-[You]
+[Player]
 Centipede is dead.
 
 [Major]
-Excellent work. Use the sewers below to exit
-the base and return home. Mission accomplished.
+Excellent work. Use the sewers below to exit the base and return home. Mission accomplished.
 [/post]
 [/boss]
 

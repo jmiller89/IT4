@@ -142,20 +142,20 @@ public class Weapon extends Item
 
             if (rank == 1)
             {
-                //20|50|720|0|20|100|92|10|false
-                name = "PC9";
+                //20|60|720|0|20|100|93|10|false
+                name = "FMK-3";
                 damage = 20;
-                accuracy = 50;
+                accuracy = 60;
                 range = 640;
                 staminaDamage = 0;
                 magCapacity = 20;
                 totalCapacity = 100;
-                fireRate = 92;
+                fireRate = 93;
                 silencerDurability = 20;
                 suppressed = false;
                 id = 451;
 
-                description = "SMG Rank 1. American origin, civilain model. Retro-fitted for moderately fast fully-automatic fire. Features weak stopping power and poor accuracy. Has a magazine capacity of 20 rounds. Can attach low-durability suppressors.";
+                description = "SMG Rank 1. Argentine origin. Features moderately fast fully-automatic fire. Has weak stopping power and poor accuracy. Has a magazine capacity of 20 rounds. Can attach low-durability suppressors.";
             }
             else if (rank == 2)
             {
