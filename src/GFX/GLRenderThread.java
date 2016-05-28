@@ -68,6 +68,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     private short radarSolid = 183;
     private short playerSprite = 184;
     private short NPCSprite = 185;
+    private short radarObjective = 192;
 
     private short white = 297;
     //private short borderbox = 298;
@@ -116,7 +117,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     private static final String TEXT = "Sprites/IT3Text.png"; //was .gif
     private static final String OVERLAY = "Sprites/overlay.png";
     private LWJGLSprite spritesheet;
-    public static final int NUMSPRITES = 510;
+    public static final int NUMSPRITES = 511;
 
     private LWJGLSprite text;
 
@@ -2324,6 +2325,43 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                             GL11.glVertex2f(mx,y);
                             
                         }
+                    }
+                }
+
+                for(int i = 0; i < localObjectives.size(); i++)
+                {
+                    int cx, cy;
+                    cx = localObjectives.get(i).getX();
+                    cy = localObjectives.get(i).getY();
+
+                    if ((cx >= 0) && (cy >= 0))
+                    {
+                        row = radarObjective / COLSIZE;
+                        col = radarObjective - (row * COLSIZE);
+
+                        tx = getTX(col, height);
+                        tx2 = getTX(col + 1, height);
+                        ty = getTX(row, width);
+                        ty2 = getTX(row + 1, width);
+
+                        int x,y,mx,my;
+                        int ix, iy;
+                        ix = cx / 5;
+                        iy = cy / 5;
+                        x = ((ix) + 610 - (PX) + (90));
+                        y = ((iy) - (PY) + (75));
+                        mx = x + 40;
+                        my = y + 40;
+
+                        //Draw tile
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
                     }
                 }
 

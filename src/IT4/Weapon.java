@@ -308,7 +308,7 @@ public class Weapon extends Item
         }
         else if (it == ItemType.GRENADE)
         {
-            id = 191;
+            id = 510;
             
             if (rank == 1)
             {
@@ -317,8 +317,8 @@ public class Weapon extends Item
                 accuracy = 90;
                 range = 800; //Travels at half speed, real range is 400
                 staminaDamage = 0;
-                magCapacity = 1;
-                totalCapacity = 4;
+                magCapacity = 4;
+                totalCapacity = 12;
                 fireRate = 0;
                 silencerDurability = 999;
                 suppressed = true;
@@ -332,13 +332,13 @@ public class Weapon extends Item
                 accuracy = 90;
                 range = 800; //Travels at half speed, real range is 400
                 staminaDamage = 0;
-                magCapacity = 1;
-                totalCapacity = 4;
+                magCapacity = 4;
+                totalCapacity = 16;
                 fireRate = 0;
                 silencerDurability = 999;
                 suppressed = true;
 
-                description = "Standard-issue fragmentation grenade. Features improved damage.";
+                description = "Standard-issue fragmentation grenade. Features improved damage and capacity.";
             }
             else
             {
@@ -347,8 +347,8 @@ public class Weapon extends Item
                 accuracy = 90;
                 range = 800; //Travels at half speed, real range is 400
                 staminaDamage = 0;
-                magCapacity = 1;
-                totalCapacity = 6;
+                magCapacity = 4;
+                totalCapacity = 20;
                 fireRate = 0;
                 silencerDurability = 999;
                 suppressed = true;
@@ -358,7 +358,7 @@ public class Weapon extends Item
         }
         else if (it == ItemType.C4)
         {
-            id = 368;
+            id = 510;
             
             if (rank == 1)
             {
@@ -367,8 +367,8 @@ public class Weapon extends Item
                 accuracy = 100;
                 range = 0; //Placed
                 staminaDamage = 0;
-                magCapacity = 1;
-                totalCapacity = 4;
+                magCapacity = 4;
+                totalCapacity = 8;
                 fireRate = 0;
                 silencerDurability = 999;
                 suppressed = true;
@@ -382,13 +382,13 @@ public class Weapon extends Item
                 accuracy = 100;
                 range = 0; //Placed
                 staminaDamage = 0;
-                magCapacity = 1;
-                totalCapacity = 4;
+                magCapacity = 4;
+                totalCapacity = 12;
                 fireRate = 0;
                 silencerDurability = 999;
                 suppressed = true;
 
-                description = "C4 Plastic Explosives. Press [Space] to set, and [Ctrl] to detonate. Features improved damage.";
+                description = "C4 Plastic Explosives. Press [Space] to set, and [Ctrl] to detonate. Features improved damage and capacity.";
             }
             else
             {
@@ -397,8 +397,8 @@ public class Weapon extends Item
                 accuracy = 100;
                 range = 0; //Placed
                 staminaDamage = 0;
-                magCapacity = 1;
-                totalCapacity = 6;
+                magCapacity = 4;
+                totalCapacity = 16;
                 fireRate = 0;
                 silencerDurability = 999;
                 suppressed = true;

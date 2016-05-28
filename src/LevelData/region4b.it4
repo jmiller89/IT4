@@ -7,6 +7,10 @@ sections 18
 [/header]
 
 [objectives]
+251 17 7 2
+Make it through the sewers
+[dialog]
+[/dialog]
 [/objectives]
 
 [room]
@@ -1161,18 +1165,14 @@ semidark|none|normal
 [items]
 SECONDARY_MAG 53 3 1
 GRENADE 50 12 2
-GRENADE 36 17 2
 GRENADE 34 26 2
 ASSAULT_RIFLE 11 18 2
 C4 13 23 2
-C4 1 34 2
 C4 32 38 2
-C4 53 41 2
 SMG 23 31 2
-GRENADE 26 16 2
 C4 49 3 2
-C4 51 3 2
 PRIMARY_MAG 16 12 1
+GRENADE 36 17 2
 [/items]
 
 [doors]

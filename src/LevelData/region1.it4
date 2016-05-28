@@ -726,6 +726,7 @@ song 1
 [items]
 MEDKIT 15 13 1
 SECONDARY_AMMO 17 13 1
+GRENADE 17 3 1
 [/items]
 
 [doors]

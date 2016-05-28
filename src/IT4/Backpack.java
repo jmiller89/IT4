@@ -190,7 +190,7 @@ public class Backpack
     {
         if (explosive != null)
         {
-            return (explosive.addAmmo(2) != 0);
+            return (explosive.addAmmo(1) != 0);
         }
 
         return false;

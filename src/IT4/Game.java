@@ -1456,10 +1456,20 @@ public final class Game
                 }
                 else if ((it.getType() == ItemType.GRENADE) || (it.getType() == ItemType.C4))
                 {
+                    int currAmmo = -1;
+                    if (player.stuff.explosive != null)
+                    {
+                        currAmmo = player.stuff.explosive.getAmmo();
+                    }
+
                     oldWeapon = player.giveExplosive((Weapon)it);
-                    it.flagForRemoval();
-                    setHUDMessage(it.toString(), HUDMessageType.FOUND);
-                    player.changeWeapon(3);
+
+                    if (((oldWeapon == null) && (player.stuff.explosive.getAmmo() == currAmmo)) == false)
+                    {
+                        it.flagForRemoval();
+                        setHUDMessage(it.toString(), HUDMessageType.FOUND);
+                        player.changeWeapon(3);
+                    }
                 }
 
                 if (oldWeapon != null)
@@ -1532,8 +1542,13 @@ public final class Game
                                 if (player.giveSecondaryMag((Weapon)it))
                                 {
                                     setHUDMessage("Secondary ammo x " + ((Weapon)it).ammo, HUDMessageType.FOUND);
+                                    it.flagForRemoval();
                                 }
-                                it.flagForRemoval();
+                                else
+                                {
+                                    setHUDMessage("Ammo is full", HUDMessageType.NO_USE);
+                                }
+                                
                             }
                             else
                             {
@@ -1574,8 +1589,12 @@ public final class Game
                                 if (player.givePrimaryMag((Weapon)it))
                                 {
                                     setHUDMessage("Primary ammo x " + ((Weapon)it).ammo, HUDMessageType.FOUND);
+                                    it.flagForRemoval();
                                 }
-                                it.flagForRemoval();
+                                else
+                                {
+                                    setHUDMessage("Ammo is full", HUDMessageType.NO_USE);
+                                }
                             }
                             else
                             {
@@ -1615,8 +1634,12 @@ public final class Game
                                 if (player.giveExplosiveAmmo((Weapon)it))
                                 {
                                     setHUDMessage(it.toString(), HUDMessageType.FOUND);
+                                    it.flagForRemoval();
                                 }
-                                it.flagForRemoval();
+                                else
+                                {
+                                    setHUDMessage("Ammo is full", HUDMessageType.NO_USE);
+                                }
                             }
                             else
                             {
@@ -1646,9 +1669,16 @@ public final class Game
             {
                 if (player.stuff.sidearm != null)
                 {
-                    player.giveSecondarySilencer();
-                    it.flagForRemoval();
-                    setHUDMessage("Suppressor - Secondary", HUDMessageType.FOUND);
+                    if (player.stuff.sidearm.suppressor < player.stuff.sidearm.suppressorDurability)
+                    {
+                        player.giveSecondarySilencer();
+                        it.flagForRemoval();
+                        setHUDMessage("Suppressor - Secondary", HUDMessageType.FOUND);
+                    }
+                    else
+                    {
+                        setHUDMessage("Suppressor unused", HUDMessageType.NO_USE);
+                    }
                 }
                 else
                 {
@@ -1661,9 +1691,16 @@ public final class Game
                 {
                     if (player.stuff.primary.suppressorDurability > 0)
                     {
-                        player.givePrimarySilencer();
-                        it.flagForRemoval();
-                        setHUDMessage("Suppressor - Primary", HUDMessageType.FOUND);
+                        if (player.stuff.primary.suppressor < player.stuff.primary.suppressorDurability)
+                        {
+                            player.givePrimarySilencer();
+                            it.flagForRemoval();
+                            setHUDMessage("Suppressor - Primary", HUDMessageType.FOUND);
+                        }
+                        else
+                        {
+                            setHUDMessage("Suppressor unused", HUDMessageType.NO_USE);
+                        }
                     }
                     else
                     {
