@@ -36,10 +36,10 @@ public class MainMenuPanel extends JPanel
     private MainMenuFrame mmf;
     private JButton newGameBtn;
     private JButton loadMapBtn;
-    private JButton loadLvSetBtn;
+    //private JButton loadLvSetBtn;
     private JButton aboutBtn;
     private JButton controlsBtn;
-    private JButton mazeBtn;
+    //private JButton mazeBtn;
     private JButton tutorialBtn;
     private JButton loadGameBtn;
     private JCheckBox enableSound;
@@ -92,64 +92,60 @@ public class MainMenuPanel extends JPanel
         image.getGraphics().drawImage(source,0,0,null);
 
         newGameBtn = new JButton("New Game");
-        newGameBtn.setBounds(50, 180, 150, 45);
+        newGameBtn.setBounds(50, 215, 150, 45);
         newGameBtn.setBackground(argentineBlue);
         newGameBtn.setForeground(darkRed);
         newGameBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         newGameBtn.repaint();
 
         loadGameBtn = new JButton("Load Game");
-        loadGameBtn.setBounds(50, 255, 150, 45);
+        loadGameBtn.setBounds(50, 290, 150, 45);
         loadGameBtn.setBackground(argentineBlue);
         loadGameBtn.setForeground(darkRed);
         loadGameBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         loadGameBtn.repaint();
 
         loadMapBtn = new JButton("Open Level");
-        loadMapBtn.setBounds(50, 485, 150, 45);
+        loadMapBtn.setBounds(50, 365, 150, 45);
         loadMapBtn.setBackground(argentineBlue);
         loadMapBtn.setForeground(darkRed);
         loadMapBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         loadMapBtn.repaint();
 
-        loadLvSetBtn = new JButton("Open Levelset");
-        loadLvSetBtn.setBounds(50, 410, 150, 45);
-        loadLvSetBtn.setBackground(argentineBlue);
-        loadLvSetBtn.setForeground(darkRed);
-        loadLvSetBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
-        loadLvSetBtn.repaint();
-
         tutorialBtn = new JButton("Mission Select");
-        tutorialBtn.setBounds(585, 180, 150, 45);
+        tutorialBtn.setBounds(585, 215, 150, 45);
         tutorialBtn.setBackground(argentineBlue);
         tutorialBtn.setForeground(darkRed);
         tutorialBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         tutorialBtn.repaint();
 
+        /*
         mazeBtn = new JButton("Instant Action");
         mazeBtn.setBounds(585, 255, 150, 45);
         mazeBtn.setBackground(argentineBlue);
         mazeBtn.setForeground(darkRed);
         mazeBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         mazeBtn.repaint();
+         * 
+         */
 
         aboutBtn = new JButton("About");
-        aboutBtn.setBounds(585, 485, 150, 45);
+        aboutBtn.setBounds(585, 290, 150, 45);
         aboutBtn.setBackground(argentineBlue);
         aboutBtn.setForeground(darkRed);
         aboutBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         aboutBtn.repaint();
 
         controlsBtn = new JButton("Controls");
-        controlsBtn.setBounds(585, 410, 150, 45);
+        controlsBtn.setBounds(585, 365, 150, 45);
         controlsBtn.setBackground(argentineBlue);
         controlsBtn.setForeground(darkRed);
         controlsBtn.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
         controlsBtn.repaint();
 
-        JLabel opts = new JLabel("Options");
-        opts.setBounds(350, 440, 200, 40);
-        opts.setForeground(darkRed);
+        //JLabel opts = new JLabel("Options");
+        //opts.setBounds(350, 440, 200, 40);
+        //opts.setForeground(darkRed);
 
         enableSound = new JCheckBox("Enable Soundtrack");
         enableSound.setSelected(SFX.musicOn);
@@ -161,7 +157,7 @@ public class MainMenuPanel extends JPanel
 
         enableFullscreen = new JCheckBox("Fullscreen Mode");
         enableFullscreen.setSelected(Game.FULLSCREEN);
-        enableFullscreen.setBounds(310, 470, 200, 40);
+        enableFullscreen.setBounds(310, 440, 200, 40);
         enableFullscreen.setBackground(argentineBlue);
         enableFullscreen.setForeground(darkRed);
         enableFullscreen.setBorder(new MatteBorder(5, 5, 5, 5, Color.darkGray));
@@ -253,17 +249,6 @@ public class MainMenuPanel extends JPanel
 
         });
 
-        loadLvSetBtn.addActionListener(new ActionListener()
-        {
-
-            public void actionPerformed(ActionEvent e)
-            {
-                //System.out.println("Load a levelset");
-                loadLevelSet();
-            }
-
-        });
-
         aboutBtn.addActionListener(new ActionListener()
         {
 
@@ -284,6 +269,7 @@ public class MainMenuPanel extends JPanel
 
         });
 
+        /*
         mazeBtn.addActionListener(new ActionListener()
         {
 
@@ -293,19 +279,20 @@ public class MainMenuPanel extends JPanel
             }
 
         });
+         *
+         */
 
         
         this.add(newGameBtn);
         this.add(loadGameBtn);
         this.add(loadMapBtn);
-        this.add(loadLvSetBtn);
         this.add(tutorialBtn);
-        this.add(mazeBtn);
+        //this.add(mazeBtn);
         this.add(aboutBtn);
         this.add(controlsBtn);
         //this.add(enableSound);
         this.add(enableFullscreen);
-        this.add(opts);
+        //this.add(opts);
 
         this.setBackground(Color.BLACK);
 
@@ -398,9 +385,10 @@ public class MainMenuPanel extends JPanel
 
     private void showInfo()
     {
-        String soundtrackauthors = "Alec Shea\nAllen Andrews\nDaniele Ghisu\nDavid Orr\nGordon McNeil\nJames Ghosh\nRoald Strauss\nWilliam Usher";
+        String soundtrackauthors = "Alec Shea\nAllen Andrews\nDaniele Ghisu\nDavid Orr\nGordon McNeil\nJames Ghosh\nRoald Strauss\nWilliam Usher\n";
+        soundtrackauthors += "Johannes Schultz\nRobert Shaw\nJames Opie\nMatthew Le Blanc (SynthR)\nRobbie Dooley";
         
-        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.9.58 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
+        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.10.59 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
                 + "\nSoundtrack By:\n" + soundtrackauthors + "\n\n"
                 + "This program is free software: you can redistribute it and/or modify\n"
                 + "it under the terms of the GNU General Public License as published by\n"
@@ -449,26 +437,14 @@ public class MainMenuPanel extends JPanel
                 System.out.println(file.getPath());
                 newGame(file.getPath(), false, false);
             }
-            
-        }
-    }
-
-    private void loadLevelSet()
-    {
-        JFileChooser fc = new JFileChooser();
-        fc.setFileFilter(new ILSFileFilter());
-        int retval = fc.showDialog(this, "Open Levelset");
-
-        if (retval == JFileChooser.APPROVE_OPTION)
-        {
-            File file = fc.getSelectedFile();
-
-            if (file.getName().toLowerCase().endsWith(".it4ls"))
+            else if (file.getName().toLowerCase().endsWith(".it4ls"))
             {
                 System.out.println(file.getName());
                 System.out.println(file.getPath());
                 newGame(file.getPath(), true, false);
             }
+
+            
         }
     }
 

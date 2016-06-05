@@ -21,7 +21,7 @@ sizeY 23
 DGC 44
 alert false
 song 5
-semidark|rain|normal
+semidark|none|normal
 [/header]
 
 [tileMap]
@@ -88,10 +88,10 @@ I found you passed out on the ground. You must have been exhausted, so I let you
 How long was I out for?
 
 [Sofia]
-About an hour.
+Quite some time. The sun set a few hours ago.
 
 [Player]
-Well, I definitely feel better. Come on, let's make our way to the base.
+Well, I definitely feel better. Come on, let's make our way to the citadel.
 
 [Sofia]
 Hold on a minute. We need to talk.
@@ -256,7 +256,7 @@ No. Ever since that incident, the guards refuse to go down there.
 I don't blame them. I'm not a big fan of dark, underground places.
 
 [Sofia]
-Stay on your toes. Make your way through the sewers, and we will meet up inside the base.
+Stay on your toes. Make your way through the sewers, and we will meet up inside the citadel.
 [/dialog]
 
 [cameras]
@@ -280,7 +280,7 @@ sizeY 23
 DGC 44
 alert false
 song 3
-semidark|rain|normal
+semidark|none|normal
 [/header]
 
 [tileMap]
@@ -359,7 +359,7 @@ sizeY 23
 DGC 44
 alert false
 song 3
-semidark|rain|normal
+semidark|none|normal
 [/header]
 
 [tileMap]
@@ -1772,7 +1772,7 @@ song 3
 ......
 
 [Sofia]
-I've unlocked the entrance to the sewers inside the main base.
+I've unlocked the entrance to the sewers inside the citadel.
 
 [Player]
 Just in time, too. I just made it out of there.

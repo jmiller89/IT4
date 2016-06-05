@@ -261,7 +261,7 @@ BOSS2 FRIEND
 [/warps]
 
 [dialog]
-[Blitz]
+[Man]
 Sorry to interrupt, Doctor, but I need to "chat" with this man.
 
 [Hooper]
@@ -351,6 +351,27 @@ C4 7 10 1
 BOSS2 11 8 500 13 9 200 false
 Blitz_
 [pre]
+[Player]
+Who are you?
+
+[Man]
+You've been quite the nuisance on this island. The name is Blitz, but you can consider me pest control.
+
+[Player]
+You're wearing athletic shorts and carrying a pistol. You're not even prepared to fight me.
+
+[Blitz]
+That's where you're wrong. Speed is my game. You don't recognize me from the Olympics 6 years ago? I won gold in 3 events for track and field: the 200m, 400m and 1600m. I am the fastest man on earth with a gun.
+
+[Player]
+What's a former Olympic athlete doing in a place like this?
+
+[Blitz]
+I am the descendant of elite Aryan athletes. All but one of my great-grandfathers competed at the 1936 Olympics in Munich. My grandfather won a gold medal at the 1964 games in Tokyo. My father medaled in 1996 in Atlanta. I am continuing the Fuhrer's dream of athletic supremacy.
+
+[Player]
+I don't care how fast you are, you can't outrun bullets.
+
 [Blitz]
 Let's get started, shall we?
 [/pre]
