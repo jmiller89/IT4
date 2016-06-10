@@ -425,7 +425,7 @@ sizeX 30
 sizeY 23
 DGC 44
 alert false
-song 0
+song 11
 jam|rain|normal
 [/header]
 
@@ -499,7 +499,7 @@ sizeX 15
 sizeY 18
 DGC 44
 alert false
-song 2
+song 10
 jam|snow|normal
 [/header]
 
@@ -663,7 +663,7 @@ sizeX 15
 sizeY 15
 DGC 97
 alert false
-song 9
+song 10
 jam|none|normal
 [/header]
 

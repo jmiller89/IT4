@@ -59,6 +59,26 @@ public class Item extends ITObject
             {
                 return "Card Lv. 5";
             }
+            case CARDKEY_6:
+            {
+                return "Card Lv. 6";
+            }
+            case CARDKEY_7:
+            {
+                return "Card Lv. 7";
+            }
+            case CARDKEY_8:
+            {
+                return "Card Lv. 8";
+            }
+            case CARDKEY_9:
+            {
+                return "Card Lv. 9";
+            }
+            case CARDKEY_10:
+            {
+                return "Card Lv. 10";
+            }
             case PRIMARY_AMMO:
             {
                 String retval = "Pr.Ammo";

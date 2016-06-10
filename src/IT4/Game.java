@@ -413,7 +413,7 @@ public final class Game
                 player.giveNVG();
                 player.giveBodyArmor();
                 player.giveMineDetector();
-                player.giveCardKey(ItemType.CARDKEY_5);
+                player.giveCardKey(ItemType.CARDKEY_10);
                 player.giveHealthKit();
                 player.giveHealthKit();
                 player.objectives = 9999; //Will anyone ever make a level with 10000 objectives? No.
@@ -1801,7 +1801,12 @@ public final class Game
                     (it.getType() == ItemType.CARDKEY_2) ||
                     (it.getType() == ItemType.CARDKEY_3) ||
                     (it.getType() == ItemType.CARDKEY_4) ||
-                    (it.getType() == ItemType.CARDKEY_5))
+                    (it.getType() == ItemType.CARDKEY_5) ||
+                    (it.getType() == ItemType.CARDKEY_6) ||
+                    (it.getType() == ItemType.CARDKEY_7) ||
+                    (it.getType() == ItemType.CARDKEY_8) ||
+                    (it.getType() == ItemType.CARDKEY_9) ||
+                    (it.getType() == ItemType.CARDKEY_10))
             {
                 player.giveCardKey(it.getType());
                 it.flagForRemoval();
@@ -1875,55 +1880,28 @@ public final class Game
     {
         for(int i = 0; i < NPCs.size(); i++)
         {
-            if (NPCs.get(i).getID() == 23)
+            short initid = NPCs.get(i).initialID;
+            Direction ndir = NPCs.get(i).getDirection();
+            boolean ninit = NPCs.get(i).initialized;
+            short resetid = initid;
+
+            if (ndir == Direction.DOWN)
             {
-                NPCs.get(i).setID(19);
+                resetid += 1;
             }
-            else if (NPCs.get(i).getID() == 24)
+            else if (ndir == Direction.LEFT)
             {
-                NPCs.get(i).setID(20);
+                resetid += 2;
             }
-            else if (NPCs.get(i).getID() == 25)
+            else if (ndir == Direction.RIGHT)
             {
-                NPCs.get(i).setID(21);
-            }
-            else if (NPCs.get(i).getID() == 26)
-            {
-                NPCs.get(i).setID(22);
-            }
-            else if (NPCs.get(i).getID() == 31)
-            {
-                NPCs.get(i).setID(27);
-            }
-            else if (NPCs.get(i).getID() == 32)
-            {
-                NPCs.get(i).setID(28);
-            }
-            else if (NPCs.get(i).getID() == 33)
-            {
-                NPCs.get(i).setID(29);
-            }
-            else if (NPCs.get(i).getID() == 34)
-            {
-                NPCs.get(i).setID(30);
-            }
-            else if (NPCs.get(i).getID() == 39)
-            {
-                NPCs.get(i).setID(35);
-            }
-            else if (NPCs.get(i).getID() == 40)
-            {
-                NPCs.get(i).setID(36);
-            }
-            else if (NPCs.get(i).getID() == 41)
-            {
-                NPCs.get(i).setID(37);
-            }
-            else if (NPCs.get(i).getID() == 42)
-            {
-                NPCs.get(i).setID(38);
+                resetid += 3;
             }
 
+            if (ninit)
+            {
+                NPCs.get(i).setID(resetid);
+            }
         }
     }
 
@@ -3999,11 +3977,14 @@ public final class Game
                 itd = d;
                 d.title = title;
                 inDialog = true;
+
                 paused = true;
                 //JOptionPane.showMessageDialog(null, d.toString(), title, JOptionPane.PLAIN_MESSAGE);
                 //d.fastForward();
 
                 this.firingWeapon = false;
+                this.resetPlayerAnimation();
+                this.resetNPCIDs();
             }
         }
     }
@@ -4086,7 +4067,9 @@ public final class Game
         }
         if ((player.getItem().getType() == ItemType.CARDKEY_1) || ((player.getItem().getType() == ItemType.CARDKEY_2))
            || (player.getItem().getType() == ItemType.CARDKEY_3) || (player.getItem().getType() == ItemType.CARDKEY_4)
-           || (player.getItem().getType() == ItemType.CARDKEY_5))
+           || (player.getItem().getType() == ItemType.CARDKEY_5) || (player.getItem().getType() == ItemType.CARDKEY_6)
+           || (player.getItem().getType() == ItemType.CARDKEY_7) || (player.getItem().getType() == ItemType.CARDKEY_8)
+           || (player.getItem().getType() == ItemType.CARDKEY_9) || (player.getItem().getType() == ItemType.CARDKEY_10))
         {
             equipCardKey();
         }

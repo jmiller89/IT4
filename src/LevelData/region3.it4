@@ -168,7 +168,7 @@ sizeX 24
 sizeY 17
 DGC 78
 alert false
-song 0
+song 13
 |none|normal
 [/header]
 
@@ -230,7 +230,7 @@ sizeX 20
 sizeY 15
 DGC 78
 alert false
-song 0
+song 13
 |none|normal
 [/header]
 
@@ -428,7 +428,7 @@ sizeX 15
 sizeY 15
 DGC 97
 alert false
-song 5
+song 14
 |none|normal
 [/header]
 
@@ -491,7 +491,7 @@ sizeX 24
 sizeY 17
 DGC 78
 alert false
-song 0
+song 13
 |none|normal
 [/header]
 
@@ -614,7 +614,7 @@ sizeX 20
 sizeY 15
 DGC 78
 alert false
-song 0
+song 13
 |none|normal
 [/header]
 
@@ -819,7 +819,7 @@ sizeX 24
 sizeY 27
 DGC 78
 alert false
-song 0
+song 13
 |none|normal
 [/header]
 
@@ -1054,7 +1054,7 @@ sizeX 32
 sizeY 32
 DGC 78
 alert false
-song 0
+song 13
 |none|normal
 [/header]
 

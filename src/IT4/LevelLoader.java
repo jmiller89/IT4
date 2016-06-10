@@ -841,6 +841,33 @@ public class LevelLoader
             type = ItemType.CARDKEY_5;
             id = 202;
         }
+
+        if (iType.equals(ItemType.CARDKEY_6.toString()))
+        {
+            type = ItemType.CARDKEY_6;
+            id = 75;
+        }
+        if (iType.equals(ItemType.CARDKEY_7.toString()))
+        {
+            type = ItemType.CARDKEY_7;
+            id = 76;
+        }
+        if (iType.equals(ItemType.CARDKEY_8.toString()))
+        {
+            type = ItemType.CARDKEY_8;
+            id = 77;
+        }
+        if (iType.equals(ItemType.CARDKEY_9.toString()))
+        {
+            type = ItemType.CARDKEY_9;
+            id = 201;
+        }
+        if (iType.equals(ItemType.CARDKEY_10.toString()))
+        {
+            type = ItemType.CARDKEY_10;
+            id = 202;
+        }
+
         if (iType.equals(ItemType.GASMASK.toString()))
         {
             type = ItemType.GASMASK;

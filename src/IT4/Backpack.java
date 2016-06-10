@@ -118,7 +118,9 @@ public class Backpack
         }
         else if ((b.selectedItem.getType() == ItemType.CARDKEY_1) || (b.selectedItem.getType() == ItemType.CARDKEY_2)
                 || (b.selectedItem.getType() == ItemType.CARDKEY_3) || (b.selectedItem.getType() == ItemType.CARDKEY_4)
-                || (b.selectedItem.getType() == ItemType.CARDKEY_5))
+                || (b.selectedItem.getType() == ItemType.CARDKEY_5) || (b.selectedItem.getType() == ItemType.CARDKEY_6)
+                || (b.selectedItem.getType() == ItemType.CARDKEY_7) || (b.selectedItem.getType() == ItemType.CARDKEY_8)
+                || (b.selectedItem.getType() == ItemType.CARDKEY_9) || (b.selectedItem.getType() == ItemType.CARDKEY_10))
         {
             selectedItem = items[1];
         }
@@ -293,6 +295,47 @@ public class Backpack
                 {
                     securityCardLevel = 5;
                     items[1] = new Item((short)202, 0, 0, it, 5);
+                }
+            }
+
+            else if (it == ItemType.CARDKEY_6)
+            {
+                if (securityCardLevel < 6)
+                {
+                    securityCardLevel = 6;
+                    items[1] = new Item((short)75, 0, 0, it, 6);
+                }
+            }
+            else if (it == ItemType.CARDKEY_7)
+            {
+                if (securityCardLevel < 7)
+                {
+                    securityCardLevel = 7;
+                    items[1] = new Item((short)76, 0, 0, it, 7);
+                }
+            }
+            else if (it == ItemType.CARDKEY_8)
+            {
+                if (securityCardLevel < 8)
+                {
+                    securityCardLevel = 8;
+                    items[1] = new Item((short)77, 0, 0, it, 8);
+                }
+            }
+            else if (it == ItemType.CARDKEY_9)
+            {
+                if (securityCardLevel < 9)
+                {
+                    securityCardLevel = 9;
+                    items[1] = new Item((short)201, 0, 0, it, 9);
+                }
+            }
+            else if (it == ItemType.CARDKEY_10)
+            {
+                if (securityCardLevel < 10)
+                {
+                    securityCardLevel = 10;
+                    items[1] = new Item((short)202, 0, 0, it, 10);
                 }
             }
 
@@ -650,6 +693,26 @@ public class Backpack
                     else if (itemList[i] == 5)
                     {
                         it = ItemType.CARDKEY_5;
+                    }
+                    else if (itemList[i] == 6)
+                    {
+                        it = ItemType.CARDKEY_6;
+                    }
+                    else if (itemList[i] == 7)
+                    {
+                        it = ItemType.CARDKEY_7;
+                    }
+                    else if (itemList[i] == 8)
+                    {
+                        it = ItemType.CARDKEY_8;
+                    }
+                    else if (itemList[i] == 9)
+                    {
+                        it = ItemType.CARDKEY_9;
+                    }
+                    else if (itemList[i] == 10)
+                    {
+                        it = ItemType.CARDKEY_10;
                     }
 
                     if (it != null)
