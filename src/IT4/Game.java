@@ -1408,6 +1408,12 @@ public final class Game
     private void objectiveAccomplished(Objective obj)
     {
         player.objectives++;
+        if (obj.ID == 528)
+        {
+            //TODO JIM place c4 group here
+            Item c4drop = new Item((short)529, obj.getX(), obj.getY(), ItemType.C4GROUP, 1);
+            currentLevelMap.getItems().add(c4drop);
+        }
         displayDialog(obj.dialog, "Objective Complete", false);
         currentLevel.removeObjective(obj, playerLevMapX);
     }

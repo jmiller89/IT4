@@ -1,4 +1,4 @@
-#This the IT4 main game level set. DO NOT UNDER ANY CIRCUMSTANCES EDIT THIS FILE.
+#This the level set for The Endling's Artifice.
 intro.it4
 region1.it4
 region1b.it4
@@ -11,3 +11,4 @@ region3.it4
 region3b.it4
 region4.it4
 region4b.it4
+region5.it4

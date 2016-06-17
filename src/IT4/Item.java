@@ -179,6 +179,10 @@ public class Item extends ITObject
             {
                 return "Mine Detector";
             }
+            case C4GROUP:
+            {
+                return "";
+            }
         }
 
         return "";
