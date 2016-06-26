@@ -376,7 +376,7 @@ public class GameFileManager
         if (scanner.hasNextLine())
         {
             line = scanner.nextLine();
-            maxHealth = Byte.parseByte(line);
+            maxHealth = Integer.parseInt(line);
         }
 
         if (scanner.hasNextLine())
@@ -696,6 +696,11 @@ public class GameFileManager
                             {
                                 type = ItemType.MINE_DETECTOR;
                                 id = 296;
+                            }
+                            if (iType.equals(ItemType.C4GROUP.toString()))
+                            {
+                                type = ItemType.C4GROUP;
+                                id = 529;
                             }
                             
                             Item myItem;
