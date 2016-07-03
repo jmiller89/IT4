@@ -388,7 +388,7 @@ public class MainMenuPanel extends JPanel
         String soundtrackauthors = "Alec Shea\nAllen Andrews\nDaniele Ghisu\nDavid Orr\nGordon McNeil\nJames Ghosh\nRoald Strauss\nWilliam Usher\n";
         soundtrackauthors += "Johannes Schultz\nRobert Shaw\nJames Opie\nMatthew Le Blanc (SynthR)\nRobbie Dooley";
         
-        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.11.62 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
+        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.11.63 Alpha\nProgrammed By: jmiller89 (C) 2011-2016\n"
                 + "\nSoundtrack By:\n" + soundtrackauthors + "\n\n"
                 + "This program is free software: you can redistribute it and/or modify\n"
                 + "it under the terms of the GNU General Public License as published by\n"
