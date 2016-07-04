@@ -4,6 +4,9 @@
 
 package IT4;
 
+import java.awt.Point;
+import java.util.ArrayList;
+
 /**
  *
  * @author Jim
@@ -14,6 +17,7 @@ public class Objective extends ITObject
     public Dialog dialog;
     public int mapIndex;
     private String title = "OBJECTIVE";
+    public ArrayList<Point> explosions = null;
 
     public Objective(short id, int x, int y, int map_Index, String objName)
     {
@@ -36,6 +40,15 @@ public class Objective extends ITObject
         mapIndex = o.mapIndex;
         dialog = new Dialog(o.dialog, "Objective completed", false);
         title = o.title;
+
+        if (o.explosions != null)
+        {
+            explosions = new ArrayList<Point>(o.explosions.size());
+            for (int i = 0; i < o.explosions.size(); i++)
+            {
+                explosions.add(new Point(o.explosions.get(i)));
+            }
+        }
     }
 
     @Override

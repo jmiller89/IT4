@@ -9,6 +9,7 @@ package IT4;
  *
  * @author Jim
  */
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.net.URL;
@@ -36,6 +37,8 @@ public class LevelLoader
     private static final String WARPS_END = "[/warps]";
     private static final String DLG_START = "[dialog]";
     private static final String DLG_END = "[/dialog]";
+    private static final String EXPLOSION_START = "[explosions]";
+    private static final String EXPLOSION_END = "[/explosions]";
     private static final String BOSS_START = "[boss]";
     private static final String BOSS_END = "[/boss]";
     private static final String DOORS_START = "[doors]";
@@ -690,9 +693,30 @@ public class LevelLoader
 
                         obj.dialog = d;
 
-                        level.addObjective(obj);
-
                         line = scanner.nextLine();
+
+                        if (line.startsWith(this.EXPLOSION_START))
+                        {
+                            ArrayList<Point> objExp = new ArrayList<Point>();
+                            line = scanner.nextLine();
+                            while (!line.startsWith(this.EXPLOSION_END))
+                            {
+                                String[] expsplit = line.split(" ");
+                                int expx = 0;
+                                int expy = 0;
+                                if (expsplit.length > 1)
+                                {
+                                    expx = Integer.parseInt(expsplit[0]);
+                                    expy = Integer.parseInt(expsplit[1]);
+                                }
+                                objExp.add(new Point(expx, expy));
+                                line = scanner.nextLine();
+                            }
+                            obj.explosions = objExp;
+                            line = scanner.nextLine();
+                        }
+
+                        level.addObjective(obj);
                         
                     }
                 }

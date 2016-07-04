@@ -1410,9 +1410,17 @@ public final class Game
         player.objectives++;
         if (obj.ID == 528)
         {
-            //TODO JIM place c4 group here
             Item c4drop = new Item((short)529, obj.getX(), obj.getY(), ItemType.C4GROUP, 1);
             currentLevelMap.getItems().add(c4drop);
+        }
+        if (obj.explosions != null)
+        {
+            for(int i = 0; i < obj.explosions.size(); i++)
+            {
+                Point expc = obj.explosions.get(i);
+                this.explosion(expc.x * 40, expc.y * 40, false, 1);
+                this.currentLevelMap.getTileMap()[expc.y][expc.x] = this.currentLevelMap.getDefaultGroundCover();
+            }
         }
         displayDialog(obj.dialog, "Objective Complete", false);
         currentLevel.removeObjective(obj, playerLevMapX);
