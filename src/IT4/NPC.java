@@ -232,6 +232,17 @@ public class NPC extends ITCharacter
                 currHealth = 100;
                 weaponDmg = 25;
                 break;
+            case MUTANTBOSS:
+                id = 538;
+                currHealth = 2500;
+                weaponDmg = 0;
+                npc_runspeed = 0.75f;
+                break;
+            case HITLER:
+                id = 530;
+                currHealth = 300;
+                weaponDmg = 25;
+                break;
             default:
                 id = 19;
                 currHealth = 22;
