@@ -113,8 +113,8 @@ public class NPC extends ITCharacter
                 break;
             case NAZI_HUNTER:
                 id = 234;
-                currHealth = 100;
-                weaponDmg = 50;
+                currHealth = 164;
+                weaponDmg = 45;
                 break;
             case SCIENTIST1:
                 id = 162;

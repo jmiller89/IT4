@@ -241,7 +241,7 @@ public class Weapon extends Item
                 staminaDamage = 0;
                 magCapacity = 30;
                 totalCapacity = 180;
-                fireRate = 98;
+                fireRate = 97;
                 silencerDurability = 60;
                 suppressed = false;
                 id = 455;

@@ -1,0 +1,541 @@
+#This level was created using the IT4 Level Editor
+
+[header]
+startX 18
+startY 18
+sections 3
+STRIP_ITEMS
+[/header]
+
+[objectives]
+251 1 7 26
+Talk to the woman_
+[dialog]
+[Woman]
+Excuse me!
+
+[Sofia]
+Can I help you?
+
+[Woman]
+I'm looking for my husband. Have you seen him?
+
+[Sofia]
+What does he look like? Where did you last see him?
+
+[Woman]
+He was just here a minute ago!
+
+[Sofia]
+Ma'am, calm down. What is your name?
+
+[Woman]
+Eva. My name is Eva.
+[/dialog]
+251 2 8 4
+Debrief with Sofia_
+[dialog]
+A few hours later...
+
+[Sofia]
+This is a great place you picked out. The lake looks beautiful tonight!
+
+[Player]
+Not as beautiful as you.
+
+[Sofia]
+The bed the room came with does look really comfortable...
+[/dialog]
+251 0 17 17
+Talk to Sofia
+[dialog]
+[Player]
+Sofia...
+
+[Sofia]
+Are you alright? You passed out again after Amanda showed up.
+
+[Player]
+I'm fine. I don't know how to explain this, but her and I battled somewhere. It didn't seem like it was on this world.
+
+[Sofia]
+That's because it wasn't.
+
+[Player]
+What do you mean?
+
+[Sofia]
+I read about her in the documents you obtained -
+
+[Player]
+Wait, how did you get us off the island?
+
+[Sofia]
+After you passed out, a group of Nazi Hunters appeared out of the forest. We exchanged gunfire until I ran out of ammo. I saw more coming from the distance, so I turned you on your back and swam us to shore.
+
+[Player]
+They didn't try following us?
+
+[Sofia]
+That's the strange thing. When they got to the beach, we weren't even 100 meters out on the lake yet. I heard them yelling about something and panicking, then they bolted off back into the forest.
+
+[Player]
+Wonder what it was?
+
+[Sofia]
+Who knows?
+
+[Player]
+So what's the rest of the story on Amanda?
+
+[Sofia]
+Oh right, well it turns out SHE was Dr. Mengele's greatest success.
+
+[Player]
+What about Project Endling?
+
+[Sofia]
+The project's goal was to revive the remains of Adolf Hitler so they could establish a Fourth Reich. Mengele realized that none of this would be possible if their Fuhrer's mind and spirit were not recovered. Thanks to Project Endling, his body could be restored to what it was in his prime, but without his spirit and consciousness, he would have been effectively a vegetable.
+
+[Player]
+I assume this is where Amanda comes in.
+
+[Sofia]
+Precisely. Amanda's special abilities were first discovered in someone else on accident. Back in World War 2, Dr. Mengele was experimenting on twins at a concentration camp. He was researching whether or not certain chemicals could trigger ESP in the twins. Pretty soon, he was trying radioactive materials. It says here that a certain radioactive material caused a mutation in 1 person out of 10 sets of twins. This mutation would normally cause the person to die almost instantly. There was one case, however, in which a Polish girl was not killed by the injection, but she didn't survive it, either.
+
+[Player]
+Wasn't killed, but didn't survive?
+
+[Sofia]
+Yeah, her vital signs were nearly non-existent. Her body temperature was over 15C colder than normal, and her heart beat slowed to just 5 beats per minute. She should have been dead, but wasn't. Mengele noted that she had an abundance of a specific protein in her blood before the experiment took place. That protein is exceedingly rare in nature. The girl had the ability to communicate with the dead. She could vanish in the blink of an eye, and reappear anywhere.
+
+[Player]
+Why didn't she try to escape?
+
+[Sofia]
+She was just a little girl. Dr. Mengele treated her very well, almost like a princess. As the war was winding down, she used her powers to help him escape to South America. As she grew older, she became depressed. She felt as though the doctor was using her. One day, she told him goodbye, and vanished right before his eyes.
+
+[Player]
+She chose to die.
+
+[Sofia]
+Yes, she did. The report also states that Mengele was able to find that protein in boys, but they reacted differently to the injections.
+
+[Player]
+How so?
+
+[Sofia]
+Enhanced physical traits. Each member of The Awakened was listed as a success story of the same experiment, but only Amanda received the desired abilities.
+
+[Player]
+That would explain their respective combat abilities...
+
+[Sofia]
+Mengele's notes also state that he could not make the same mistake as the last girl, and that he would need to instill the proper values and ideals in her.
+
+[Player]
+Proper ideals? She was brainwashed to become a Nazi.
+
+[Sofia]
+Indeed. Over the years, she perfected her talents, and was able to contact people who had been braindead in a coma for years. Some of which she was able to bring back into their physical bodies. These people would miraculously wake up and make full recoveries.
+
+[Player]
+So, Mengele had the means of reviving someone's body and spirit. Do the notes mention anything about bringing back Hitler?
+
+[Sofia]
+The notes do mention that they successfully rejuvinated his body a few weeks ago, but were so far unsuccessful in restoring his consciousness.
+
+[Player]
+Are there any mentions of that guy who was with the Nazi Hunters when you got captured? Mengele called him Mr. Green.
+
+[Sofia]
+Yeah, Mr. Green was funding Project Endling to develop anti-aging drugs for his pharmaceutical corporation. He was aware of Amanda, in fact Mengele suggested that she spy on him in the first place. Act as a double-agent for his own protection, in case Mengele felt threatened. It worked.
+
+[Player]
+I know this man has a lot of money. His son was involved in black market arms dealing in Siberia.
+
+[Sofia]
+It doesn't say that anywhere in Mengele's notes.
+
+[Player]
+I know this because I was hired to kill his son 2 years ago. A young man who went by the codename Centipede. He was hiding in a fortified bunker out in the middle of nowhere.
+
+[Sofia]
+I hate to say this, but it looks like you are one of the common pieces to this puzzle.
+
+[Player]
+I absolutely think I was used. It was that man's way of trying to kill two birds with one stone. Somehow, he found out that Mengele had gone rouge and tried to bring back the Fourth Reich. He probably thought that Mengele was going to cut him out of the equation altogether, so he needed to evict him out of the citadel. Mengele would have to cooperate if he wasn't surrounded by his own private army in a fortified location. That man also wanted me dead, to avenge his son's death. After I lead him to the doctor, he had one of his personal bodyguards try to kill me.
+
+[Sofia]
+Whoever he is, he sounds very dangerous. Even more dangerous than Mengele.
+
+[Player]
+His private army consists of Nazi Hunters. The public would certainly be on his side in the event of a war.
+
+[Sofia]
+I have a feeling that things are about to get ugly between those two.
+
+[Player]
+They most certainly will. And we will have to do our best to stop them.
+
+[Sofia]
+I thought you only did these missions for the money. Why fight for free?
+
+[Player]
+Because it's the right thing to do.
+
+[Sofia]
+So what are you going to do now?
+
+[Player]
+Probably say the night at a hotel here. After that, I don't know.
+
+[Sofia]
+Thank you for everything that you've done. I'm getting pretty hungry, wanna take a walk and look for somewhere to eat?
+
+[Player]
+That sounds great.
+[/dialog]
+[/objectives]
+
+[room]
+
+[header]
+sizeX 40
+sizeY 44
+DGC 44
+alert false
+song 5
+|none|normal
+[/header]
+
+[tileMap]
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 495 496 497 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 498 499 500 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 501 502 503 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 504 505 506 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 507 508 509 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 43 43 43 43
+380 380 380 380 380 380 380 380 380 380 380 380 380 380 380 380 389 43 43 43 43 43 43 43 43 43 43 43 43 43 43 390 380 56 56 56 380 380 380 380
+44 392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 381 43 43 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 392 44
+44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 392 385 389 43 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 393 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 385 389 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 44 44
+44 511 511 511 511 511 511 511 511 511 511 511 511 511 511 44 44 44 385 389 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 44 44
+44 511 511 511 511 511 511 511 511 511 511 511 511 511 511 44 44 44 44 381 43 43 43 43 43 43 43 43 43 43 43 382 46 46 56 46 46 44 44 44
+44 252 252 252 252 252 252 252 252 252 252 252 252 252 252 44 44 392 44 381 43 43 43 43 43 43 43 43 43 43 43 388 384 46 44 46 44 44 44 392
+44 252 515 252 515 252 515 252 252 515 252 515 252 515 252 44 44 393 44 381 43 43 43 43 43 43 43 43 43 43 43 43 382 103 44 105 44 392 44 393
+44 252 252 252 252 252 252 252 252 252 252 252 252 252 252 44 392 44 44 385 389 43 43 43 43 43 43 43 43 390 380 380 386 104 44 106 392 393 44 44
+44 252 252 252 44 252 252 252 252 252 252 44 252 252 252 44 393 44 44 44 385 380 380 380 380 380 380 380 380 386 392 44 44 44 44 44 393 44 44 392
+392 44 44 44 44 44 44 392 392 44 44 44 44 44 44 44 44 44 392 44 44 44 44 44 44 44 392 44 44 44 393 44 44 44 44 44 44 44 44 393
+393 44 44 44 44 44 44 393 393 44 44 44 44 44 44 44 44 44 393 44 44 44 392 44 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44
+62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63
+392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44
+393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 392
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393
+44 511 511 511 511 511 511 511 44 44 44 511 511 511 511 511 511 511 44 44 44 44 511 511 511 511 511 511 511 511 511 511 511 511 511 511 511 44 392 44
+44 511 511 511 511 511 511 511 44 44 44 511 511 511 511 511 511 511 44 44 44 44 511 511 511 511 511 511 511 511 511 511 511 511 511 511 511 44 393 44
+44 252 252 252 252 252 252 252 44 392 44 54 54 54 54 54 54 54 392 44 44 392 511 511 511 511 511 511 511 511 511 511 511 511 511 511 511 392 44 392
+44 252 515 252 515 252 515 252 44 393 44 54 515 54 515 54 515 54 393 44 44 393 54 54 54 54 54 54 54 54 54 54 54 54 54 54 54 393 44 393
+44 252 252 252 252 252 252 252 44 44 44 54 54 54 54 54 54 54 44 44 44 44 54 515 54 515 54 515 54 515 54 515 54 515 54 515 54 44 44 44
+44 252 252 252 44 252 252 252 44 44 44 54 54 54 44 54 54 54 44 44 44 44 54 54 54 54 54 54 54 54 54 54 54 54 54 54 54 44 44 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 47 44 47 44 44 44 44 44 44 54 54 54 54 54 54 54 44 54 54 54 54 54 54 54 44 44 44
+44 44 44 392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 392 44 392 44 44 44 44 44 44 44 392 44
+392 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 393 44 44 44 44 44 44 44 393 392
+393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393
+[/tileMap]
+
+[items]
+[/items]
+
+[doors]
+29 40 0 25 false
+4 39 0 25 false
+4 22 0 25 false
+14 39 0 0 true
+11 22 0 0 false
+[/doors]
+
+[npcs]
+OLD_MAN FRIEND
+[path]
+27 3 RIGHT CONTINUE
+34 3 DOWN CONTINUE
+34 32 LEFT CONTINUE
+19 32 DOWN CONTINUE
+19 41 LEFT CONTINUE
+14 41 UP CONTINUE
+14 39 UP WARP
+[/path]
+WOMAN3 FRIEND
+[path]
+5 14 LEFT STOP
+[/path]
+WOMAN2 FRIEND
+[path]
+3 14 RIGHT STOP
+[/path]
+FEMALE_ALLY_WORKOUT FRIEND
+[path]
+16 15 RIGHT CONTINUE
+17 15 DOWN WAIT_AND_CONTINUE
+17 16 RIGHT CONTINUE
+18 16 DOWN CONTINUE
+18 22 LEFT CONTINUE
+17 22 DOWN CONTINUE
+17 25 LEFT CONTINUE
+12 25 LEFT STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+14 39 false 1 7 11 0
+13 25 false 1 -1 -1 0
+11 22 false 2 9 4 0
+[/warps]
+
+[dialog]
+
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+18 18 LEFT CONTINUE
+17 18 UP CONTINUE
+17 17 UP LONG_WAIT_AND_CONTINUE
+17 16 LEFT CONTINUE
+16 16 DOWN CONTINUE
+16 17 LEFT CONTINUE
+15 17 DOWN LONG_WAIT_AND_CONTINUE
+15 25 LEFT CONTINUE
+13 25 LEFT STOP
+[/playerpath]
+
+[/room]
+
+[room]
+
+[header]
+sizeX 40
+sizeY 44
+DGC 44
+alert false
+song 5
+|none|normal
+[/header]
+
+[tileMap]
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 56 56 56 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 495 496 497 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 498 499 500 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 501 502 503 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 504 505 506 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 507 508 509 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 43 43 43 43
+43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 56 56 56 43 43 43 43
+380 380 380 380 380 380 380 380 380 380 380 380 380 380 380 380 389 43 43 43 43 43 43 43 43 43 43 43 43 43 43 390 380 56 56 56 380 380 380 380
+44 392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 381 43 43 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 392 44
+44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 392 385 389 43 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 393 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 385 389 43 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 44 44
+44 511 511 511 511 511 511 511 511 511 511 511 511 511 511 44 44 44 385 389 43 43 43 43 43 43 43 43 43 43 43 382 46 56 56 56 46 44 44 44
+44 511 511 511 511 511 511 511 511 511 511 511 511 511 511 44 44 44 44 381 43 43 43 43 43 43 43 43 43 43 43 382 46 46 56 46 46 44 44 44
+44 252 252 252 252 252 252 252 252 252 252 252 252 252 252 44 44 392 44 381 43 43 43 43 43 43 43 43 43 43 43 388 384 46 44 46 44 44 44 392
+44 252 515 252 515 252 515 252 252 515 252 515 252 515 252 44 44 393 44 381 43 43 43 43 43 43 43 43 43 43 43 43 382 103 44 105 44 392 44 393
+44 252 252 252 252 252 252 252 252 252 252 252 252 252 252 44 392 44 44 385 389 43 43 43 43 43 43 43 43 390 380 380 386 104 44 106 392 393 44 44
+44 252 252 252 44 252 252 252 252 252 252 44 252 252 252 44 393 44 44 44 385 380 380 380 380 380 380 380 380 386 392 44 44 44 44 44 393 44 44 392
+392 44 44 44 44 44 44 392 392 44 44 44 44 44 44 44 44 44 392 44 44 44 44 44 44 44 392 44 44 44 393 44 44 44 44 44 44 44 44 393
+393 44 44 44 44 44 44 393 393 44 44 44 44 44 44 44 44 44 393 44 44 44 392 44 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44
+62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62 62
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63 63
+392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44
+393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 392
+44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393
+44 511 511 511 511 511 511 511 44 44 44 511 511 511 511 511 511 511 44 44 44 44 511 511 511 511 511 511 511 511 511 511 511 511 511 511 511 44 392 44
+44 511 511 511 511 511 511 511 44 44 44 511 511 511 511 511 511 511 44 44 44 44 511 511 511 511 511 511 511 511 511 511 511 511 511 511 511 44 393 44
+44 252 252 252 252 252 252 252 44 392 44 54 54 54 54 54 54 54 392 44 44 392 511 511 511 511 511 511 511 511 511 511 511 511 511 511 511 392 44 392
+44 252 515 252 515 252 515 252 44 393 44 54 515 54 515 54 515 54 393 44 44 393 54 54 54 54 54 54 54 54 54 54 54 54 54 54 54 393 44 393
+44 252 252 252 252 252 252 252 44 44 44 54 54 54 54 54 54 54 44 44 44 44 54 515 54 515 54 515 54 515 54 515 54 515 54 515 54 44 44 44
+44 252 252 252 44 252 252 252 44 44 44 54 54 54 44 54 54 54 44 44 44 44 54 54 54 54 54 54 54 54 54 54 54 54 54 54 54 44 44 44
+44 44 44 44 44 44 44 44 44 44 44 44 44 47 44 47 44 44 44 44 44 44 54 54 54 54 54 54 54 44 54 54 54 54 54 54 54 44 44 44
+44 44 44 392 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 392 44 392 44 44 44 44 44 44 44 392 44
+392 44 44 393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393 44 393 44 44 44 44 44 44 44 393 392
+393 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 393
+[/tileMap]
+
+[items]
+[/items]
+
+[doors]
+4 22 0 25 false
+4 39 0 25 false
+29 40 0 25 false
+14 39 0 0 true
+11 22 0 0 false
+[/doors]
+
+[npcs]
+WOMAN2 FRIEND
+[path]
+3 14 RIGHT STOP
+[/path]
+WOMAN3 FRIEND
+[path]
+5 14 LEFT STOP
+[/path]
+FEMALE_ALLY_WORKOUT FRIEND
+[path]
+12 25 LEFT CONTINUE
+7 25 LEFT STOP
+[/path]
+EVA FRIEND
+[path]
+4 23 DOWN CONTINUE
+4 25 RIGHT CONTINUE
+6 25 RIGHT STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+6 25 true 0 1 1 0
+6 26 true 0 1 1 0
+6 27 true 0 1 1 0
+14 23 true 0 1 1 0
+14 24 true 0 1 1 0
+14 25 true 0 1 1 0
+14 26 true 0 1 1 0
+14 27 true 0 1 1 0
+14 28 true 0 1 1 0
+14 28 true 0 1 1 0
+13 28 true 0 1 1 0
+12 28 true 0 1 1 0
+11 28 true 0 1 1 0
+11 28 true 0 1 1 0
+10 28 true 0 1 1 0
+9 28 true 0 1 1 0
+8 28 true 0 1 1 0
+7 28 true 0 1 1 0
+6 28 true 0 1 1 0
+11 22 false 2 9 4 0
+7 25 true 0 1 1 0
+[/warps]
+
+[dialog]
+
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+-1 -1 LEFT CONTINUE
+8 25 DOWN CONTINUE
+8 27 LEFT CONTINUE
+7 27 UP CONTINUE
+7 26 UP STOP
+[/playerpath]
+
+[/room]
+
+[room]
+
+[header]
+sizeX 15
+sizeY 15
+DGC 56
+alert false
+song 5
+|none|normal
+[/header]
+
+[tileMap]
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 48 48 48 48 48 48 48 48 48 0 0 0
+0 0 0 48 48 516 48 516 48 516 48 48 0 0 0
+0 0 0 48 56 56 56 56 56 56 56 48 0 0 0
+0 0 0 48 56 157 157 373 157 157 56 48 0 0 0
+0 0 0 48 56 157 56 146 56 157 56 48 0 0 0
+0 0 0 48 56 157 56 56 56 157 56 48 0 0 0
+0 0 0 48 56 157 56 56 56 157 56 48 0 0 0
+0 0 0 48 56 157 157 56 157 157 56 48 0 0 0
+0 0 0 48 56 56 56 56 56 56 56 48 0 0 0
+0 0 0 48 48 48 48 56 48 48 48 48 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[/tileMap]
+
+[items]
+[/items]
+
+[doors]
+7 11 0 25 false
+[/doors]
+
+[npcs]
+FEMALE_ALLY_SWIM FRIEND
+[path]
+5 4 RIGHT CONTINUE
+6 4 RIGHT WAIT_AND_CONTINUE
+7 4 LEFT CONTINUE
+4 4 DOWN CONTINUE
+4 10 RIGHT CONTINUE
+7 10 UP CONTINUE
+7 7 DOWN STOP
+[/path]
+[/npcs]
+
+[spawns]
+[/spawns]
+
+[warps]
+7 7 true 0 1 1 0
+[/warps]
+
+[dialog]
+[/dialog]
+
+[cameras]
+[/cameras]
+
+[playerpath]
+9 4 LEFT CONTINUE
+8 4 LEFT LONG_WAIT_AND_CONTINUE
+7 4 LEFT WAIT_AND_CONTINUE
+4 4 DOWN CONTINUE
+4 10 RIGHT CONTINUE
+7 10 UP CONTINUE
+7 8 UP LONG_WAIT_AND_CONTINUE
+7 7 UP STOP
+[/playerpath]
+
+[/room]
+
