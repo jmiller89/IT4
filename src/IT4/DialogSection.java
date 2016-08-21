@@ -15,6 +15,9 @@ public class DialogSection
 {
     public ArrayList<String> text = new ArrayList<String>();
     public String speaker = "Dialog";
+    public int currentCharIndex = 0;
+    public int currentLine = 0;
+    public int charIters = 0;
 
     public DialogSection copy()
     {
@@ -65,6 +68,64 @@ public class DialogSection
             return text.get(i);
         }
         return null;
+    }
+
+    public void fastForward()
+    {
+        if (text.size() > 0)
+        {
+            currentLine = text.size() - 1;
+        }
+
+        if (text.get(currentLine).length() > 0)
+        {
+            currentCharIndex = text.get(currentLine).length() - 1;
+        }
+
+        charIters = 0;
+    }
+
+    public boolean finished()
+    {
+        return (currentLine >= text.size() - 1);
+    }
+
+    public String getPartial(int i)
+    {
+        if ((i >= 0) && (i < text.size()))
+        {
+            if (currentLine < text.size())
+            {
+                if (currentCharIndex >= text.get(currentLine).length())
+                {
+                    currentCharIndex = 0;
+                    currentLine++;
+                }
+            }
+
+            if (i == this.currentLine)
+            {
+                if (charIters == 3)
+                {
+                    currentCharIndex++;
+                    charIters = 0;
+                }
+                charIters++;
+                if (currentCharIndex < text.get(i).length())
+                {
+                    return text.get(i).substring(0, currentCharIndex);
+                }
+                else
+                {
+                    return text.get(i);
+                }
+            }
+            else if (i < this.currentLine)
+            {
+                return text.get(i);
+            }
+        }
+        return "";
     }
 
     public ArrayList<DialogSection> split(int maxLines)

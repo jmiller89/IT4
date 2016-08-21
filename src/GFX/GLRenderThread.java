@@ -2495,10 +2495,22 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
             drawDialogBackground(dlgSize, (float)startPos);
 
-            for(int i = 0; i < dlg.dialog.get(dialogPage).size(); i++)
+            //If dialog isn't on top, then render the text RPG style
+            if (dlg.onTop == false)
             {
-                this.addString(dlg.dialog.get(dialogPage).get(i), 5, yp, 16, 1.0f, 1.0f, 1.0f, 1.0f, true);
-                yp += 16;
+                for(int i = 0; i < dlg.dialog.get(dialogPage).size(); i++)
+                {
+                    this.addString(dlg.dialog.get(dialogPage).getPartial(i), 5, yp, 16, 1.0f, 1.0f, 1.0f, 1.0f, true);
+                    yp += 16;
+                }
+            }
+            else
+            {
+                for(int i = 0; i < dlg.dialog.get(dialogPage).size(); i++)
+                {
+                    this.addString(dlg.dialog.get(dialogPage).get(i), 5, yp, 16, 1.0f, 1.0f, 1.0f, 1.0f, true);
+                    yp += 16;
+                }
             }
 
             if (remainingPages)
@@ -2964,14 +2976,21 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 {
                     triggerPulled = true;
 
-                    if (dialogPage < dlg.dialog.size() - 1)
+                    if (dlg.dialog.get(dialogPage).finished())
                     {
-                        dialogPage++;
+                        if (dialogPage < dlg.dialog.size() - 1)
+                        {
+                            dialogPage++;
+                        }
+                        else
+                        {
+                            dialogPage = 0;
+                            game.closeDialog();
+                        }
                     }
                     else
                     {
-                        dialogPage = 0;
-                        game.closeDialog();
+                        dlg.dialog.get(dialogPage).fastForward();
                     }
                 }
             }
@@ -3003,14 +3022,21 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 {
                     pauseToggled = true;
 
-                    if (dialogPage < dlg.dialog.size() - 1)
+                    if (dlg.dialog.get(dialogPage).finished())
                     {
-                        dialogPage++;
+                        if (dialogPage < dlg.dialog.size() - 1)
+                        {
+                            dialogPage++;
+                        }
+                        else
+                        {
+                            dialogPage = 0;
+                            game.closeDialog();
+                        }
                     }
                     else
                     {
-                        dialogPage = 0;
-                        game.closeDialog();
+                        dlg.dialog.get(dialogPage).fastForward();
                     }
                 }
             }
@@ -3025,14 +3051,21 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 {
                     meleePerformed = true;
 
-                    if (dialogPage < dlg.dialog.size() - 1)
+                    if (dlg.dialog.get(dialogPage).finished())
                     {
-                        dialogPage++;
+                        if (dialogPage < dlg.dialog.size() - 1)
+                        {
+                            dialogPage++;
+                        }
+                        else
+                        {
+                            dialogPage = 0;
+                            game.closeDialog();
+                        }
                     }
                     else
                     {
-                        dialogPage = 0;
-                        game.closeDialog();
+                        dlg.dialog.get(dialogPage).fastForward();
                     }
                 }
             }
@@ -3046,14 +3079,21 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 if (!showObjs)
                 {
                     showObjs = true;
-                    if (dialogPage < dlg.dialog.size() - 1)
+                    if (dlg.dialog.get(dialogPage).finished())
                     {
-                        dialogPage++;
+                        if (dialogPage < dlg.dialog.size() - 1)
+                        {
+                            dialogPage++;
+                        }
+                        else
+                        {
+                            dialogPage = 0;
+                            game.closeDialog();
+                        }
                     }
                     else
                     {
-                        dialogPage = 0;
-                        game.closeDialog();
+                        dlg.dialog.get(dialogPage).fastForward();
                     }
                 }
             }
