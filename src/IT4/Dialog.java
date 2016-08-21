@@ -40,7 +40,7 @@ public class Dialog
         //dialog = new ArrayList<ArrayList<String>>();
         //dialog.add(new ArrayList<String>());
         dialog = new ArrayList<DialogSection>();
-        dialog.add(new DialogSection());
+        dialog.add(new DialogSection(onTop));
     }
 
     public Dialog(Item it, ITEvent ev)
@@ -48,7 +48,7 @@ public class Dialog
         //dialog = new ArrayList<ArrayList<String>>();
         //dialog.add(new ArrayList<String>());
         dialog = new ArrayList<DialogSection>();
-        dialog.add(new DialogSection());
+        dialog.add(new DialogSection(onTop));
 
         confirmation = true;
         item = it;
@@ -84,7 +84,7 @@ public class Dialog
         for(int j = 0; j < d.dialog.size(); j++)
         {
             //dialog.add(new ArrayList<String>());
-            dialog.add(new DialogSection());
+            dialog.add(new DialogSection(onTop));
             for(int i = 0; i < d.dialog.get(j).size(); i++)
             {
                 dialog.get(j).speaker = d.dialog.get(j).speaker;
@@ -154,7 +154,7 @@ public class Dialog
                 if (dialog.get(dialog.size() - 1).size() >= maxLines)
                 {
                     //dialog.add(new ArrayList<String>());
-                    dialog.add(new DialogSection());
+                    dialog.add(new DialogSection(onTop));
                 }
 
                 dialog.get(dialog.size() - 1).add(strs[i]);
@@ -167,7 +167,7 @@ public class Dialog
             if (dialog.get(dialog.size() - 1).size() >= maxLines)
             {
                 //dialog.add(new ArrayList<String>());
-                dialog.add(new DialogSection());
+                dialog.add(new DialogSection(onTop));
             }
             
             dialog.get(dialog.size() - 1).add(s);
@@ -201,7 +201,7 @@ public class Dialog
             maxLines = maxLines_top;
         }
 
-        DialogSection ds = new DialogSection();
+        DialogSection ds = new DialogSection(onTop);
         //ds.speaker = "Dialog";
         this.dialog.clear();
         for(int i = 0; i < prepStrs.size(); i++)
@@ -210,6 +210,11 @@ public class Dialog
             if (m.matches())
             {
                 String speaker = m.group(1);
+
+                if (speaker.equalsIgnoreCase("Player"))
+                {
+                    speaker = Game.playerName;
+                }
 
                 if (ds.speaker.equals(speaker) == false)
                 {

@@ -18,10 +18,16 @@ public class DialogSection
     public int currentCharIndex = 0;
     public int currentLine = 0;
     public int charIters = 0;
+    public boolean ontop;
+
+    public DialogSection(boolean onTop)
+    {
+        ontop = onTop;
+    }
 
     public DialogSection copy()
     {
-        DialogSection d = new DialogSection();
+        DialogSection d = new DialogSection(this.ontop);
 
         d.speaker = this.speaker;
 
@@ -87,7 +93,7 @@ public class DialogSection
 
     public boolean finished()
     {
-        return (currentLine >= text.size() - 1);
+        return (currentLine >= text.size() - 1) || (ontop);
     }
 
     public String getPartial(int i)
@@ -132,7 +138,7 @@ public class DialogSection
     {
         ArrayList<DialogSection> subsections = new ArrayList<DialogSection>((this.size() / maxLines) + 1);
 
-        DialogSection d = new DialogSection();
+        DialogSection d = new DialogSection(this.ontop);
         d.speaker = this.speaker;
         int j = 0;
         for(int i = 0; i < this.text.size(); i++)

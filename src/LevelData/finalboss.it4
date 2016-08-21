@@ -240,7 +240,7 @@ ASSAULT_RIFLE 7 33 3
 
 [boss]
 BOSS4 3 28 900 45 11 800 false -1 -1 2 false
-Spirit
+Amanda
 [pre]
 [Amanda]
 Show me what you've got!

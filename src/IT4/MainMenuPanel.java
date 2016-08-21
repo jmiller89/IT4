@@ -314,6 +314,10 @@ public class MainMenuPanel extends JPanel
             if (file.getName().toLowerCase().endsWith(".it4save"))
             {
                 fp = file.getPath();
+
+                String fname = file.getName();
+                Game.playerName = fname.replace(".it4save", "");
+
                 loadSavedGame(fp);
             }
         }
@@ -359,20 +363,24 @@ public class MainMenuPanel extends JPanel
 
     private void newGame(String filepath, boolean lvset, boolean internal)
     {        
-        String playername = JOptionPane.showInputDialog(this, "Please enter your name", "New Game", JOptionPane.OK_OPTION);
+        //String playername = JOptionPane.showInputDialog(this, "Please enter your name", "New Game", JOptionPane.OK_OPTION);
+        String playername = JOptionPane.showInputDialog(this, "Please enter your name", "Player");
 
         if (playername == null)
         {
-            playername = "Unknown_Soldier";
+            playername = "Player";
         }
 
         if (playername.length() == 0)
         {
-            playername = "Unknown_Soldier";
+            playername = "Player";
         }
 
         playername = playername.replace(' ', '_');
         playername = playername.replace('\n', '_');
+
+        Game.playerName = playername;
+
         playername += ".it4save";
         GameFileManager.filepath = System.getProperty("user.dir") + System.getProperty("file.separator") + "saves" + System.getProperty("file.separator") + playername;
         System.out.println(GameFileManager.filepath);
@@ -388,7 +396,7 @@ public class MainMenuPanel extends JPanel
         String soundtrackauthors = "Alec Shea\nAllen Andrews\nDaniele Ghisu\nDavid Orr\nGordon McNeil\nJames Ghosh\nRoald Strauss\nWilliam Usher\n";
         soundtrackauthors += "Johannes Schultz\nRobert Shaw\nJames Opie\nMatthew Le Blanc (SynthR)\nRobbie Dooley";
         
-        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.11.67 Beta\nProgrammed By: jmiller89 (C) 2011-2016\n"
+        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.11.68 Beta\nProgrammed By: jmiller89 (C) 2011-2016\n"
                 + "\nSoundtrack By:\n" + soundtrackauthors + "\n\n"
                 + "This program is free software: you can redistribute it and/or modify\n"
                 + "it under the terms of the GNU General Public License as published by\n"

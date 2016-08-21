@@ -135,6 +135,8 @@ public final class Game
     public boolean lurch = false;
 
     public ArrayDeque<Explosion> C4Queue;
+
+    public static String playerName = "Player";
     
     @SuppressWarnings("LeakingThisInConstructor")
     public Game(String levelPath, boolean levelSet, boolean internalLevels, boolean maze, boolean loadingSaveGame, MainMenuFrame mmf)
