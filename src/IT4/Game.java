@@ -2154,31 +2154,33 @@ public final class Game
             {
                 if ((b.getTileX() == NPCs.get(i).getTileX()) && (b.getTileY() == NPCs.get(i).getTileY()))
                 {
-                    collision = true;
-                    int health = NPCs.get(i).receiveDamage(b.getDamage());
-
-                    if (health > 0)
+                    if (NPCs.get(i).following == false)
                     {
-                        if (b.getTranquilizer() == true)
+                        collision = true;
+                        int health = NPCs.get(i).receiveDamage(b.getDamage());
+
+                        if (health > 0)
                         {
-                            NPCs.get(i).tranqTimeMillis = (b.staminaDamage * 1000);
-                            NPCs.get(i).setStatus(NPCStatus.TRANQUILIZED_SLEEP);
-                        }
-                        else
-                        {
-                            if (NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP)
+                            if (b.getTranquilizer() == true)
                             {
-                                if (!NPCs.get(i).ally)
+                                NPCs.get(i).tranqTimeMillis = (b.staminaDamage * 1000);
+                                NPCs.get(i).setStatus(NPCStatus.TRANQUILIZED_SLEEP);
+                            }
+                            else
+                            {
+                                if (NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP)
                                 {
-                                   NPCs.get(i).suspect(getDirectionFromVector(b.getDeltaX(), b.getDeltaY()));
+                                    if (!NPCs.get(i).ally)
+                                    {
+                                       NPCs.get(i).suspect(getDirectionFromVector(b.getDeltaX(), b.getDeltaY()));
+                                    }
                                 }
                             }
                         }
-                    }
 
-                    updateNPCStatus();
-                    break;
-                    
+                        updateNPCStatus();
+                        break;
+                    }
                 }
                 
             }
@@ -2292,19 +2294,22 @@ public final class Game
                         if ((player.getY() + 20 - 1 <= NPCs.get(i).getY() + 40) &&
                                 (player.getY() + 20 - 1 >= NPCs.get(i).getY()))
                         {
-                            //collision = true;
-                            NPCs.get(i).receiveDamage(knifedamage);
-
-                            if ((NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
+                            if (NPCs.get(i).following == false)
                             {
-                                if (!NPCs.get(i).ally)
-                                {
-                                   NPCs.get(i).suspect(player.getDirection());
-                                }
-                            }
+                                //collision = true;
+                                NPCs.get(i).receiveDamage(knifedamage);
 
-                            updateNPCStatus();
-                            break;
+                                if ((NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
+                                {
+                                    if (!NPCs.get(i).ally)
+                                    {
+                                       NPCs.get(i).suspect(player.getDirection());
+                                    }
+                                }
+
+                                updateNPCStatus();
+                                break;
+                            }
                         }
                     }
                 }
@@ -2315,19 +2320,22 @@ public final class Game
                         if ((player.getY() + 37 + 1 >= NPCs.get(i).getY()) &&
                                 ((player.getY() + 37 + 1 <= NPCs.get(i).getY() + 40)))
                         {
-                            //collision = true;
-                            NPCs.get(i).receiveDamage(knifedamage);
-
-                            if ((NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
+                            if (NPCs.get(i).following == false)
                             {
-                                if (!NPCs.get(i).ally)
-                                {
-                                   NPCs.get(i).suspect(player.getDirection());
-                                }
-                            }
+                                //collision = true;
+                                NPCs.get(i).receiveDamage(knifedamage);
 
-                            updateNPCStatus();
-                            break;
+                                if ((NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
+                                {
+                                    if (!NPCs.get(i).ally)
+                                    {
+                                       NPCs.get(i).suspect(player.getDirection());
+                                    }
+                                }
+
+                                updateNPCStatus();
+                                break;
+                            }
                         }
                     }
                 }
@@ -2338,19 +2346,22 @@ public final class Game
                         if ((player.getX() - 1 <= NPCs.get(i).getX() + 40) &&
                                 ((player.getX() + 0 - 1 >= NPCs.get(i).getX())))
                         {
-                            //collision = true;
-                            NPCs.get(i).receiveDamage(knifedamage);
-
-                            if ((NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
+                            if (NPCs.get(i).following == false)
                             {
-                                if (!NPCs.get(i).ally)
-                                {
-                                   NPCs.get(i).suspect(player.getDirection());
-                                }
-                            }
+                                //collision = true;
+                                NPCs.get(i).receiveDamage(knifedamage);
 
-                            updateNPCStatus();
-                            break;
+                                if ((NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
+                                {
+                                    if (!NPCs.get(i).ally)
+                                    {
+                                       NPCs.get(i).suspect(player.getDirection());
+                                    }
+                                }
+
+                                updateNPCStatus();
+                                break;
+                            }
                         }
                     }
                 }
@@ -2361,19 +2372,22 @@ public final class Game
                         if ((player.getX() + 37 + 1 >= NPCs.get(i).getX()) &&
                                 ((player.getX() + 37 + 1 <= NPCs.get(i).getX() + 40)))
                         {
-                            //collision = true;
-                            NPCs.get(i).receiveDamage(knifedamage);
-
-                            if ((NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
+                            if (NPCs.get(i).following == false)
                             {
-                                if (!NPCs.get(i).ally)
-                                {
-                                   NPCs.get(i).suspect(player.getDirection());
-                                }
-                            }
+                                //collision = true;
+                                NPCs.get(i).receiveDamage(knifedamage);
 
-                            updateNPCStatus();
-                            break;
+                                if ((NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
+                                {
+                                    if (!NPCs.get(i).ally)
+                                    {
+                                       NPCs.get(i).suspect(player.getDirection());
+                                    }
+                                }
+
+                                updateNPCStatus();
+                                break;
+                            }
                         }
                     }
                 }

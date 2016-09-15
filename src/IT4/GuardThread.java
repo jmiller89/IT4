@@ -592,6 +592,11 @@ public class GuardThread implements Runnable
             //speedAdjuster = 20;
             guard.movementDelta = guard.NPC_WALKSPEED;
         }
+        
+        if ((guard.isFriendly()) && (guard.following))
+        {
+            guard.movementDelta = guard.NPC_RUNSPEED;
+        }
 
         if ((guard.getStatus() == NPCStatus.SLEEP) || (guard.getStatus() == NPCStatus.TRANQUILIZED_SLEEP))
         {

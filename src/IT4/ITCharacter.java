@@ -146,11 +146,11 @@ public abstract class ITCharacter extends ITObject
         {
             if (NPC)
             {
-                System.out.println("NPC recieved damage! Health = " + currentHealth);
+                System.out.println("NPC received damage! Health = " + currentHealth);
             }
             else
             {
-                System.out.println("Player recieved damage! Health = " + currentHealth);
+                System.out.println("Player received damage! Health = " + currentHealth);
             }
         }
         else
