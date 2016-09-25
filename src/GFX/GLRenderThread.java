@@ -38,6 +38,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     
     //Used to prevent guns from firing full auto
     private boolean triggerPulled;
+    private boolean allowedToMove = true;
     private boolean stanceToggled;
     private boolean itemUsed;
     private boolean actionTaken;
@@ -385,38 +386,41 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         if (!moveStack.isEmpty())
         {
             Direction d = moveStack.pop();
-            
-            if (d == Direction.UP)
+
+            if (allowedToMove)
             {
-                game.movingUp = true;
-                game.movingDown = false;
-                game.movingLeft = false;
-                game.movingRight = false;
-                moveStack.push(Direction.UP);
-            }
-            else if (d == Direction.DOWN)
-            {
-                game.movingDown = true;
-                game.movingUp = false;
-                game.movingLeft = false;
-                game.movingRight = false;
-                moveStack.push(Direction.DOWN);
-            }
-            else if (d == Direction.LEFT)
-            {
-                game.movingLeft = true;
-                game.movingDown = false;
-                game.movingUp = false;
-                game.movingRight = false;
-                moveStack.push(Direction.LEFT);
-            }
-            else if (d == Direction.RIGHT)
-            {
-                game.movingRight = true;
-                game.movingDown = false;
-                game.movingLeft = false;
-                game.movingUp = false;
-                moveStack.push(Direction.RIGHT);
+                if (d == Direction.UP)
+                {
+                    game.movingUp = true;
+                    game.movingDown = false;
+                    game.movingLeft = false;
+                    game.movingRight = false;
+                    moveStack.push(Direction.UP);
+                }
+                else if (d == Direction.DOWN)
+                {
+                    game.movingDown = true;
+                    game.movingUp = false;
+                    game.movingLeft = false;
+                    game.movingRight = false;
+                    moveStack.push(Direction.DOWN);
+                }
+                else if (d == Direction.LEFT)
+                {
+                    game.movingLeft = true;
+                    game.movingDown = false;
+                    game.movingUp = false;
+                    game.movingRight = false;
+                    moveStack.push(Direction.LEFT);
+                }
+                else if (d == Direction.RIGHT)
+                {
+                    game.movingRight = true;
+                    game.movingDown = false;
+                    game.movingLeft = false;
+                    game.movingUp = false;
+                    moveStack.push(Direction.RIGHT);
+                }
             }
         }
     }
@@ -2566,58 +2570,61 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         //if ((upPressed) && (!downPressed))
         if (!game.inDialog)
         {
-            if (upPressed)
+            if (allowedToMove)
             {
-                game.movingUp = true;
-                game.movingDown = false;
-                game.movingLeft = false;
-                game.movingRight = false;
-
-                if (!moveStack.contains(Direction.UP))
+                if (upPressed)
                 {
-                    moveStack.push(Direction.UP);
+                    game.movingUp = true;
+                    game.movingDown = false;
+                    game.movingLeft = false;
+                    game.movingRight = false;
+
+                    if (!moveStack.contains(Direction.UP))
+                    {
+                        moveStack.push(Direction.UP);
+                    }
                 }
-            }
 
-            //if ((downPressed) && (!upPressed))
-            if (downPressed)
-            {
-                game.movingUp = false;
-                game.movingDown = true;
-                game.movingLeft = false;
-                game.movingRight = false;
-
-                if (!moveStack.contains(Direction.DOWN))
+                //if ((downPressed) && (!upPressed))
+                if (downPressed)
                 {
-                    moveStack.push(Direction.DOWN);
+                    game.movingUp = false;
+                    game.movingDown = true;
+                    game.movingLeft = false;
+                    game.movingRight = false;
+
+                    if (!moveStack.contains(Direction.DOWN))
+                    {
+                        moveStack.push(Direction.DOWN);
+                    }
                 }
-            }
 
-            //if ((leftPressed) && (!rightPressed))
-            if (leftPressed)
-            {
-                game.movingUp = false;
-                game.movingDown = false;
-                game.movingLeft = true;
-                game.movingRight = false;
-
-                if (!moveStack.contains(Direction.LEFT))
+                //if ((leftPressed) && (!rightPressed))
+                if (leftPressed)
                 {
-                    moveStack.push(Direction.LEFT);
+                    game.movingUp = false;
+                    game.movingDown = false;
+                    game.movingLeft = true;
+                    game.movingRight = false;
+
+                    if (!moveStack.contains(Direction.LEFT))
+                    {
+                        moveStack.push(Direction.LEFT);
+                    }
                 }
-            }
 
-            //if ((rightPressed) && (!leftPressed))
-            if (rightPressed)
-            {
-                game.movingUp = false;
-                game.movingDown = false;
-                game.movingLeft = false;
-                game.movingRight = true;
-
-                if (!moveStack.contains(Direction.RIGHT))
+                //if ((rightPressed) && (!leftPressed))
+                if (rightPressed)
                 {
-                    moveStack.push(Direction.RIGHT);
+                    game.movingUp = false;
+                    game.movingDown = false;
+                    game.movingLeft = false;
+                    game.movingRight = true;
+
+                    if (!moveStack.contains(Direction.RIGHT))
+                    {
+                        moveStack.push(Direction.RIGHT);
+                    }
                 }
             }
 
@@ -2643,7 +2650,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 game.movingDown = false;
                 game.movingLeft = false;
                 game.movingRight = false;
-
+                allowedToMove = false;
 
                 if ((!game.paused) && (!game.playerOnPath))
                 {
@@ -2687,7 +2694,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     game.setPlayerMoving(false);
                 }
                 triggerPulled = false;
-
+                allowedToMove = true;
             }
 
             if (!upPressed)
@@ -2930,6 +2937,12 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
             if (ctrlPressed)
             {
+                game.movingUp = false;
+                game.movingDown = false;
+                game.movingLeft = false;
+                game.movingRight = false;
+                allowedToMove = false;
+                
                 if (game.getPlayerStance() == Stance.UPRIGHT)
                 {
                     if (!meleePerformed)
@@ -2949,7 +2962,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     game.resetPlayerAnimation();
                     meleePerformed = false;
                 }
-
+                allowedToMove = true;
             }
 
             if (savePressed)

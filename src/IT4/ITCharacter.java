@@ -34,6 +34,9 @@ public abstract class ITCharacter extends ITObject
     public Point doorXY = new Point(-1,-1);
     public Door lastDoor = null;
 
+    public final int WOUNDED_STUN_TIME = 15;
+    public short timeToWaitBloodSpatter = WOUNDED_STUN_TIME;
+
     public ITCharacter(short id, int x, int y, Direction d, int chlth, boolean nonPlayerCharacter, float npc_walkspeed, float npc_runspeed)
     {
         super(id, x, y);
@@ -115,6 +118,7 @@ public abstract class ITCharacter extends ITObject
         if (dmg > 1)
         {
             isRecentlyWounded = true;
+            timeToWaitBloodSpatter = WOUNDED_STUN_TIME;
         }
         
         if (BOSS)
