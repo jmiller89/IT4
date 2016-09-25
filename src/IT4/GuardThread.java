@@ -131,6 +131,11 @@ public class GuardThread implements Runnable
                     
                     if (!game.paused)
                     {
+                        if (sc.spottedPlayerReaction > 0)
+                        {
+                            sc.spottedPlayerReaction--;
+                        }
+
                         int x = sc.getX() + sc.xOffset;
                         int y = sc.getY() + sc.yOffset;
                         boolean stopCamera = false;
@@ -146,6 +151,7 @@ public class GuardThread implements Runnable
                                 stopCamera = true;
                                 if (sc.hasGun())
                                 {
+                                    sc.spottedPlayerReaction = 15;
                                     if (sc.currentShotInterval <= 0)
                                     {
                                         Bullet b = sc.attack((short)181, game.getPlayerX(), game.getPlayerY(), 0, 1);
@@ -166,6 +172,7 @@ public class GuardThread implements Runnable
                                 {
                                     if (!game.isPlayerSpotted())
                                     {
+                                        sc.spottedPlayerReaction = 60;
                                         game.setPlayerSpotted();
                                     }
                                 }
@@ -622,6 +629,11 @@ public class GuardThread implements Runnable
                 {
                     if (searchForPlayer(guard) == true)
                     {
+                        if (game.isPlayerSpotted() == false)
+                        {
+                            guard.spottedPlayerReaction = 60;
+                        }
+                        
                         guard.setStatus(NPCStatus.ALERT);
 
                         game.setPlayerSpotted();
@@ -745,6 +757,11 @@ public class GuardThread implements Runnable
         if (guard.timeToWait > 0)
         {
             guard.timeToWait--;
+        }
+
+        if (guard.spottedPlayerReaction > 0)
+        {
+            guard.spottedPlayerReaction--;
         }
 
         if (guard.getStatus() == NPCStatus.SUSPICIOUS)

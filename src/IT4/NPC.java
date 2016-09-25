@@ -16,6 +16,7 @@ public class NPC extends ITCharacter
     private GuardType type;
     
     public short timeToWaitSuspect = 150;
+    public int spottedPlayerReaction = 0;
     
     public boolean pathFound = false;
 

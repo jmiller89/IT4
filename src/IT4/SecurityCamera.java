@@ -30,6 +30,8 @@ public class SecurityCamera extends ITObject
     public int weaponDamage = 30;
     public byte currentShotInterval = 15;
 
+    public int spottedPlayerReaction = 0;
+
     public SecurityCameraType type = SecurityCameraType.NORMAL;
 
     public SecurityCamera(short id, int x, int y, Direction dir, Waypoint way1, Waypoint way2, boolean isFixed, SecurityCameraType camType)

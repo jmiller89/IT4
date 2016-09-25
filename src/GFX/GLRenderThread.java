@@ -1150,6 +1150,22 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                         //g.drawString("Z", (NPCs.get(i).getX() - PlayerX + (centerX)) + 16, (NPCs.get(i).getY() - PlayerY + (centerY)) + 1);
                     }
 
+                    if ((NPCs.get(i).getStatus() == NPCStatus.SUSPICIOUS) && (game.isPlayerSpotted() == false))
+                    {
+                        if (x < 580)
+                        {
+                            addString("?", x+15, y-13);
+                        }
+                    }
+                    
+                    if (NPCs.get(i).spottedPlayerReaction > 0)
+                    {
+                        if (x < 580)
+                        {
+                            addString("!", x+15, y-13);
+                        }
+                    }
+
                     if ((NPCs.get(i).isInWater) | (NPCs.get(i).isInTallGrass))
                     {
                         row = waterTrail / COLSIZE;
@@ -1371,6 +1387,14 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     GL11.glVertex2f(mx,my);
                     GL11.glTexCoord2f(tx2, ty);
                     GL11.glVertex2f(mx,y);
+
+                    if (cameras.get(i).spottedPlayerReaction > 0)
+                    {
+                        if (x < 580)
+                        {
+                            addString("!", x+15, y-13);
+                        }
+                    }
 
                 }
             }
