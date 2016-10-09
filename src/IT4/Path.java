@@ -121,6 +121,11 @@ public class Path
         return nextWaypoint;
     }
 
+    public int getNumWaypoints()
+    {
+        return waypoints.size();
+    }
+
     public void reachedWaypoint()
     {
         nextWaypoint++;

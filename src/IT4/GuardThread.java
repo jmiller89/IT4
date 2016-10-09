@@ -801,9 +801,45 @@ public class GuardThread implements Runnable
         }
     }
 
+    private void specialAttack(NPC guard)
+    {
+        int x = (guard.getTileX() * 40);
+        int y = (guard.getTileY() * 40);
+        Bullet b1 = new Bullet(x, y, -0.25f, 0, (short)181, 0, false, false, 500, 1, 0);
+        Bullet b2 = new Bullet(x, y, 0.25f, 0, (short)181, 0, false, false, 500, 1, 0);
+        Bullet b3 = new Bullet(x, y, 0, -0.25f, (short)181, 0, false, false, 500, 1, 0);
+        Bullet b4 = new Bullet(x, y, 0, 0.25f, (short)181, 0, false, false, 500, 1, 0);
+
+        Bullet b5 = new Bullet(x, y, -0.25f, -0.25f, (short)181, 0, false, false, 500, 1, 0);
+        Bullet b6 = new Bullet(x, y, 0.25f, 0.25f, (short)181, 0, false, false, 500, 1, 0);
+        Bullet b7 = new Bullet(x, y, 0.25f, -0.25f, (short)181, 0, false, false, 500, 1, 0);
+        Bullet b8 = new Bullet(x, y, -0.25f, 0.25f, (short)181, 0, false, false, 500, 1, 0);
+
+        b1.explosive = true;
+        b2.explosive = true;
+        b3.explosive = true;
+        b4.explosive = true;
+        b5.explosive = true;
+        b6.explosive = true;
+        b7.explosive = true;
+        b8.explosive = true;
+
+        game.NPCAttack(b1);
+        game.NPCAttack(b2);
+        game.NPCAttack(b3);
+        game.NPCAttack(b4);
+        
+        game.NPCAttack(b5);
+        game.NPCAttack(b6);
+        game.NPCAttack(b7);
+        game.NPCAttack(b8);
+
+        guard.specialAttack = false;
+    }
+
     private void bossAI(Boss boss)
     {
-        if (searchForPlayer(boss) == true)
+        if ((searchForPlayer(boss) == true) && (boss.toStun == false) && (boss.timeToWait == 0))
         {
             if (boss.currentShotInterval == 0)
             {
@@ -823,6 +859,11 @@ public class GuardThread implements Runnable
             }
         }
 
+        if (boss.specialAttack)
+        {
+            specialAttack(boss);
+        }
+
         //Don't have the boss walk into walls
         if (game.canAdvance(boss, boss.getDirection(), 1) == false)
         {
@@ -837,7 +878,7 @@ public class GuardThread implements Runnable
         }
 
         //Move the boss
-        if (!boss.guardStopped)
+        if ((!boss.guardStopped) && (boss.timeToWait == 0))
         {
             if (boss.getDirection() == Direction.UP)
             {
@@ -888,6 +929,11 @@ public class GuardThread implements Runnable
         {
             boss.isRecentlyWounded = false;
             boss.timeToWaitBloodSpatter = 15;
+        }
+
+        if (boss.timeToWait > 0)
+        {
+            boss.timeToWait--;
         }
 
         if (boss.currentShotInterval > 0)
@@ -1397,6 +1443,11 @@ public class GuardThread implements Runnable
 
     private void reachedBossWaypoint(Boss boss)
     {
+        if (boss.toStun)
+        {
+            boss.timeToWait = 100;
+            boss.toStun = false;
+        }
         if (boss.getPath().getNextWaypoint().getBehavior() == WaypointBehavior.WAIT_AND_CONTINUE)
         {
             boss.timeToWait = 70;

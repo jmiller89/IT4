@@ -348,7 +348,7 @@ C4 7 10 1
 [/playerpath]
 
 [boss]
-BOSS2 11 8 500 13 9 200 false
+BOSS2 11 8 550 13 8 800 false
 Blitz_
 [pre]
 [Player]

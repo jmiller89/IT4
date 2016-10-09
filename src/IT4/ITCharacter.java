@@ -37,6 +37,10 @@ public abstract class ITCharacter extends ITObject
     public final int WOUNDED_STUN_TIME = 15;
     public short timeToWaitBloodSpatter = WOUNDED_STUN_TIME;
 
+    public short initialID = 0;
+    public boolean toStun = false;
+    public boolean specialAttack = false;
+
     public ITCharacter(short id, int x, int y, Direction d, int chlth, boolean nonPlayerCharacter, float npc_walkspeed, float npc_runspeed)
     {
         super(id, x, y);
@@ -132,6 +136,17 @@ public abstract class ITCharacter extends ITObject
                 {
                     currentHealth = currentHealth - dmg;
                     lastDamaged = currentDate;
+                    
+                    if (initialID == 127)
+                    {
+                        //Boss2 gets stunned when shot
+                        this.toStun = true;
+                    }
+                    else if (initialID == 226)
+                    {
+                        //Special behavior for Boss4
+                        this.specialAttack = true;
+                    }
                 }
             }
         }

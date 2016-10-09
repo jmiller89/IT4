@@ -47,8 +47,6 @@ public class NPC extends ITCharacter
 
     public boolean juggernaut = false;
 
-    public final short initialID;
-
     public Dialog dialog;
 
     public static NPC create(GuardType t, int x, int y, Direction d, NPCStatus s, boolean friend, Path p)
