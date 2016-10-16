@@ -13,6 +13,8 @@ public class ITObject
     protected short ID; //Used for Sprite Mapping
     protected int locX;
     protected int locY;
+    public int lastX;
+    public int lastY;
     public float fX;
     public float fY;
 
@@ -29,6 +31,9 @@ public class ITObject
         
         locX = x;
         locY = y;
+
+        lastX = locX;
+        lastY = locY;
 
         fX = (float)x;
         fY = (float)y;
@@ -79,6 +84,7 @@ public class ITObject
         fY = (float)locY;
     }
 
+    /*
     public void move(Point vec)
     {
         locX+=vec.x;
@@ -86,20 +92,28 @@ public class ITObject
         fX = (float)locX;
         fY = (float)locY;
     }
+     * 
+     */
 
-    public void move(FloatVec vec)
+    public void move(FloatVec vec, float delta)
     {
-        fX += vec.x;
-        fY += vec.y;
+        fX += (vec.x * delta);
+        fY += (vec.y * delta);
+
+        lastX = locX;
+        lastY = locY;
 
         locX = (int)(fX + 0.5f);
         locY = (int)(fY + 0.5f);
     }
 
-    public void move(float dX, float dY)
+    public void move(float dX, float dY, float delta)
     {
-        fX += dX;
-        fY += dY;
+        fX += (dX * delta);
+        fY += (dY * delta);
+
+        lastX = locX;
+        lastY = locY;
 
         locX = (int)(fX + 0.5f);
         locY = (int)(fY + 0.5f);

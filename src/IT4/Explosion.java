@@ -95,22 +95,22 @@ public class Explosion
         
     }
 
-    public void scatter()
+    public void scatter(float delta)
     {
         if (status)
         {
-            a0 -= 5.0f;
-            a1 += 5.0f;
-            b2 -= 5.0f;
-            b3 += 5.0f;
-            a4 += 3.5f;
-            b4 += 3.5f;
-            a5 -= 3.5f;
-            b5 -= 3.5f;
-            a6 += 3.5f;
-            b6 -= 3.5f;
-            a7 -= 3.5f;
-            b7 += 3.5f;
+            a0 -= (5.0f * delta);
+            a1 += (5.0f * delta);
+            b2 -= (5.0f * delta);
+            b3 += (5.0f * delta);
+            a4 += (3.5f * delta);
+            b4 += (3.5f * delta);
+            a5 -= (3.5f * delta);
+            b5 -= (3.5f * delta);
+            a6 += (3.5f * delta);
+            b6 -= (3.5f * delta);
+            a7 -= (3.5f * delta);
+            b7 += (3.5f * delta);
 
             x0 = (int)a0;
             y0 = (int)b0;

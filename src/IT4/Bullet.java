@@ -82,9 +82,9 @@ public class Bullet extends ITObject
     }
 
     //Use this to update the Bullet's position
-    public void move()
+    public void move(float delta)
     {
-        move(deltaX, deltaY);
+        move(deltaX, deltaY, delta);
         distTraversed += 10;
     }
 

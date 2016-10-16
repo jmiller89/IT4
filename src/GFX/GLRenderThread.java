@@ -637,12 +637,22 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 }
             }
 
-            if (game.nightVision)
+            if (game.deathEffect)
             {
-                GL11.glColor3f(0, 1.0f, 0);//Red makes a good thermal effect, blue is creepy
-                r_ = 0;
-                g_ = 1.0f;
+                GL11.glColor3f(1.0f, 0, 0);
+                r_ = 1.0f;
+                g_ = 0;
                 b_ = 0;
+            }
+            else
+            {
+                if (game.nightVision)
+                {
+                    GL11.glColor3f(0, 1.0f, 0);//Red makes a good thermal effect, blue is creepy
+                    r_ = 0;
+                    g_ = 1.0f;
+                    b_ = 0;
+                }
             }
 
 
@@ -2462,9 +2472,16 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
         addString(wpsilencer, 800, 524, 16, 1.0f, 0, 0, 1.0f, false);
         addString(it, 800, 584, 16, 1.0f, 0, 0, 1.0f, false);
 
-        if ((game.paused) && (!game.inDialog))
+        if (game.deathEffect)
         {
-            this.addString("PAUSED", 250, 250, 16, 1.0f, 1.0f, 1.0f, 1.0f, true);
+            this.addString("You were killed in action", 80, 280, 32, 1.0f, 1.0f, 1.0f, 1.0f, true);
+        }
+        else
+        {
+            if ((game.paused) && (!game.inDialog))
+            {
+                this.addString("PAUSED", 250, 250, 16, 1.0f, 1.0f, 1.0f, 1.0f, true);
+            }
         }
 
         if (game.message != null)
@@ -2565,7 +2582,6 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             
             TextWriter.drawStrings(strings, text.texture);
         }
-
 
         boolean firePressed = window.isKeyPressed(KeyEvent.VK_SPACE);
         boolean upPressed = window.isKeyPressed(KeyEvent.VK_W);
@@ -3030,6 +3046,13 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                         dlg.dialog.get(dialogPage).fastForward();
                     }
                 }
+                else
+                {
+                    if (dlg.event != null)
+                    {
+                        game.closeDialog();
+                    }
+                }
             }
             else
             {
@@ -3076,6 +3099,13 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                         dlg.dialog.get(dialogPage).fastForward();
                     }
                 }
+                else
+                {
+                    if (dlg.event != null)
+                    {
+                        game.closeDialog();
+                    }
+                }
             }
             else
             {
@@ -3105,6 +3135,13 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                         dlg.dialog.get(dialogPage).fastForward();
                     }
                 }
+                else
+                {
+                    if (dlg.event != null)
+                    {
+                        game.closeDialog();
+                    }
+                }
             }
             else
             {
@@ -3131,6 +3168,13 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                     else
                     {
                         dlg.dialog.get(dialogPage).fastForward();
+                    }
+                }
+                else
+                {
+                    if (dlg.event != null)
+                    {
+                        game.closeDialog();
                     }
                 }
             }

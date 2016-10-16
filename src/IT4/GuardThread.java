@@ -30,6 +30,8 @@ public class GuardThread implements Runnable
     //private static float GUARD_RUNSPEED = 0.95f;
     //private static float GUARD_WALKSPEED = 0.5f;
 
+    private float moveDelta = 1.0f;
+
     public GuardThread(Game gm)
     {
         game = gm;
@@ -48,10 +50,20 @@ public class GuardThread implements Runnable
         {
             this.guardInit(game.getNPCs().get(i));
         }
-        
+
+        long lasttime = System.nanoTime();
+        float desiredDelta = (float)Game.SLEEPTIME;
+
         //Main Loop starts here
         while (game.running)
         {
+            long systime = System.nanoTime();
+            float timedelta = ((systime - lasttime) / 1000000.0f);
+            timedelta = Math.min(timedelta, desiredDelta);
+            moveDelta = timedelta / desiredDelta;
+            //System.err.println(delta);
+            lasttime = systime;
+
             try
             {
                 //Reset spawn timer on room change
@@ -88,6 +100,14 @@ public class GuardThread implements Runnable
 
                         guardAI(npc);
                     }
+                    else
+                    {
+                        //Reset npc ids if in dialog
+                        if (game.inDialog)
+                        {
+                            resetGuardAnimation(npc);
+                        }
+                    }
                 }
                 
                 if (game.playerOnPath)
@@ -100,6 +120,14 @@ public class GuardThread implements Runnable
                     if ((!game.paused) && (game.isPlayerAlive()))
                     {
                         playerAI(game.getPlayer());
+                    }
+                    else
+                    {
+                        //Reset player id if in dialog
+                        if (game.inDialog)
+                        {
+                            game.resetPlayerAnimation();
+                        }
                     }
                 }                                
                 
@@ -184,13 +212,13 @@ public class GuardThread implements Runnable
                         {
                             if (!game.isPlayerSpotted())
                             {
-                                game.getCameras().get(i).move();
+                                game.getCameras().get(i).move(moveDelta);
                             }
                             else
                             {
                                 if (game.getCameras().get(i).hasGun())
                                 {
-                                    game.getCameras().get(i).move();
+                                    game.getCameras().get(i).move(moveDelta);
                                 }
                             }
                         }
@@ -268,7 +296,7 @@ public class GuardThread implements Runnable
 
                 //try
                 //{
-                    Thread.sleep(game.SLEEPTIME);
+                    Thread.sleep(Game.SLEEPTIME);
                 //}
                 //catch(InterruptedException e)
                 //{
@@ -467,6 +495,44 @@ public class GuardThread implements Runnable
         }
     }
 
+    private void correctCharacterPositioning(ITCharacter c)
+    {
+        Direction dir = c.getDirection();
+
+        if (dir == Direction.UP)
+        {
+            if ((c.getY() < c.wayY) && (c.lastY > c.wayY))
+            {
+                //System.err.println("Correcting ITCharacter position");
+                c.setY(c.wayY);
+            }
+        }
+        else if (dir == Direction.DOWN)
+        {
+            if ((c.getY() > c.wayY) && (c.lastY < c.wayY))
+            {
+                //System.err.println("Correcting ITCharacter position");
+                c.setY(c.wayY);
+            }
+        }
+        else if (dir == Direction.LEFT)
+        {
+            if ((c.getX() < c.wayX) && (c.lastX > c.wayX))
+            {
+                //System.err.println("Correcting ITCharacter position");
+                c.setX(c.wayX);
+            }
+        }
+        else if (dir == Direction.RIGHT)
+        {
+            if ((c.getX() > c.wayX) && (c.lastX < c.wayX))
+            {
+                //System.err.println("Correcting ITCharacter position");
+                c.setX(c.wayX);
+            }
+        }
+    }
+
     private void playerAI(Player player)
     {
         if (player != null)
@@ -475,6 +541,8 @@ public class GuardThread implements Runnable
             {
                 player.changeStance(game.forceprone);
             }
+
+            correctCharacterPositioning(player);
 
             if ((player.getX() == player.wayX) && (player.getY() == player.wayY))
             {
@@ -486,19 +554,19 @@ public class GuardThread implements Runnable
             {
                 if (player.getDirection() == Direction.UP)
                 {
-                    game.moveUp(player.NPC_WALKSPEED);
+                    game.moveUp(player.NPC_WALKSPEED, moveDelta);
                 }
                 else if (player.getDirection() == Direction.DOWN)
                 {
-                    game.moveDown(player.NPC_WALKSPEED);
+                    game.moveDown(player.NPC_WALKSPEED, moveDelta);
                 }
                 else if (player.getDirection() == Direction.LEFT)
                 {
-                    game.moveLeft(player.NPC_WALKSPEED);
+                    game.moveLeft(player.NPC_WALKSPEED, moveDelta);
                 }
                 else if (player.getDirection() == Direction.RIGHT)
                 {
-                    game.moveRight(player.NPC_WALKSPEED);
+                    game.moveRight(player.NPC_WALKSPEED, moveDelta);
                 }
             }
 
@@ -540,6 +608,10 @@ public class GuardThread implements Runnable
         if ((guard.isFriendly()) && (guard.following))
         {
             friendAI(guard);
+        }
+        else if (!guard.isFriendly())
+        {
+            correctCharacterPositioning(guard);
         }
         
         if ((game.isPlayerSpotted() == true) && (guard.getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
@@ -896,6 +968,9 @@ public class GuardThread implements Runnable
             {
                 moveRight(boss);
             }
+
+            correctCharacterPositioning(boss);
+
             if ((boss.getX() == boss.wayX) && (boss.getY() == boss.wayY))
             {
                 reachedBossWaypoint(boss);
@@ -1491,11 +1566,10 @@ public class GuardThread implements Runnable
             guard.animationIterations--;
         }
 
-        //TODO: Support floats here
         if (game.canAdvance(guard, guard.getDirection(), 1))
         {
             //guard.setY(guard.getY() - 1);
-            guard.move(0, -1 * guard.movementDelta);
+            guard.move(0, -1 * guard.movementDelta, moveDelta);
         }
 
         game.checkWaterAndGrass(guard);
@@ -1533,7 +1607,7 @@ public class GuardThread implements Runnable
         if (game.canAdvance(guard, guard.getDirection(), 1))
         {
             //guard.setY(guard.getY() + 1);
-            guard.move(0, 1 * guard.movementDelta);
+            guard.move(0, 1 * guard.movementDelta, moveDelta);
         }
 
         game.checkWaterAndGrass(guard);
@@ -1570,7 +1644,7 @@ public class GuardThread implements Runnable
         if (game.canAdvance(guard, guard.getDirection(), 1))
         {
             //guard.setX(guard.getX() - 1);
-            guard.move(-1 * guard.movementDelta, 0);
+            guard.move(-1 * guard.movementDelta, 0, moveDelta);
         }
 
         game.checkWaterAndGrass(guard);
@@ -1607,7 +1681,7 @@ public class GuardThread implements Runnable
         if (game.canAdvance(guard, guard.getDirection(), 1))
         {
             //guard.setX(guard.getX() + 1);
-            guard.move(1 * guard.movementDelta, 0);
+            guard.move(1 * guard.movementDelta, 0, moveDelta);
         }
 
         game.checkWaterAndGrass(guard);

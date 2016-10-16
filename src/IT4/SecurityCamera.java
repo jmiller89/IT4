@@ -151,7 +151,7 @@ public class SecurityCamera extends ITObject
         }
     }
 
-    public void move()
+    public void move(float delta)
     {
         if (!fixed)
         {
@@ -164,12 +164,12 @@ public class SecurityCamera extends ITObject
                         if (end.getXPos() * 40 > this.getX())
                         {
                             //setX(this.getX() + 1);
-                            move(0.5f, 0);
+                            move(0.5f, 0, delta);
                         }
                         else if (end.getXPos() * 40 < this.getX())
                         {
                             //setX(this.getX() - 1);
-                            move(-0.5f, 0);
+                            move(-0.5f, 0, delta);
                         }
                         else
                         {
@@ -182,12 +182,12 @@ public class SecurityCamera extends ITObject
                         if (end.getYPos() * 40 > this.getY())
                         {
                             //setY(this.getY() + 1);
-                            move(0, 0.5f);
+                            move(0, 0.5f, delta);
                         }
                         else if (end.getYPos() * 40 < this.getY())
                         {
                             //setY(this.getY() - 1);
-                            move(0, -0.5f);
+                            move(0, -0.5f, delta);
                         }
                         else
                         {
@@ -203,12 +203,12 @@ public class SecurityCamera extends ITObject
                         if (start.getXPos() * 40 > this.getX())
                         {
                             //setX(this.getX() + 1);
-                            move(0.5f, 0);
+                            move(0.5f, 0, delta);
                         }
                         else if (start.getXPos() * 40 < this.getX())
                         {
                             //setX(this.getX() - 1);
-                            move(-0.5f, 0);
+                            move(-0.5f, 0, delta);
                         }
                         else
                         {
@@ -221,12 +221,12 @@ public class SecurityCamera extends ITObject
                         if (start.getYPos() * 40 > this.getY())
                         {
                             //setY(this.getY() + 1);
-                            move(0, 0.5f);
+                            move(0, 0.5f, delta);
                         }
                         else if (start.getYPos() * 40 < this.getY())
                         {
                             //setY(this.getY() - 1);
-                            move(0, -0.5f);
+                            move(0, -0.5f, delta);
                         }
                         else
                         {

@@ -75,7 +75,6 @@ public final class Game
     public short deaths = 0;
     public long startDate = System.currentTimeMillis();
 
-    private boolean restarting = false;
     public boolean running = true;
 
     public boolean loading = false;
@@ -83,6 +82,7 @@ public final class Game
     public boolean semiDarkness = false;
     public boolean darkness = false;
     public boolean nightVision = false;
+    public boolean deathEffect = false;
     public boolean gas = false;
     public boolean midnight = false;
     public boolean rain = false;
@@ -2474,11 +2474,11 @@ public final class Game
             setHUDMessage("Mission Failed", HUDMessageType.RESULT);
             displayStats("You have been killed in action.\nGame Over!\n");
 
-            if (!restarting)
-            {
-                //restartLevel();
-                respawn();
-            }
+            player.setHealth(0);
+            
+            deathEffect = true;
+
+            //respawn();
         }
     }
 
@@ -2515,9 +2515,10 @@ public final class Game
         return d;
     }
 
-    private void respawn()
+    public void respawn()
     {
         SLEEPTIME = 10;
+        
         //SFX_OLD.stopMusic();
         SFX.stopFX();
         SFX.playMusic(currentLevelMap.songIndex);
@@ -2695,7 +2696,7 @@ public final class Game
 
     
     //For player path movement
-    public void moveUp(float speed)
+    public void moveUp(float speed, float delta)
     {
         playerMoving = true;        
 
@@ -2726,7 +2727,7 @@ public final class Game
         if (canAdvance(player, player.getDirection(), 1) == true)
         {
             //player.setY(player.getY() - RUNSPEED);
-            player.move(0, -1 * speed);
+            player.move(0, -1 * speed, delta);
         }
 
         
@@ -2753,7 +2754,7 @@ public final class Game
         
     }
 
-    public void moveDown(float speed)
+    public void moveDown(float speed, float delta)
     {
         playerMoving = true;
 
@@ -2785,7 +2786,7 @@ public final class Game
         if (canAdvance(player, player.getDirection(), 1) == true)
         {
             //player.setY(player.getY() + RUNSPEED);
-            player.move(0, 1 * speed);
+            player.move(0, 1 * speed, delta);
         }
 
 
@@ -2807,7 +2808,7 @@ public final class Game
         }
     }
 
-    public void moveLeft(float speed)
+    public void moveLeft(float speed, float delta)
     {
         playerMoving = true;
 
@@ -2838,7 +2839,7 @@ public final class Game
         if (canAdvance(player, player.getDirection(), 1) == true)
         {
             //player.setX(player.getX() - RUNSPEED);
-            player.move(-1 * speed, 0);
+            player.move(-1 * speed, 0, delta);
         }
 
         player.doorXY.x = player.getTileX();
@@ -2859,7 +2860,7 @@ public final class Game
         }
     }
 
-    public void moveRight(float speed)
+    public void moveRight(float speed, float delta)
     {
         playerMoving = true;
 
@@ -2891,7 +2892,7 @@ public final class Game
         if (canAdvance(player, player.getDirection(), 1) == true)
         {
             //player.setX(player.getX() + RUNSPEED);
-            player.move(1 * speed, 0);
+            player.move(1 * speed, 0, delta);
         }
 
 
@@ -2915,7 +2916,7 @@ public final class Game
 
     //End path movement functions
 
-    public void moveUp()
+    public void moveUp(float delta)
     {
         playerMoving = true;
 
@@ -2975,7 +2976,7 @@ public final class Game
             if (canAdvance(player, player.getDirection(), RUNSPEED) == true)
             {
                 //player.setY(player.getY() - RUNSPEED);
-                player.move(upVectorRun);
+                player.move(upVectorRun, delta);
             }
         }
         else
@@ -2983,7 +2984,7 @@ public final class Game
             if (canAdvance(player, player.getDirection(), WALKSPEED) == true)
             {
                 //player.setY(player.getY() - WALKSPEED);
-                player.move(upVector);
+                player.move(upVector, delta);
             }
         }
 
@@ -3015,7 +3016,7 @@ public final class Game
         player.checkDoorStatus();
     }
 
-    public void moveDown()
+    public void moveDown(float delta)
     {
         playerMoving = true;
 
@@ -3075,7 +3076,7 @@ public final class Game
             if (canAdvance(player, player.getDirection(), RUNSPEED) == true)
             {
                 //player.setY(player.getY() + RUNSPEED);
-                player.move(downVectorRun);
+                player.move(downVectorRun, delta);
             }
         }
         else
@@ -3083,7 +3084,7 @@ public final class Game
             if (canAdvance(player, player.getDirection(), WALKSPEED) == true)
             {
                 //player.setY(player.getY() + WALKSPEED);
-                player.move(downVector);
+                player.move(downVector, delta);
             }
         }
 
@@ -3114,7 +3115,7 @@ public final class Game
         player.checkDoorStatus();
     }
 
-    public void moveLeft()
+    public void moveLeft(float delta)
     {
         playerMoving = true;
 
@@ -3174,7 +3175,7 @@ public final class Game
             if (canAdvance(player, player.getDirection(), RUNSPEED) == true)
             {
                 //player.setX(player.getX() - RUNSPEED);
-                player.move(leftVectorRun);
+                player.move(leftVectorRun, delta);
             }
         }
         else
@@ -3182,7 +3183,7 @@ public final class Game
             if (canAdvance(player, player.getDirection(), WALKSPEED) == true)
             {
                 //player.setX(player.getX() - WALKSPEED);
-                player.move(leftVector);
+                player.move(leftVector, delta);
             }
         }
 
@@ -3213,7 +3214,7 @@ public final class Game
         player.checkDoorStatus();
     }
 
-    public void moveRight()
+    public void moveRight(float delta)
     {
         playerMoving = true;
         
@@ -3272,7 +3273,7 @@ public final class Game
             if (canAdvance(player, player.getDirection(), RUNSPEED) == true)
             {
                 //player.setX(player.getX() + RUNSPEED);
-                player.move(rightVectorRun);
+                player.move(rightVectorRun, delta);
             }
         }
         else
@@ -3280,7 +3281,7 @@ public final class Game
             if (canAdvance(player, player.getDirection(), WALKSPEED) == true)
             {
                 //player.setX(player.getX() + WALKSPEED);
-                player.move(rightVector);
+                player.move(rightVector, delta);
             }
         }
 
@@ -3389,6 +3390,11 @@ public final class Game
     //The player fires a bullet
     public void playerAttack(int shot)
     {
+        if (player.getCurrentHealth() <= 0)
+        {
+            return;
+        }
+        
         if (player.getAmmo() > 0)
         {
             playerAttacking = true;
@@ -3595,6 +3601,11 @@ public final class Game
 
     public void meleeAttack()
     {
+        if (player.getCurrentHealth() <= 0)
+        {
+            return;
+        }
+        
         playerAttacking = true;
         //System.out.println("Player attacks! Bullets in Queue: " + bullets.size());
 
@@ -4415,10 +4426,14 @@ public final class Game
     public void regenerateHealth()
     {
         int ch = player.getCurrentHealth();
-        int mh = ((player.getMaxHealth() * 4) / 5);
-        if (ch < mh)
+
+        if (ch > 0)
         {
-            player.setHealth(ch+1);
+            int mh = ((player.getMaxHealth() * 4) / 5);
+            if (ch < mh)
+            {
+                player.setHealth(ch+1);
+            }
         }
     }
 

@@ -444,4 +444,5 @@ public class NPC extends ITCharacter
 
         return attainable;
     }
+
 }

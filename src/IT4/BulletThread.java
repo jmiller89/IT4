@@ -13,6 +13,7 @@ public class BulletThread implements Runnable
 {
     private ArrayList<Bullet> bullets;
     private Game game;
+    private int deathEffectFramesRemaining = 225;
 
     public BulletThread(ArrayList<Bullet> b, Game g)
     {
@@ -22,8 +23,32 @@ public class BulletThread implements Runnable
 
     public void run()
     {
+        long lasttime = System.nanoTime();
+        float desiredDelta = (float)Game.SLEEPTIME;
+
         while (game.running)
         {
+            long systime = System.nanoTime();
+            float timedelta = ((systime - lasttime) / 1000000.0f);
+            timedelta = Math.min(timedelta, desiredDelta);
+            float moveDelta = timedelta / desiredDelta;
+            //System.err.println(delta);
+            lasttime = systime;
+
+            if (game.deathEffect)
+            {
+                if (deathEffectFramesRemaining > 0)
+                {
+                    deathEffectFramesRemaining--;
+                }
+                else
+                {
+                    game.deathEffect = false;
+                    deathEffectFramesRemaining = 225;
+                    game.respawn();
+                }
+            }
+
             try
             {
                 if (!game.paused)
@@ -32,7 +57,7 @@ public class BulletThread implements Runnable
                     {
                         if (bullets.get(i) != null)
                         {
-                            bullets.get(i).move();
+                            bullets.get(i).move(moveDelta);
 
                             if (detectCollision(i) == true)
                             {
@@ -43,7 +68,7 @@ public class BulletThread implements Runnable
 
                     for (int i = 0; i < game.getExplosions().size(); i++)
                     {
-                        game.getExplosions().get(i).scatter();
+                        game.getExplosions().get(i).scatter(moveDelta);
                     }
                 }
 
@@ -77,7 +102,7 @@ public class BulletThread implements Runnable
 
                 try
                 {
-                    Thread.sleep(10);
+                    Thread.sleep(Game.SLEEPTIME);
                 }
                 catch(InterruptedException e)
                 {
@@ -93,7 +118,7 @@ public class BulletThread implements Runnable
 
         bullets.clear();
     }
-
+    
     private boolean detectCollision(int index)
     {
         boolean collided = false;
