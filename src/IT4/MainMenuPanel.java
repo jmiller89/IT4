@@ -214,7 +214,12 @@ public class MainMenuPanel extends JPanel
 
             public void actionPerformed(ActionEvent e)
             {                
-                String[] LevelSelection = {"Flashback - Siberia"};
+                String[] LevelSelection = {"Flashback - Siberia", "Region 1 - Huemul Island South", "Region 2 Part 1 - Bariloche/Huemul Island South",
+                                           "Region 2 Part 2 - Huemul Island West", "Region 2 Part 3 - Huemul Island West",
+                                           "Region 3 - Huemul Island Central", "Region 4 - Huemul Island East",
+                                           "Region 5 Part 1 - Huemul Island North", "Region 5 Part 2 - Huemul Island North", "Region 5 Part 3 - Huemul Island North",
+                                           "Region 6 Part 1 - Huemul Island Central", "Region 6 Part 2 - Huemul Island Central/South",
+                                           "Region 6 Part 3 - Huemul Island South", "Finale - Location Unknown/Bariloche"};
                 String selection = (String)JOptionPane.showInputDialog(MainMenuPanel.mmp, "Select the mission you wish to play", "The Endling's Artifice", JOptionPane.QUESTION_MESSAGE, null, LevelSelection, LevelSelection[0]);
                 System.out.println(selection);
                 if (selection != null)
@@ -222,6 +227,58 @@ public class MainMenuPanel extends JPanel
                     if (selection.startsWith("Flashback"))
                     {
                         newGame("LevelData/it4lv1.it4", false, true);
+                    }
+                    else if (selection.startsWith("Region 1"))
+                    {
+                        newGame("LevelData/select_region1.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 2 Part 1"))
+                    {
+                        newGame("LevelData/select_region2_part1.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 2 Part 2"))
+                    {
+                        newGame("LevelData/select_region2_part2.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 2 Part 3"))
+                    {
+                        newGame("LevelData/select_region2_part3.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 3"))
+                    {
+                        newGame("LevelData/select_region3.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 4"))
+                    {
+                        newGame("LevelData/select_region4.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 5 Part 1"))
+                    {
+                        newGame("LevelData/select_region5_part1.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 5 Part 2"))
+                    {
+                        newGame("LevelData/select_region5_part2.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 5 Part 3"))
+                    {
+                        newGame("LevelData/select_region5_part3.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 6 Part 1"))
+                    {
+                        newGame("LevelData/select_region6_part1.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 6 Part 2"))
+                    {
+                        newGame("LevelData/select_region6_part2.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Region 6 Part 3"))
+                    {
+                        newGame("LevelData/select_region6_part3.it4ls", true, true);
+                    }
+                    else if (selection.startsWith("Finale"))
+                    {
+                        newGame("LevelData/select_region_end.it4ls", true, true);
                     }
                 }
             }
@@ -396,7 +453,7 @@ public class MainMenuPanel extends JPanel
         String soundtrackauthors = "Alec Shea\nAllen Andrews\nDaniele Ghisu\nDavid Orr\nGordon McNeil\nJames Ghosh\nRoald Strauss\nWilliam Usher\n";
         soundtrackauthors += "Johannes Schultz\nRobert Shaw\nJames Opie\nMatthew Le Blanc (SynthR)\nRobbie Dooley";
         
-        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.12.74 Beta\nProgrammed By: jmiller89 (C) 2011-2016\n"
+        JOptionPane.showMessageDialog(this, "The Endling's Artifice\nSoftware version 4.13.75 Beta\nProgrammed By: jmiller89 (C) 2011-2016\n"
                 + "\nSoundtrack By:\n" + soundtrackauthors + "\n\n"
                 + "This program is free software: you can redistribute it and/or modify\n"
                 + "it under the terms of the GNU General Public License as published by\n"

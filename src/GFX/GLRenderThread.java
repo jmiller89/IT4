@@ -1090,42 +1090,43 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             //Draw the NPCs
             for (int i = 0; i < NPCs.size(); i++)
             {
-                if (NPCs.get(i) != null)
+                NPC npc = NPCs.get(i);
+                try
                 {
-                    //NPCs.get(i).getSprite().draw(g, (NPCs.get(i).getX() - PlayerX + (centerX)), (NPCs.get(i).getY() - PlayerY + (centerY)));
-                    int nx = NPCs.get(i).getX();
-                    int ny = NPCs.get(i).getY();
-                    int nid = NPCs.get(i).getID();
-                    
-                    int x,y,mx,my;
-                    x = (nx - PlayerX + (centerX));
-                    y = (ny - PlayerY + (centerY));
-                    mx = x + 40;
-                    my = y + 40;
-
-                    int row,col;
-                    row = nid / COLSIZE;
-                    col = nid - (row * COLSIZE);
-
-                    tx = getTX(col, height);
-                    tx2 = getTX(col + 1, height);
-                    ty = getTX(row, width);
-                    ty2 = getTX(row + 1, width);
-
-
-                    //Draw tile
-                    GL11.glTexCoord2f(tx, ty);
-                    GL11.glVertex2f(x, y);
-                    GL11.glTexCoord2f(tx, ty2);
-                    GL11.glVertex2f(x, my);
-                    GL11.glTexCoord2f(tx2, ty2);
-                    GL11.glVertex2f(mx,my);
-                    GL11.glTexCoord2f(tx2, ty);
-                    GL11.glVertex2f(mx,y);
-
-                    if (i < game.getNPCs().size())
+                    if (npc != null)
                     {
-                        if (game.getNPCs().get(i).isRecentlyWounded == true)
+                        //NPCs.get(i).getSprite().draw(g, (NPCs.get(i).getX() - PlayerX + (centerX)), (NPCs.get(i).getY() - PlayerY + (centerY)));
+                        int nx = npc.getX();
+                        int ny = npc.getY();
+                        int nid = npc.getID();
+
+                        int x,y,mx,my;
+                        x = (nx - PlayerX + (centerX));
+                        y = (ny - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
+
+                        int row,col;
+                        row = nid / COLSIZE;
+                        col = nid - (row * COLSIZE);
+
+                        tx = getTX(col, height);
+                        tx2 = getTX(col + 1, height);
+                        ty = getTX(row, width);
+                        ty2 = getTX(row + 1, width);
+
+
+                        //Draw tile
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
+
+                        if (npc.isRecentlyWounded == true)
                         {
                             row = bloodSprite / COLSIZE;
                             col = bloodSprite - (row * COLSIZE);
@@ -1146,57 +1147,62 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                             GL11.glTexCoord2f(tx2, ty);
                             GL11.glVertex2f(mx,y);
                         }
-                    }
 
-                    if ((NPCs.get(i).getStatus() == NPCStatus.SLEEP) || (NPCs.get(i).getStatus() == NPCStatus.TRANQUILIZED_SLEEP))
-                    {
-                        //g.setColor(Color.darkGray);
-                        if (x < 580)
+
+                        if ((npc.getStatus() == NPCStatus.SLEEP) || (npc.getStatus() == NPCStatus.TRANQUILIZED_SLEEP))
                         {
-                            addString("Z", x+15, y-13);
+                            //g.setColor(Color.darkGray);
+                            if (x < 580)
+                            {
+                                addString("Z", x+15, y-13);
+                            }
+                            //g.drawString("Z", (NPCs.get(i).getX() - PlayerX + (centerX)) + 16, (NPCs.get(i).getY() - PlayerY + (centerY)));
+                            //g.drawString("Z", (NPCs.get(i).getX() - PlayerX + (centerX)) + 17, (NPCs.get(i).getY() - PlayerY + (centerY)));
+                            //g.drawString("Z", (NPCs.get(i).getX() - PlayerX + (centerX)) + 16, (NPCs.get(i).getY() - PlayerY + (centerY)) + 1);
                         }
-                        //g.drawString("Z", (NPCs.get(i).getX() - PlayerX + (centerX)) + 16, (NPCs.get(i).getY() - PlayerY + (centerY)));
-                        //g.drawString("Z", (NPCs.get(i).getX() - PlayerX + (centerX)) + 17, (NPCs.get(i).getY() - PlayerY + (centerY)));
-                        //g.drawString("Z", (NPCs.get(i).getX() - PlayerX + (centerX)) + 16, (NPCs.get(i).getY() - PlayerY + (centerY)) + 1);
-                    }
 
-                    if ((NPCs.get(i).getStatus() == NPCStatus.SUSPICIOUS) && (game.isPlayerSpotted() == false))
-                    {
-                        if (x < 580)
+                        if ((npc.getStatus() == NPCStatus.SUSPICIOUS) && (game.isPlayerSpotted() == false))
                         {
-                            addString("?", x+15, y-13);
+                            if (x < 580)
+                            {
+                                addString("?", x+15, y-13);
+                            }
                         }
-                    }
-                    
-                    if (NPCs.get(i).spottedPlayerReaction > 0)
-                    {
-                        if (x < 580)
+
+                        if (npc.spottedPlayerReaction > 0)
                         {
-                            addString("!", x+15, y-13);
+                            if (x < 580)
+                            {
+                                addString("!", x+15, y-13);
+                            }
+                        }
+
+                        if ((npc.isInWater) | (npc.isInTallGrass))
+                        {
+                            row = waterTrail / COLSIZE;
+                            col = waterTrail - (row * COLSIZE);
+
+                            tx = getTX(col, height);
+                            tx2 = getTX(col + 1, height);
+                            ty = getTX(row, width);
+                            ty2 = getTX(row + 1, width);
+
+
+                            //Draw tile
+                            GL11.glTexCoord2f(tx, ty);
+                            GL11.glVertex2f(x, y);
+                            GL11.glTexCoord2f(tx, ty2);
+                            GL11.glVertex2f(x, my);
+                            GL11.glTexCoord2f(tx2, ty2);
+                            GL11.glVertex2f(mx,my);
+                            GL11.glTexCoord2f(tx2, ty);
+                            GL11.glVertex2f(mx,y);
                         }
                     }
-
-                    if ((NPCs.get(i).isInWater) | (NPCs.get(i).isInTallGrass))
-                    {
-                        row = waterTrail / COLSIZE;
-                        col = waterTrail - (row * COLSIZE);
-
-                        tx = getTX(col, height);
-                        tx2 = getTX(col + 1, height);
-                        ty = getTX(row, width);
-                        ty2 = getTX(row + 1, width);
-
-
-                        //Draw tile
-                        GL11.glTexCoord2f(tx, ty);
-                        GL11.glVertex2f(x, y);
-                        GL11.glTexCoord2f(tx, ty2);
-                        GL11.glVertex2f(x, my);
-                        GL11.glTexCoord2f(tx2, ty2);
-                        GL11.glVertex2f(mx,my);
-                        GL11.glTexCoord2f(tx2, ty);
-                        GL11.glVertex2f(mx,y);
-                    }
+                }
+                catch(Exception e)
+                {
+                    System.err.println(e.toString());
                 }
             }
 
@@ -2089,117 +2095,125 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
                 for(int i = 0; i < NPCs.size(); i++)
                 {
-                    boolean ally = NPCs.get(i).ally;
+                    NPC npc = NPCs.get(i);
+                    boolean ally = npc.ally;
 
-                    if (!ally)
+                    try
                     {
-                        if ((NPCs.get(i).getStatus() != NPCStatus.SLEEP) && (NPCs.get(i).getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
+                        if (!ally)
                         {
-                            int x=0,y=0,mx,my;
-                            int ix, iy;
-                            ix = NPCs.get(i).getX() / 5;
-                            iy = NPCs.get(i).getY() / 5;
-
-                            GL11.glColor4f(1.0f, 0, 0, 0.4f);
-                            if (NPCs.get(i).getDirection() == Direction.UP)
+                            if ((npc.getStatus() != NPCStatus.SLEEP) && (npc.getStatus() != NPCStatus.TRANQUILIZED_SLEEP))
                             {
-                                //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 28, 50, 80, 55, 70);
-                                row = vconeup / COLSIZE;
-                                col = vconeup - (row * COLSIZE);
-                                //x = (ix - (PX) + (90)) - 18;
-                                //y = (iy - (PY) + (75)) - 39;
-                                x = (ix - (PX) + (90)) - 29;
-                                y = (iy - (PY) + (75)) - 62;
+                                int x=0,y=0,mx,my;
+                                int ix, iy;
+                                ix = npc.getX() / 5;
+                                iy = npc.getY() / 5;
 
+                                GL11.glColor4f(1.0f, 0, 0, 0.4f);
+                                if (npc.getDirection() == Direction.UP)
+                                {
+                                    //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 28, 50, 80, 55, 70);
+                                    row = vconeup / COLSIZE;
+                                    col = vconeup - (row * COLSIZE);
+                                    //x = (ix - (PX) + (90)) - 18;
+                                    //y = (iy - (PY) + (75)) - 39;
+                                    x = (ix - (PX) + (90)) - 29;
+                                    y = (iy - (PY) + (75)) - 62;
+
+                                }
+                                else if (npc.getDirection() == Direction.DOWN)
+                                {
+                                    //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 23, 50, 80, 235, 70);
+                                    row = vconedown / COLSIZE;
+                                    col = vconedown - (row * COLSIZE);
+                                    x = (ix - (PX) + (90)) - 29;
+                                    y = (iy - (PY) + (75)) + 7;
+                                }
+                                else if (npc.getDirection() == Direction.LEFT)
+                                {
+                                    //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 29, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 145, 70);
+                                    row = vconeleft / COLSIZE;
+                                    col = vconeleft - (row * COLSIZE);
+                                    x = (ix - (PX) + (90)) - 62;
+                                    y = (iy - (PY) + (75)) - 27;
+                                }
+                                else if (npc.getDirection() == Direction.RIGHT)
+                                {
+                                    //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 24, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 325, 70);
+                                    row = vconeright / COLSIZE;
+                                    col = vconeright - (row * COLSIZE);
+                                    x = (ix - (PX) + (90)) + 6;
+                                    y = (iy - (PY) + (75)) - 27;
+                                }
+
+                                x+=610;
+                                //mx = x + 40;
+                                //my = y + 40;
+                                mx = x + 64;
+                                my = y + 64;
+
+                                float fix = 0.001f;
+                                tx = getTX(col, height) + fix;
+                                tx2 = getTX(col + 1, height) - fix;
+                                ty = getTX(row, width) + fix;
+                                ty2 = getTX(row + 1, width) - fix;
+
+
+                                //Draw tile
+                                GL11.glTexCoord2f(tx, ty);
+                                GL11.glVertex2f(x, y);
+                                GL11.glTexCoord2f(tx, ty2);
+                                GL11.glVertex2f(x, my);
+                                GL11.glTexCoord2f(tx2, ty2);
+                                GL11.glVertex2f(mx,my);
+                                GL11.glTexCoord2f(tx2, ty);
+                                GL11.glVertex2f(mx,y);
+
+                                GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
                             }
-                            else if (NPCs.get(i).getDirection() == Direction.DOWN)
-                            {
-                                //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 23, 50, 80, 235, 70);
-                                row = vconedown / COLSIZE;
-                                col = vconedown - (row * COLSIZE);
-                                x = (ix - (PX) + (90)) - 29;
-                                y = (iy - (PY) + (75)) + 7;
-                            }
-                            else if (NPCs.get(i).getDirection() == Direction.LEFT)
-                            {
-                                //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 29, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 145, 70);
-                                row = vconeleft / COLSIZE;
-                                col = vconeleft - (row * COLSIZE);
-                                x = (ix - (PX) + (90)) - 62;
-                                y = (iy - (PY) + (75)) - 27;
-                            }
-                            else if (NPCs.get(i).getDirection() == Direction.RIGHT)
-                            {
-                                //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 24, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 325, 70);
-                                row = vconeright / COLSIZE;
-                                col = vconeright - (row * COLSIZE);
-                                x = (ix - (PX) + (90)) + 6;
-                                y = (iy - (PY) + (75)) - 27;
-                            }
 
-                            x+=610;
-                            //mx = x + 40;
-                            //my = y + 40;
-                            mx = x + 64;
-                            my = y + 64;
+                            row = NPCSprite / COLSIZE;
+                            col = NPCSprite - (row * COLSIZE);
 
-                            float fix = 0.001f;
-                            tx = getTX(col, height) + fix;
-                            tx2 = getTX(col + 1, height) - fix;
-                            ty = getTX(row, width) + fix;
-                            ty2 = getTX(row + 1, width) - fix;
+                            tx = getTX(col, height);
+                            tx2 = getTX(col + 1, height);
+                            ty = getTX(row, width);
+                            ty2 = getTX(row + 1, width);
+                        }
+                        else
+                        {
+                            row = playerSprite / COLSIZE;
+                            col = playerSprite - (row * COLSIZE);
 
-
-                            //Draw tile
-                            GL11.glTexCoord2f(tx, ty);
-                            GL11.glVertex2f(x, y);
-                            GL11.glTexCoord2f(tx, ty2);
-                            GL11.glVertex2f(x, my);
-                            GL11.glTexCoord2f(tx2, ty2);
-                            GL11.glVertex2f(mx,my);
-                            GL11.glTexCoord2f(tx2, ty);
-                            GL11.glVertex2f(mx,y);
-
-                            GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+                            tx = getTX(col, height);
+                            tx2 = getTX(col + 1, height);
+                            ty = getTX(row, width);
+                            ty2 = getTX(row + 1, width);
                         }
 
-                        row = NPCSprite / COLSIZE;
-                        col = NPCSprite - (row * COLSIZE);
+                        int x,y,mx,my;
+                        int ix, iy;
+                        ix = npc.getX() / 5;
+                        iy = npc.getY() / 5;
+                        x = ((ix) + 610 - (PX) + (90));
+                        y = ((iy) - (PY) + (75));
+                        mx = x + 40;
+                        my = y + 40;
 
-                        tx = getTX(col, height);
-                        tx2 = getTX(col + 1, height);
-                        ty = getTX(row, width);
-                        ty2 = getTX(row + 1, width);
+                        //Draw tile
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
                     }
-                    else
+                    catch(Exception e)
                     {
-                        row = playerSprite / COLSIZE;
-                        col = playerSprite - (row * COLSIZE);
-
-                        tx = getTX(col, height);
-                        tx2 = getTX(col + 1, height);
-                        ty = getTX(row, width);
-                        ty2 = getTX(row + 1, width);
+                        System.err.println(e.toString());
                     }
-
-                    int x,y,mx,my;
-                    int ix, iy;
-                    ix = NPCs.get(i).getX() / 5;
-                    iy = NPCs.get(i).getY() / 5;
-                    x = ((ix) + 610 - (PX) + (90));
-                    y = ((iy) - (PY) + (75));
-                    mx = x + 40;
-                    my = y + 40;
-
-                    //Draw tile
-                    GL11.glTexCoord2f(tx, ty);
-                    GL11.glVertex2f(x, y);
-                    GL11.glTexCoord2f(tx, ty2);
-                    GL11.glVertex2f(x, my);
-                    GL11.glTexCoord2f(tx2, ty2);
-                    GL11.glVertex2f(mx,my);
-                    GL11.glTexCoord2f(tx2, ty);
-                    GL11.glVertex2f(mx,y);
                 }
 
                 if (game.fightBoss() & (boss != null))
