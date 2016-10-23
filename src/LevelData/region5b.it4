@@ -21,7 +21,7 @@ Explore the laboratory
 The fifth floor basement is sealed off. It appears that they are using a reinforced door with a lock that is controlled remotely. There's no way to access the sixth floor if the fifth floor is sealed off.
 
 [Red]
-There must be another way. There's a powerplant to the west of the lab if I'm not mistaken.
+There must be another way. There's a power plant to the west of the lab if I'm not mistaken.
 
 [Player]
 That's correct. The plant serves power to the entire base.
@@ -76,19 +76,19 @@ Obtain Heavy-Duty Explosives
 [dialog]
 [/dialog]
 528 30 27 12
-Destroy the powerplant 1/4
+Destroy the power plant 1/4
 [dialog]
 [/dialog]
 528 30 27 28
-Destroy the powerplant 2/4
+Destroy the power plant 2/4
 [dialog]
 [/dialog]
 528 30 9 12
-Destroy the powerplant 3/4
+Destroy the power plant 3/4
 [dialog]
 [/dialog]
 528 30 9 28
-Destroy the powerplant 4/4
+Destroy the power plant 4/4
 [dialog]
 [/dialog]
 251 17 24 25
@@ -170,7 +170,7 @@ What about the sixth floor basement?
 All of the subjects are unharmed.
 
 [Wolfgang]
-Good to hear. I'm heading for the powerplant.
+Good to hear. I'm heading for the power plant.
 
 [Amanda]
 I can sense the intruder's presence. He's very close by. Be careful, Wolfgang.
@@ -550,7 +550,7 @@ Gotcha.
 They also mentioned Hansel and Gretel, as in how they were doing.
 
 [Sofia]
-Obviously not the fairytale characters. Must be codenames for people.
+Obviously not the fairy-tale characters. Must be code names for people.
 
 [Player]
 Are there any other members of The Awakened that you forgot to tell me?
@@ -559,7 +559,7 @@ Are there any other members of The Awakened that you forgot to tell me?
 No, there have always been just 4 members, and 2 of them are dead now. That leaves just Wolfgang and Spirit...
 
 [Player]
-Spirit? That's the codename Wolfgang was calling Amanda.
+Spirit? That's the code name Wolfgang was calling Amanda.
 
 [Sofia]
 That means Amanda is one of The Awakened.
@@ -3829,7 +3829,7 @@ Sofia, I think I've been trapped.
 Trapped? How so?
 
 [Player]
-The powerplant's door just locked behind me.
+The power plant's door just locked behind me.
 
 [Sofia]
 That's odd. Maybe the door is broken?
@@ -3841,10 +3841,10 @@ It's not. I know what's going on.
 You were locked in on purpose?
 
 [Player]
-Yeah, this is all Wolfgang's doing. He's trying to intimidate me. I know he's somewhere in the powerplant.
+Yeah, this is all Wolfgang's doing. He's trying to intimidate me. I know he's somewhere in the power plant.
 
 [Sofia]
-I'll try to get it to open again. Unfortunately, it'll take some time.
+I'll try to get it to open again. Unfortunately, it will take some time.
 
 [Player]
 No pressure. I have some work to do in this place anyway.
@@ -4385,7 +4385,7 @@ Very well, I'll tell you all about what's going on here before I kill you.
 ?
 
 [Wolfgang]
-The main goal of Project Endling is to ressurect our Fuhrer.
+The main goal of Project Endling is to resurrect our Fuhrer.
 
 [Player]
 You're trying to bring back Adolf Hitler? That man blew his brains out in 1945, and his body was cremated shortly thereafter.
@@ -4403,7 +4403,7 @@ Any more questions?
 What about Amanda Benitez? What's the deal with her?
 
 [Wolfgang]
-Hahaha, I'm afraid that information is more valuable than telling you we're trying to ressurect the Fuhrer. Enough chatting, its time for us to fight.
+Hahaha, I'm afraid that information is more valuable than telling you we're trying to resurrect the Fuhrer. Enough chatting, its time for us to fight.
 [/pre]
 [post]
 [Outgoing Transmission]

@@ -45,6 +45,38 @@ public class Player extends ITCharacter
         objectives = p.objectives;
     }
 
+    public void equip()
+    {
+        stuff.changeItem(GameFileManager.selectedItemIndex);
+
+        ItemType it = ItemType.KNIFE;
+
+        try
+        {
+            it = ItemType.valueOf(GameFileManager.selectedWeaponType);
+        }
+        catch(Exception e)
+        {
+            System.err.println("Weapon type " + GameFileManager.selectedWeaponType + " is invalid. Setting to KNIFE");
+        }
+
+        int weaponCode = 0;
+        if ((it == ItemType.ASSAULT_RIFLE) || (it == ItemType.SMG) || (it == ItemType.SHOTGUN))
+        {
+            weaponCode = 1;
+        }
+        else if ((it == ItemType.PISTOL) || (it == ItemType.TRANQ_PISTOL))
+        {
+            weaponCode = 2;
+        }
+        else if ((it == ItemType.GRENADE) || (it == ItemType.C4))
+        {
+            weaponCode = 3;
+        }
+
+        this.changeWeapon(weaponCode);
+    }
+
     public boolean hasGasMask()
     {
         return stuff.hasGasMask();

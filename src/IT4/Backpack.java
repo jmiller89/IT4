@@ -128,6 +128,8 @@ public class Backpack
         {
             selectedItem = items[0];
         }
+
+        currItemIndex = b.currItemIndex;
         
         maxHealthKits = b.getMaxNumHealthKits();
         healthKits = b.getNumHealthKits();

@@ -66,13 +66,16 @@ public final class Game
     public boolean paused = false;
 
     //public int roundsFired = 0;
-    
+
+    /*
     public short enemiesKilled = 0;
     public short timesWounded = 0;
     public short alertsTriggered = 0;
     public short medkitsUsed = 0;
     public short bossesDefeated = 0;
     public short deaths = 0;
+    */
+    
     public long startDate = System.currentTimeMillis();
 
     public boolean running = true;
@@ -252,6 +255,9 @@ public final class Game
                 this.lastPlayerTileX = player.getTileX();
                 this.lastPlayerTileY = player.getTileY();
             //}
+
+            player.equip();
+            equipItem();
 
             playerCopy = new Player(player);
 
@@ -2254,7 +2260,7 @@ public final class Game
 
     public void enemyKilled()
     {
-        enemiesKilled++;
+        GameFileManager.enemiesKilled++;
     }
 
     public boolean bulletCollisionPlayer(Bullet b)
@@ -2273,7 +2279,7 @@ public final class Game
 
         if ((collision) && (b.getDamage() > 0))
         {
-            timesWounded++;
+            GameFileManager.timesWounded++;
             protectPlayer();
         }
 
@@ -2470,7 +2476,7 @@ public final class Game
             this.movingLeft = false;
             this.movingRight = false;
 
-            deaths++;
+            GameFileManager.deaths++;
             setHUDMessage("Mission Failed", HUDMessageType.RESULT);
             displayStats("You have been killed in action.\nGame Over!\n");
 
@@ -2495,18 +2501,27 @@ public final class Game
 
         if (title.startsWith("THE END"))
         {
-            d.add("You have reached the end of the game.");
-            d.add("I hope you enjoyed it!");
-            d.add("-Jim Miller\n");
+            if (GameFileManager.levelPath.equalsIgnoreCase("LevelData/IT4Content.it4ls"))
+            {
+                d.add("You have reached the end of the game.");
+                d.add("I hope you enjoyed it!");
+                d.add("-jmiller89\n");
+            }
+            else
+            {
+                title = "STAGE COMPLETE";
+                d.add("You have successfully completed the level.");
+            }
+            
         }
 
         d.add("Play Time: " + etStr);
-        d.add("Enemies Killed: " + enemiesKilled);
-        d.add("Deaths: " + deaths);
-        d.add("Times Wounded: " + timesWounded);
-        d.add("Alerts Triggered: " + alertsTriggered);
-        d.add("Medkits Used: " + medkitsUsed);
-        d.add("Bosses Defeated: " + bossesDefeated);        
+        d.add("Enemies Killed: " + GameFileManager.enemiesKilled);
+        d.add("Deaths: " + GameFileManager.deaths);
+        d.add("Times Wounded: " + GameFileManager.timesWounded);
+        d.add("Alerts Triggered: " + GameFileManager.alertsTriggered);
+        d.add("Medkits Used: " + GameFileManager.medkitsUsed);
+        d.add("Bosses Defeated: " + GameFileManager.bossesDefeated);
 
         d.title = title;
         
@@ -2656,7 +2671,7 @@ public final class Game
             if (!currentLevelMap.getAlertMode())
             {
                 startAlertMusic();
-                alertsTriggered++;
+                GameFileManager.alertsTriggered++;
                 setHUDMessage("You have been spotted!", HUDMessageType.DANGER);
             }
         }
@@ -3507,7 +3522,7 @@ public final class Game
                     if (!currentLevelMap.getAlertMode())
                     {
                         startAlertMusic();
-                        alertsTriggered++;
+                        GameFileManager.alertsTriggered++;
                     }
 
                     playerSpotted = true;
@@ -3687,7 +3702,7 @@ public final class Game
             damage = (damage > 0) ? damage : 15;
 
             player.receiveDamage(damage);
-            timesWounded++;
+            GameFileManager.timesWounded++;
             protectPlayer();
             //checkPlayerStatus();
 
@@ -3785,6 +3800,11 @@ public final class Game
     public Player getPlayer()
     {
         return player;
+    }
+
+    public Player getPlayerCopy()
+    {
+        return playerCopy;
     }
 
     public Path getPlayerPath()
@@ -3934,7 +3954,7 @@ public final class Game
             }
 
             fightingBoss = false;
-            bossesDefeated++;
+            GameFileManager.bossesDefeated++;
             this.stopProtectingPlayer();
 
 
@@ -4072,7 +4092,7 @@ public final class Game
     {
         if (player.heal())
         {
-            medkitsUsed++;
+            GameFileManager.medkitsUsed++;
             setHUDMessage("Recovered 50 health", HUDMessageType.USED_MEDKIT);
         }
         else
@@ -4274,14 +4294,14 @@ public final class Game
                 if ((isPlayerProtected() == false) && (!paused))
                 {
                     player.receiveDamage(75);
-                    timesWounded++;
+                    GameFileManager.timesWounded++;
                     protectPlayer();
                 }
             }
             else
             {
                 player.receiveDamage(80 + (10 * rank));
-                timesWounded++;
+                GameFileManager.timesWounded++;
                 protectPlayer();
             }
             
@@ -4293,14 +4313,14 @@ public final class Game
                 if ((isPlayerProtected() == false) && (!paused))
                 {
                     player.receiveDamage(38);
-                    timesWounded++;
+                    GameFileManager.timesWounded++;
                     protectPlayer();
                 }
             }
             else
             {
                 player.receiveDamage(60 + (10 * rank));
-                timesWounded++;
+                GameFileManager.timesWounded++;
                 protectPlayer();
             }
             

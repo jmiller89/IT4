@@ -38,7 +38,6 @@ public class GameFileManager
     public static byte playerOxygen;
 
     public static String[] weaponList = {"", "", ""};
-    //public static short[] ammoList = {1, 0, 0, 0, 0, 0, 0, 0};
     public static byte[] itemList = {0, 0, 0, 0, 0, 0};
     public static byte[] bosses = null;
     public static ArrayList<ArrayList<Item>> items = null;
@@ -46,6 +45,16 @@ public class GameFileManager
     public static ArrayList<Objective> objectives = null;
 
     public static long playTime = 0;
+
+    public static int enemiesKilled = 0;
+    public static int deaths = 0;
+    public static int timesWounded = 0;
+    public static int alertsTriggered = 0;
+    public static int medkitsUsed = 0;
+    public static int bossesDefeated = 0;
+
+    public static String selectedWeaponType = "null";
+    public static int selectedItemIndex = 0;
 
     private static final String OBJECTIVES_START = "[objectives]";
     private static final String OBJECTIVES_END = "[/objectives]";
@@ -57,6 +66,10 @@ public class GameFileManager
     private static final String ALL_ITEMS_END = "[/allitems]";
     private static final String PLAYTIME_START = "[playtime]";
     private static final String PLAYTIME_END = "[/playtime]";
+    private static final String STATS_START = "[stats]";
+    private static final String STATS_END = "[/stats]";
+    private static final String EQUIP_START = "[equip]";
+    private static final String EQUIP_END = "[/equip]";
 
     public static void saveGame(Game game, Level level, Player player, GLRenderThread gf)
     {
@@ -242,15 +255,6 @@ public class GameFileManager
             }
             out.newLine();
 
-            /*
-            for(int i = 0; i < ammoList.length; i++)
-            {
-                out.write(ammoList[i] + " ");
-            }
-            out.newLine();
-             * 
-             */
-
             for(int i = 0; i < itemList.length; i++)
             {
                 out.write(itemList[i] + " ");
@@ -312,6 +316,20 @@ public class GameFileManager
             out.write("[/playtime]");
             out.newLine();
 
+            out.write("[stats]");
+            out.newLine();
+            out.write(serializeStats());
+            out.newLine();
+            out.write("[/stats]");
+            out.newLine();
+
+            out.write("[equip]");
+            out.newLine();
+            out.write(serializeEquips(game));
+            out.newLine();
+            out.write("[/equip]");
+            out.newLine();
+
             out.close();
             fstream.close();
             game.setHUDMessage("Game Saved", HUDMessageType.INFO);
@@ -321,6 +339,27 @@ public class GameFileManager
             System.err.println("An error has occured when trying to save the game.");
         }
         
+    }
+
+    private static String serializeStats()
+    {
+        String sstats = "" + GameFileManager.enemiesKilled + " " + GameFileManager.deaths + " " + GameFileManager.timesWounded
+                        + " " + GameFileManager.alertsTriggered + " " + GameFileManager.medkitsUsed + " " + GameFileManager.bossesDefeated;
+        return sstats;
+    }
+
+    private static String serializeEquips(Game game)
+    {
+        Player pc = game.getPlayerCopy();
+
+        String weaponType = "null";
+        if (pc.stuff.selectedWeapon != null)
+        {
+            weaponType = pc.stuff.selectedWeapon.getType().toString();
+        }
+
+        String equips = weaponType + " " + pc.stuff.currItemIndex;
+        return equips;
     }
 
     public static void load()
@@ -421,15 +460,6 @@ public class GameFileManager
             line = scanner.nextLine();
             parseWeaponList(line);
         }
-
-        /*
-        if (scanner.hasNextLine())
-        {
-            line = scanner.nextLine();
-            parseAmmoList(line);
-        }
-         * 
-         */
 
         if (scanner.hasNextLine())
         {
@@ -726,10 +756,65 @@ public class GameFileManager
                 playTime = Long.parseLong(line.trim());
                 line = scanner.nextLine();
             }
+            else if (line.startsWith(GameFileManager.STATS_START))
+            {
+                line = scanner.nextLine();
+                parseStats(line.trim());
+                line = scanner.nextLine();
+            }
+            else if (line.startsWith(GameFileManager.EQUIP_START))
+            {
+                line = scanner.nextLine();
+                parseEquips(line.trim());
+                line = scanner.nextLine();
+            }
         }
 
         scanner.close();
         System.out.println("Level loading...");
+    }
+
+    private static void parseEquips(String line)
+    {
+        String[] split = line.split(" ");
+        if (split.length > 0)
+        {
+            GameFileManager.selectedWeaponType = split[0];
+        }
+        if (split.length > 1)
+        {
+            GameFileManager.selectedItemIndex = Integer.parseInt(split[1]);
+        }
+    }
+
+    private static void parseStats(String line)
+    {
+        String[] split = line.split(" ");
+
+        if (split.length > 0)
+        {
+            GameFileManager.enemiesKilled = Integer.parseInt(split[0]);
+        }
+        if (split.length > 1)
+        {
+            GameFileManager.deaths = Integer.parseInt(split[1]);
+        }
+        if (split.length > 2)
+        {
+            GameFileManager.timesWounded = Integer.parseInt(split[2]);
+        }
+        if (split.length > 3)
+        {
+            GameFileManager.alertsTriggered = Integer.parseInt(split[3]);
+        }
+        if (split.length > 4)
+        {
+            GameFileManager.medkitsUsed = Integer.parseInt(split[4]);
+        }
+        if (split.length > 5)
+        {
+            GameFileManager.bossesDefeated = Integer.parseInt(split[5]);
+        }
     }
 
     private static void parseWeaponList(String s)
@@ -763,25 +848,6 @@ public class GameFileManager
             }
         }
     }
-    
-    /*
-    private static void parseAmmoList(String s)
-    {
-        String[] splits = s.split(" ");
-        for(int i = 0; i < ammoList.length; i++)
-        {
-            try
-            {
-                ammoList[i] = Short.parseShort(splits[i]);
-            }
-            catch(Exception e)
-            {
-                System.out.println("Ammo type did not exist at the time this game was saved.");
-            }
-        }
-    }
-     *
-     */
 
     private static void parseBossList(String s)
     {
