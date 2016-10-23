@@ -126,7 +126,7 @@ public class GameFileManager
         maxHealth = player.maxHealth;
         objectivesCompleted = (short)player.objectives;
 
-        for(int i = 1; i < weaponList.length; i++)
+        for(int i = 0; i < weaponList.length; i++)
         {
             weaponList[i] = "";
         }

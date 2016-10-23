@@ -684,108 +684,39 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                 //Save off the red, green, and blue values               
                 for(int i = 0; i < doors.length; i++)
                 {
-                    int x,y,mx,my;
-                    x = ((doors[i].getX()) - PlayerX + (centerX));
-                    y = ((doors[i].getY()) - PlayerY + (centerY));
-                    mx = (((doors[i].getX() + 40)) - PlayerX + (centerX));
-                    my = (((doors[i].getY() + 40)) - PlayerY + (centerY));
-                    
-                    if (doors[i].isDark())
+                    try
                     {
-                        int row,col;
-                        row = black / COLSIZE;
-                        col = black - (row * COLSIZE);                        
-
-                        tx = getTX(col, height);
-                        tx2 = getTX(col + 1, height);
-                        ty = getTX(row, width);
-                        ty2 = getTX(row + 1, width);
-                    }
-                    else
-                    {
-                        int row,col;
-                        row = defaultGroundCover / COLSIZE;
-                        col = defaultGroundCover - (row * COLSIZE);
-
-                        tx = getTX(col, height);
-                        tx2 = getTX(col + 1, height);
-                        ty = getTX(row, width);
-                        ty2 = getTX(row + 1, width);                        
-                    }
-
-
-                    //Draw tile
-                    GL11.glTexCoord2f(tx, ty);
-                    GL11.glVertex2f(x, y);
-                    GL11.glTexCoord2f(tx, ty2);
-                    GL11.glVertex2f(x, my);
-                    GL11.glTexCoord2f(tx2, ty2);
-                    GL11.glVertex2f(mx,my);
-                    GL11.glTexCoord2f(tx2, ty);
-                    GL11.glVertex2f(mx,y);
-
-                    //Draw shadow
-                    int row, col;                    
-                    GL11.glColor4f(0, 0, 0, 0.4f);
-                    row = 302 / COLSIZE;
-                    col = 302 - (row * COLSIZE);
-
-                    tx = getTX(col, height);
-                    tx2 = getTX(col + 1, height);
-                    ty = getTX(row, width);
-                    ty2 = getTX(row + 1, width);
-
-
-                    GL11.glTexCoord2f(tx, ty);
-                    GL11.glVertex2f(x, y);
-                    GL11.glTexCoord2f(tx, ty2);
-                    GL11.glVertex2f(x, my);
-                    GL11.glTexCoord2f(tx2, ty2);
-                    GL11.glVertex2f(mx,my);
-                    GL11.glTexCoord2f(tx2, ty);
-                    GL11.glVertex2f(mx,y);
-
-                    //Reset the color
-                    //GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-                    GL11.glColor4f(r_, g_, b_, 1.0f);
-                    
-                    
-                    row = doors[i].getID() / COLSIZE;
-                    col = doors[i].getID() - (row * COLSIZE);
-
-                    tx = getTX(col, height);
-                    tx2 = getTX(col + 1, height);
-                    ty = getTX(row, width);
-                    ty2 = getTX(row + 1, width);
-
-
-                    x = ((doors[i].getX()) - PlayerX + (centerX)) + doors[i].getOpenPos();
-                    mx = (((doors[i].getX() + 40)) - PlayerX + (centerX)) + doors[i].getOpenPos();
-
-                    //Draw door
-                    GL11.glTexCoord2f(tx, ty);
-                    GL11.glVertex2f(x, y);
-                    GL11.glTexCoord2f(tx, ty2);
-                    GL11.glVertex2f(x, my);
-                    GL11.glTexCoord2f(tx2, ty2);
-                    GL11.glVertex2f(mx,my);
-                    GL11.glTexCoord2f(tx2, ty);
-                    GL11.glVertex2f(mx,y);
-
-                    if (game.getDoors()[i].getSecuritylevel() > 0)
-                    {
+                        int x,y,mx,my;
                         x = ((doors[i].getX()) - PlayerX + (centerX));
+                        y = ((doors[i].getY()) - PlayerY + (centerY));
                         mx = (((doors[i].getX() + 40)) - PlayerX + (centerX));
+                        my = (((doors[i].getY() + 40)) - PlayerY + (centerY));
 
-                        row = securityDoor / COLSIZE;
-                        col = securityDoor - (row * COLSIZE);
+                        if (doors[i].isDark())
+                        {
+                            int row,col;
+                            row = black / COLSIZE;
+                            col = black - (row * COLSIZE);
 
-                        tx = getTX(col, height);
-                        tx2 = getTX(col + 1, height);
-                        ty = getTX(row, width);
-                        ty2 = getTX(row + 1, width);
+                            tx = getTX(col, height);
+                            tx2 = getTX(col + 1, height);
+                            ty = getTX(row, width);
+                            ty2 = getTX(row + 1, width);
+                        }
+                        else
+                        {
+                            int row,col;
+                            row = defaultGroundCover / COLSIZE;
+                            col = defaultGroundCover - (row * COLSIZE);
 
-                        
+                            tx = getTX(col, height);
+                            tx2 = getTX(col + 1, height);
+                            ty = getTX(row, width);
+                            ty2 = getTX(row + 1, width);
+                        }
+
+
+                        //Draw tile
                         GL11.glTexCoord2f(tx, ty);
                         GL11.glVertex2f(x, y);
                         GL11.glTexCoord2f(tx, ty2);
@@ -794,8 +725,83 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                         GL11.glVertex2f(mx,my);
                         GL11.glTexCoord2f(tx2, ty);
                         GL11.glVertex2f(mx,y);
-                    }
 
+                        //Draw shadow
+                        int row, col;
+                        GL11.glColor4f(0, 0, 0, 0.4f);
+                        row = 302 / COLSIZE;
+                        col = 302 - (row * COLSIZE);
+
+                        tx = getTX(col, height);
+                        tx2 = getTX(col + 1, height);
+                        ty = getTX(row, width);
+                        ty2 = getTX(row + 1, width);
+
+
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
+
+                        //Reset the color
+                        //GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+                        GL11.glColor4f(r_, g_, b_, 1.0f);
+
+
+                        row = doors[i].getID() / COLSIZE;
+                        col = doors[i].getID() - (row * COLSIZE);
+
+                        tx = getTX(col, height);
+                        tx2 = getTX(col + 1, height);
+                        ty = getTX(row, width);
+                        ty2 = getTX(row + 1, width);
+
+
+                        x = ((doors[i].getX()) - PlayerX + (centerX)) + doors[i].getOpenPos();
+                        mx = (((doors[i].getX() + 40)) - PlayerX + (centerX)) + doors[i].getOpenPos();
+
+                        //Draw door
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
+
+                        if (game.getDoors()[i].getSecuritylevel() > 0)
+                        {
+                            x = ((doors[i].getX()) - PlayerX + (centerX));
+                            mx = (((doors[i].getX() + 40)) - PlayerX + (centerX));
+
+                            row = securityDoor / COLSIZE;
+                            col = securityDoor - (row * COLSIZE);
+
+                            tx = getTX(col, height);
+                            tx2 = getTX(col + 1, height);
+                            ty = getTX(row, width);
+                            ty2 = getTX(row + 1, width);
+
+
+                            GL11.glTexCoord2f(tx, ty);
+                            GL11.glVertex2f(x, y);
+                            GL11.glTexCoord2f(tx, ty2);
+                            GL11.glVertex2f(x, my);
+                            GL11.glTexCoord2f(tx2, ty2);
+                            GL11.glVertex2f(mx,my);
+                            GL11.glTexCoord2f(tx2, ty);
+                            GL11.glVertex2f(mx,y);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        System.err.println("Error caught while drawing doors");
+                    }
 
                 }
             }
@@ -935,11 +941,13 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             //Draw the items
             for(int i = 0; i < items.size(); i++)
             {
-                if (items.get(i) != null)
+                Item item = items.get(i);
+
+                if (item != null)
                 {
                     int row,col;
-                    row = items.get(i).getID() / COLSIZE;
-                    col = items.get(i).getID() - (row * COLSIZE);
+                    row = item.getID() / COLSIZE;
+                    col = item.getID() - (row * COLSIZE);
 
                     tx = getTX(col, height);
                     tx2 = getTX(col + 1, height);
@@ -948,8 +956,8 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
 
                     int ix, iy;
-                    ix = items.get(i).getX();
-                    iy = items.get(i).getY();
+                    ix = item.getX();
+                    iy = item.getY();
 
                     int x,y,mx,my;
                     x = ((ix) - PlayerX + (centerX));
@@ -968,7 +976,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
                     if (x < 561)
                     {
-                        addString(items.get(i).toString(null), x, y+30);
+                        addString(item.toString(null), x, y+30);
                     }
                     //g.drawString(items.get(i).toString(), (items.get(i).getX() - PlayerX + (centerX)), (items.get(i).getY() - PlayerY + (centerY)) + 45);
                 }
@@ -1014,42 +1022,49 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             {
                 for(int i = 0; i < localObjectives.size(); i++)
                 {
-                    if (localObjectives.get(i) != null)
+                    Objective objective = localObjectives.get(i);
+                    if (objective != null)
                     {
-                        //localObjectives.get(i).getSprite().draw(g, (localObjectives.get(i).getX() - PlayerX + (centerX)), (localObjectives.get(i).getY() - PlayerY + (centerY)));
-                        int row,col;
-                        row = localObjectives.get(i).getID() / COLSIZE;
-                        col = localObjectives.get(i).getID() - (row * COLSIZE);
-
-                        tx = getTX(col, height);
-                        tx2 = getTX(col + 1, height);
-                        ty = getTX(row, width);
-                        ty2 = getTX(row + 1, width);
-
-
-                        int ix, iy;
-                        ix = localObjectives.get(i).getX();
-                        iy = localObjectives.get(i).getY();
-
-                        int x,y,mx,my;
-                        x = ((ix) - PlayerX + (centerX));
-                        y = ((iy) - PlayerY + (centerY));
-                        mx = x + 40;
-                        my = y + 40;
-
-                        GL11.glTexCoord2f(tx, ty);
-                        GL11.glVertex2f(x, y);
-                        GL11.glTexCoord2f(tx, ty2);
-                        GL11.glVertex2f(x, my);
-                        GL11.glTexCoord2f(tx2, ty2);
-                        GL11.glVertex2f(mx,my);
-                        GL11.glTexCoord2f(tx2, ty);
-                        GL11.glVertex2f(mx,y);
-                        if (x < 561)
+                        try
                         {
-                            addString(localObjectives.get(i).toString(), x - 10, y + 30);
+                            //localObjectives.get(i).getSprite().draw(g, (localObjectives.get(i).getX() - PlayerX + (centerX)), (localObjectives.get(i).getY() - PlayerY + (centerY)));
+                            int row,col;
+                            row = objective.getID() / COLSIZE;
+                            col = objective.getID() - (row * COLSIZE);
+
+                            tx = getTX(col, height);
+                            tx2 = getTX(col + 1, height);
+                            ty = getTX(row, width);
+                            ty2 = getTX(row + 1, width);
+
+
+                            int ix, iy;
+                            ix = objective.getX();
+                            iy = objective.getY();
+
+                            int x,y,mx,my;
+                            x = ((ix) - PlayerX + (centerX));
+                            y = ((iy) - PlayerY + (centerY));
+                            mx = x + 40;
+                            my = y + 40;
+
+                            GL11.glTexCoord2f(tx, ty);
+                            GL11.glVertex2f(x, y);
+                            GL11.glTexCoord2f(tx, ty2);
+                            GL11.glVertex2f(x, my);
+                            GL11.glTexCoord2f(tx2, ty2);
+                            GL11.glVertex2f(mx,my);
+                            GL11.glTexCoord2f(tx2, ty);
+                            GL11.glVertex2f(mx,y);
+                            if (x < 561)
+                            {
+                                addString(objective.toString(), x - 10, y + 30);
+                            }
                         }
-                        //g.drawString(localObjectives.get(i).toString(), (localObjectives.get(i).getX() - PlayerX + (centerX)) - 12, (localObjectives.get(i).getY() - PlayerY + (centerY)) + 45);
+                        catch(Exception e)
+                        {
+                            System.err.println("Error drawing local objective");
+                        }
                     }
                 }
             }
@@ -1372,46 +1387,53 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             //Draw the Security Cameras
             for (int i = 0; i < cameras.size(); i++)
             {
-                if (cameras.get(i) != null)
+                SecurityCamera camera = cameras.get(i);
+                if (camera != null)
                 {
-                    int nx = cameras.get(i).getX();
-                    int ny = cameras.get(i).getY();
-                    int nid = cameras.get(i).getID();
-
-                    int x,y,mx,my;
-                    x = (nx - PlayerX + (centerX));
-                    y = (ny - PlayerY + (centerY));
-                    mx = x + 40;
-                    my = y + 40;
-
-                    int row,col;
-                    row = nid / COLSIZE;
-                    col = nid - (row * COLSIZE);
-
-                    tx = getTX(col, height);
-                    tx2 = getTX(col + 1, height);
-                    ty = getTX(row, width);
-                    ty2 = getTX(row + 1, width);
-
-
-                    //Draw tile
-                    GL11.glTexCoord2f(tx, ty);
-                    GL11.glVertex2f(x, y);
-                    GL11.glTexCoord2f(tx, ty2);
-                    GL11.glVertex2f(x, my);
-                    GL11.glTexCoord2f(tx2, ty2);
-                    GL11.glVertex2f(mx,my);
-                    GL11.glTexCoord2f(tx2, ty);
-                    GL11.glVertex2f(mx,y);
-
-                    if (cameras.get(i).spottedPlayerReaction > 0)
+                    try
                     {
-                        if (x < 580)
+                        int nx = camera.getX();
+                        int ny = camera.getY();
+                        int nid = camera.getID();
+
+                        int x,y,mx,my;
+                        x = (nx - PlayerX + (centerX));
+                        y = (ny - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
+
+                        int row,col;
+                        row = nid / COLSIZE;
+                        col = nid - (row * COLSIZE);
+
+                        tx = getTX(col, height);
+                        tx2 = getTX(col + 1, height);
+                        ty = getTX(row, width);
+                        ty2 = getTX(row + 1, width);
+
+
+                        //Draw tile
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
+
+                        if (camera.spottedPlayerReaction > 0)
                         {
-                            addString("!", x+15, y-13);
+                            if (x < 580)
+                            {
+                                addString("!", x+15, y-13);
+                            }
                         }
                     }
-
+                    catch(Exception e)
+                    {
+                        System.err.println("Error drawing security camera");
+                    }
                 }
             }
 
@@ -1421,11 +1443,12 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
             {
                 if (i < bullets.size())
                 {
+                    Bullet bullet = bullets.get(i);
                     try
                     {
                         int row,col;
-                        row = bullets.get(i).getID() / COLSIZE;
-                        col = bullets.get(i).getID() - (row * COLSIZE);
+                        row = bullet.getID() / COLSIZE;
+                        col = bullet.getID() - (row * COLSIZE);
 
                         tx = getTX(col, height);
                         tx2 = getTX(col + 1, height);
@@ -1434,8 +1457,8 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
 
                         int ix, iy;
-                        ix = bullets.get(i).getX();
-                        iy = bullets.get(i).getY();
+                        ix = bullet.getX();
+                        iy = bullet.getY();
 
                         int x,y,mx,my;
                         x = ((ix) - PlayerX + (centerX));
@@ -1461,169 +1484,182 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
             for (int i = 0; i < explosions.size(); i++)
             {
-                int row,col;
-                row = explosionSprite / COLSIZE;
-                col = explosionSprite - (row * COLSIZE);
+                Explosion explosion = explosions.get(i);
 
-                tx = getTX(col, height);
-                tx2 = getTX(col + 1, height);
-                ty = getTX(row, width);
-                ty2 = getTX(row + 1, width);
+                if (explosion != null)
+                {
+                    try
+                    {
+                        int row,col;
+                        row = explosionSprite / COLSIZE;
+                        col = explosionSprite - (row * COLSIZE);
 
-                int ix, iy, x, y, mx, my;
-                ix = explosions.get(i).x;
-                iy = explosions.get(i).y;
+                        tx = getTX(col, height);
+                        tx2 = getTX(col + 1, height);
+                        ty = getTX(row, width);
+                        ty2 = getTX(row + 1, width);
 
-                x = ((ix) - PlayerX + (centerX));
-                y = ((iy) - PlayerY + (centerY));
-                mx = x + 40;
-                my = y + 40;
+                        int ix, iy, x, y, mx, my;
+                        ix = explosion.x;
+                        iy = explosion.y;
 
-                GL11.glTexCoord2f(tx, ty);
-                GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
-                GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
-                GL11.glVertex2f(mx,my);
-                GL11.glTexCoord2f(tx2, ty);
-                GL11.glVertex2f(mx,y);
+                        x = ((ix) - PlayerX + (centerX));
+                        y = ((iy) - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
 
-                ix = explosions.get(i).x0;
-                iy = explosions.get(i).y0;
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
 
-                x = ((ix) - PlayerX + (centerX));
-                y = ((iy) - PlayerY + (centerY));
-                mx = x + 40;
-                my = y + 40;
+                        ix = explosion.x0;
+                        iy = explosion.y0;
 
-                GL11.glTexCoord2f(tx, ty);
-                GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
-                GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
-                GL11.glVertex2f(mx,my);
-                GL11.glTexCoord2f(tx2, ty);
-                GL11.glVertex2f(mx,y);
+                        x = ((ix) - PlayerX + (centerX));
+                        y = ((iy) - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
 
-                ix = explosions.get(i).x1;
-                iy = explosions.get(i).y1;
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
 
-                x = ((ix) - PlayerX + (centerX));
-                y = ((iy) - PlayerY + (centerY));
-                mx = x + 40;
-                my = y + 40;
+                        ix = explosion.x1;
+                        iy = explosion.y1;
 
-                GL11.glTexCoord2f(tx, ty);
-                GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
-                GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
-                GL11.glVertex2f(mx,my);
-                GL11.glTexCoord2f(tx2, ty);
-                GL11.glVertex2f(mx,y);
+                        x = ((ix) - PlayerX + (centerX));
+                        y = ((iy) - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
 
-                ix = explosions.get(i).x2;
-                iy = explosions.get(i).y2;
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
 
-                x = ((ix) - PlayerX + (centerX));
-                y = ((iy) - PlayerY + (centerY));
-                mx = x + 40;
-                my = y + 40;
+                        ix = explosion.x2;
+                        iy = explosion.y2;
 
-                GL11.glTexCoord2f(tx, ty);
-                GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
-                GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
-                GL11.glVertex2f(mx,my);
-                GL11.glTexCoord2f(tx2, ty);
-                GL11.glVertex2f(mx,y);
+                        x = ((ix) - PlayerX + (centerX));
+                        y = ((iy) - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
 
-                ix = explosions.get(i).x3;
-                iy = explosions.get(i).y3;
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
 
-                x = ((ix) - PlayerX + (centerX));
-                y = ((iy) - PlayerY + (centerY));
-                mx = x + 40;
-                my = y + 40;
+                        ix = explosion.x3;
+                        iy = explosion.y3;
 
-                GL11.glTexCoord2f(tx, ty);
-                GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
-                GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
-                GL11.glVertex2f(mx,my);
-                GL11.glTexCoord2f(tx2, ty);
-                GL11.glVertex2f(mx,y);
+                        x = ((ix) - PlayerX + (centerX));
+                        y = ((iy) - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
 
-                ix = explosions.get(i).x4;
-                iy = explosions.get(i).y4;
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
 
-                x = ((ix) - PlayerX + (centerX));
-                y = ((iy) - PlayerY + (centerY));
-                mx = x + 40;
-                my = y + 40;
+                        ix = explosion.x4;
+                        iy = explosion.y4;
 
-                GL11.glTexCoord2f(tx, ty);
-                GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
-                GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
-                GL11.glVertex2f(mx,my);
-                GL11.glTexCoord2f(tx2, ty);
-                GL11.glVertex2f(mx,y);
+                        x = ((ix) - PlayerX + (centerX));
+                        y = ((iy) - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
 
-                ix = explosions.get(i).x5;
-                iy = explosions.get(i).y5;
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
 
-                x = ((ix) - PlayerX + (centerX));
-                y = ((iy) - PlayerY + (centerY));
-                mx = x + 40;
-                my = y + 40;
+                        ix = explosion.x5;
+                        iy = explosion.y5;
 
-                GL11.glTexCoord2f(tx, ty);
-                GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
-                GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
-                GL11.glVertex2f(mx,my);
-                GL11.glTexCoord2f(tx2, ty);
-                GL11.glVertex2f(mx,y);
+                        x = ((ix) - PlayerX + (centerX));
+                        y = ((iy) - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
 
-                ix = explosions.get(i).x6;
-                iy = explosions.get(i).y6;
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
 
-                x = ((ix) - PlayerX + (centerX));
-                y = ((iy) - PlayerY + (centerY));
-                mx = x + 40;
-                my = y + 40;
+                        ix = explosion.x6;
+                        iy = explosion.y6;
 
-                GL11.glTexCoord2f(tx, ty);
-                GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
-                GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
-                GL11.glVertex2f(mx,my);
-                GL11.glTexCoord2f(tx2, ty);
-                GL11.glVertex2f(mx,y);
+                        x = ((ix) - PlayerX + (centerX));
+                        y = ((iy) - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
 
-                ix = explosions.get(i).x7;
-                iy = explosions.get(i).y7;
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
 
-                x = ((ix) - PlayerX + (centerX));
-                y = ((iy) - PlayerY + (centerY));
-                mx = x + 40;
-                my = y + 40;
+                        ix = explosion.x7;
+                        iy = explosion.y7;
 
-                GL11.glTexCoord2f(tx, ty);
-                GL11.glVertex2f(x, y);
-                GL11.glTexCoord2f(tx, ty2);
-                GL11.glVertex2f(x, my);
-                GL11.glTexCoord2f(tx2, ty2);
-                GL11.glVertex2f(mx,my);
-                GL11.glTexCoord2f(tx2, ty);
-                GL11.glVertex2f(mx,y);
+                        x = ((ix) - PlayerX + (centerX));
+                        y = ((iy) - PlayerY + (centerY));
+                        mx = x + 40;
+                        my = y + 40;
+
+                        GL11.glTexCoord2f(tx, ty);
+                        GL11.glVertex2f(x, y);
+                        GL11.glTexCoord2f(tx, ty2);
+                        GL11.glVertex2f(x, my);
+                        GL11.glTexCoord2f(tx2, ty2);
+                        GL11.glVertex2f(mx,my);
+                        GL11.glTexCoord2f(tx2, ty);
+                        GL11.glVertex2f(mx,y);
+                    }
+                    catch(Exception e)
+                    {
+                        
+                    }
+                }
             }
+            
             game.drawingBullets = false;
 
             int row,col;
@@ -2248,106 +2284,12 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
 
                 for(int i = 0; i < cameras.size(); i++)
                 {
-                    row = NPCSprite / COLSIZE;
-                    col = NPCSprite - (row * COLSIZE);
+                    SecurityCamera camera = cameras.get(i);
 
-                    tx = getTX(col, height);
-                    tx2 = getTX(col + 1, height);
-                    ty = getTX(row, width);
-                    ty2 = getTX(row + 1, width);
-
-
-                    int x,y,mx,my;
-                    int ix, iy;
-                    ix = cameras.get(i).getX() / 5;
-                    iy = cameras.get(i).getY() / 5;
-                    x = ((ix) + 610 - (PX) + (90));
-                    y = ((iy) - (PY) + (75));
-                    mx = x + 40;
-                    my = y + 40;
-
-                    //Draw tile
-                    GL11.glTexCoord2f(tx, ty);
-                    GL11.glVertex2f(x, y);
-                    GL11.glTexCoord2f(tx, ty2);
-                    GL11.glVertex2f(x, my);
-                    GL11.glTexCoord2f(tx2, ty2);
-                    GL11.glVertex2f(mx,my);
-                    GL11.glTexCoord2f(tx2, ty);
-                    GL11.glVertex2f(mx,y);
-
-                    if ((!game.isPlayerSpotted()) || (cameras.get(i).hasGun()))
+                    if (camera != null)
                     {
-                        GL11.glColor4f(0, 0.2f, 1.0f, 0.4f);
-                        if (cameras.get(i).getDirection() == Direction.UP)
+                        try
                         {
-                            //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 28, 50, 80, 55, 70);
-                            row = vconeup / COLSIZE;
-                            col = vconeup - (row * COLSIZE);
-                            x = (ix - (PX) + (90)) - 29;
-                            y = (iy - (PY) + (75)) - 66;
-
-                        }
-                        else if (cameras.get(i).getDirection() == Direction.DOWN)
-                        {
-                            //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 23, 50, 80, 235, 70);
-                            row = vconedown / COLSIZE;
-                            col = vconedown - (row * COLSIZE);
-                            x = (ix - (PX) + (90)) - 29;
-                            y = (iy - (PY) + (75)) + 11;
-                        }
-                        else if (cameras.get(i).getDirection() == Direction.LEFT)
-                        {
-                            //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 29, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 145, 70);
-                            row = vconeleft / COLSIZE;
-                            col = vconeleft - (row * COLSIZE);
-                            x = (ix - (PX) + (90)) - 66;
-                            y = (iy - (PY) + (75)) - 27;
-                        }
-                        else if (cameras.get(i).getDirection() == Direction.RIGHT)
-                        {
-                            //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 24, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 325, 70);
-                            row = vconeright / COLSIZE;
-                            col = vconeright - (row * COLSIZE);
-                            x = (ix - (PX) + (90)) + 10;
-                            y = (iy - (PY) + (75)) - 27;
-                        }
-
-                        x+=610;
-                        mx = x + 64;
-                        my = y + 64;
-
-                        float fix = 0.001f;
-                        tx = getTX(col, height) + fix;
-                        tx2 = getTX(col + 1, height) - fix;
-                        ty = getTX(row, width) + fix;
-                        ty2 = getTX(row + 1, width) - fix;
-
-
-                        //Draw tile
-                        GL11.glTexCoord2f(tx, ty);
-                        GL11.glVertex2f(x, y);
-                        GL11.glTexCoord2f(tx, ty2);
-                        GL11.glVertex2f(x, my);
-                        GL11.glTexCoord2f(tx2, ty2);
-                        GL11.glVertex2f(mx,my);
-                        GL11.glTexCoord2f(tx2, ty);
-                        GL11.glVertex2f(mx,y);
-
-                        GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-                    }
-                }
-
-                if (game.mineDetector)
-                {
-                    for(int i = 0; i < items.size(); i++)
-                    {
-                        if (items.get(i).getType() == ItemType.LANDMINE)
-                        {
-                            int cx, cy;
-                            cx = items.get(i).getX();
-                            cy = items.get(i).getY();
-                            
                             row = NPCSprite / COLSIZE;
                             col = NPCSprite - (row * COLSIZE);
 
@@ -2356,6 +2298,166 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                             ty = getTX(row, width);
                             ty2 = getTX(row + 1, width);
 
+
+                            int x,y,mx,my;
+                            int ix, iy;
+                            ix = camera.getX() / 5;
+                            iy = camera.getY() / 5;
+                            x = ((ix) + 610 - (PX) + (90));
+                            y = ((iy) - (PY) + (75));
+                            mx = x + 40;
+                            my = y + 40;
+
+                            //Draw tile
+                            GL11.glTexCoord2f(tx, ty);
+                            GL11.glVertex2f(x, y);
+                            GL11.glTexCoord2f(tx, ty2);
+                            GL11.glVertex2f(x, my);
+                            GL11.glTexCoord2f(tx2, ty2);
+                            GL11.glVertex2f(mx,my);
+                            GL11.glTexCoord2f(tx2, ty);
+                            GL11.glVertex2f(mx,y);
+
+                            if ((!game.isPlayerSpotted()) || (camera.hasGun()))
+                            {
+                                GL11.glColor4f(0, 0.2f, 1.0f, 0.4f);
+                                if (camera.getDirection() == Direction.UP)
+                                {
+                                    //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 28, 50, 80, 55, 70);
+                                    row = vconeup / COLSIZE;
+                                    col = vconeup - (row * COLSIZE);
+                                    x = (ix - (PX) + (90)) - 29;
+                                    y = (iy - (PY) + (75)) - 66;
+
+                                }
+                                else if (camera.getDirection() == Direction.DOWN)
+                                {
+                                    //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 11, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 23, 50, 80, 235, 70);
+                                    row = vconedown / COLSIZE;
+                                    col = vconedown - (row * COLSIZE);
+                                    x = (ix - (PX) + (90)) - 29;
+                                    y = (iy - (PY) + (75)) + 11;
+                                }
+                                else if (camera.getDirection() == Direction.LEFT)
+                                {
+                                    //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 29, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 145, 70);
+                                    row = vconeleft / COLSIZE;
+                                    col = vconeleft - (row * COLSIZE);
+                                    x = (ix - (PX) + (90)) - 66;
+                                    y = (iy - (PY) + (75)) - 27;
+                                }
+                                else if (camera.getDirection() == Direction.RIGHT)
+                                {
+                                    //g.fillArc(((NPCs.get(i).getX()/8) - (PlayerX) + (90)) - 24, ((NPCs.get(i).getY()/8) - (PlayerY) + (75)) - 11, 80, 50, 325, 70);
+                                    row = vconeright / COLSIZE;
+                                    col = vconeright - (row * COLSIZE);
+                                    x = (ix - (PX) + (90)) + 10;
+                                    y = (iy - (PY) + (75)) - 27;
+                                }
+
+                                x+=610;
+                                mx = x + 64;
+                                my = y + 64;
+
+                                float fix = 0.001f;
+                                tx = getTX(col, height) + fix;
+                                tx2 = getTX(col + 1, height) - fix;
+                                ty = getTX(row, width) + fix;
+                                ty2 = getTX(row + 1, width) - fix;
+
+
+                                //Draw tile
+                                GL11.glTexCoord2f(tx, ty);
+                                GL11.glVertex2f(x, y);
+                                GL11.glTexCoord2f(tx, ty2);
+                                GL11.glVertex2f(x, my);
+                                GL11.glTexCoord2f(tx2, ty2);
+                                GL11.glVertex2f(mx,my);
+                                GL11.glTexCoord2f(tx2, ty);
+                                GL11.glVertex2f(mx,y);
+
+                                GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+                            }
+                        }
+                        catch(Exception e)
+                        {
+                            System.err.println(e.toString());
+                        }
+                    }
+                }
+
+                if (game.mineDetector)
+                {
+                    for(int i = 0; i < items.size(); i++)
+                    {
+                        Item item = items.get(i);
+                        if (item != null)
+                        {
+                            if (item.getType() == ItemType.LANDMINE)
+                            {
+                                try
+                                {
+                                    int cx, cy;
+                                    cx = item.getX();
+                                    cy = item.getY();
+
+                                    row = NPCSprite / COLSIZE;
+                                    col = NPCSprite - (row * COLSIZE);
+
+                                    tx = getTX(col, height);
+                                    tx2 = getTX(col + 1, height);
+                                    ty = getTX(row, width);
+                                    ty2 = getTX(row + 1, width);
+
+
+                                    int x,y,mx,my;
+                                    int ix, iy;
+                                    ix = cx / 5;
+                                    iy = cy / 5;
+                                    x = ((ix) + 610 - (PX) + (90));
+                                    y = ((iy) - (PY) + (75));
+                                    mx = x + 40;
+                                    my = y + 40;
+
+                                    //Draw tile
+                                    GL11.glTexCoord2f(tx, ty);
+                                    GL11.glVertex2f(x, y);
+                                    GL11.glTexCoord2f(tx, ty2);
+                                    GL11.glVertex2f(x, my);
+                                    GL11.glTexCoord2f(tx2, ty2);
+                                    GL11.glVertex2f(mx,my);
+                                    GL11.glTexCoord2f(tx2, ty);
+                                    GL11.glVertex2f(mx,y);
+                                }
+                                catch(Exception e)
+                                {
+                                    System.err.println(e.toString());
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                for(int i = 0; i < localObjectives.size(); i++)
+                {
+                    Objective localObjective = localObjectives.get(i);
+
+                    if (localObjective != null)
+                    {
+                        int cx, cy;
+                        cx = localObjective.getX();
+                        cy = localObjective.getY();
+
+                        if ((cx >= 0) && (cy >= 0))
+                        {
+                            row = radarObjective / COLSIZE;
+                            col = radarObjective - (row * COLSIZE);
+
+                            tx = getTX(col, height);
+                            tx2 = getTX(col + 1, height);
+                            ty = getTX(row, width);
+                            ty2 = getTX(row + 1, width);
 
                             int x,y,mx,my;
                             int ix, iy;
@@ -2375,45 +2477,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
                             GL11.glVertex2f(mx,my);
                             GL11.glTexCoord2f(tx2, ty);
                             GL11.glVertex2f(mx,y);
-                            
                         }
-                    }
-                }
-
-                for(int i = 0; i < localObjectives.size(); i++)
-                {
-                    int cx, cy;
-                    cx = localObjectives.get(i).getX();
-                    cy = localObjectives.get(i).getY();
-
-                    if ((cx >= 0) && (cy >= 0))
-                    {
-                        row = radarObjective / COLSIZE;
-                        col = radarObjective - (row * COLSIZE);
-
-                        tx = getTX(col, height);
-                        tx2 = getTX(col + 1, height);
-                        ty = getTX(row, width);
-                        ty2 = getTX(row + 1, width);
-
-                        int x,y,mx,my;
-                        int ix, iy;
-                        ix = cx / 5;
-                        iy = cy / 5;
-                        x = ((ix) + 610 - (PX) + (90));
-                        y = ((iy) - (PY) + (75));
-                        mx = x + 40;
-                        my = y + 40;
-
-                        //Draw tile
-                        GL11.glTexCoord2f(tx, ty);
-                        GL11.glVertex2f(x, y);
-                        GL11.glTexCoord2f(tx, ty2);
-                        GL11.glVertex2f(x, my);
-                        GL11.glTexCoord2f(tx2, ty2);
-                        GL11.glVertex2f(mx,my);
-                        GL11.glTexCoord2f(tx2, ty);
-                        GL11.glVertex2f(mx,y);
                     }
                 }
 

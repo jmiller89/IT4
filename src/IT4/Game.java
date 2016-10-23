@@ -1114,6 +1114,7 @@ public final class Game
                 if (currentLevel.stripItems)
                 {
                     System.out.println("Stripping all Weapons and Items...");
+                    playerCopy.stripItems();
                     player.stripItems();
                     resetCardKey();
                     nightVision = false;
