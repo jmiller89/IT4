@@ -63,7 +63,7 @@ public class Weapon extends Item
 
                 description = "Pistol Rank 2. Belgian origin, .45 caliber. Modern design with high stopping power and good accuracy. Has a magazine capacity of 10 rounds. Can attach medium-durability suppressors.";
             }
-            else
+            else if (rank == 3)
             {
                 //41|90|800|0|12|60|1|999|true
                 name = "SQP";
@@ -78,7 +78,41 @@ public class Weapon extends Item
                 suppressed = true;
                 id = 450;
 
-                description = "Pistol Rank 3. German origin, .45 caliber. Custom design with high stopping power and excellent accuracy. Has a magazine capacity of 12 rounds. Equipped with an infinitely-durable suppressor.";
+                description = "Pistol Rank 3. German origin, .45 caliber. Tactical design with high stopping power and excellent accuracy. Has a magazine capacity of 12 rounds. Equipped with an infinitely-durable suppressor.";
+            }
+            else if (rank == 4)
+            {
+                //24|60|640|0|17|85|96|68|false
+                name = "J18";
+                damage = 24;
+                accuracy = 60;
+                range = 640;
+                staminaDamage = 0;
+                magCapacity = 17;
+                totalCapacity = 85;
+                fireRate = 96;
+                silencerDurability = 68;
+                suppressed = false;
+                id = 553;
+
+                description = "Machine Pistol Rank 4. Austrian origin, 9mm. Features fast fully automatic fire, at the cost of accuracy. 9mm bullet has reduced stopping power. Has a magazine capacity of 17 rounds. Can attach medium-durability suppressors.";
+            }
+            else
+            {
+                //55|92|800|0|7|56|1|999|true
+                name = "M1911A1 Custom";
+                damage = 55;
+                accuracy = 92;
+                range = 800;
+                staminaDamage = 0;
+                magCapacity = 7;
+                totalCapacity = 56;
+                fireRate = 1;
+                silencerDurability = 999;
+                suppressed = true;
+                id = 556;
+
+                description = "Pistol Rank 5. American origin, .45 caliber. Custom design with high stopping power and near-perfect accuracy. Has a magazine capacity of 7 rounds. Equipped with an infinitely-durable suppressor.";
             }
         }
         else if (it == ItemType.TRANQ_PISTOL)
@@ -118,7 +152,7 @@ public class Weapon extends Item
 
                 description = "Tranq. Pistol Rank 2. Modified to fire tranquilizer darts. Unknown origin. Darts contain an upgraded anesthetic. Suffers from limited range. Has a magazine capacity of 3 darts. Equipped with a medium/low-durability suppressor.";
             }
-            else
+            else if (rank == 3)
             {
                 //1|90|360|30|5|20|0|30|true
                 name = "TX-3";
@@ -134,6 +168,38 @@ public class Weapon extends Item
 
                 description = "Tranq. Pistol Rank 3. Modified to fire tranquilizer darts. Unknown origin. Darts contain a longer-lasting anesthetic. Features an improved effective range. Has a magazine capacity of 5 darts. Equipped with a medium durability suppressor.";
             }
+            else if (rank == 4)
+            {
+                //1|90|400|40|5|20|0|30|true
+                name = "TX-4";
+                damage = 1;
+                accuracy = 90;
+                range = 400;
+                staminaDamage = 40;
+                magCapacity = 5;
+                totalCapacity = 20;
+                fireRate = 0;
+                silencerDurability = 30;
+                suppressed = true;
+
+                description = "Tranq. Pistol Rank 4. Modified to fire tranquilizer darts. Unknown origin. Darts contain a longer-lasting anesthetic. Features an improved effective range. Has a magazine capacity of 5 darts. Equipped with a medium durability suppressor.";
+            }
+            else
+            {
+                //1|90|400|40|5|25|0|999|true
+                name = "TX-5";
+                damage = 1;
+                accuracy = 90;
+                range = 400;
+                staminaDamage = 40;
+                magCapacity = 5;
+                totalCapacity = 25;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "Tranq. Pistol Rank 5. Modified to fire tranquilizer darts. Unknown origin. Darts contain a long-lasting anesthetic. Features a higher total ammo capacity. Has a magazine capacity of 5 darts. Equipped with an infinitely durable suppressor.";
+            }
         }
         else if (it == ItemType.SMG)
         {
@@ -142,7 +208,7 @@ public class Weapon extends Item
 
             if (rank == 1)
             {
-                //20|60|720|0|20|100|93|10|false
+                //20|60|720|0|20|100|94|10|false
                 name = "FMK-3";
                 damage = 20;
                 accuracy = 60;
@@ -155,7 +221,7 @@ public class Weapon extends Item
                 suppressed = false;
                 id = 451;
 
-                description = "SMG Rank 1. Argentine origin. Features moderately fast fully-automatic fire. Has weak stopping power and poor accuracy. Has a magazine capacity of 20 rounds. Can attach low-durability suppressors.";
+                description = "SMG Rank 1. Argentine origin, 9mm. Features moderately fast fully-automatic fire. Has weak stopping power and poor accuracy. Has a magazine capacity of 20 rounds. Can attach low-durability suppressors.";
             }
             else if (rank == 2)
             {
@@ -172,9 +238,9 @@ public class Weapon extends Item
                 suppressed = false;
                 id = 205;
 
-                description = "SMG Rank 2. German origin, personal defense weapon. Preferred weapon of the opposition special forces. Features fast fully-automatic fire. Boasts improved stopping power and accuracy. Has a magazine capacity of 40 rounds. Can attach medium-durability suppressors.";
+                description = "SMG Rank 2. German origin, 4.6mm personal defense weapon. Preferred weapon of the opposition special forces. Features fast fully-automatic fire. Boasts improved stopping power and accuracy. Has a magazine capacity of 40 rounds. Can attach medium-durability suppressors.";
             }
-            else
+            else if (rank == 3)
             {
                 //25|65|800|0|40|200|99|250|true
                 name = "PDW-90";
@@ -185,11 +251,45 @@ public class Weapon extends Item
                 magCapacity = 50;
                 totalCapacity = 250;
                 fireRate = 99;
-                silencerDurability = 250;
+                silencerDurability = 255;
                 suppressed = true;
                 id = 452;
 
-                description = "SMG Rank 3. Belgian origin, personal defense weapon. Features fully-automatic fire at a blistering speed. Decent stopping power and accuracy. Has a magazine capacity of 50 rounds. Equipped with a high-durability suppressor.";
+                description = "SMG Rank 3. Belgian origin, 5.7mm personal defense weapon. Features fully-automatic fire at a blistering speed. Decent stopping power and accuracy. Has a magazine capacity of 50 rounds. Equipped with a high-durability suppressor.";
+            }
+            else if (rank == 4)
+            {
+                //55|76|640|0|30|150|93|999|true
+                name = "M3A1SD";
+                damage = 55;
+                accuracy = 76;
+                range = 640;
+                staminaDamage = 0;
+                magCapacity = 30;
+                totalCapacity = 150;
+                fireRate = 92;
+                silencerDurability = 999;
+                suppressed = true;
+                id = 554;
+
+                description = "SMG Rank 4. American origin, .45 caliber. Modern update of a dated design. Features slow fully-automatic fire, improving accuracy. Has high stopping power. Has a magazine capacity of 30 rounds. Equipped with a suppressor that never wears out.";
+            }
+            else
+            {
+                //41|80|760|0|40|200|98|999|true
+                name = "MP467SD";
+                damage = 41;
+                accuracy = 80;
+                range = 760;
+                staminaDamage = 0;
+                magCapacity = 40;
+                totalCapacity = 200;
+                fireRate = 98;
+                silencerDurability = 999;
+                suppressed = true;
+                id = 555;
+
+                description = "SMG Rank 5. German origin, 4.6mm personal defense weapon. The ultimate special ops weapon. Features fast fully-automatic fire. Boasts high accuracy, and decent stopping power. Has a magazine capacity of 40 rounds. Equipped with a suppressor that never wears out.";
             }
         }
         else if (it == ItemType.ASSAULT_RIFLE)
@@ -212,7 +312,7 @@ public class Weapon extends Item
                 suppressed = false;
                 id = 453;
 
-                description = "Assault Rifle Rank 1. American origin, civilian model. Features semi-automatic fire with good stopping power and accuracy. Has a magazine capacity of 20 rounds. Can attach a low-durability suppressor.";
+                description = "Assault Rifle Rank 1. American origin, 5.56mm civilian model. Features semi-automatic fire with good stopping power and accuracy. Has a magazine capacity of 20 rounds. Can attach a low-durability suppressor.";
             }
             else if (rank == 2)
             {
@@ -229,9 +329,9 @@ public class Weapon extends Item
                 suppressed = false;
                 id = 454;
 
-                description = "Assault Rifle Rank 2. Argentine origin. Standard-issue rifle of the enemy. Features fully-automatic fire with good stopping power and accuracy. Has a magazine capacity of 30 rounds. Can attach a low-durability suppressor.";
+                description = "Assault Rifle Rank 2. Argentine origin, 5.56mm. Standard-issue rifle of the enemy. Features fully-automatic fire with good stopping power and accuracy. Has a magazine capacity of 30 rounds. Can attach a low-durability suppressor.";
             }
-            else
+            else if (rank == 3)
             {
                 //50|95|1000|0|30|180|98|60|false
                 name = "MK-4";
@@ -246,7 +346,41 @@ public class Weapon extends Item
                 suppressed = false;
                 id = 455;
 
-                description = "Assault Carbine Rank 3. American origin. Features improved fully-automatic fire with high stopping power and impeccable accuracy. Has a magazine capacity of 30 rounds. Can attach a medium-durability suppressor.";
+                description = "Assault Carbine Rank 3. American origin, 5.56mm. Features improved fully-automatic fire with high stopping power and impeccable accuracy. Has a magazine capacity of 30 rounds. Can attach a medium-durability suppressor.";
+            }
+            else if (rank == 4)
+            {
+                //62|85|1000|0|30|180|94|90|false
+                name = "RK-104u";
+                damage = 62;
+                accuracy = 85;
+                range = 1000;
+                staminaDamage = 0;
+                magCapacity = 30;
+                totalCapacity = 180;
+                fireRate = 95;
+                silencerDurability = 90;
+                suppressed = false;
+                id = 552;
+
+                description = "Assault Carbine Rank 4. Russian origin, 7.62mm. Features fully-automatic fire with very high stopping power, but average accuracy. Has a magazine capacity of 30 rounds. Can attach a medium-durability suppressor.";
+            }
+            else
+            {
+                //70|88|1200|0|20|120|95|100|false
+                name = "SABR";
+                damage = 70;
+                accuracy = 90;
+                range = 1200;
+                staminaDamage = 0;
+                magCapacity = 20;
+                totalCapacity = 120;
+                fireRate = 96;
+                silencerDurability = 120;
+                suppressed = false;
+                id = 73;
+
+                description = "Assault Rifle Rank 5. Belgian origin, 7.62mm. Features fully-automatic fire with very high stopping power and good accuracy. Has a magazine capacity of 20 rounds. Can attach a high-durability suppressor.";
             }
         }
         else if (it == ItemType.SHOTGUN)
@@ -288,7 +422,7 @@ public class Weapon extends Item
 
                 description = "Shotgun Rank 2. Italian origin. Features semi-automatic fire. Does very high damage at close ranges. Has a magazine capacity of 8 shells.";
             }
-            else
+            else if (rank == 3)
             {
                 //25|70|360|0|15|75|88|0|false
                 name = "SSG-12000";
@@ -304,6 +438,40 @@ public class Weapon extends Item
                 id = 458;
 
                 description = "Shotgun Rank 3. Russian origin. Does high damage at close ranges. Boasts a fully-automatic rate of fire at the cost of a reduced effective range. Has a magazine capacity of 15 shells.";
+            }
+            else if (rank == 4)
+            {
+                //35|70|480|0|8|32|1|8|false
+                name = "SAS-12 Tactical";
+                damage = 35;
+                accuracy = 70;
+                range = 480;
+                staminaDamage = 0;
+                magCapacity = 8;
+                totalCapacity = 32;
+                fireRate = 1;
+                silencerDurability = 8;
+                suppressed = false;
+                id = 457;
+
+                description = "Shotgun Rank 4. Italian origin. Features semi-automatic fire. Does very high damage at close ranges. Has a magazine capacity of 8 shells. Can attach low-durability suppressors.";
+            }
+            else
+            {
+                //35|70|360|0|15|75|89|15|false
+                name = "SSG-12500";
+                damage = 35;
+                accuracy = 70;
+                range = 360;
+                staminaDamage = 0;
+                magCapacity = 15;
+                totalCapacity = 75;
+                fireRate = 89;
+                silencerDurability = 15;
+                suppressed = false;
+                id = 458;
+
+                description = "Shotgun Rank 5. Russian origin. Does very high damage at close ranges. Boasts a fully-automatic rate of fire at the cost of a reduced effective range. Has a magazine capacity of 15 shells. Can attach low-durability suppressors.";
             }
         }
         else if (it == ItemType.GRENADE)
@@ -340,7 +508,7 @@ public class Weapon extends Item
 
                 description = "Standard-issue fragmentation grenade. Features improved damage and capacity.";
             }
-            else
+            else if (rank == 3)
             {
                 name = "Grenade R3";
                 damage = 0;
@@ -354,6 +522,36 @@ public class Weapon extends Item
                 suppressed = true;
 
                 description = "High-explosive fragmentation grenade. Improved damage and capacity.";
+            }
+            else if (rank == 4)
+            {
+                name = "Grenade R4";
+                damage = 0;
+                accuracy = 90;
+                range = 1000; //Travels at half speed, real range is 500
+                staminaDamage = 0;
+                magCapacity = 6;
+                totalCapacity = 30;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "High-explosive fragmentation grenade. Improved damage. Compact design allows for increased range and higher capacity.";
+            }
+            else
+            {
+                name = "Grenade R5";
+                damage = 0;
+                accuracy = 90;
+                range = 1000; //Travels at half speed, real range is 500
+                staminaDamage = 0;
+                magCapacity = 6;
+                totalCapacity = 36;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "High-explosive fragmentation grenade. Improved damage. Compact design allows for increased range and higher capacity.";
             }
         }
         else if (it == ItemType.C4)
@@ -390,7 +588,7 @@ public class Weapon extends Item
 
                 description = "C4 Plastic Explosives. Press [Space] to set, and [Ctrl] to detonate. Features improved damage and capacity.";
             }
-            else
+            else if (rank == 3)
             {
                 name = "C4 R3";
                 damage = 0;
@@ -399,6 +597,36 @@ public class Weapon extends Item
                 staminaDamage = 0;
                 magCapacity = 4;
                 totalCapacity = 16;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "C4 Plastic Explosives. Press [Space] to set, and [Ctrl] to detonate. Improved damage and capacity.";
+            }
+            else if (rank == 4)
+            {
+                name = "C4 R4";
+                damage = 0;
+                accuracy = 100;
+                range = 0; //Placed
+                staminaDamage = 0;
+                magCapacity = 4;
+                totalCapacity = 20;
+                fireRate = 0;
+                silencerDurability = 999;
+                suppressed = true;
+
+                description = "C4 Plastic Explosives. Press [Space] to set, and [Ctrl] to detonate. Improved damage and capacity.";
+            }
+            else
+            {
+                name = "C4 R5";
+                damage = 0;
+                accuracy = 100;
+                range = 0; //Placed
+                staminaDamage = 0;
+                magCapacity = 4;
+                totalCapacity = 24;
                 fireRate = 0;
                 silencerDurability = 999;
                 suppressed = true;

@@ -167,7 +167,7 @@ public class LevelMap
                         || ((levMap[j][i] > 370) && (levMap[j][i] < 379))
                         || ((levMap[j][i] > 391) && (levMap[j][i] < 445))
                         || ((levMap[j][i] >= 495) && (levMap[j][i] != 496) && (levMap[j][i] != 499) && (levMap[j][i] < 518))
-                        || (levMap[j][i] >= 546))
+                        || ((levMap[j][i] >= 546) && (levMap[j][i] < 551)))
                 {
                     obstacleMatrix[j][i] = 0;
                 }

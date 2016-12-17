@@ -3509,7 +3509,7 @@ public final class Game
             {
                 if ((player.getWeapon().getType() == ItemType.PISTOL) ||
                         (player.getWeapon().getType() == ItemType.TRANQ_PISTOL) || (player.getWeapon().getType() == ItemType.SMG)
-                        || (player.getWeapon().getType() == ItemType.ASSAULT_RIFLE))
+                        || (player.getWeapon().getType() == ItemType.ASSAULT_RIFLE) || (player.getWeapon().getType() == ItemType.SHOTGUN))
                 {
                     SFX.playSound(SFX.SILENCED_GUNSHOT);
                 }

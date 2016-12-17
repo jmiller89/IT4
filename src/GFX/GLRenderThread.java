@@ -118,7 +118,7 @@ public class GLRenderThread extends Canvas implements GameWindowCallback
     private static final String TEXT = "Sprites/IT3Text.png"; //was .gif
     private static final String OVERLAY = "Sprites/overlay.png";
     private LWJGLSprite spritesheet;
-    public static final int NUMSPRITES = 551;
+    public static final int NUMSPRITES = 560;
 
     private LWJGLSprite text;
 
